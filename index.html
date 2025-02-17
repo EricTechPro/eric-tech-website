@@ -1,0 +1,336 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta
+    content="EricTech - Software Engineer, YouTuber, and Tech Consultant specializing in AI, Full-stack Development, Web3, and Career Growth"
+    name="description" />
+  <meta
+    content="software engineer, full stack developer, tech consultant, AI automation, blockchain, Web3, career growth, programming tutorials"
+    name="keywords" />
+  <meta content="EricTech - Software Engineer &amp; Tech Consultant" property="og:title" />
+  <meta content="Expert in AI, Full-stack Development, Web3, and Career Growth. Watch tutorials and book consultations."
+    property="og:description" />
+  <meta content="website" property="og:type" />
+  <meta content="summary_large_image" name="twitter:card" />
+  <meta content="EricTech - Software Engineer &amp; Tech Consultant" name="twitter:title" />
+  <meta content="Expert in AI, Full-stack Development, Web3, and Career Growth. Watch tutorials and book consultations."
+    name="twitter:description" />
+  <title>EricTech - Software Engineer &amp; Tech Consultant</title>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      /* Core brand colors */
+      --cyan-light: #CFF0FA;
+      --cyan-bright: #8CE4FF;
+      --cyan-deep: #36D0FF;
+
+      /* Theme colors */
+      --primary: var(--cyan-deep);
+      --secondary: var(--cyan-bright);
+      --background: #FFFFFF;
+      --text: #1A1A1A;
+      --text-light: #2D2D2D;
+      --text-lighter: #404040;
+      --card-bg: var(--cyan-light);
+      --card-bg-dark: #FFFFFF;
+      --nav-bg: rgba(255, 255, 255, 0.95);
+      --nav-bg-dark: rgba(26, 26, 26, 0.95);
+      --button-text: #FFFFFF;
+      --input-bg: #FFFFFF;
+      --input-text: #1A1A1A;
+      --input-border: var(--cyan-bright);
+    }
+
+    [data-theme='dark'] {
+      --background: #1A1A1A;
+      --text: #FFFFFF;
+      --text-light: #E6E6E6;
+      --text-lighter: #CCCCCC;
+      --card-bg: #2D2D2D;
+      --card-bg-dark: #404040;
+      --nav-bg: rgba(26, 26, 26, 0.95);
+      --nav-bg-dark: rgba(45, 45, 45, 0.95);
+      --input-bg: #2D2D2D;
+      --input-text: #FFFFFF;
+      --input-border: var(--cyan-deep);
+    }
+
+    body {
+      background-color: var(--background);
+      color: var(--text);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .section {
+      padding: 4rem 2rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* High contrast text utilities */
+    .text-high-contrast {
+      color: var(--text);
+    }
+
+    .text-medium-contrast {
+      color: var(--text-light);
+    }
+
+    .text-low-contrast {
+      color: var(--text-lighter);
+    }
+
+    /* Card backgrounds */
+    .card-bg {
+      background-color: var(--card-bg);
+    }
+
+    .card-bg-dark {
+      background-color: var(--card-bg-dark);
+    }
+
+    /* Button styles with better contrast */
+    .btn-primary {
+      background-color: var(--cyan-deep);
+      color: var(--button-text);
+      font-weight: 600;
+      border: 2px solid var(--cyan-deep);
+    }
+
+    .btn-secondary {
+      background-color: var(--cyan-bright);
+      color: #1A1A1A;
+      font-weight: 600;
+      border: 2px solid var(--cyan-bright);
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    /* Form inputs */
+    .input-field {
+      background-color: var(--input-bg);
+      color: var(--input-text);
+      border: 2px solid var(--input-border);
+    }
+
+    .input-field:focus {
+      border-color: var(--cyan-deep);
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(54, 208, 255, 0.2);
+    }
+
+    /* Links */
+    .link-primary {
+      color: var(--cyan-deep);
+      font-weight: 500;
+    }
+
+    .link-primary:hover {
+      color: var(--cyan-bright);
+    }
+  </style>
+  <style>
+    .fade-in {
+      animation: fadeIn 1s ease-in;
+    }
+
+    .slide-up {
+      animation: slideUp 0.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .hover-scale {
+      transition: transform 0.3s ease;
+    }
+
+    .hover-scale:hover {
+      transform: scale(1.05);
+    }
+  </style>
+  <script
+    id="trickle-project">window.__PROTO_STATE__ = { "projectId": "proj_154haRYBF6b", "userId": "usr_0c9971ea40000001", "workspaceId": "workspace_id_usr_0c9971ea40000001", "memberId": "member_id_usr_0c9971ea40000001", "projectTitle": "EricTech Landing Page" };</script>
+  <script id="trickle-report-error">function reportError(error) {
+      if (window.parent) {
+        window.parent.postMessage({
+          type: "error",
+          data: error.stack || error.message || ''
+        }, '*');
+      }
+    }</script>
+  <script id="trickle-inject">
+    window.addEventListener('error', (e) => {
+      console.log('error', e);
+      window.parent.postMessage({
+        type: "error",
+        data: (e.error ? e.error.stack || e.error.message : '')
+      }, "*");
+    });
+
+    window.addEventListener('unhandledrejection', (e) => {
+      console.log('unhandledrejection', e);
+      window.parent.postMessage({
+        type: "unhandledrejection",
+        data: (e.error ? e.error.stack || e.error.message : '')
+      }, "*");
+    });
+  </script>
+  <script id="trickle-teleport">
+    window.openTeleport = (element) => {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'trickle-teleport';
+      wrapper.appendChild(element);
+      document.body.append(wrapper);
+    }
+
+    window.closeTeleport = () => {
+      document.querySelectorAll('.trickle-teleport').forEach((e) => {
+        e.remove();
+      });
+    }
+  </script>
+</head>
+
+<body>
+  <script src="https://app.trickle.so/storage/trickle.js"></script>
+  <div id="root"></div>
+  <script>function Navbar() { const [isMenuOpen, setIsMenuOpen] = React.useState(false); try { return React.createElement("nav", { "data-name": "navbar", className: "fixed w-full top-0 bg-opacity-90 backdrop-blur-sm z-50", style: { backgroundColor: "var(--nav-bg)" } }, React.createElement("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" }, React.createElement("div", { className: "flex items-center justify-between h-16" }, React.createElement("div", { className: "flex items-center" }, React.createElement("span", { "data-name": "logo", className: "text-xl font-bold", style: { color: "var(--primary)" } }, "EricTech")), React.createElement("div", { className: "hidden md:block" }, React.createElement("div", { className: "ml-10 flex items-baseline space-x-4" }, React.createElement("a", { href: "#home", "data-name": "nav-home", className: "text-high-contrast hover:text-primary px-3 py-2" }, "Home"), React.createElement("a", { href: "#expertise", "data-name": "nav-expertise", className: "text-high-contrast hover:text-primary px-3 py-2" }, "Expertise"), React.createElement("a", { href: "#projects", "data-name": "nav-projects", className: "text-high-contrast hover:text-primary px-3 py-2" }, "Projects"), React.createElement("a", { href: "#contact", "data-name": "nav-contact", className: "text-high-contrast hover:text-primary px-3 py-2" }, "Contact"))), React.createElement("div", { className: "md:hidden" }, React.createElement("button", { "data-name": "mobile-menu-button", onClick: () => setIsMenuOpen(!isMenuOpen), className: "inline-flex items-center justify-center p-2 rounded-md text-high-contrast hover:text-primary focus:outline-none" }, React.createElement("i", { className: `fas ${isMenuOpen ? "fa-times" : "fa-bars"}` }))))), isMenuOpen && React.createElement("div", { "data-name": "mobile-menu", className: "md:hidden card-bg" }, React.createElement("div", { className: "px-2 pt-2 pb-3 space-y-1 sm:px-3" }, React.createElement("a", { href: "#home", className: "block px-3 py-2 text-high-contrast hover:text-primary" }, "Home"), React.createElement("a", { href: "#expertise", className: "block px-3 py-2 text-high-contrast hover:text-primary" }, "Expertise"), React.createElement("a", { href: "#projects", className: "block px-3 py-2 text-high-contrast hover:text-primary" }, "Projects"), React.createElement("a", { href: "#contact", className: "block px-3 py-2 text-high-contrast hover:text-primary" }, "Contact")))) } catch (error) { reportError(error); return null } }</script>
+  <script>function Hero() { try { return React.createElement("section", { "data-name": "hero-section", id: "home", className: "section pt-24 min-h-screen flex items-center relative overflow-hidden" }, React.createElement("div", { className: "absolute inset-0 bg-gradient-to-r from-cyan-light to-cyan-bright opacity-20" }), React.createElement("div", { className: "container mx-auto px-4 relative z-10" }, React.createElement("div", { className: "max-w-3xl mx-auto text-center" }, React.createElement("div", { className: "mb-8 flex justify-center" }, React.createElement("img", { src: "https://app.trickle.so/storage/public/images/usr_0c9971ea40000001/4a19b60b-1c03-4123-91d2-d79cf7a7461b.png", alt: "Eric Tech Profile", className: "w-48 h-48 object-cover rounded-lg shadow-lg border-4", style: { borderColor: "var(--cyan-deep)" } })), React.createElement("h1", { "data-name": "hero-title", className: "text-4xl md:text-6xl font-bold mb-6 text-high-contrast fade-in" }, "Hi, I'm Eric", React.createElement("span", { className: "block", style: { color: "var(--cyan-deep)" } }, "Software Engineer & Tech Educator")), React.createElement("p", { "data-name": "hero-description", className: "text-xl md:text-2xl mb-8 text-medium-contrast slide-up" }, "Specializing in AI, Full-stack Development, Web3, and Career Growth"), React.createElement("div", { "data-name": "hero-cta", className: "flex flex-col sm:flex-row justify-center gap-4" }, React.createElement("a", { href: "#contact", className: "btn-primary px-8 py-3 rounded-lg transition-all hover-scale" }, "Contact Me"), React.createElement("a", { href: "https://app.google/kG7gvyyEBvEqpU6q7", target: "_blank", className: "btn-secondary px-8 py-3 rounded-lg transition-all hover-scale" }, "Book a Consultation"))))) } catch (error) { reportError(error); return null } }</script>
+  <script>function ExpertiseSection() { const expertise = [{ title: "Full Stack Development", icon: "fa-code", youtubeUrl: "https://www.youtube.com/@EricWTech/featured" }, { title: "Blockchain Development", icon: "fa-link", youtubeUrl: "https://www.youtube.com/playlist?list=PLm7xfhMOszqwqvw0u-MU6ZZSMk4HEoVae" }, { title: "AI Automation", icon: "fa-robot", youtubeUrl: "https://www.youtube.com/playlist?list=PLm7xfhMOszqxLHdQxGZ_MYHevl6mBWuVL" }, { title: "Computer Science", icon: "fa-laptop-code", youtubeUrl: "https://www.youtube.com/@EricProgramming" }, { title: "Personal Projects", icon: "fa-project-diagram", youtubeUrl: "https://www.youtube.com/playlist?list=PLm7xfhMOszqwJQ42rLv53O1ONrd8A1avs" }, { title: "Tech Career Growth", icon: "fa-chart-line", youtubeUrl: "https://www.youtube.com/playlist?list=PLm7xfhMOszqy_PgIflEinGcDWI0ZTwr82" }]; try { return React.createElement("section", { "data-name": "expertise-section", id: "expertise", className: "section", style: { backgroundColor: "var(--cyan-light)" } }, React.createElement("div", { className: "container" }, React.createElement("h2", { "data-name": "expertise-title", className: "text-4xl font-bold text-center mb-12", style: { color: "var(--text)" } }, "My Expertise"), React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" }, expertise.map((item, index) => React.createElement("div", { key: index, "data-name": `expertise-card-${index}`, className: "card-bg-dark rounded-lg p-6 shadow-lg hover-scale" }, React.createElement("div", { className: "text-4xl mb-4", style: { color: "var(--cyan-deep)" } }, React.createElement("i", { className: `fas ${item.icon}` })), React.createElement("h3", { className: "text-xl font-semibold mb-4 text-high-contrast" }, item.title), React.createElement("a", { href: item.youtubeUrl, target: "_blank", className: "link-primary inline-flex items-center" }, React.createElement("span", null, "Watch Tutorials"), React.createElement("i", { className: "fas fa-arrow-right ml-2" }))))))) } catch (error) { reportError(error); return null } }</script>
+  <script>function ProjectsSection() { const projects = [{ title: "Find Fitness Classes", description: "App for people to find their ideal fitness classess", image: "https://app.trickle.so/storage/public/images/usr_0c9971ea40000001/8885d859-3839-4604-b075-d5a772dd42fd.jpeg", demoUrl: "https://github.com/Eric-programming/Find-Fitness-Classess" }, { title: "Simple Shop", description: "A Online E-commerce Shop built with Angular, Typescript, C#, .Net Core", image: "https://app.trickle.so/storage/public/images/usr_0c9971ea40000001/91a08771-9de9-4875-ad56-fccaa4f228bb.jpeg", demoUrl: "https://github.com/Eric-programming/Simple-Shop" }, { title: "Match Me", description: "A Dating App built with Next.js 14, Prisma, NextAuth, Pusher, and Cloudinary", image: "https://app.trickle.so/storage/public/images/usr_0c9971ea40000001/87fc50c2-2d09-4233-9fb3-82165ae358f7.png", demoUrl: "https://github.com/EricTechPro/match-me" }]; try { return React.createElement("section", { "data-name": "projects-section", id: "projects", className: "section" }, React.createElement("div", { className: "container" }, React.createElement("h2", { "data-name": "projects-title", className: "text-4xl font-bold text-center mb-12", style: { color: "var(--text)" } }, "Personal Projects"), React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" }, projects.map((project, index) => React.createElement("div", { key: index, "data-name": `project-card-${index}`, className: "group relative overflow-hidden rounded-lg shadow-lg hover-scale transition-all duration-300", style: { backgroundColor: "var(--card-bg)" } }, React.createElement("div", { className: "aspect-video relative overflow-hidden" }, React.createElement("img", { src: project.image, alt: project.title, className: "w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" }), React.createElement("div", { className: "absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center" }, React.createElement("button", { className: "btn-primary px-6 py-2 rounded-lg transform -translate-y-4 group-hover:translate-y-0 transition-transform duration-300", onClick: () => window.open(project.demoUrl, "_blank") }, "View Demo"))), React.createElement("div", { className: "p-6" }, React.createElement("h3", { className: "text-xl font-semibold mb-2 text-high-contrast" }, project.title), React.createElement("p", { className: "text-medium-contrast" }, project.description))))))) } catch (error) { reportError(error); return null } }</script>
+  <script>function ConsultationForm() { try { return React.createElement("section", { "data-name": "contact-section", id: "contact", className: "section", style: { backgroundColor: "var(--cyan-light)" } }, React.createElement("div", { className: "container max-w-4xl" }, React.createElement("h2", { "data-name": "contact-title", className: "text-4xl font-bold text-center mb-12", style: { color: "var(--text)" } }, "Get in Touch"), React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-8" }, React.createElement("div", { className: "p-6 rounded-lg hover-scale transition-all", style: { backgroundColor: "var(--card-bg-dark)" } }, React.createElement("div", { className: "text-4xl mb-4 text-center", style: { color: "var(--cyan-deep)" } }, React.createElement("i", { className: "fas fa-phone-alt" })), React.createElement("h3", { className: "text-xl font-bold text-center mb-4 text-high-contrast" }, "Free 15-min Call"), React.createElement("p", { className: "text-center mb-6 text-medium-contrast" }, "Quick chat on Career & Business Opportunities"), React.createElement("a", { href: "https://calendar.app.google/FmoWxnq7kCd1qsUv7", "data-name": "free-call-button", className: "btn-primary block p-4 rounded-lg text-center transition-all w-full" }, "Schedule Free Call")), React.createElement("div", { className: "p-6 rounded-lg hover-scale transition-all", style: { backgroundColor: "var(--card-bg-dark)" } }, React.createElement("div", { className: "text-4xl mb-4 text-center", style: { color: "var(--cyan-deep)" } }, React.createElement("i", { className: "fas fa-video" })), React.createElement("h3", { className: "text-xl font-bold text-center mb-4 text-high-contrast" }, "1-Hour Consultation"), React.createElement("p", { className: "text-center mb-6 text-medium-contrast" }, "Deep dive into technical challenges and solutions"), React.createElement("a", { href: "https://calendar.app.google/CqyLrraYXexRJAQj6", target: "_blank", "data-name": "paid-consultation-button", className: "btn-secondary block p-4 rounded-lg text-center transition-all w-full" }, "Book Paid Consultation"))))) } catch (error) { reportError(error); return null } }</script>
+  <script>function Footer() { const socialLinks = [{ icon: "fab fa-youtube", url: "https://www.youtube.com/@EricWTech", label: "YouTube" }, { icon: "fab fa-linkedin", url: "https://www.linkedin.com/in/ericwtech/", label: "LinkedIn" }, { icon: "fab fa-github", url: "https://github.com/erictechpro", label: "GitHub" }, { icon: "fas fa-file-alt", url: "https://drive.google.com/file/d/1uivQkO56-ptQ3qMz955_yJ8cVS6Ejcdl/view?usp=sharing", label: "CV" }]; try { return React.createElement("footer", { "data-name": "footer", className: "bg-gray-900 py-8" }, React.createElement("div", { className: "container" }, React.createElement("div", { className: "text-center mb-6" }, React.createElement("h2", { "data-name": "footer-title", className: "text-2xl font-bold mb-4 text-white" }, "Connect With Me"), React.createElement("div", { className: "flex justify-center space-x-6" }, socialLinks.map((link, index) => React.createElement("a", { key: index, href: link.url, target: "_blank", "data-name": `social-link-${link.label.toLowerCase()}`, className: "text-2xl text-white hover:text-cyan-bright transition-colors", "aria-label": link.label }, React.createElement("i", { className: link.icon }))))), React.createElement("div", { className: "text-center text-sm text-gray-400" }, React.createElement("p", { "data-name": "copyright" }, "\xA9 ", new Date().getFullYear(), " EricTech. All rights reserved.")))) } catch (error) { reportError(error); return null } }</script>
+  <script>function ThemeToggle() { const [isDark, setIsDark] = React.useState(false); React.useEffect(() => { const isDarkMode = localStorage.getItem("theme") === "dark"; setIsDark(isDarkMode); document.documentElement.setAttribute("data-theme", isDarkMode ? "dark" : "light") }, []); const toggleTheme = () => { try { const newTheme = isDark ? "light" : "dark"; setIsDark(!isDark); localStorage.setItem("theme", newTheme); document.documentElement.setAttribute("data-theme", newTheme) } catch (error) { reportError(error) } }; return React.createElement("button", { "data-name": "theme-toggle", onClick: toggleTheme, className: "fixed bottom-4 right-4 p-4 rounded-full shadow-lg z-50 transition-all hover:scale-110", style: { backgroundColor: isDark ? "var(--cyan-bright)" : "var(--cyan-deep)", color: isDark ? "#1A1A1A" : "#FFFFFF", border: `2px solid ${isDark ? "var(--cyan-deep)" : "var(--cyan-bright)"}` } }, React.createElement("i", { className: `fas ${isDark ? "fa-sun" : "fa-moon"} text-xl` })) }</script>
+  <script>function initTheme() { try { const theme = localStorage.getItem("theme") || "light"; document.documentElement.setAttribute("data-theme", theme) } catch (error) { reportError(error) } }</script>
+  <script>class ErrorBoundary extends React.Component { constructor(props) { super(props); this.state = { hasError: false, error: null, errorInfo: null } } static getDerivedStateFromError(error) { return { hasError: true } } componentDidCatch(error, errorInfo) { if (window.location.origin.startsWith("https://preview__")) { window.parent.postMessage({ type: "error", data: error.toString() }, "*"); this.setState({ error: error, errorInfo: errorInfo }) } } render() { return this.props.children } } function App() { try { return React.createElement("div", { "data-name": "app", className: "min-h-screen" }, React.createElement(Navbar, null), React.createElement(Hero, null), React.createElement(ExpertiseSection, null), React.createElement(ProjectsSection, null), React.createElement(ConsultationForm, null), React.createElement(Footer, null), React.createElement(ThemeToggle, null)) } catch (error) { reportError(error); return null } } initTheme(); ReactDOM.render(React.createElement(ErrorBoundary, null, React.createElement(App, null)), document.getElementById("root"));</script>
+  <script type="text/babel">// file removed
+  </script>
+  <script>
+    (function () {
+      // Create a highlight div
+      const highlightDiv = document.createElement('div');
+      highlightDiv.style.position = 'absolute';
+      highlightDiv.style.pointerEvents = 'none';
+      highlightDiv.style.border = '2px solid red';
+      highlightDiv.style.zIndex = '9999';
+      highlightDiv.style.display = 'none';
+      document.body.appendChild(highlightDiv);
+
+      // Create a label div for displaying the element's type
+      const labelDiv = document.createElement('div');
+      labelDiv.style.position = 'absolute';
+      labelDiv.style.pointerEvents = 'none';
+      labelDiv.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+      labelDiv.style.color = 'white';
+      labelDiv.style.fontSize = '12px';
+      labelDiv.style.padding = '2px 5px';
+      labelDiv.style.borderRadius = '3px';
+      labelDiv.style.zIndex = '10000';
+      labelDiv.style.display = 'none';
+      document.body.appendChild(labelDiv);
+
+      let currentElement = null;
+      let inspectModeEnabled = false;
+
+      // Initialize inspect mode
+      function initInspectMode() {
+        document.addEventListener('mousemove', handleMouseMove);
+        document.addEventListener('click', handleClick, true);
+      }
+
+      // Disable inspect mode
+      function disableInspectMode() {
+        highlightDiv.style.display = 'none';
+        labelDiv.style.display = 'none';
+        currentElement = null;
+        document.removeEventListener('mousemove', handleMouseMove);
+        document.removeEventListener('click', handleClick, true);
+      }
+
+      // Mouse move event to update highlight position
+      function handleMouseMove(event) {
+        if (!inspectModeEnabled) return;
+        const element = document.elementFromPoint(event.clientX, event.clientY);
+        if (element && element !== currentElement) {
+          currentElement = element;
+          const rect = element.getBoundingClientRect();
+
+          // Update highlight div
+          highlightDiv.style.width = rect.width + 'px';
+          highlightDiv.style.height = rect.height + 'px';
+          highlightDiv.style.left = rect.left + window.scrollX + 'px';
+          highlightDiv.style.top = rect.top + window.scrollY + 'px';
+          highlightDiv.style.display = 'block';
+
+          // Update label div
+          labelDiv.textContent = element.getAttribute('data-name') || element.tagName.toLowerCase();
+          labelDiv.style.left = rect.left + window.scrollX + 'px';
+          labelDiv.style.top = rect.top + window.scrollY - labelDiv.offsetHeight + 'px';
+          labelDiv.style.display = 'block';
+        }
+      }
+
+      // Mouse click event to log element
+      function handleClick(event) {
+        if (!inspectModeEnabled) return;
+        event.preventDefault();
+        event.stopPropagation();
+        if (currentElement) {
+          window.parent.postMessage({ type: 'elementSelected', data: currentElement.outerHTML }, '*');
+        }
+      }
+
+      // Mouse out to hide highlight and label
+      document.addEventListener('mouseout', () => {
+        highlightDiv.style.display = 'none';
+        labelDiv.style.display = 'none';
+        currentElement = null;
+      });
+
+      window.addEventListener('message', (event) => {
+        if (event.data.action === 'toggleInspectMode') {
+          inspectModeEnabled = event.data.enabled;
+          if (inspectModeEnabled) {
+            initInspectMode();
+          } else {
+            disableInspectMode();
+          }
+        }
+      });
+    })();
+  </script>
+</body>
+
+</html>
