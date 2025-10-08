@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Cyan brand colors - converted from hex to HSL */
+    --cyan-light: 194 86% 90%;    /* #CFF0FA */
+    --cyan-bright: 194 100% 78%;  /* #8CE4FF */
+    --cyan-deep: 194 100% 60%;    /* #36D0FF */
+
+    /* Navigation background */
+    --nav-bg: rgba(255, 255, 255, 0.9);
+
+    /* shadcn/ui color tokens - Light theme */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 194 100% 60%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 194 100% 60%;
+    --radius: 0.5rem;
+  }
+
+  [data-theme="dark"] {
+    /* Cyan brand colors remain same in HSL */
+    --cyan-light: 194 86% 90%;
+    --cyan-bright: 194 100% 78%;
+    --cyan-deep: 194 100% 60%;
+
+    /* Navigation background */
+    --nav-bg: rgba(0, 0, 0, 0.9);
+
+    /* shadcn/ui color tokens - Dark theme */
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 194 100% 60%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 194 100% 60%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+@layer utilities {
+  /* Text contrast utilities */
+  .text-high-contrast {
+    @apply text-foreground;
+  }
+
+  .text-medium-contrast {
+    @apply text-muted-foreground;
+  }
+
+  .text-low-contrast {
+    @apply text-muted-foreground/60;
+  }
+
+  /* Card utilities */
+  .card-bg {
+    @apply bg-card text-card-foreground;
+  }
+
+  .card-bg-dark {
+    @apply bg-card/50 backdrop-blur-sm;
+  }
+
+  /* Button utilities */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90
+           transition-all duration-200 px-6 py-3 rounded-lg font-medium
+           shadow-md hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80
+           transition-all duration-200 px-6 py-3 rounded-lg font-medium;
+  }
+
+  /* Input utilities */
+  .input-field {
+    @apply bg-background border border-input text-foreground
+           focus:border-ring focus:ring-2 focus:ring-ring/20
+           transition-all duration-200 px-4 py-2 rounded-lg;
+  }
+
+  /* Link utilities */
+  .link-primary {
+    @apply text-primary hover:text-primary/80 transition-colors duration-200;
+  }
+
+  /* Animation utilities */
+  .fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  .slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+
+  .hover-scale {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
+}
+
+/* Custom animations from original site */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
