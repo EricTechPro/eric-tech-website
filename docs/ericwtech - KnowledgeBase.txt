@@ -1,0 +1,2281 @@
+--- Video Record 1 ---
+Title: This AI Automates Property Research & Investment Scoring!
+Channel Title: Eric Tech
+Published At: 2025-05-23T21:43:03Z
+Views: 222
+Likes: 14
+Total Comments: 1
+Duration: PT8M34S
+Duration In Seconds: 48034
+Description: In this video, learn how to automate property research using AI workflows that analyze property images, compare prices, and calculate investment potential scores — all automatically! Perfect for realtors, investors, and property researchers looking to save time and make smarter decisions.
+We demonstrate two powerful workflows:
+- Property Image Analysis and Investment Scoring
+- Bulk Property Research by Zip Code
+🚀 Get help with your business → https://www.erictech.ca
+You'll see how to extract detailed property data, analyze renovation potential, and generate investment scores that help identify the best real estate opportunities.
+What you'll learn:
+- How to analyze property images for renovation and safety insights
+- Automate price and feature comparisons with nearby listings
+- Calculate investment potential scores with weighted factors
+- Bulk search properties by zip code and loop through listings
+- Export results to Google Sheets for easy tracking
+Timestamps:
+0:00 Introduction & Overview
+1:09 Workflow 1: Property Image Analysis & Investment Scoring
+4:43 Workflow 2: Bulk Property Research by Zip Code
+6:39 API Integration & Data Extraction
+7:30 Outro & Workflow Downloads
+Bulk Property Research by Zip Code Workflow: https://github.com/EricTechPro/Ai-Agent-templates/blob/main/bulk_property_research_by_zip_code_workflow.json
+Property Image Analysis and Investment Scoring Workflow: https://github.com/EricTechPro/Ai-Agent-templates/blob/main/property_image_analysis_and_investment_scoring_workflow.json
+Transcript: Not available
+
+--- Video Record 2 ---
+Title: My AI Voice Agent Closed Real Estate Leads While I Slept (Full VAPI Tutorial)
+Channel Title: Eric Tech
+Published At: 2025-05-09T15:41:31Z
+Views: 766
+Likes: 37
+Total Comments: 5
+Duration: PT11M26S
+Duration In Seconds: 66026
+Description: Build a Real Estate Voice AI Agent that answers calls, qualifies leads, and stores data — all using VAPI, Supabase, and n8n. No code required.
+🚀 This agent:
+• Answers inbound calls
+• Qualifies real estate leads with custom prompts
+• Stores lead data into Supabase via n8n
+• Makes outbound calls at scale using Twilio or VAPI
+• Uses natural-sounding voices (Vapi + ElevenLabs)
+📞 Tools & Stack:
+• VAPI (Voice AI engine)
+• OpenAI
+• Supabase (database for leads)
+• n8n (workflow automation)
+• Twilio (for custom numbers, optional)
+• ElevenLabs (voice cloning – optional)
+⏱️ Chapters:
+00:00 – Voice AI Demo (Real Estate Call)
+01:39 – System Overview
+02:13 – Prompt + Lead Flow Setup
+03:15 – Supabase CRM Integration + n8n
+05:35 – Voice Configuration
+06:15 – Phone Number Setup
+07:40 – Phone Call demo
+📊 Use Cases:
+• Real estate lead qualification
+• Sales prospecting automation
+• Customer service intake
+• Data-driven outbound campaigns
+Full Prompt: https://github.com/EricTechPro/Ai-Agent-templates/blob/main/vapi-prompt.txt
+👋 Need help with your sales workflow automation plan? 
+Book a 1-on-1 consultation session with me to help: https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2XMPGaj2CSa8I-xVRp3M185OV0o34dvE4HeYcsw1mdML0wsLt72-WFGrhCAfnI4PHsB-lbzDo0
+#VoiceAI #RealEstateAI
+Transcript: Not available
+
+--- Video Record 3 ---
+Title: Build AI WhatsApp Sales Funnel with n8n | Qualify Leads Fast
+Channel Title: Eric Tech
+Published At: 2025-04-29T00:40:28Z
+Views: 1834
+Likes: 58
+Total Comments: 6
+Duration: PT11M9S
+Duration In Seconds: 6609
+Description: Learn how to build an AI-powered WhatsApp sales funnel using n8n and Supabase! 🚀 In this video, we create a smart automation that qualifies leads based on location, budget, and mortgage approval, storing conversations and customer data efficiently. Perfect for real estate agents, marketers, and anyone looking to boost conversion rates using AI and workflow automation.
+Topics covered: n8n WhatsApp integration, AI lead qualification, sales automation, Supabase CRM, conversational AI workflows, WhatsApp chatbot, automate real estate sales.
+👉 Watch to see full workflow breakdowns and demos!
+Timestamp:
+00:00 - Intro - Build AI Sales Funnel
+00:57 - Lead Qualification Rules
+01:27 - Demo on Whatsapp
+03:47 - Database - Saving Leads & Chats
+05:12 - Workflow - WhatsApp Trigger + Memory
+07:07 - Workflow - Qualify Leads LLM
+08:12 - Workflow - Data Extraction LLM
+09:21 - Wrap-Up
+Need help with your sales workflow automation plan? 
+Book a 1-on-1 consultation session with me to help: https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2XMPGaj2CSa8I-xVRp3M185OV0o34dvE4HeYcsw1mdML0wsLt72-WFGrhCAfnI4PHsB-lbzDo0
+Transcript: Not available
+
+--- Video Record 4 ---
+Title: AI Chatbot That Remembers You! (n8n + Supabase + WhatsApp)
+Channel Title: Eric Tech
+Published At: 2025-04-25T23:47:59Z
+Views: 5165
+Likes: 197
+Total Comments: 14
+Duration: PT13M
+Duration In Seconds: 780
+Description: In this tutorial, I’ll show you how to build a WhatsApp AI chatbot with long-term memory using n8n and Supabase SQL. This chatbot remembers important details about your users across conversations—like names, preferences, and more—so you can deliver personalized responses every time.
+You’ll learn:
+- Why short-term memory or RAG isn’t enough for chatbots.
+- Why Supabase SQL is the best choice over Airtable or MongoDB for storing memory.
+- How to set up Supabase, create a memory table, and integrate it with n8n.
+- How to use AI to auto-summarize user messages and save only the key facts.
+- How to retrieve memory and pass it back to your AI agent for contextual replies.
+Try it yourself with the full n8n workflow here: https://github.com/EricTechPro/Ai-Agent-templates/blob/main/whatsapp-chatbot-memory-n8n-supabase.json
+Timestamps:
+00:00 - Why AI Agent Needs Memory?
+00:28 - Short-Term vs. RAG vs. Long-Term Memory
+00:55 - Why Supabase (Not Airtable or MongoDB)
+01:36 - Setting Up Supabase DB
+02:00 - Creating the Memory Table
+02:55 - Connecting Supabase to n8n
+03:45 - AI Agent Setup for Memory Saving
+04:44 - Auto-Summarizing Messages with AI
+07:19 - Retrieving Memory from Supabase
+10:00 - Full Demo: AI Remembers You
+11:44 - Wrap Up & Final Thoughts
+Transcript: Not available
+
+--- Video Record 5 ---
+Title: Build an AI WhatsApp Bot with n8n Responds to Text, Audio & Images
+Channel Title: Eric Tech
+Published At: 2025-04-24T23:52:58Z
+Views: 2438
+Likes: 98
+Total Comments: 6
+Duration: PT11M6S
+Duration In Seconds: 6606
+Description: Learn how to build an AI-powered WhatsApp bot that responds to text, audio, and images using n8n and Meta's WhatsApp Cloud API. In this step-by-step guide, I’ll show you how to integrate AI agents, automate replies, and create a smarter communication system.
+What you'll learn:
+- Set up Meta's WhatsApp Cloud API
+- Connect workflows with n8n
+- Automate smart responses using AI agents
+- Handle text, audio, and image messages in one flow
+📂 Download the workflows:
+ WhatsApp Cloud API + n8n Basic Integration: https://github.com/EricTechPro/Ai-Agent-templates/blob/main/whatsapp-n8n-basic-integration.json
+ AI-Powered WhatsApp Bot (Text, Audio, Image Responses): https://github.com/EricTechPro/Ai-Agent-templates/blob/main/whatsapp-n8n-ai-features.json
+📅 Book a 1-on-1 career or automation coaching session: https://calendar.app.google/oXNT1LKBQjWpMzSQ6
+🎥 Related video: How to Build AI Agents for Automation: https://youtu.be/kHcJwoO5CUQ
+Timestamps:  
+00:00 - Intro  
+00:25 - WhatsApp API Setup  
+02:32 - Add Whatsapp to n8n Workflow    
+04:15 - Integrating AI Agents  
+06:43 - Handling Audio, Image, Text 
+09:20 - Testing the Bot  
+10:20 - Final Thoughts & Next Steps
+#AIWhatsAppBot #n8nAutomation
+Transcript: Not available
+
+--- Video Record 6 ---
+Title: 4 Steps to Get Promoted to Senior Software Engineer (Even During Layoffs)
+Channel Title: Eric Tech
+Published At: 2025-04-23T02:05:25Z
+Views: 354
+Likes: 23
+Total Comments: 2
+Duration: PT12M46S
+Duration In Seconds: 72046
+Description: Want to get promoted as a software engineer in 2025’s tough tech job market? Whether you're aiming for Intermediate, Senior, Staff, or beyond, these proven strategies helped me advance at Amazon and Microsoft—even during layoffs and reorgs.
+In this video, I share 4 proven steps to help you:
+- Why more work doesn’t always lead to promotion  
+- A simple habit to save time in performance reviews  
+- How to build a career growth plan that works  
+- How to earn trust and visibility across your org
+Watch the full breakdown or skip ahead to the section that helps you most:
+00:00 - Intro  
+01:18 - More Work ≠ Promotion  
+04:08 - Performance Review Habit  
+05:58 - Career Growth Plan  
+08:39 - Trust & Visibility  
+11:11 - Outro + Coaching Offer
+Need help with your promotion plan?  
+Book a 1-on-1 career coaching session with me here: https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2XMPGaj2CSa8I-xVRp3M185OV0o34dvE4HeYcsw1mdML0wsLt72-WFGrhCAfnI4PHsB-lbzDo0
+How to Earn Trust & Credibility at Work: https://youtu.be/Ub4l7jWUGw4
+#SoftwareEngineer #CareerGrowth #JobMarket2025
+Transcript: Not available
+
+--- Video Record 7 ---
+Title: Build Your Own MCP Server (Python Guide)
+Channel Title: Eric Tech
+Published At: 2025-04-18T02:29:27Z
+Views: 3936
+Likes: 90
+Total Comments: 6
+Duration: PT10M33S
+Duration In Seconds: 60033
+Description: In this tutorial, you'll learn how to build your own Claude-compatible MCP server using Python, deploy real tools like a to-do app or image editor, and integrate it with Claude Desktop for local AI automation.
+This hands-on walkthrough covers:
+- MCP tools vs resources
+- Claude Desktop integration
+- Creating functions like add, list, update, and delete
+- Running SQL queries and returning results to your AI
+📌 New to MCP? Watch my beginner guide here: https://youtu.be/fiYD8fwb5Hc
+Code: https://github.com/EricTechPro/build-python-mcp-server
+🔥 This tutorial is perfect for developers building custom Claude workflows, AI agents, or database tools.
+00:00 - Intro  
+00:31 - Setup MCP Python Server  
+02:25 - MCP Tools vs MCP Resources  
+03:03 - Add MCP Server Code  
+03:19 - Download Claude Desktop App  
+03:31 - Install MCP Server into Claude  
+04:09 - Verify Claude MCP Server Installation  
+04:58 - Fix Claude MCP Issues  
+05:51 - Test MCP Server with Claude  
+06:29 - Advanced MCP Server Demo (To-do App + SQL)  
+09:30 - Outro 
+#MCPServer
+Transcript: Not available
+
+--- Video Record 8 ---
+Title: Set up n8n locally with MCP Servers in 5 Minutes
+Channel Title: Eric Tech
+Published At: 2025-04-14T03:59:43Z
+Views: 6257
+Likes: 115
+Total Comments: 5
+Duration: PT7M4S
+Duration In Seconds: 4204
+Description: Learn how to set up n8n locally and connect to MCP servers to build smart, AI-powered workflows — no coding needed.
+In this tutorial, you’ll install n8n using npx, add MCP community nodes, and integrate with mcp server to a n8n automation workflow.
+🔧 Topics Covered:
+- n8n local setup (NPX command)
+- Installing MCP client node in n8n
+- Creating credentials for MCP servers
+- Using Tavli to list & execute tools
+- Connecting MCP with AI agents
+How MCP works: https://youtu.be/fiYD8fwb5Hc
+How to build AI Agent with n8n: https://youtu.be/kHcJwoO5CUQ
+0:00 - Intro
+0:32 - Install n8n locally
+1:32 - Configure MCP Community Node
+2:05 - Add MCP to n8n workflow
+6:35 - Add MCP to n8n workflow
+Transcript: Not available
+
+--- Video Record 9 ---
+Title: Google's A2A Protocol Makes Multi-Agent AI 10x FASTER!
+Channel Title: Eric Tech
+Published At: 2025-04-13T02:21:00Z
+Views: 8268
+Likes: 214
+Total Comments: 7
+Duration: PT9M6S
+Duration In Seconds: 5406
+Description: Google just released the A2A (Agent-to-Agent) protocol — a powerful standard that lets AI agents talk to each other.
+In this video, I’ll break down exactly what A2A is, how it works behind the scenes, how it compares to MCP (Model Context Protocol), and walk you through a working code demo using Google’s official GitHub repo.
+Whether you're building with LangChain, CrewAI, or exploring multi-agent workflows, understanding A2A is essential.
+🧠 Topics covered:
+- What is A2A Protocol?
+- A2A vs MCP (Tool vs Agent Communication)
+- Agent Cards, Tasks, and Event Streaming
+- Real-time Agent Demo using Python + LangChain
+(0:00) Intro – Why A2A Protocol Matters  
+(0:29) What Is A2A Protocol?  
+(0:55) A2A Example Use Case  
+(1:47) A2A Core Concepts  
+(3:08) How A2A Works (Step-by-Step)  
+(4:12) A2A vs MCP  
+(4:49) A2A Code Demo with LangChain  
+(8:28) Final Thoughts on A2A + Agents  
+💬 Drop a comment if you’re experimenting with agent stacks or need help setting up!
+👉 Subscribe for more deep dives into AI, LLMs, and agent architectures.
+#a2aprotocol #aiagents
+Transcript: Not available
+
+--- Video Record 10 ---
+Title: How I Automated My LinkedIn Job Hunt with BrowserUse + AI
+Channel Title: Eric Tech
+Published At: 2025-04-05T17:21:26Z
+Views: 9985
+Likes: 375
+Total Comments: 37
+Duration: PT10M34S
+Duration In Seconds: 60034
+Description: Tired of manually applying to jobs on LinkedIn? Let AI do it for you.
+In this video, I'll show you how I fully automated my job search with BrowserUse, a free open-source browser agent that applies to jobs and messages recruiters - no resume required.
+You'll learn how to:
+- Set up BrowserUse on your computer
+- Connect it with OpenRouter AI (free Deepseek model)
+- Apply to LinkedIn jobs automatically
+- Reach out to recruiters without sending a resume
+- Save time as a frontend or full stack developer using automation
+Chapters:
+00:00 – Intro  
+00:40 – Install & Setup BrowserUse  
+02:48 – Integrate OpenRouter AI (Free Model)  
+03:43 – Launch BrowserUse Web UI  
+04:27 – Run Job Agent in Browser  
+05:28 – Code Breakdown  
+06:15 – Auto Apply to LinkedIn Jobs  
+08:41 – Message Recruiters Without a Resume  
+09:54 – Final Thoughts  
+🔗 Links
+    GitHub (BrowserUse): https://github.com/browser-use/web-ui
+    Connect on LinkedIn: https://linkedin.com/in/ericwtech
+Transcript: Not available
+
+--- Video Record 11 ---
+Title: The Best AI Models Ranked By REAL Performance Data 2025
+Channel Title: Eric Tech
+Published At: 2025-04-03T00:38:14Z
+Views: 2497
+Likes: 42
+Total Comments: 4
+Duration: PT8M35S
+Duration In Seconds: 48035
+Description: Discover the best AI models ranked by real performance data in 2025. In this video, we compare the top AI models for image generation, text-to-video, coding, math, multilingual tasks, and general intelligence - all backed by real benchmark data.
+Whether you're a creator, developer, or just diving into the world of AI, this breakdown will help you find the **best AI model** that fits your goals for **quality**, **speed**, and **cost-efficiency**.
+📊 **Chapters**
+00:00 – Intro: Why choosing the right AI model matters  
+01:09 – Best AI Models for Image Generation  
+03:28 – Top AI for Text-to-Video and Image-to-Video  
+03:57 – Highest General Intelligence Models  
+05:02 – Best AI for Coding, Math & Multilingual Use  
+06:18 – Global AI Race: US vs China in 2025  
+07:53 – Final Thoughts
+🧠 **Top models featured**: GPT-4o, Imagine 3, Recraft V3, O3 Mini, Gemini 2.5 Pro, DeepSeek R1, and more.
+💬 Drop a comment below:  
+**Which AI model are you using or most curious about in 2025?**  
+I'd love to hear your experience and thoughts!
+👍 Like this video if it helped you choose the right model  
+🔔 Subscribe for more AI breakdowns and comparisons  
+Article Source: https://artificialanalysis.ai/
+GPT-4o Image Generation: Ghibli, Comic, Cyberpunk & More! https://youtu.be/ncHb2svNmIs
+#BestAIModels #AI2025 #GPT4o
+Transcript: Not available
+
+--- Video Record 12 ---
+Title: GPT-4o Image Generation: Ghibli, Comic, Cyberpunk & More!
+Channel Title: Eric Tech
+Published At: 2025-03-30T01:44:56Z
+Views: 1105
+Likes: 20
+Total Comments: 2
+Duration: PT6M43S
+Duration In Seconds: 36043
+Description: OpenAI's GPT-4o Image Generator is next-level-and in this video, I put it to the test.
+I uploaded a real photo of myself and challenged GPT-4o to transform me into 10 completely different AI characters.
+The results? Mind-blowing. From anime to cyberpunk, Studio Ghibli, and even a full comic storyline, the consistency and creativity of these generations blew me away.
+🔥 Watch me explore:
+✅ Character Consistency - same face across wildly different scenes
+👕 Outfit switching: Cyberpunk, winter, sports (Adidas), fantasy armor
+😲 9-Emotion Sticker Sheet - perfect for messaging or merch
+🎨 Anime-style transformations: soft watercolor, Ghibli-inspired
+📖 Comic Book Creation - a 5-panel story generated from one prompt
+🔁 Sora Remix Magic - combine & restyle scenes with ease
+🎬 Image-to-Video Animation - bring stills to life with motion
+🧠 Whether you're a creator, artist, YouTuber, or dev, this update makes AI visual creation more powerful-and more fun-than ever before.
+📌 Timestamps:
+0:00 - Image Character Consistency
+0:42 - Image Text Rendering
+1:16 - Image Detail Directions
+1:50 - Cyberpunk Style
+2:05 - Cyberpunk Rain Scene
+2:17 - Winter Outfit Scene
+2:42 - Energetic Jump (Adidas Style)
+3:03 - Studio Ghibli Style
+3:31 - Fantasy Adventurer Style
+3:49 - Comic Storyline
+4:12 - Sora Images Remix
+5:43 - Sora Image to Video
+📌 Don't forget to like, subscribe, and comment what you'll generate with GPT-4o next!
+Transcript: Not available
+
+--- Video Record 13 ---
+Title: MCP Explained: The Future of AI Automation & Tool Integration
+Channel Title: Eric Tech
+Published At: 2025-03-15T06:20:08Z
+Views: 2762
+Likes: 54
+Total Comments: 2
+Duration: PT10M58S
+Duration In Seconds: 60058
+Description: MCP (Model Context Protocol) is transforming how AI automates workflows by seamlessly integrating with tools like GitHub, databases, file systems, and browsers. Instead of manually coding API connections, MCP allows AI to interact with external services effortlessly.  
+In this video, you'll learn:  
+- What is MCP and how it works  
+- Why MCP simplifies AI automation  
+- Step-by-step tutorial for setting up MCP with Cline AI & Cursor  
+- Hands-on demos with MCP Servers: GitHub, File System, and Browser Tools  
+- How to explore 2000+ MCP tools using Smithree AI  
+Timestamps:  
+00:00 - What is MCP?  
+00:27 - How MCP works?  
+01:26 - Why MCP?  
+02:00 - Setup ClineAI MCP server  
+03:16 - Using GitHub MCP Server  
+05:33 - Setup CursorAI MCP Server  
+07:06 - Using File System MCP Server  
+08:24 - Using BrowserTools MCP Server  
+09:58 - Smithery AI - Explore more MCP Servers  
+Why MCP is a Game-Changer:  
+- No more writing manual API integrations – MCP automates AI-to-tool interactions  
+- Standardized AI automation – Works across different AI models and tools  
+- Expands AI capabilities – Enables AI to work beyond simple text-based tasks
+Get Involved!  
+Comment below: How do you plan to use MCP in your AI projects?  
+Like & Share if this video helped you.  
+Subscribe for more AI automation tutorials.
+Transcript: Not available
+
+--- Video Record 14 ---
+Title: Automate Real Estate Business with n8n | AI Property Recommendations & Lead Qualification
+Channel Title: Eric Tech
+Published At: 2025-03-13T02:48:46Z
+Views: 6143
+Likes: 204
+Total Comments: 15
+Duration: PT8M19S
+Duration In Seconds: 48019
+Description: Are you a real estate agent looking to save time, close more deals, and never miss a lead? In this video, I'll show you how to automate lead qualification, property recommendations, and follow-ups using n8n-a powerful no-code automation tool.
+What You'll Learn:
+✅ Lead Qualification Automation – Instantly filter and score leads based on their intent and budget, so you focus on the ones ready to buy.
+✅ AI-Powered Property Recommendations – Automatically match buyers with the best listings, eliminating manual searches.
+✅ Follow-Up Automation – Keep leads engaged with personalized emails and reminders, all on autopilot.
+💡 Whether you're a solo agent or part of a growing team, this automation will help you scale your business effortlessly.
+FREE Workflows: https://github.com/EricTechPro/Ai-Agent-templates
+🔔 Subscribe for more real estate automation tips!
+💬 Drop a comment if you have any questions or need help setting up your workflow!
+Transcript: Not available
+
+--- Video Record 15 ---
+Title: How to Build an AI SQL Agent with n8n to Query Databases Effortlessly
+Channel Title: Eric Tech
+Published At: 2025-03-02T19:11:19Z
+Views: 21415
+Likes: 280
+Total Comments: 24
+Duration: PT7M4S
+Duration In Seconds: 4204
+Description: In this tutorial, we'll show you how to build an AI-powered SQL agent using n8n to answer questions about your database effortlessly! 🚀 You'll learn how to create a chatbot that generates SQL queries based on natural language inputs and retrieves data from a Postgres database.
+Here's what you'll learn:
+- Setting up a Postgres database with Supabase.  
+- Configuring an AI SQL agent in n8n.  
+- Building workflows to handle chat inputs and execute SQL queries.  
+- Testing the AI agent with real-world scenarios like finding the most expensive equipment, filtering urgent items, and calculating averages.
+This step-by-step guide is perfect for developers looking to automate database queries using AI. Make sure to like, comment, and subscribe for more tutorials! 🔥
+Timestamps:
+0:00 - Intro
+1:15 - Setting Up Supabase
+2:00 - n8n Workflow Setup
+2:50 - Testing AI Agent 
+3:22 - Test 1 - Filter
+3:51 - Test 2 - Sum
+4:32 - Test 3 - Multi-Filter
+5:15 - Test 4 - Sort & Limit
+5:48 - Test 5 - Aggregation (AVG)
+6:28 - Outro
+#n8n #SQLAgent #Supabase
+Transcript: Not available
+
+--- Video Record 16 ---
+Title: How to Build AI Chatbots & Chatflow Automation with Dify.ai
+Channel Title: Eric Tech
+Published At: 2025-03-02T16:44:30Z
+Views: 4715
+Likes: 75
+Total Comments: 4
+Duration: PT8M22S
+Duration In Seconds: 48022
+Description: In this video, we'll show you how to build powerful AI chatbots and automate workflows for e-commerce using Dify.ai! 🚀 Learn to create two types of AI chatbots: one that answers questions directly from a knowledge base and another that triggers complex workflows using API calls.
+Here's what we'll cover:
+🔍 Dify.ai Overview: A quick introduction to this powerful tool.
+🤖 AI Chatbot 1: How to build a chatbot that responds to questions using information from PDFs or text files.
+⚙️ AI Chatbot 2: Setting up a chatbot that can execute workflows, such as finding products or placing orders via API calls.
+🛠 Automation Made Easy: Tips and best practices for integrating AI chatbots into your web applications.
+Whether you're a developer looking to add AI capabilities to your projects or just curious about AI chatbots, this tutorial is for you.
+👍 Make sure to like, comment, and subscribe for more AI and development tutorials! 🔥
+⏰ Timestamps:
+0:00 - Intro (Demo/Preview)
+1:38 - Dify.ai Overview
+1:54 - AI Chatbot 1: Answering from Knowledge Base
+5:22 - AI Chatbot 2: Triggering Workflows with APIs
+7:41 - Outro
+Transcript: Not available
+
+--- Video Record 17 ---
+Title: 14 Front End System Design Concepts Explained in 10 Minutes
+Channel Title: Eric Tech
+Published At: 2025-02-24T04:29:36Z
+Views: 24419
+Likes: 1169
+Total Comments: 16
+Duration: PT12M58S
+Duration In Seconds: 72058
+Description: 🚀 Master Front-End System Design in Just 10 Minutes! 🚀
+In this video, we break down 10 essential front-end system design concepts that every software engineer should know. Whether you're preparing for system design interviews or improving your web development skills, this guide will help you build faster, scalable, and efficient applications.
+🔹 Topics Covered:
+✅ Web Rendering Strategies (SSR, CSR, SSG, ISR, Partial Pre-Rendering)
+✅ Micro Frontends & Webpack Module Federation
+✅ Rendering Performance Optimization & React Profiler
+✅ State Management & Client-Side Caching
+✅ API Response Caching with Expiration Strategies
+✅ GraphQL for Reducing Over-Fetching
+✅ Rate Limiting & Debouncing API Calls
+✅ Cursor vs. Offset Pagination for Efficient Data Fetching
+💡 Timestamps:
+(0:00) Intro
+(0:16) Static Site Generation (SSG)
+(0:27) Incremental Static Regeneration (ISR)
+(0:34) Server-Side Rendering (SSR)
+(0:39) Client-Side Rendering (CSR)
+(0:46) Partial Pre-Rendering
+(0:51) 5 Web Rendering Strategies
+(1:01) Micro Frontends & Webpack Module Federation
+(1:51) Web Performance Metrics (Tools)
+(2:34) Memoization Hooks
+(3:12) Lazy Loading
+(3:46) Tree Shaking, Mobile Friendly, Accessibility and more
+(4:25) State Management
+(6:31) API Caching w/ Expiration (React Query)
+(7:22) GraphQL for Reducing Over-Fetching
+(8:40) Rate Limiting & Debouncing
+(9:47) Cursor vs. Offset Pagination
+(12:18) Outro
+Master Web Rendering Strategies: https://www.youtube.com/watch?v=i1YlVHr_BGM
+Full Stack Next.js 14 Full Course: https://youtu.be/HqlJjX9uIuk?si=NDJyIV5T_GBYXUnH
+Micro-Frontend Architecture: Setup & Key Concepts Explained: https://youtu.be/OmLsV8Dljzo?si=oR0gFQti5Oi8UgrS
+GraphQL: https://www.youtube.com/playlist?list=PLm7xfhMOszqz28ApUQDVsyU42_5_Smj3J
+Redux Tutorial: https://www.youtube.com/playlist?list=PLm7xfhMOszqxnyllZBhkXF5N_gawbh7ov
+Transcript: Not available
+
+--- Video Record 18 ---
+Title: Build & Host a No-Code AI Website in Minutes! (Trickle AI Step-by-Step Guide)
+Channel Title: Eric Tech
+Published At: 2025-02-19T15:15:01Z
+Views: 878
+Likes: 27
+Total Comments: 1
+Duration: PT11M8S
+Duration In Seconds: 6608
+Description: 💡 Want to build a professional landing page in minutes—without coding? In this video, I’ll show you how to create a stunning, AI-powered, no-code landing page using Trickle AI and GitHub Pages—for FREE!
+Whether you're a beginner or an experienced developer, this AI website builder will help you generate a responsive, interactive, and fully hosted website with just a few prompts.
+🔹 No coding required
+🔹 AI-powered design & customization
+🔹 Fully responsive & accessible
+🔹 Free hosting on GitHub Pages
+🔥 What You’ll Learn:
+✅ How to use Trickle AI to design a fully functional no-code website
+✅ Customizing UI/UX for better engagement & mobile responsiveness
+✅ Fixing design & accessibility issues with AI-based improvements
+✅ Deploying your website for free with GitHub Pages
+✅ Adding interactive elements, social media links & profile images
+✅ Optimizing your website for SEO & better visibility
+🛠 Tools Used in This Video:
+🔹 Trickle AI → https://trickle.ai
+🔹 GitHub Pages (Free Hosting) → https://pages.github.com
+🔹 GitHub Repository → https://github.com/EricTechPro/eric-tech-website
+🔹 Final Product → https://erictech.ca
+📌 Subscribe for More AI, No-Code & Tech Tutorials! 🔔
+📌 Video Chapters (Timestamps for Easy Navigation!):
+00:00 – AI Website Intro & Live Demo 🚀
+00:37 – Explore Trickle AI: Features & Benefits
+00:52 – Setting Up Trickle AI & Writing Prompts
+01:56 – First Attempt: AI-Generated Landing Page 🏗
+02:41 – Revision 1: Fixing Color Contrast & Accessibility
+03:40 – More Trickle AI Editing & UI Customization
+05:27 – Revision 2: Changing Theme Colors & UI Styling
+06:37 – Revision 3: Adding Profile Image & Removing Unnecessary Elements
+07:48 – Revision 4: Final AI Tweaks & Optimization
+09:00 – Final Website Preview & GitHub Pages Hosting 
+10:38 – Outro & Next Steps
+#nocode  #TrickleAI
+Transcript: Not available
+
+--- Video Record 19 ---
+Title: No-Code AI Agents: Automate with n8n & OpenAI (2025 Guide)
+Channel Title: Eric Tech
+Published At: 2025-02-13T15:32:09Z
+Views: 1985
+Likes: 54
+Total Comments: 3
+Duration: PT24M58S
+Duration In Seconds: 144058
+Description: AI Agents Are the Future of Automation in 2025! 🚀
+AI automation is evolving fast, and AI agents are leading the charge! In this step-by-step tutorial, I'll show you how to build AI agents with n8n-without writing a single line of code! Perfect for workflow automation, AI chatbots, and productivity tools using OpenAI GPT and other AI automation tools.
+📌 Timestamps for Easy Navigation:
+00:00 - Intro: Why AI Agents Are Taking Over
+00:38 - Demo: AI Workflow in Action
+03:42 - Step 1: Setting Up n8n Workflow
+04:00 - Step 2: Connecting Telegram 
+10:32 - Step 3: Add AI Agents 
+15:51 - Step 4: Add Gmail & Google Sheets w/ AI Agent
+24:23 - Outro
+📢 Tools Used in This Tutorial:
+    🔹 n8n: No-code AI workflow builder
+    🔹 OpenAI GPT-4 Mini: AI-powered decision-making
+    🔹 Telegram: AI chatbot interaction
+    🔹 Google Sheets & Gmail: Automate emails & data management
+💡 Why Watch This Video?
+✔ 100% No-Code AI automation – perfect for beginners
+✔ Boost Productivity with AI – Automate repetitive tasks
+✔ Stay Ahead in 2025 – AI workflows are the future!
+n8n Template: https://github.com/EricTechPro/Ai-Agent-templates/blob/main/n8n-intro-workflow-template.json
+Transcript: Not available
+
+--- Video Record 20 ---
+Title: Apply to Jobs Faster with Simplify jobs (Job Search Hack 2025)
+Channel Title: Eric Tech
+Published At: 2025-02-08T01:50:41Z
+Views: 4448
+Likes: 106
+Total Comments: 11
+Duration: PT6M58S
+Duration In Seconds: 36058
+Description: Tired of filling out job applications manually? In this video, I'll show you how to use Simplify.jobs, a tool that automates job applications, optimizes your resume, and tracks your job search-so you can apply to jobs 10X faster! 🚀
+📌 Timestamps:
+00:00 - Introduction: Apply to jobs 10X faster
+00:38 - Simplify.jobs & how does it work?
+05:21 - Final thoughts: Good & Bad of using Simplify.jobs
+🎯 Want to speed up your job search? 
+Try Simplify.jobs now: https://simplify.jobs//?invite=09c487900ed&utm_source=referral 
+🚀 Like this video? Help more job seekers find this hack-hit LIKE, SUBSCRIBE, and drop a comment on how Simplify.jobs helped you!
+#JobSearch #CareerTips #JobHunting #JobAutomation #ResumeTips
+Transcript: Not available
+
+--- Video Record 21 ---
+Title: Ethereum Price Drop: Why It's Still the Best Investment in Crypto (2025) #ETH
+Channel Title: Eric Tech
+Published At: 2025-02-07T03:40:24Z
+Views: 863
+Likes: 21
+Total Comments: 3
+Duration: PT9M50S
+Duration In Seconds: 54050
+Description: Ethereum's recent price dip has left many wondering if it's still a strong investment. In this video, we explore why Ethereum continues to dominate the crypto market and remains a leading blockchain in DeFi, NFTs, and decentralized applications (dApps).
+We are going to analyze:
+- Ethereum's market dominance and use cases.
+- Short-term trends: Open interest, liquidations, and market sentiment.
+- Long-term trends: TVL, ETF inflows, and decentralization.
+Whether you're a developer, investor, or just interested in Ethereum's future, this video offers insights into why Ethereum's potential is stronger than ever.
+🔗 Learn Ethereum Development: https://www.youtube.com/playlist?list=PLm7xfhMOszqwqvw0u-MU6ZZSMk4HEoVae
+Disclaimer:
+This video is for informational purposes only and does not constitute financial advice. Cryptocurrency investments carry inherent risks, and it is essential to do your own research before making any investment decisions. The views expressed in this video are solely those of the presenter and do not reflect the opinions of any affiliated organizations.
+(0:00) Introduction
+(2:26) Ethereum Dominance
+(4:11) Ethereum Development
+(4:39) Short-Term Trends
+(5:53) Long-Term Trends
+(7:19) ETH Decentralization 
+(9:02) Conclusion
+#Ethereum #Crypto
+Transcript: Not available
+
+--- Video Record 22 ---
+Title: Automate Job Search with Code: Apify, GPT 4, DeepSeek, Google Sheets
+Channel Title: Eric Tech
+Published At: 2025-01-29T03:46:05Z
+Views: 7387
+Likes: 241
+Total Comments: 23
+Duration: PT16M25S
+Duration In Seconds: 96025
+Description: Discover how to automate your job search using code. In this tutorial, we integrate Apify for web scraping, GPT-4 and DeepSeek for AI-driven job evaluation, and Google Sheets for data management. This approach offers a customizable alternative to no-code solutions like Make.com. Learn to streamline your job application process efficiently.
+⭐️ Course Contents ⭐️
+⌨️ (00:00) Intro
+⌨️ (00:40) Scrape Job Listings with Apify
+⌨️ (02:55) Set Up JobMatchAI Code Script
+⌨️ (08:00) Filter Job Listings Using Google Sheets API
+⌨️ (11:17) Evaluate Jobs with GPT-4 & DeepSeek
+⌨️ (13:14) Write Job Listings to Google Sheets
+⌨️ (14:47) Test the Automation Workflow
+⌨️ (15:55) Outro
+Code Repo: https://github.com/EricTechPro/JobMatchAI
+Automate Your Job Search: No-Code Workflow with Make.com, LinkedIn, & ChatGPT!: https://youtu.be/YnEXSOBHAhY
+Transcript: Not available
+
+--- Video Record 23 ---
+Title: How I Built an AI Clone to take Job Interviews on my behalf
+Channel Title: Eric Tech
+Published At: 2025-01-24T20:30:32Z
+Views: 2587
+Likes: 74
+Total Comments: 5
+Duration: PT10M41S
+Duration In Seconds: 60041
+Description: I built an AI to handle job interviews for me! From cloning my voice with Eleven Labs to setting up AI models using Ollama and OpenWebUI, and even connecting the AI audio to Google Meet and Zoom, I'll show you how it's done step by step.
+Timestamps:
+0:00 - Demo
+1:14 - Intro & Agenda
+1:51 - Step 1: Voice Clone
+3:33 - Step 2: Set up AI
+8:33 - Step 3: Meeting Audio
+Discover how AI can answer resume, work, and behavioral questions effortlessly. Don't miss this look into the future of AI in job interviews-subscribe for more!
+Route Audio Between Apps: https://existential.audio/blackhole/
+ElevenLabs: https://try.elevenlabs.io/31jdpdl26mdl
+Ollama & Open Web UI: https://youtu.be/I8oENDcvPUs?si=g6E6LFCyvQ5ujwPz
+Transcript: Not available
+
+--- Video Record 24 ---
+Title: Run AI Models Locally: Easy Setup with Ollama & Open Web UI
+Channel Title: Eric Tech
+Published At: 2025-01-22T02:33:20Z
+Views: 9423
+Likes: 187
+Total Comments: 15
+Duration: PT11M26S
+Duration In Seconds: 66026
+Description: Unlock the power of AI directly on your computer! In this comprehensive tutorial, we'll walk you through setting up and running AI models locally using Ollama and Open Web UI.
+What's Covered: 
+0:00 - Intro
+1:00 - Understanding AI Model System Specifications
+1:46 - Installing Ollama
+2:06 - Setting Up Open Web UI
+4:20 - Installing and Managing AI Models in Open Web UI
+6:30 - Exploring the Open Web UI Community for Models, Tools, Prompts
+7:51 - Adding Custom Prompt Commands
+8:23 - Enabling Web Search in Open Web UI
+Resources Mentioned:
+Ollama: https://ollama.com
+Open Web UI Documentation: https://docs.openwebui.com
+Docker Installation Guide: https://www.docker.com/get-started
+By running AI models locally, you gain full control, enhanced privacy, and the flexibility to customize your AI experience. Perfect for creative projects, automating tasks, and exploring the latest in AI technology.
+Don't forget to like, comment, and subscribe for more!
+#ollama 
+#llm 
+#RunAILocally
+Transcript: Not available
+
+--- Video Record 25 ---
+Title: Automate Your Job Search: No-Code Workflow with Make.com, LinkedIn, & ChatGPT!
+Channel Title: Eric Tech
+Published At: 2025-01-16T07:06:30Z
+Views: 41721
+Likes: 1366
+Total Comments: 59
+Duration: PT18M48S
+Duration In Seconds: 108048
+Description: Struggling to keep up with endless job applications? Say goodbye to manual searches! In this video, I'll show you how to automate your job search using Make.com, RSS feeds, and ChatGPT. You'll learn how to extract LinkedIn jobs, organize them with Airtable, and rank them based on relevance-all in just a few steps. Whether you're a tech-savvy professional or simply looking to save time, this tutorial is your ultimate guide to mastering job search automation.
+🔍 Timestamps for Easy Navigation:
+00:00 Intro & Demo
+02:00 Set up your Make.com account
+02:16 Schedule tasks like a pro
+02:30 Add RSS feeds to pull jobs from LinkedIn
+05:15 Filter out duplicate job postings
+09:45 Scrape/extract job details from job links
+11:01 Integrate GPT modules to summarize jobs
+14:20 Add Ignore modules for error handling
+14:48 Expand workflows with more job lists
+15:13 Test and analyze the results
+16:47 Examine GPT costs and optimize usage
+17:15 Summary & Bonus Tips for job seekers!
+👉 What You'll Learn:
+- Build a no-code workflow with Make.com
+- Automate LinkedIn job searches using RSS feeds
+- Organize and rank jobs in Airtable
+- Use ChatGPT to simplify job descriptions and match relevance
+👉 Perfect For:
+- Professionals looking to save time on job applications
+- Non-techies who want no-code solutions
+- Job seekers optimizing their search with smart tools
+💡 Bonus Tip: Combine job matching scores with competition insights to target the best opportunities first.
+⚡ Don't forget to like, comment, and subscribe if this video saves you time!"
+Transcript: Not available
+
+--- Video Record 26 ---
+Title: Master Bulk Email Sending with Google Sheets & Gmail
+Channel Title: Eric Tech
+Published At: 2025-01-13T02:33:23Z
+Views: 1481
+Likes: 29
+Total Comments: 2
+Duration: PT5M6S
+Duration In Seconds: 3006
+Description: Unlock the ultimate method for sending bulk emails using **Google Sheets** and **Gmail**! In this step-by-step tutorial, I’ll show you how to:  
+✅ Send personalized emails to a large email list efficiently  
+✅ Manage and test email campaigns with ease  
+✅ Handle massive email lists with precision using Google Sheets  
+🎯 Perfect for email marketing, outreach, or newsletter campaigns, this guide ensures you can scale without missing a beat. I’ll also test this method on a **large email list**, sharing tips and best practices to help you avoid common pitfalls.  
+🔗 **Resources Mentioned:**  
+- Google Sheets Script (https://developers.google.com/apps-script/samples/automations/mail-merge)
+- Gmail Integration  
+💡 **Key Takeaways:**  
+1. Automate email sending effortlessly  
+2. Test with large email lists to optimize performance  
+3. Avoid Gmail’s sending limits  
+⚡ Watch now to master bulk email automation like a pro!  
+📌 Don’t forget to like, comment, and subscribe for more actionable tech tutorials.
+Transcript: Not available
+
+--- Video Record 27 ---
+Title: Comprehensive Beginner's Guide to Cardano Blockchain Trading
+Channel Title: Eric Tech
+Published At: 2024-12-21T03:20:20Z
+Views: 1127
+Likes: 69
+Total Comments: 3
+Duration: PT5M51S
+Duration In Seconds: 30051
+Description: Join us in this detailed tutorial where we explore various aspects of trading on the Cardano blockchain. Learn how to use Eternl and Vespr wallets, analyze candlestick charts with Taptools, and utilize DEX aggregators like Dexhunter. We demonstrate different order types, including market orders, limit orders, and scheduled buys. Additionally, discover the key functionalities of VESPR and ETERNL wallets, as well as practical tools like AdaStat for portfolio analysis.
+Disclaimer:
+This video is for educational purposes only and does not constitute financial advice. We have no affiliation with the tools or platforms mentioned in this video. Always do your own research before making financial decisions. We are not responsible for any losses incurred as a result of the information provided.
+Timestamps:
+00:00 Introduction
+00:38 Wallets: Eternl and Vespr
+02:03 Using Taptools for Cardano Market Analysis & View portfolio
+03:59 Overview of DEX Aggregator Dexhunter: Market, Limit, Scheduled Buy
+Transcript: Not available
+
+--- Video Record 28 ---
+Title: Master Web Rendering Strategies: SSG, ISR, SSR, CSR, and PPR Explained
+Channel Title: Eric Tech
+Published At: 2024-12-19T04:47:35Z
+Views: 2407
+Likes: 141
+Total Comments: 7
+Duration: PT10M38S
+Duration In Seconds: 60038
+Description: Learn everything you need to know about web rendering strategies in this comprehensive guide! In this video, we break down the key rendering approaches used in modern web development: Static Site Generation (SSG), Incremental Static Regeneration (ISR), Server-Side Rendering (SSR), Client-Side Rendering (CSR), and Partial Pre-rendering (PPR). Whether you're a developer or just curious about how websites work, this video will help you understand the pros and cons of each strategy and how to choose the best one for your project.
+📚 Timestamps:
+00:00 Intro
+00:21 What is Web Rendering Strategy
+01:50 Static Site Generation (SSG)
+04:34 Incremental Static Regeneration (ISR)
+06:44 Server-Side Rendering (SSR)
+08:17 Client-Side Rendering (CSR)
+09:08 Partial Pre-rendering (PPR)
+09:39 Outro
+Build & Deploy a Full-Stack Dating App with Next.js 14: https://youtu.be/HqlJjX9uIuk
+Don't forget to like, comment, and subscribe for more web development tutorials!
+Transcript: Not available
+
+--- Video Record 29 ---
+Title: 3 Strategies to Build Credibility and Advance Your Career
+Channel Title: Eric Tech
+Published At: 2024-12-13T03:05:01Z
+Views: 1166
+Likes: 72
+Total Comments: 0
+Duration: PT5M50S
+Duration In Seconds: 30050
+Description: Are you ready to stand out at work and advance your career? In this video, I share 3 proven strategies to build credibility, gain trust, and get noticed at your workplace. Whether you're in tech or any other field, these tips will help you go beyond the basics, make a lasting impact, and grow in your career.
+📌 What You'll Learn: 
+- How to exceed expectations and go beyond your job role.
+- The power of knowledge sharing and how it benefits your team.
+- How to take ownership and solve problems like a founder.
+These simple yet powerful strategies are perfect for professionals looking to make a difference in their workplace.
+📚 Timestamps:
+00:00 Introduction
+00:34 Go Above the Standard
+02:42 Knowledge Sharing
+04:04 Taking Ownership
+05:28 Outro
+👍 Like, comment, and subscribe for more career tips to help you succeed!
+Transcript: Not available
+
+--- Video Record 30 ---
+Title: Top Habits of Top 1% Software Engineers | Key Career Insights
+Channel Title: Eric Tech
+Published At: 2024-12-13T03:00:26Z
+Views: 1247
+Likes: 84
+Total Comments: 1
+Duration: PT9M50S
+Duration In Seconds: 54050
+Description: Discover the essential habits that set top 1% software engineers apart in their careers. In this video, Eric Tech shares practical tips and insights based on years of experience working at big tech companies and startups. Whether you're aiming for professional growth or a better understanding of software engineering, these lessons will provide valuable guidance. Don’t forget to subscribe for more content like this!
+⭐️ Course Contents ⭐️
+⌨️ (00:00) Introduction
+⌨️ (00:47) Tip 1 - 1 PR (Pull Request) per day Habit
+⌨️ (05:56) Tip 2 - Problem-Solving Mindset
+⌨️ (07:30) Tip 3 - Let Manager knows your career goal
+Transcript: Not available
+
+--- Video Record 31 ---
+Title: Build & Deploy a Full-Stack Dating App with Next.js 14, Prisma, NextAuth, Pusher & Cloudinary
+Channel Title: Eric Tech
+Published At: 2024-11-05T02:00:06Z
+Views: 14662
+Likes: 750
+Total Comments: 45
+Duration: PT7H7M22S
+Duration In Seconds: 2562022
+Description: Learn how to build and deploy a modern, full-stack dating application using the latest tools in the web development space. This comprehensive guide covers every step, from setting up Next.js, Prisma, and NextAuth for authentication, to deploying with Vercel. You'll add interactive features with Pusher for real-time messaging and Cloudinary for media uploads. Perfect for developers looking to enhance their Next.js skills or create a feature-rich app.
+📕 Course Outline: 
+00:00 - Course Introduction
+06:38 - Lesson 1: Set up Next.js, NextUI, and initial routing
+27:03 - Lesson 2: Create Login and Registration with validation
+40:20 - Lesson 3: Authentication & Database setup with Prisma
+01:21:48 - Lesson 4: Displaying Members List & Dynamic Routing
+01:48:23 - Lesson 5: Build Like Feature with Prisma Relations
+02:12:19 - Lesson 6: Editing Profiles & Cloudinary Image Uploads
+02:48:15 - Lesson 7: Real-Time Chat with Pusher
+03:19:35 - Lesson 8: Presence Indicators with Pusher & Zustand
+04:27:49 - Lesson 9: Filtering and Pagination
+05:20:03 - Lesson 10: Email Verification & Password Reset
+06:05:45 - Lesson 11: Adding OAuth Social Logins
+06:26:53 - Lesson 12: Adding User Roles & Admin Content
+06:50:13 - Lesson 13: Deploy to Vercel & Final Testing
+Github Repo: https://github.com/EricTechPro/match-me
+Transcript: Not available
+
+--- Video Record 32 ---
+Title: Master GraphQL Directives: @include, @skip, @deprecated - Quick and Easy Guide
+Channel Title: Eric Tech
+Published At: 2024-08-11T17:00:42Z
+Views: 960
+Likes: 67
+Total Comments: 1
+Duration: PT1M57S
+Duration In Seconds: 6057
+Description: Unlock the power of GraphQL directives in this quick and easy guide! Learn how to effectively use the @include, @skip, and @deprecated directives to optimize your GraphQL queries and manage schema evolution. Whether you're a beginner or an experienced developer, this tutorial will help you enhance your GraphQL skills.
+What you'll learn:
+- How to conditionally include fields in queries using @include
+- How to skip unnecessary fields with @skip
+- How to handle deprecated fields in your schema with @deprecated
+Watch now and take your GraphQL knowledge to the next level!
+Timestamps:
+⭐️ Course Contents ⭐️
+⌨️ (00:00) Introduction
+⌨️ (00:07) @include
+⌨️ (00:33) @skip
+⌨️ (01:10) @deprecated
+⌨️ (01:30) Outro
+Transcript: Not available
+
+--- Video Record 33 ---
+Title: Master Unit & E2E Testing: React, Apollo Client, and GraphQL
+Channel Title: Eric Tech
+Published At: 2024-08-10T15:15:00Z
+Views: 1168
+Likes: 81
+Total Comments: 10
+Duration: PT6M19S
+Duration In Seconds: 36019
+Description: In this tutorial, we cover essential testing techniques for modern web applications, focusing on:
+- Unit Testing with Apollo Client: Learn how to test GraphQL queries and mutations in your React application using Apollo Client.
+- InMemory Cache Testing: Ensure your Apollo Client cache is functioning correctly.
+- End-to-End (E2E) Testing for GraphQL Servers: Conduct comprehensive end-to-end tests for a GraphQL server built with Node.js and Express.
+Video Contents:
+    ⌨️ (00:00) Introduction
+    ⌨️ (00:49) Unit Test - Queries with Apollo Client in React
+    ⌨️ (02:18) Unit Test - Mutations with Apollo Client in React
+    ⌨️ (03:48) Unit Test - InMemory Cache with Apollo Client in React
+    ⌨️ (04:50) E2E Test - GraphQL Server with Node.js and Express
+Transcript: Not available
+
+--- Video Record 34 ---
+Title: Apollo Client Mutations: Execute, Refetch, and Update Cache
+Channel Title: Eric Tech
+Published At: 2024-08-08T15:45:03Z
+Views: 1620
+Likes: 74
+Total Comments: 1
+Duration: PT3M59S
+Duration In Seconds: 18059
+Description: Learn how to effectively use mutations in Apollo Client to manage your GraphQL data. This video covers executing mutations with useMutation, refetching queries using refetchQueries, and updating the cache directly with the update function. Whether you're new to Apollo Client or looking to refine your skills, this tutorial provides clear and practical steps.
+⭐️ Contents ⭐️
+⌨️ (0:00) Mutation in Apollo Client (Execute a Mutation: useMutation)
+⌨️ (2:04) Refetch Queries & Update local data - refetchQueries()
+⌨️ (2:41) Update Cache directly after Mutation - update()
+Don't forget to like, subscribe, and hit the bell icon for more tutorials!
+Transcript: Not available
+
+--- Video Record 35 ---
+Title: Fragments in GraphQL with React Apollo Client
+Channel Title: Eric Tech
+Published At: 2024-08-07T15:45:04Z
+Views: 1379
+Likes: 67
+Total Comments: 1
+Duration: PT2M4S
+Duration In Seconds: 1204
+Description: In this video, we'll explore how to use fragments in GraphQL to write more efficient and maintainable queries. Whether you're working in GraphQL Playground or a React Apollo Client project, we've got you covered.
+⭐️ Contents:
+0:00 - How GraphQL Fragments Work
+0:36 - Using Fragments in GraphQL Playground
+1:16 - Using Fragments in React Apollo Client Project
+1:43 - Outro
+Fragments allow you to reuse parts of your queries, making your code cleaner and more efficient. We'll start with a detailed explanation of how fragments work in GraphQL. Then, we'll demonstrate their usage in GraphQL Playground, where you can test and visualize your queries. Finally, we'll integrate fragments into a React Apollo Client project, showing you how to make the most of this powerful feature in a real-world application.
+By the end of this video, you'll have a solid understanding of GraphQL fragments and how to implement them in your projects. Don't forget to like, subscribe, and hit the notification bell to stay updated with our latest tutorials!
+Transcript: Not available
+
+--- Video Record 36 ---
+Title: React Suspense in GraphQL with Apollo Client (useSuspenseQuery, useBackgroundQuery, useReadQuery)
+Channel Title: Eric Tech
+Published At: 2024-08-05T15:01:02Z
+Views: 1344
+Likes: 71
+Total Comments: 2
+Duration: PT6M57S
+Duration In Seconds: 36057
+Description: Dive deeper into Apollo Client with this tutorial on advanced data fetching techniques. In this video, we'll explore how to efficiently fetch data using useSuspenseQuery, manage partial data with returnPartialData, and optimize performance with useBackgroundQuery and useReadQuery. Enhance your React application with these powerful strategies!
+Timestamps:
+00:00 - What to Expect
+00:50 - Fetching with useSuspenseQuery using React Suspense
+01:52 - Handling Partial Data with returnPartialData using React Suspense
+04:12 - Optimizing Performance with useBackgroundQuery and useReadQuery using React Suspense
+Subscribe for more React and GraphQL tutorials!
+Transcript: Not available
+
+--- Video Record 37 ---
+Title: Queries with React & Apollo Client (useQuery, useLazyQuery, caching, fetch policy)
+Channel Title: Eric Tech
+Published At: 2024-08-03T17:00:19Z
+Views: 1506
+Likes: 18
+Total Comments: 1
+Duration: PT6M42S
+Duration In Seconds: 36042
+Description: Learn how to supercharge your React applications with Apollo GraphQL Client! In this comprehensive tutorial, we'll guide you through setting up a React project with Apollo Client, executing queries with useQuery, passing arguments and variables, updating cached query results with polling and refetching, using useLazyQuery for manual execution, and setting fetch policies. Whether you're a beginner or an experienced developer, this video will help you enhance your data-fetching capabilities in React.
+⭐️ Course Contents ⭐️
+⌨️ (00:00) Intro
+⌨️ (00:44) Set up React project with Apollo GraphQL Client
+⌨️ (01:06) useQuery - Execute Query use React Apollo client
+⌨️ (01:36) useQuery - Pass args/variables use React Apollo client
+⌨️ (02:40) Update Cached Query results (Polling vs Refetching)
+⌨️ (04:30) useLazyQuery - Manual execution query
+⌨️ (05:15) Set fetch policy (fetchPolicy vs. nextFetchPolicy)
+⌨️ (06:21) Outro
+Don't forget to like, subscribe, and hit the notification bell for more tech tutorials!
+Transcript: Not available
+
+--- Video Record 38 ---
+Title: GraphQL Query Filters, Pagination, and Sorting with Node.js, Apollo Server, Prisma, and SQLite
+Channel Title: Eric Tech
+Published At: 2024-07-31T00:30:35Z
+Views: 1483
+Likes: 8
+Total Comments: 0
+Duration: PT4M55S
+Duration In Seconds: 24055
+Description: Welcome to this quick tutorial on enhancing your GraphQL server with advanced query features! 
+In this video, we'll cover how to implement:
+- Filtering: Add dynamic filtering to your GraphQL queries to retrieve specific data.
+- Pagination: Implement pagination to handle large datasets efficiently and improve performance.
+- Sorting: Add sorting capabilities to organize your data by different properties.
+We'll be using Node.js, Apollo Server, Prisma, and SQLite to demonstrate these features in action. By the end of this video, you'll have a robust GraphQL server that can handle complex queries with ease.
+Don't forget to like, comment, and subscribe for more tutorials on GraphQL and Prisma. If you have any questions or suggestions for future videos, drop them in the comments below!
+Timestamps:
+⌨️ (00:00) Add Filtering
+⌨️ (01:35) Add Pagination
+⌨️ (03:16) Add Sort by properties
+⌨️ (03:43) Outro
+Code: https://github.com/EricTech0/react-apollo-demo/tree/a0f38c0350e841c890207635817672e6ad23cbc3/server
+#graphql
+Transcript: Not available
+
+--- Video Record 39 ---
+Title: GraphQL PubSub with Node.js, Apollo Server, Prisma, and SQLite
+Channel Title: Eric Tech
+Published At: 2024-07-27T16:45:03Z
+Views: 987
+Likes: 13
+Total Comments: 0
+Duration: PT7M56S
+Duration In Seconds: 42056
+Description: In this tutorial, we'll dive into adding PubSub functionality to your GraphQL Apollo Server to enable real-time updates. You'll learn how to implement a publish and subscribe mechanism for new link creation and explore additional features like voting.
+What You'll Learn:
+- Integrate PubSub with your GraphQL Apollo Server
+- Publish and subscribe to real-time events
+- Test PubSub functionality in GraphQL Playground
+- Add and practice a voting feature using PubSub
+By the end of this video, you'll be able to add real-time capabilities to your GraphQL server and enhance your application's interactivity.
+Timestamps:
+(00:00) Intro
+(00:58) Add PubSub to GraphQL Apollo Server
+(02:20) Test PubSub in GraphQL Playground
+(03:11) Practice Adding a Voting Feature
+(07:34) Outro
+If you found this video helpful, please like and subscribe for more tutorials on GraphQL, Apollo Server, and real-time features. Drop any questions or suggestions in the comments below!
+Code: https://github.com/EricTech0/react-apollo-demo/tree/a0f38c0350e841c890207635817672e6ad23cbc3/server
+#graphql
+Transcript: Not available
+
+--- Video Record 40 ---
+Title: GraphQL Authentication with Node.js, Apollo Server, Prisma, and SQLite
+Channel Title: Eric Tech
+Published At: 2024-07-26T00:15:01Z
+Views: 1234
+Likes: 11
+Total Comments: 0
+Duration: PT9M
+Duration In Seconds: 540
+Description: Learn how to add robust authentication to your GraphQL server using Prisma in this comprehensive tutorial. We'll start by creating data relations between User and Link models, running Prisma migrations, and modifying your GraphQL schema. Follow along as we refactor resolvers, implement login and signup functionality, and add JWT verification to your GraphQL context. Finally, we'll test our setup using Playground and Prisma Studio, and resolve user-link relations in GraphQL queries. Enhance your GraphQL server security with our step-by-step guide.
+⭐️ Course Contents ⭐️ 
+⌨️ (00:00) Intro - Add Authentication to GraphQL Server
+⌨️ (00:05) Prisma Schema - Create data relations between User & Link Model
+⌨️ (01:00) Run prisma migrations (Apply data schema changes)
+⌨️ (01:14) Modify Schema.graphql
+⌨️ (02:12) Refactor graphql resolvers
+⌨️ (03:05) Add login & signup resolvers
+⌨️ (04:05) GraphQL Context - Add JWT verify functionality
+⌨️ (05:37) Test GraphQL Authentication (Playground & Prisma Studio)
+⌨️ (06:47) Resolving relations between User & Link in GraphQL Query
+⌨️ (08:08) More practice - use `userId` from context in other resolvers
+⌨️ (08:39) Outro
+Code: https://github.com/EricTech0/react-apollo-demo/tree/a0f38c0350e841c890207635817672e6ad23cbc3/server
+#graphql
+Transcript: Not available
+
+--- Video Record 41 ---
+Title: Build a GraphQL Apollo Server with Node.js, Prisma, and SQLite
+Channel Title: Eric Tech
+Published At: 2024-07-24T00:15:00Z
+Views: 2272
+Likes: 72
+Total Comments: 2
+Duration: PT12M31S
+Duration In Seconds: 72031
+Description: Welcome to this quick and comprehensive guide on building a GraphQL server with Node.js, Prisma, and SQLite. In this tutorial, you'll learn everything you need to set up a GraphQL server from scratch, add and test queries and mutations, integrate Prisma with SQLite, and more.
+📚 Course Contents:
+⌨️ (00:00) Intro
+⌨️ (00:37) Set up GraphQL js server project
+⌨️ (01:13) Add GraphQL Query
+⌨️ (02:02) Test GraphQL Query
+⌨️ (02:18) Extending the GraphQL Schema Definitions
+⌨️ (03:47) Refactor resolvers & typeDefs
+⌨️ (04:25) GraphQL Default Mappings
+⌨️ (04:54) Add GraphQL Mutation
+⌨️ (06:05) Add Prisma SQLite Database
+⌨️ (08:25) Test PrismaClient using a script
+⌨️ (09:15) Connect GraphQL Server & SQLite DB
+⌨️ (10:48) View SQLite DB in VSCode
+⌨️ (11:02) View SQLite DB in Prisma Studio
+⌨️ (12:10) Outro
+By the end of this video, you'll have a fully functional GraphQL server connected to a SQLite database, ready to be expanded and used in your projects. If you enjoy this tutorial, please like the video, subscribe to the channel, and leave a comment below. Your support helps me create more content like this. Happy coding!
+Code: https://github.com/EricTech0/react-apollo-demo/tree/a0f38c0350e841c890207635817672e6ad23cbc3/server
+#graphql
+Transcript: Not available
+
+--- Video Record 42 ---
+Title: Redis Streams with Node.js Express: Easy Step-by-Step Guide
+Channel Title: Eric Tech
+Published At: 2024-07-18T14:30:09Z
+Views: 1737
+Likes: 19
+Total Comments: 1
+Duration: PT6M54S
+Duration In Seconds: 36054
+Description: Welcome to our comprehensive tutorial on using Redis Streams with a Node.js Express server! In this video, we will dive deep into the functionalities and commands of Redis Streams, an advanced data structure for real-time data processing.
+🕒 Timestamps:
+    (00:00) How Redis Stream works?
+    (00:59) Command - Add Redis Stream
+    (01:33) Command - Query Redis Stream
+    (02:03) Command - Query list of Redis Streams
+    (02:42) Command - Subscribe to Redis Streams events
+    (03:29) Command - Length of the streams events
+    (03:38) Command - Remove streams events
+    (04:20) Command - Add streams events with fixed capacity
+    (04:45) Redis Stream in Node Express
+By the end of this tutorial, you'll be equipped with the knowledge to efficiently implement Redis Streams in your Node.js applications, enhancing your data management and real-time processing capabilities.
+🔔 Don't forget to like, subscribe, and hit the bell icon for more tutorials on web development, databases, and full-stack development!
+Code: https://github.com/EricTech0/node-redis-server
+Transcript: Not available
+
+--- Video Record 43 ---
+Title: Mastering Redis Search Queries in Node.js with Redis-OM: A Step-by-Step Tutorial
+Channel Title: Eric Tech
+Published At: 2024-07-17T14:15:03Z
+Views: 1624
+Likes: 17
+Total Comments: 1
+Duration: PT8M47S
+Duration In Seconds: 48047
+Description: Welcome to our comprehensive tutorial on using Redis with Node.js and Express! In this video, you'll learn how to set up a Redis database, create schemas, and perform various types of searches and queries using RedisOM for Node.js. This tutorial is perfect for developers looking to harness the power of Redis for efficient data management and advanced querying capabilities in their Node.js applications.
+⭐️ Course Contents ⭐️ 
+⌨️ (00:00） Intro
+⌨️ (00:15） Basics set up Redis express nodejs server
+⌨️ (01:00） Create Redis Schema Index
+⌨️ (01:35） Seed data to Redis DB
+⌨️ (02:21） Query all items use RedisOM for Node.js
+⌨️ (02:58） Pagination use RedisOM for Node.js
+⌨️ (03:55） Searching on Strings use RedisOM for Node.js
+⌨️ (04:40） Searching on Numbers use RedisOM for Node.js
+⌨️ (05:26） Searching on Booleans use RedisOM for Node.js
+⌨️ (05:50） Chaining Searches use RedisOM for Node.js
+⌨️ (06:45） Full text search use RedisOM for Node.js
+⌨️ (07:44） Searching on Points use RedisOM for Node.js
+Code: https://github.com/EricTech0/node-redis-server
+#redis
+Transcript: Not available
+
+--- Video Record 44 ---
+Title: Learn Redis Data Structures w/ Redis Cloud | STRING, LIST, HASHES, SETS, SORTED SETS and MORE
+Channel Title: Eric Tech
+Published At: 2024-07-12T15:01:04Z
+Views: 1205
+Likes: 19
+Total Comments: 2
+Duration: PT17M19S
+Duration In Seconds: 102019
+Description: Unlock the full potential of Redis with our step-by-step guide! In this video, we dive deep into Redis data structures and advanced techniques, perfect for full stack developers and system designers looking to enhance their skill set. Learn how to set up Redis Cloud, explore Redis Insights, and master data structures like STRINGS, HASHES, LISTS, SETS, and SORTED SETS. We'll also cover key expiration and provide practical examples to get you started quickly.
+🚀 Timestamps:
+0:00 - Intro
+0:48 - Set up Redis Cloud
+2:18 - Tour Redis Insights
+3:46 - STRING (Redis Data Structure)
+6:47 - Set key expiration
+8:42 - HASHES (Redis Data Structure)
+10:27 - LISTS (Redis Data Structure)
+13:08 - SETS (Redis Data Structure)
+15:42 - SORTED SETS (Redis Data Structure)
+16:54 - Outro
+Whether you're a beginner or an experienced developer, this tutorial will help you harness the power of Redis for your projects. Subscribe for more in-depth tech tutorials and join our community of tech enthusiasts!
+#rediscloud #redis
+Transcript: Not available
+
+--- Video Record 45 ---
+Title: Image Celebrity Detection with AWS Rekognition,  Python (boto3), Streamlit, OpenCV, and more
+Channel Title: Eric Tech
+Published At: 2024-07-11T15:45:05Z
+Views: 1250
+Likes: 2
+Total Comments: 0
+Duration: PT2M20S
+Duration In Seconds: 12020
+Description: Tutorial on celebrity detection in images with AWS Rekognition,  Python (boto3), Streamlit, OpenCV and more
+Code: https://github.com/EricTech0/AWS_Rekognition_Tutorial
+#aws #Rekognition
+Transcript: Not available
+
+--- Video Record 46 ---
+Title: Image Moderation Detection with AWS Rekognition,  Python (boto3), Streamlit, OpenCV, and more
+Channel Title: Eric Tech
+Published At: 2024-07-09T15:01:05Z
+Views: 1170
+Likes: 2
+Total Comments: 0
+Duration: PT1M54S
+Duration In Seconds: 6054
+Description: Tutorial on image moderation in images with AWS Rekognition,  Python (boto3), Streamlit, OpenCV and more
+Code: https://github.com/EricTech0/AWS_Rekognition_Tutorial
+#aws #Rekognition
+Transcript: Not available
+
+--- Video Record 47 ---
+Title: Detect Faces in images with AWS Rekognition,  Python (boto3), Streamlit, OpenCV and more
+Channel Title: Eric Tech
+Published At: 2024-07-07T14:45:00Z
+Views: 83
+Likes: 4
+Total Comments: 0
+Duration: PT3M21S
+Duration In Seconds: 18021
+Description: Tutorial on face detection in images with AWS Rekognition,  Python (boto3), Streamlit, OpenCV and more
+Code: https://github.com/EricTech0/AWS_Rekognition_Tutorial
+#aws #Rekognition
+Transcript: Not available
+
+--- Video Record 48 ---
+Title: Detect Objects in images with AWS Rekognition,  Python (boto3), Streamlit, OpenCV, and more
+Channel Title: Eric Tech
+Published At: 2024-07-04T15:45:03Z
+Views: 205
+Likes: 3
+Total Comments: 2
+Duration: PT5M59S
+Duration In Seconds: 30059
+Description: Tutorial on object detection in images with AWS Rekognition,  Python (boto3), Streamlit, OpenCV and more
+⭐️ Contents ⭐️
+⌨️ (0:00) Introduction
+⌨️ (0:11) Use S3 image to call Rekognition.Client.detect_labels
+⌨️ (3:00) Add Streamlit to detection app
+Code: https://github.com/EricTech0/AWS_Rekognition_Tutorial
+#aws #Rekognition
+Transcript: Not available
+
+--- Video Record 49 ---
+Title: Ultimate Docker Tutorial for NodeJS: Containerization, Data Persistence, Docker Compose
+Channel Title: Eric Tech
+Published At: 2024-06-29T14:15:01Z
+Views: 354
+Likes: 13
+Total Comments: 2
+Duration: PT15M13S
+Duration In Seconds: 90013
+Description: Unlock the power of Docker with our comprehensive tutorial tailored for NodeJS developers! In this in-depth guide, you'll learn everything from the basics of Docker to advanced techniques like data persistence and using Docker Compose. Perfect for both beginners and experienced developers, this course will transform your development workflow and make your applications more scalable and portable.
+⭐️ Course Contents ⭐️ 
+⌨️ (00:00) Intro
+⌨️ (00:48) What's Docker?
+⌨️ (01:06) Containerization Benefits
+⌨️ (01:42) 3 Key Components - Docker
+⌨️ (02:05) Docker usage overview
+⌨️ (02:35) Containerize NodeJS App
+⌨️ (05:35) Update NodeJS app + sync changes
+⌨️ (06:35) Docker Volume - Persist the DB
+⌨️ (07:35) Use bind mounts to mount volume
+⌨️ (08:24) Docker Compose - run multiple containers
+⌨️ (12:04) Docker Compose - Test NodeJS App
+⌨️ (12:27) Docker Compose - Test MySQL DB
+⌨️ (13:48) Docker Compose - Shut down containers
+⌨️ (14:03) Summary
+Code: https://github.com/EricTechPro/getting-started-app
+#docker
+Transcript: Not available
+
+--- Video Record 50 ---
+Title: Build a WEB3 DApp w/ Solidity, React, Hardhat, Ethers.js & MetaMask Tutorial
+Channel Title: Eric Tech
+Published At: 2024-06-19T15:15:04Z
+Views: 7272
+Likes: 200
+Total Comments: 17
+Duration: PT19M1S
+Duration In Seconds: 11401
+Description: Welcome to this comprehensive tutorial on Solidity, React, Ethers.js, MetaMask, and Hardhat! In this video, you'll learn how to set up, develop, test, and deploy smart contracts using the latest tools and technologies. Whether you're a beginner or an experienced developer, this step-by-step guide will help you master Solidity and build your own decentralized applications (dApps).
+⭐️ Course Contents ⭐️
+S1 - Set up Solidity using Hardhat
+    ⌨️ (00:00) Intro (what to expect)
+    ⌨️ (00:42) Setup Solidity project using Hardhat
+    ⌨️ (01:36) Project file structure
+    ⌨️ (02:16) Full Solidity tutorial
+S2 - Write Our Smart Contract
+    ⌨️ (02:21) Lock.sol Solidity contract
+S3 - Compile Our Smart Contract
+    ⌨️ (03:50) Compile contract
+S4 - Unit Test Our Smart Contract
+    ⌨️ (04:35) Contract testing
+    ⌨️ (04:58) Testing - loadFixture()
+    ⌨️ (06:11) Testing - deployment
+    ⌨️ (07:04) Testing - withdrawal validations
+    ⌨️ (08:17) Testing - withdrawal events
+    ⌨️ (08:46) Testing - withdrawal transfers
+    ⌨️ (09:18) Run tests and coverage
+S5 - Using Ethers.js and React App to Connect with Our Smart Contract
+    ⌨️ (09:36) Set up React app
+    ⌨️ (11:14) Install Ethers.js
+    ⌨️ (11:24) (Demo) React with Solidity dApp
+    ⌨️ (12:32) Use Ethers.js in React to call Lock.sol
+    ⌨️ (15:52) Update Lock.sol contract
+    ⌨️ (16:07) Compile contract - npx hardhat compile
+S6 - Deploy Smart Contract Locally for Manual Test
+    ⌨️ (16:17) Deploy contract to localhost
+    ⌨️ (17:08) Set up MetaMask
+    ⌨️ (17:48) Test web dApp
+S7 - Summarize Our Project
+    ⌨️ (18:16) Summary
+By the end of this video, you'll have a complete understanding of how to create, test, and deploy smart contracts, as well as how to integrate them with a React front-end using Ethers.js. Don't forget to like, comment, and subscribe for more tutorials!
+Code: https://github.com/EricTech0/dapp-demo
+Solidity Tutorial: https://youtu.be/E3KM1c7xeJM
+(Please Subscribe & Like 👍)
+Transcript: Not available
+
+--- Video Record 51 ---
+Title: Proof of Work vs. Proof of Stake: Simplified Explained 2024
+Channel Title: Eric Tech
+Published At: 2024-06-10T14:15:02Z
+Views: 121
+Likes: 5
+Total Comments: 0
+Duration: PT2M8S
+Duration In Seconds: 1208
+Description: Cryptocurrency Explained: Proof of Work vs. Proof of Stake | Simplified Guide & Comparison for Beginners! Dive into the world of blockchain consensus mechanisms with our comprehensive breakdown of Proof of Work and Proof of Stake. Discover the differences, benefits, and drawbacks of each, empowering you to make informed decisions in the fast-paced realm of cryptocurrency. Whether you're new to the scene or a seasoned investor, this video provides valuable insights to elevate your understanding and stay ahead in the ever-evolving crypto landscape.
+Transcript: Not available
+
+--- Video Record 52 ---
+Title: Solidity Complete Tutorial (Remix IDE)
+Channel Title: Eric Tech
+Published At: 2024-06-06T17:00:16Z
+Views: 2328
+Likes: 63
+Total Comments: 2
+Duration: PT19M14S
+Duration In Seconds: 114014
+Description: Master Solidity development with this comprehensive tutorial! Learn from basics to advanced concepts, including Solidity basics, Remix IDE usage, constructors, modifiers, arrays, mappings, structs, events, error handling, inheritance, and interfaces. Whether you're a beginner or experienced, unlock the power of Solidity for blockchain development. 
+⭐️ Contents ⭐️
+⌨️ (0:00) Introduction
+⌨️ (0:15) What is Solidity?
+⌨️ (0:48) Use Remix IDE (Solidity Development)
+⌨️ (3:27) Constructor
+⌨️ (4:12) Access Modifier
+⌨️ (7:17) Variables
+⌨️ (8:40) Modifier
+⌨️ (9:34) Global vs Local variables
+⌨️ (10:39) Array
+⌨️ (11:24) Mapping
+⌨️ (12:34) Struct
+⌨️ (13:30) Events
+⌨️ (14:34) Error Handling
+⌨️ (15:05) require() 
+⌨️ (15:25) revert() 
+⌨️ (16:01) try catch 
+⌨️ (16:39) Inheritance
+⌨️ (17:09) override (keyword)
+⌨️ (17:47) super (keyword)
+⌨️ (18:19) abstract (keyword)
+⌨️ (18:23) Interface
+⌨️ (18:52) Other Recommended Videos
+ #Solidity #BlockchainDevelopment #RemixIDE
+Transcript: Not available
+
+--- Video Record 53 ---
+Title: Micro-Frontend Architecture: Setup & Key Concepts Explained
+Channel Title: Eric Tech
+Published At: 2024-05-26T16:15:01Z
+Views: 10381
+Likes: 240
+Total Comments: 12
+Duration: PT10M53S
+Duration In Seconds: 60053
+Description: Welcome to our comprehensive tutorial on Micro-Frontend Architecture! In this video, we delve into the essentials of micro-frontends, exploring their advantages and disadvantages, and guiding you through the setup of two micro-frontend applications. You'll also learn about Webpack configuration, module federation, and sharing between micro-frontend apps.
+⭐️ Contents ⭐️
+⌨️ (0:00) Introduction
+⌨️ (0:26) What is Micro-Frontend Architecture
+⌨️ (2:10) Advantages of using MFE
+⌨️ (3:21) Disadvantages of using MFE
+⌨️ (3:45) Set up 2 Micro-Frontend apps
+⌨️ (5:19) Add Webpacks configuration
+⌨️ (7:13) Add Module Federations
+⌨️ (9:18) Share between Micro-Frontend apps
+⌨️ (9:55) Video Recommendations
+Transcript: Not available
+
+--- Video Record 54 ---
+Title: AWS Glue Tutorial - Learn Data Integration & Transformation in 10 Minutes
+Channel Title: Eric Tech
+Published At: 2023-11-22T03:45:01Z
+Views: 465
+Likes: 18
+Total Comments: 1
+Duration: PT12M32S
+Duration In Seconds: 72032
+Description: Learn AWS Glue with a step-by-step guide! From creating a Data Catalog Database to using Athena and Glue Studio for seamless data transformation. Elevate your skills with Visual ETL Editor in just 10 minutes!
+⭐️ Contents ⭐️
+⌨️ (0:00) What's AWS Glue?
+⌨️ (0:19) How AWS Glue works?
+⌨️ (0:59) Agenda for this AWS Glue demonstration
+⌨️ (1:53) Create AWS Glue Data Catalog Database (To store data source metadata)
+⌨️ (2:30) Create Crawler in AWS Glue Catalog Table
+⌨️ (4:40) Run Crawler in AWS Glue Catalog Table
+⌨️ (5:35) Edit Table Schema in AWS Glue Catalog Table
+⌨️ (5:55) Use Athena to view Data in Glue Catalog Table
+⌨️ (7:58) Use Glue Studio to transform data (Using Visual ETL Editor)
+⌨️ (12:00) Conclusion
+Github Link for the video tutorial: https://github.com/EricTech0/cloud-tutorials/tree/main/AWSGlueDemo
+#etl #aws
+Transcript: Not available
+
+--- Video Record 55 ---
+Title: From Service Technician to Software Engineer at Microsoft - Dustin Brett
+Channel Title: Eric Tech
+Published At: 2022-04-20T15:45:03Z
+Views: 326
+Likes: 542
+Total Comments: 1
+Duration: PT30M1S
+Duration In Seconds: 18001
+Description: In this video, I talked to Dustin Brett, a Software Engineer (SDE 2 or SDE II or L62) at Microsoft Vancouver, to talk about his career journey as a self-taught Software Engineer specialize in Front End/Full Stack Development. We also discussed Why he decided to become a self-taught software developer WITHOUT college degree and WITHOUT Coding Bootcamp. We also discussed how Dustin Brett prepared his Microsoft or Big Tech Interviews, etc. 
+Check out Dustin's channel here: https://www.youtube.com/c/DustinBrett
+⭐️ Course Contents ⭐️ 
+⌨️ (00:00:00) - Who is Dustin Brett
+⌨️ (00:01:05) - Dustin's Career Journey
+⌨️ (00:05:35) - Why Dustin taking a career gap?
+⌨️ (00:08:08) - What Dustin like about Frontend?
+⌨️ (00:10:17) - Why Dustin decided to become a self-taught software developer?
+⌨️ (00:12:40) - Dustin's Self-Taught Learning Path
+⌨️ (00:18:16) - Dustin's Learning Resources Recommendations
+⌨️ (00:19:55) - Dustin's Recommendation on Personal Projects
+⌨️ (00:21:30) - Does the degree matters when getting promoted
+⌨️ (00:23:36) - How does Dustin prepare for Microsoft interviews
+⌨️ (00:25:10) - Dustin Brett's YouTube Channel
+⌨️ (00:26:30) - Dustin Brett's Plan for YouTube
+⌨️ (00:28:25) - Dustin advices on career growth
+Transcript: Not available
+
+--- Video Record 56 ---
+Title: How to become a Solutions Architect (SA)? - iLyas Bakouch
+Channel Title: Eric Tech
+Published At: 2022-04-10T17:00:09Z
+Views: 5044
+Likes: 17
+Total Comments: 0
+Duration: PT17M50S
+Duration In Seconds: 102050
+Description: In this video, I talked to iLyas Bakouch, a Senior Staff Solutions Architect, to talk about how to become Solutions Architect as a Software Engineer or people who work at technology. We also discussed how to become a successful Solutions Architect and what are some learning resources that iLyas recommend. Finally, iLyas Bakouch shared us some final advices for anyone who wants to become a Solutions Architect (SA). 
+Please check our previous conversation on why iLyas Bakouch wants to become a Solution Architect: https://youtu.be/HAAgBzS0qkI
+Please check our previous previous conversation on what does a Solutions Architect do in iLyas's perspective and experience: https://youtu.be/7Vz62I2RdqQ
+Also checkout iLyas's channel where he talked shared a lot insights about Solutions Architect: https://www.youtube.com/channel/UCwpIueN8B-42Z8vfxVt0yEQ
+⭐️ Course Contents ⭐️ 
+⌨️ (00:00:00) - How to become a Solutions Architect (SA)
+⌨️ (00:04:15) - What to learn as a Solutions Architect (SA)
+⌨️ (00:09:55) - What YouTubers does iLyas follow
+⌨️ (00:11:20) - Final Advices to become Solutions Architect (SA)
+#solutionarchitect #softwarearchitecture #aws
+Transcript: Not available
+
+--- Video Record 57 ---
+Title: Should YOU become a Solutions Architect (SA)? - iLyas Bakouch
+Channel Title: Eric Tech
+Published At: 2022-04-08T17:00:10Z
+Views: 577
+Likes: 13
+Total Comments: 1
+Duration: PT16M47S
+Duration In Seconds: 96047
+Description: In this video, I talked to iLyas Bakouch, a Senior Staff Solutions Architect, to talk about who should become Solutions Architect as a Software Engineer or people who work at technology. We also discussed why iLyas made this transition to go from a software engineer to solution architect (SA). As well as what are some challenages for being a Solutions Architect (SA).
+Please check our previous conversation on what does a Solutions Architect do in iLyas's perspective and experience: https://youtu.be/7Vz62I2RdqQ
+Please check our next next conversation on How to become a Solutions Architect (SA): https://youtu.be/Uagis02DU3s
+Also checkout iLyas's channel where he talked shared a lot insights about Solutions Architect: https://www.youtube.com/channel/UCwpIueN8B-42Z8vfxVt0yEQ
+⭐️ Course Contents ⭐️ 
+⌨️ (00:00:00) - Why iLyas want to become a Solutions Architect (SA)
+⌨️ (00:03:25) - Challenges for being a Solutions Architect (SA)
+⌨️ (00:09:32) - Who should become a Solutions Architect (SA)
+#solutionarchitect #softwarearchitecture #aws
+Transcript: Not available
+
+--- Video Record 58 ---
+Title: Interview with a Software Engineer at Microsoft (ft. Pooja Dutt)
+Channel Title: Eric Tech
+Published At: 2022-04-07T17:00:29Z
+Views: 2664
+Likes: 41
+Total Comments: 1
+Duration: PT30M56S
+Duration In Seconds: 180056
+Description: In this video, I chatted with to Pooja Dutt who is a Software Engineer at Microsoft, to talk about her journey to become a Software Engineer at Microsoft, why should she interested in Computer Science,  What she like and don't like about being software engineer, Pooja's YouTube Channel and etc.
+Pooja's Channel: https://www.youtube.com/c/PoojaDutt
+⭐️ Course Contents ⭐️ 
+⌨️ (00:00:00) - Who is Pooja Dutt
+⌨️ (00:00:35) - Pooja's Career Journey
+⌨️ (00:02:01) - Why Pooja interested in Computer Science?
+⌨️ (00:04:18) - Did Pooja attend Computer Science in high school
+⌨️ (00:04:44) - Pooja's opinion on Target vs Microsoft
+⌨️ (00:08:41) - Pooja's Property Investment
+⌨️ (00:12:45) - What Pooja like and don't like about being software engineer
+⌨️ (00:17:05) - Why Pooja pursue Master Degree in Computer Software Engineering
+⌨️ (00:20:32) - Pooja's YouTube Channel
+⌨️ (00:21:52) - Where Pooja come up with video ideas
+⌨️ (00:23:51) - Pooja's video making process
+⌨️ (00:26:26) - Pooja's Challenges for creating videos
+⌨️ (00:30:01) - Pooja's final advices
+#softwareengineer #microsoft
+Transcript: Not available
+
+--- Video Record 59 ---
+Title: What does a Solutions Architect (SA) do? - iLyas Bakouch
+Channel Title: Eric Tech
+Published At: 2022-04-06T17:01:10Z
+Views: 1457
+Likes: 26
+Total Comments: 3
+Duration: PT21M27S
+Duration In Seconds: 126027
+Description: In this video, I talked to iLyas Bakouch, a Senior Staff Solutions Architect, to talk about what does a Solutions Architect do. We also discussed iLyas's career journey from software engineer to Solutions Architect (SA) and what is Solutions Architect (SA) responsibility.
+Please check our next conversation on why iLyas Bakouch wants to become a Solutions Architect (SA) and maybe you should too?: https://youtu.be/HAAgBzS0qkI
+Please check our next next conversation on How to become a Solutions Architect (SA): https://youtu.be/Uagis02DU3s
+Also checkout iLyas's channel where he talked shared a lot insights about Solutions Architect: https://www.youtube.com/channel/UCwpIueN8B-42Z8vfxVt0yEQ
+⭐️ Course Contents ⭐️ 
+⌨️ (00:00:00) - Intro
+⌨️ (00:00:08) - Who is iLyas Bakouch
+⌨️ (00:00:58) - iLyas Bakouch's career journey
+⌨️ (00:11:15) - Solutions Architect's Responsibility
+⌨️ (00:15:55) - AWS Solutions Architect's Responsibility
+#solutionarchitect #softwarearchitecture #aws
+Transcript: Not available
+
+--- Video Record 60 ---
+Title: From Software Engineer to VP Engineering - Vincent Chu
+Channel Title: Eric Tech
+Published At: 2022-03-19T17:00:38Z
+Views: 3013
+Likes: 816
+Total Comments: 5
+Duration: PT23M33S
+Duration In Seconds: 138033
+Description: In this video, I sat down with Vincent Chu, a Vice President Engineering at Later.com, to talk about what does a Software VP Engineering do. We also discussed Vincent's career journey to become an Engineer manager. What's VP Engineering's responsibilities. What's the daily routine looks like. What are some pros and cons for being a VP Engineer, etc. 
+Checkout Later: The All-In-One Social Marketing Platform: https://www.youtube.com/c/LaterMedia/videos
+⭐️ Course Contents ⭐️ 
+⌨️ (00:00:00) - Introduction
+⌨️ (00:00:20) - Vincent's Career Journey
+⌨️ (00:04:59) - Vincent's Responsibility as a VP Engineering
+⌨️ (00:08:51) - Pros and Cons as a Software Engineering Leader
+⌨️ (00:10:01) - How to become a Software Engineering Leader
+⌨️ (00:12:58) - Advices to other Software Engineering Leader
+⌨️ (00:17:09) - Advices to other Software Engineer (Individual Contributor)
+⌨️ (00:21:16) - FAQ and Final words
+#softwareengineer #softwaremanager
+Transcript: Not available
+
+--- Video Record 61 ---
+Title: From Developer to Engineer Manager - Mike Berezowski
+Channel Title: Eric Tech
+Published At: 2022-03-04T05:11:04Z
+Views: 1870
+Likes: 138
+Total Comments: 2
+Duration: PT20M26S
+Duration In Seconds: 120026
+Description: In this video, I sat down with Mike Berezowski, who is an Engineering Manager at Digital Ocean, to talk about his career journey to go from a Developer to an Engineer Manager. We also discussed why Mike made his transition from Developer to Engineer Manager. How to go from SDE to Engineer Manager. What are the challenges for being a Engineering Manager and etc.
+⭐️ Course Contents ⭐️ 
+⌨️ (00:00:00) - Who is Mike Berezowski
+⌨️ (00:00:48) - Mike's Career Journey
+⌨️ (00:02:02) - Why he become an Engineering Manager?
+⌨️ (00:03:12) - What do you do as a Engineering Manager
+⌨️ (00:06:10) - Challenges for being a Engineer Manager
+⌨️ (00:08:56) - What aspects of leadership roles apply to SDM role
+⌨️ (00:10:37) - How to go from Software Engineer to Tech Lead?
+⌨️ (00:11:54) - How to become an Engineer Manager?
+⌨️ (00:14:53) - What are some aspects do you consider when hiring SDE
+⌨️ (00:18:30) - Mike's Advice to others
+Reference materials
+The Definition of a Tech Lead - https://www.patkua.com/blog/the-definition-of-a-tech-lead/ 
+Designing your life - https://designingyour.life/the-book/
+Functions of management - https://managementstudyguide.com/management_functions.htm
+Giving up your legos - https://www.youtube.com/watch?v=dT5qGrf-f34
+Leadership styles - https://www.ivey.uwo.ca/academy/blog/2020/01/13-common-leadership-styles/
+The Making of a Manager - https://www.juliezhuo.com/book/manager.html
+Leading Snowflakes - https://leadingsnowflakes.com/
+Become an Effective Software Engineering manager - https://pragprog.com/titles/jsengman/become-an-effective-software-engineering-manager/
+Managing the Unmanageable - https://managingtheunmanageable.net/
+#softwareengineer #softwaredeveloper #engineermanager
+Transcript: Not available
+
+--- Video Record 62 ---
+Title: Should you become a Game Dev? - Jason Weimann
+Channel Title: Eric Tech
+Published At: 2022-02-23T01:00:43Z
+Views: 1235
+Likes: 40
+Total Comments: 1
+Duration: PT17M14S
+Duration In Seconds: 102014
+Description: In this video, I sat down with Jason Weiman, a Game Developer/YouTuber, to talk about his journey on how he become a game developer. We also discussed how to make money as a game developer for living. What are the challenges for being a game developer , etc. 
+⭐️ Course Contents ⭐️ 
+⌨️ (00:00:00) - Introduction
+⌨️ (00:00:24) - Who is Jason Weimann
+⌨️ (00:01:44) - Jason's Career Journey
+⌨️ (00:07:50) - Ways to make money as a game developer
+⌨️ (00:11:54) - How Jason make money as a game developer
+⌨️ (00:13:30) - Challenges for being game dev
+#unityengine #gamedev
+Transcript: Not available
+
+--- Video Record 63 ---
+Title: From Developer to Engineer Manager - Gregory Witek
+Channel Title: Eric Tech
+Published At: 2022-02-20T22:19:30Z
+Views: 3176
+Likes: 93
+Total Comments: 0
+Duration: PT33M31S
+Duration In Seconds: 198031
+Description: In this video, I sat down with Gregory Witek, who is an Engineering Manager at Booking.com, to talk about his career journey to go from a Developer to an Engineer Manager. We also discussed why Gregory made his transition from Developer to Engineer Manager. How to go from SDE to Engineer Manager. What's Engineer manager's responsibilities in start up vs big tech. What are the learning resources for prepare to become an Engineering Manager, etc. 
+⭐️ Course Contents ⭐️ 
+⌨️ (00:00:00) - Introduction
+⌨️ (00:00:33) - Who is Gregory
+⌨️ (00:01:03) - Gregory Career Journey
+⌨️ (00:03:38) - Why Gregory transition to Engineer Manager
+⌨️ (00:05:07) - Engineer Manager's responsibilities in startup vs big tech
+⌨️ (00:08:21) - Gregory's preference in start up vs big tech
+⌨️ (00:10:14) - Challenages when transition to engineer manager
+⌨️ (00:13:40) - Engineer Manager goals and expectations
+⌨️ (00:15:13) - How to go from SDE to Engineering Manager
+⌨️ (00:20:46) - Engineering Manager Interviews Experience
+⌨️ (00:25:45) - Engineering Manager Learning Resources
+⌨️ (00:28:45) - Engineering Manager Interviews Experience
+Transcript: Not available
+
+--- Video Record 64 ---
+Title: From PM to Senior Product Manager - Diego Granados
+Channel Title: Eric Tech
+Published At: 2022-02-19T22:31:32Z
+Views: 1410
+Likes: 34
+Total Comments: 2
+Duration: PT33M18S
+Duration In Seconds: 198018
+Description: In this video, I sat down with Diego Granados, a Senior Product Manager at LinkedIn, to talk about how Diego Granados become a senior product manager, how to prepare for product manager's interview in tech, what are the learning resources, etc. 
+Check sure to also checkout Diego Granados's channel as well related to product management: https://www.youtube.com/c/PMDiegoGranados
+⭐️ Contents ⭐️
+⌨️ (0:00) Introduction
+⌨️ (0:37) Who is Diego Granados?
+⌨️ (3:58) Diego's Product Manager Journey
+⌨️ (7:40) How Diego prepare Microsoft Product Manager
+⌨️ (9:54) How to prepare technical PM's part
+⌨️ (13:10) How to become Senior Product Manager? 
+⌨️ (19:50) How to prepare Product Manager interview?
+⌨️ (25:40) Product Manager's learning resources
+⌨️ (29:20) PM's FAQ
+#Microsoft #ProductManagement #ProductManagementInterview #GooglePM #MicrosoftPM
+Transcript: Not available
+
+--- Video Record 65 ---
+Title: From Software Developer to Senior Product Manager - Akash Majumder
+Channel Title: Eric Tech
+Published At: 2022-02-18T17:27:29Z
+Views: 2139
+Likes: 116
+Total Comments: 2
+Duration: PT32M2S
+Duration In Seconds: 19202
+Description: In this video, I sat down with Akash Majumder, a Senior Product Manager at Workday, to talk about how he transition from software developer to a product manager and why did you make this transition. We also discussed about how to prepare for PM's interviews and etc. 
+⭐️ Contents ⭐️
+⌨️ (0:00) Introduction
+⌨️ (0:30) Who is Akash?
+⌨️ (2:10) Akash's Career Journey
+⌨️ (5:58) Akash's Operation Management Experience
+⌨️ (7:37) Technical Product Manager vs Product Manager
+⌨️ (12:37) Akash's Technical Program Manager Experience
+⌨️ (14:00) Akash's Senior PM Experience
+⌨️ (15:30) Product Manager vs Software Developer Manager
+⌨️ (18:00) How to transition from SDE to Product Manager
+⌨️ (22:45) Product Manager Personal Projects
+⌨️ (24:35) How to prep Product Manager interview?
+⌨️ (28:55) Advice for dev to transition to PM
+⌨️ (30:15) Is MBA matters?
+⌨️ (31:10) Outro
+#productmanager #workday #softwareengineer
+Transcript: Not available
+
+--- Video Record 66 ---
+Title: How to become a Product Manager? - Kirupa Chinnathambi
+Channel Title: Eric Tech
+Published At: 2022-02-17T00:45:08Z
+Views: 1129
+Likes: 76
+Total Comments: 0
+Duration: PT15M37S
+Duration In Seconds: 90037
+Description: In this video, I sat down with Kirupa Chinnathambi, a Product Manager (#productmanager) at #google, to talk about how to become a product manager do. We also discussed what are some good learning resources for product manager, etc. 
+Check out the first half of the conversation I had with Kirupa here on how to become a Product Manager here: https://youtu.be/ovPBFlN3nC4
+⭐️ Contents ⭐️
+⌨️ (0:00) How to become a Product Manager?
+⌨️ (4:15) Developer to Product Manager (How?)
+⌨️ (7:22) Product Manager's Learning Resources
+⌨️ (13:28) Any Regrets for being Product Manager
+Check out Kirupa's Channel: https://www.youtube.com/c/kirupa
+Transcript: Not available
+
+--- Video Record 67 ---
+Title: What does a Product Manager do? - Kirupa Chinnathambi
+Channel Title: Eric Tech
+Published At: 2022-02-16T04:48:56Z
+Views: 1374
+Likes: 8
+Total Comments: 1
+Duration: PT21M44S
+Duration In Seconds: 126044
+Description: In this video, I sat down with Kirupa Chinnathambi, a Product Manager (#productmanager) at #google, to talk about what does a product manager do. We also discussed Kirupa's career journey to become a product manager. What's product manager's responsibilities. What's the product manager's routine looks like. What are some pros and cons for being a product manager, etc. 
+Check out the second half of the conversation I had with Kirupa here on how to become a Product Manager here: https://youtu.be/6MaJp-EfWiI
+⭐️ Contents ⭐️
+⌨️ (0:00) Introduction
+⌨️ (1:16) Kirupa's Career Journey
+⌨️ (5:17) Product Manager's Responsibilities
+⌨️ (12:50) Product Manager's routine
+⌨️ (14:24) Product Manager's career path
+⌨️ (18:36) Product Manager's Challenges
+Check out Kirupa's Channel: https://www.youtube.com/c/kirupa
+Transcript: Not available
+
+--- Video Record 68 ---
+Title: From Developer to Devops/Docker Captain - Nick Janetakis
+Channel Title: Eric Tech
+Published At: 2022-02-09T04:36:51Z
+Views: 1289
+Likes: 10
+Total Comments: 1
+Duration: PT22M37S
+Duration In Seconds: 132037
+Description: In this video, I sat down with Nick Janetakis, a full stack developer and tutorial creator who focuses on building and deploying web apps. He has a blog with 350+ free posts and videos where he shares everything he learns along the way. We talked about how he went from a software developer to a Devops Engineer/Docker Captain.
+Nick's Links:
+- https://nickjanetakis.com
+- https://diveintodocker.com
+- https://www.youtube.com/c/nickjanetakis
+- https://github.com/nickjj/docker-flask-example
+- https://github.com/nickjj/docker-django-example
+- https://github.com/nickjj/docker-rails-example
+- https://github.com/nickjj/docker-phoenix-example
+- https://github.com/nickjj/docker-play-example
+- https://github.com/nickjj/docker-node-example
+Here are the content timelines:
+⭐️ Course Contents ⭐️ 
+⌨️ (00:00:00) - Introduction
+⌨️ (00:00:51) - Nick's Development Journey
+⌨️ (00:06:09) - How Nick become a docker captain?
+⌨️ (00:08:00) - Docker Learning Path
+⌨️ (00:10:00) - Docker Career Path
+⌨️ (00:12:25) - Challenges for being a devops
+⌨️ (00:20:35) - Nick's YouTube Channel
+#dockercaptain #devops #docker
+Transcript: Not available
+
+--- Video Record 69 ---
+Title: Dockerize React App on Windows 10 - For Developers
+Channel Title: Eric Tech
+Published At: 2022-02-07T07:07:54Z
+Views: 4225
+Likes: 210
+Total Comments: 3
+Duration: PT28M12S
+Duration In Seconds: 168012
+Description: In this #docker tutorial, I'm going to show you how to work with dockerize a react app for complete beginners on windows 10. 
+Before getting stated with docker, I highly recommend you to have some experience linux commands, and you can checkout my other video that i made about Common Linux Commands here:    • Common Linux Commands using Ubuntu  
+Here are the content timelines:
+⭐️ Course Contents ⭐️:
+⌨️ (00:00:00) - Intro
+⌨️ (00:00:31) - What is Docker?
+⌨️ (00:01:44) - Initial React Project
+⌨️ (00:01:47) - How to create a Dockerfile in vscode
+⌨️ (00:02:22) - How to use dockerhub node image
+⌨️ (00:04:02) - How to build a docker image
+⌨️ (00:04:30) - View all docker images
+⌨️ (00:04:38) - run docker container interactive mode
+⌨️ (00:05:28) - run docker container shell session
+⌨️ (00:05:49) - copy files to the image's filesystem
+⌨️ (00:07:38) - how to use dockerignore
+⌨️ (00:08:40) - Set up react up in docker container
+⌨️ (00:12:05) - Run react up in docker container
+⌨️ (00:16:53) - Change files in docker container
+⌨️ (00:18:15) - Stop Container
+⌨️ (00:19:30) - Docker volume to persist data
+⌨️ (00:24:00) - Transfer file/folders between filesystem
+Transcript: Not available
+
+--- Video Record 70 ---
+Title: Common Linux Commands using Ubuntu
+Channel Title: Eric Tech
+Published At: 2022-02-07T06:13:56Z
+Views: 1077
+Likes: 133
+Total Comments: 0
+Duration: PT11M5S
+Duration In Seconds: 6605
+Description: In this linux command line tutorial, I'm going to show you some common commands in #linux
+This linux tutorial for beginners will help you get a basic understanding about all the common commands in linux.
+Here are the content timelines:
+⭐️ Course Contents ⭐️ 
+⌨️ (00:00:00) - Intro
+⌨️ (00:00:18) - Install Package in Linux
+⌨️ (00:02:32) - Navigate Linux Filesystem
+⌨️ (00:03:27) - Modify Files & Folders in Linux
+⌨️ (00:05:56) - Edit files in Linux
+⌨️ (00:08:38) - Set & Get Environment variables in Linux
+⌨️ (00:09:38) - See running programs in Linux
+In the end, you’ll have a really good understanding on how to use #linuxcommands
+Transcript: Not available
+
+--- Video Record 71 ---
+Title: [Design Pattern] Mediator Design Pattern in C#
+Channel Title: Eric Tech
+Published At: 2022-02-03T17:00:24Z
+Views: 6422
+Likes: 304
+Total Comments: 3
+Duration: PT5M49S
+Duration In Seconds: 30049
+Description: In this video, I'm going to explain Mediator Design Pattern with real world example in C#
+Here are the content timelines:
+⭐️ Contents ⭐️
+⌨️ (0:00) Intro
+⌨️ (0:54) Problem
+⌨️ (1:49) Solution
+Code: https://github.com/Eric-programming/CodeSolution/tree/master/src/DesignPattern/MediatorPattern
+In the end, you’ll have a really good understanding on what Mediator Pattern is, what problems does it solve, and when should we use this pattern.
+Transcript: Not available
+
+--- Video Record 72 ---
+Title: How to become a Staff Software Engineer? - Aaron Rehaag (Google Staff Software Engineer)
+Channel Title: Eric Tech
+Published At: 2022-02-02T01:15:11Z
+Views: 2667
+Likes: 82
+Total Comments: 6
+Duration: PT10M49S
+Duration In Seconds: 60049
+Description: In this video, I sat down with Aaron Rehaag, a Staff Software Engineer at Google, to talk about how to become a staff software engineers. We also discussed what are the requirements to be staff software engineer.
+Check out the first half of the conversation I had with Aaron here: https://youtu.be/MXaneNPDYOU
+⭐️ Contents ⭐️
+⌨️ (0:00) Intro
+⌨️ (0:19) How to become a Staff Software Engineer?
+⌨️ (4:04)  What are the requirements for Staff Software Engineer?
+⌨️ (6:30) Advice for becoming a Staff Software Engineer
+(Disclaimer: Aaron Rehaag is a staff software engineer currently employed at Google LLC. The opinions expressed in this video are his own alone and do not necessarily represent the views of Google or any of his past employers.)
+Transcript: Not available
+
+--- Video Record 73 ---
+Title: [Design Pattern] Observer Pattern in C#
+Channel Title: Eric Tech
+Published At: 2022-02-01T17:00:42Z
+Views: 5043
+Likes: 167
+Total Comments: 2
+Duration: PT6M12S
+Duration In Seconds: 36012
+Description: In this video, I'm going to explain Observer Design Pattern and learn why the Observer Pattern is such an important design pattern. I tell you what the observer pattern is, how it works, and explain it with an example.
+Here are the content timelines:
+⭐️ Contents ⭐️
+⌨️ (0:00) Intro
+⌨️ (0:48) Problem
+⌨️ (1:10) Solution - Observer Push Style
+⌨️ (4:19) Solution - Observer Pull Style
+Code: https://github.com/Eric-programming/CodeSolution/tree/master/src/DesignPattern/ObserverPattern
+In the end, you’ll have a really good understanding on what Observer Pattern is, what problems does it solve, and when should we use this pattern.
+Transcript: Not available
+
+--- Video Record 74 ---
+Title: What does a Staff Software Engineer do? - Aaron Rehaag (Google Staff Software Engineer)
+Channel Title: Eric Tech
+Published At: 2022-01-31T03:28:21Z
+Views: 7037
+Likes: 115
+Total Comments: 4
+Duration: PT17M31S
+Duration In Seconds: 102031
+Description: In this video, I sat down with Aaron Rehaag, a Staff Software Engineer at Google, to talk about what staff software engineers do. We also discussed how staff software engineers are different compared to other software engineer roles. What are some pros and cons for being a staff software engineer, etc. 
+Check out the second half of the conversation I had with Aaron here: https://www.youtube.com/watch?v=HozTzNBstLc
+⭐️ Contents ⭐️
+⌨️ (0:00) Introduce Aaron
+⌨️ (1:19) What does a Staff Software Engineer do?
+⌨️ (4:26) Staff Software Engineer Responsibilities
+⌨️ (7:52) how Staff Software Engineer different compare to other software developer role. 
+⌨️ (12:08) Staff Software Engineer Benefits
+⌨️ (14:20) Staff Software Engineer Challenages
+(Disclaimer: Aaron Rehaag is a staff software engineer currently employed at Google LLC. The opinions expressed in this video are his own alone and do not necessarily represent the views of Google or any of his past employers.)
+Transcript: Not available
+
+--- Video Record 75 ---
+Title: [Design Pattern] Template Method Pattern
+Channel Title: Eric Tech
+Published At: 2022-01-30T17:00:25Z
+Views: 2070
+Likes: 236
+Total Comments: 0
+Duration: PT5M18S
+Duration In Seconds: 30018
+Description: In this Template Method Design Pattern Tutorial. It is an extremely easy design pattern to understand and use. With this pattern, you define a method (algorithm) in an abstract class. It contains both abstract methods and non-abstract methods. The subclasses that extend this abstract class then override those methods that don't make sense for them to use in the default way.
+Here are the content timelines:
+⭐️ Contents ⭐️
+⌨️ (0:00) Intro
+⌨️ (0:43) Problem
+⌨️ (1:53) Solution
+⌨️ (4:27) Template Method Pattern Structure
+Code: https://github.com/Eric-programming/CodeSolution/tree/master/src/DesignPattern/TemplateMethodPattern
+In the end, you’ll have a really good understanding on what Template Method Pattern is, what problems does it solve, and when should we use this pattern.
+Transcript: Not available
+
+--- Video Record 76 ---
+Title: [Design Pattern] Strategy Pattern in c#
+Channel Title: Eric Tech
+Published At: 2022-01-28T17:00:01Z
+Views: 3222
+Likes: 154
+Total Comments: 2
+Duration: PT5M34S
+Duration In Seconds: 30034
+Description: In this video, I'm going to explain Strategy Design Pattern, why the Strategy Pattern is such an important design pattern. I tell you what the strategy pattern is, how it works, and explain it with an example.
+Here are the content timelines:
+⭐️ Contents ⭐️
+⌨️ (0:00) Intro
+⌨️ (0:54) Problem
+⌨️ (2:16) Solution
+⌨️ (4:21) Strategy Pattern vs State Pattern
+Code: https://github.com/Eric-programming/CodeSolution/tree/master/src/DesignPattern/StrategyPattern
+In the end, you’ll have a really good understanding on what Strategy Pattern is, what problems does it solve, and when should we use this pattern.
+Transcript: Not available
+
+--- Video Record 77 ---
+Title: [Design Pattern] State Pattern in c#
+Channel Title: Eric Tech
+Published At: 2022-01-27T01:15:00Z
+Views: 3605
+Likes: 165
+Total Comments: 1
+Duration: PT6M50S
+Duration In Seconds: 36050
+Description: In this video, I'm going to explain State Design Pattern (behavioral design pattern) that lets an object alter its behavior when its internal state changes, and it appears as if the object changed its class.
+Here are the content timelines:
+⭐️ Contents ⭐️
+⌨️ (0:00) Intro
+⌨️ (0:44) Problem
+⌨️ (2:04) Solution
+⌨️ (5:49) When should we use this pattern
+Code: https://github.com/Eric-programming/CodeSolution/tree/master/src/DesignPattern/StatePattern
+In the end, you’ll have a really good understanding on what State Pattern is, what problems does it solve, and when should we use this pattern.
+Transcript: Not available
+
+--- Video Record 78 ---
+Title: Dependency Inversion Principle [SOLID Principles #5]
+Channel Title: Eric Tech
+Published At: 2022-01-21T04:51:58Z
+Views: 1342
+Likes: 28
+Total Comments: 0
+Duration: PT2M14S
+Duration In Seconds: 12014
+Description: In this video, I'm going to explain Dependency Inversion Principle in 2 minutes.
+Here are the content timelines:
+⭐️ Contents ⭐️
+⌨️ (0:00) Intro
+⌨️ (0:13) Problem
+⌨️ (0:54) Solution with Dependency Inversion
+Code: https://github.com/Eric-programming/CodeSolution/tree/master/src/SOLID_Principles/DependencyInversion
+In the end, you’ll have a really good understanding on what Dependency Inversion Principle is, what problems does it solve, and when should we use this pattern.
+Transcript: Not available
+
+--- Video Record 79 ---
+Title: Interface Segregation Principle [SOLID Principles #4]
+Channel Title: Eric Tech
+Published At: 2022-01-21T04:50:41Z
+Views: 1386
+Likes: 24
+Total Comments: 0
+Duration: PT2M18S
+Duration In Seconds: 12018
+Description: In this video, I'm going to explain Interface segregation principle in 2 minutes.
+Here are the content timelines:
+⭐️ Contents ⭐️
+⌨️ (0:00) Intro
+⌨️ (0:26) Problem
+⌨️ (1:02) Solution
+Code: https://github.com/Eric-programming/CodeSolution/tree/master/src/SOLID_Principles/InterfaceSegregation
+In the end, you’ll have a really good understanding on what Interface segregation principle is, what problems does it solve, and when should we use this pattern.
+Transcript: Not available
+
+--- Video Record 80 ---
+Title: Liskov Substitution Principle [SOLID Principles #3]
+Channel Title: Eric Tech
+Published At: 2022-01-21T04:44:59Z
+Views: 1441
+Likes: 31
+Total Comments: 0
+Duration: PT2M7S
+Duration In Seconds: 1207
+Description: In this video, I'm going to explain Liskov substitution principle in 2 minutes.
+Here are the content timelines:
+⭐️ Contents ⭐️
+⌨️ (0:00) Intro
+⌨️ (0:14) Problem
+⌨️ (1:21) Solution with Liskov Substitution
+Code: https://github.com/Eric-programming/CodeSolution/tree/master/src/SOLID_Principles/LiskovSubstituition
+In the end, you’ll have a really good understanding on what Liskov substitution principle is, what problems does it solve, and when should we use this pattern.
+Transcript: Not available
+
+--- Video Record 81 ---
+Title: Open-Closed Principle [SOLID Principles #2]
+Channel Title: Eric Tech
+Published At: 2022-01-21T04:28:01Z
+Views: 1469
+Likes: 35
+Total Comments: 1
+Duration: PT1M38S
+Duration In Seconds: 6038
+Description: In this video, I'm going to explain Open-Closed Principle in 2 minutes.
+Here are the content timelines:
+⭐️ Contents ⭐️
+⌨️ (0:00) Intro
+⌨️ (0:12) Problem
+⌨️ (0:49) Solution with Open-Closed Principle
+Code: https://github.com/Eric-programming/CodeSolution/tree/master/src/SOLID_Principles/OpenClosed
+As you can see, this principle allows us to add additional features without modifying the existing parent class.
+In the end, you’ll have a really good understanding on what Open-Closed Principle is, what problems does it solve, and when should we use this pattern.
+Transcript: Not available
+
+--- Video Record 82 ---
+Title: Single Responsibility [SOLID Principles #1]
+Channel Title: Eric Tech
+Published At: 2022-01-21T04:15:30Z
+Views: 1849
+Likes: 34
+Total Comments: 2
+Duration: PT1M13S
+Duration In Seconds: 6013
+Description: In this video, I'm going to explain Single Responsibility Principle in 2 minutes.
+Here are the content timelines:
+⭐️ Contents ⭐️
+⌨️ (0:00) Intro
+⌨️ (0:13) Problem
+⌨️ (0:32) Solution with Single Responsibility
+Code: https://github.com/Eric-programming/CodeSolution/tree/master/src/SOLID_Principles/SingleResponsibility
+In the end, you’ll have a really good understanding on what Single Responsibility Principle is, what problems does it solve, and when should we use this pattern.
+Transcript: Not available
+
+--- Video Record 83 ---
+Title: Create + Deploy Azure Durable Function [C# Visual Studio]
+Channel Title: Eric Tech
+Published At: 2022-01-21T01:15:01Z
+Views: 4414
+Likes: 27
+Total Comments: 1
+Duration: PT8M26S
+Duration In Seconds: 48026
+Description: In this video, I'm going to show you how to create our first Azure Durable Functions and deploy it to Azure Cloud Service.
+Here are the content timelines:
+⭐️ Contents ⭐️
+⌨️ (0:00) Intro
+⌨️ (1:01) Create Durable Function in Visual Studio
+⌨️ (3:22) Test Durable Function locally
+⌨️ (4:50) Publish the project to Azure
+⌨️ (6:56) Test Azure Function in the Azure
+⌨️ (7:48) Delete Azure Function
+Transcript: Not available
+
+--- Video Record 84 ---
+Title: Index Table Design Pattern in 7 minutes
+Channel Title: Eric Tech
+Published At: 2022-01-20T03:55:44Z
+Views: 1603
+Likes: 5
+Total Comments: 1
+Duration: PT7M50S
+Duration In Seconds: 42050
+Description: In this video, I'm going to explain Index Table Design Pattern in 7 minutes.
+Here are the content timelines:
+⭐️ Contents ⭐️
+⌨️ (0:00) What is Index Table Pattern? Why Indexes?
+⌨️ (0:43) What problems does Event Sourcing Pattern solve?
+⌨️ (1:15) Index Table Design Pattern Strategies
+⌨️ (4:15) When to use Index Table Pattern
+⌨️ (5:00) Use Index Table w/ Sharding
+In fact, I also have a whole playlist that I explain cloud design patterns (coming soon!): 
+https://youtube.com/playlist?list=PLm7xfhMOszqydV-v4NjPDB7-h7yHj0g-r
+In the end, you’ll have a really good understanding on what Index Table Design Pattern is, what problems does it solve, and when should we use this pattern.
+Transcript: Not available
+
+--- Video Record 85 ---
+Title: 6 MUST Know Patterns in Azure Durable Function
+Channel Title: Eric Tech
+Published At: 2022-01-05T06:14:48Z
+Views: 1893
+Likes: 17
+Total Comments: 3
+Duration: PT13M23S
+Duration In Seconds: 78023
+Description: In this video, I'm going to explain 6 MUST Know Patterns in Azure Durable Function.
+Here are the content timelines:
+⭐️ Contents ⭐️
+⌨️ (0:00) Intro
+⌨️ (0:10) Pattern #1 - Function Chaining
+⌨️ (1:01) Error Handling in Durable Functions
+⌨️ (3:04) Pattern #2 - Fan out/ Fan in
+⌨️ (4:23) Pattern #3 - Async HTTP API
+⌨️ (5:12) Pattern #4 - Monitor
+⌨️ (6:12) Timer in Durable Functions
+⌨️ (8:06) Set Custom Status in Durable Functions
+⌨️ (9:38) Pattern #5 - Human Interaction
+⌨️ (10:42) External Events in Durable Functions
+⌨️ (12:23) Pattern #6 - Aggregator
+Transcript: Not available
+
+--- Video Record 86 ---
+Title: Event Sourcing + CQRS Design Pattern in 5 minutes
+Channel Title: Eric Tech
+Published At: 2022-01-01T22:51:45Z
+Views: 3191
+Likes: 22
+Total Comments: 1
+Duration: PT5M58S
+Duration In Seconds: 30058
+Description: In this video, I'm going to explain Event Sourcing Design Pattern in 5 minutes.
+Here are the content timelines:
+⭐️ Contents ⭐️
+⌨️ (0:00) What is Event Sourcing Pattern?
+⌨️ (0:55) What problems does Event Sourcing Pattern solve?
+⌨️ (2:29) Issues and considerations
+⌨️ (3:45) Example of Event Sourcing Pattern
+In fact, I also have a whole playlist that I explain cloud design patterns (coming soon!): 
+https://youtube.com/playlist?list=PLm7xfhMOszqydV-v4NjPDB7-h7yHj0g-r
+In the end, you’ll have a really good understanding on what Event Sourcing Pattern is, what problems does it solve, and when should we use this pattern.
+Transcript: Not available
+
+--- Video Record 87 ---
+Title: [Personal Project] Simple Shop
+Channel Title: Eric Tech
+Published At: 2021-12-07T15:15:11Z
+Views: 2044
+Likes: 25
+Total Comments: 6
+Duration: PT9M39S
+Duration In Seconds: 54039
+Description: In this video, I showcased one of my projects that I built. This application is a simple ecommerce application to help users to browse all the products, add items to the cart, and place an order using Angular Typescript and C# ASP.NET Core. 
+💻 Code: https://github.com/Eric-programming/simple-shop
+⭐️ Course Contents ⭐️
+⌨️ (0:00) Intro
+⌨️ (0:35) App Demo
+⌨️ (5:44) API Swagger
+⌨️ (5:59) DB Relationships Diagram
+⌨️ (6:31) App Design Pattern
+⌨️ (7:46) Areas to improve
+Transcript: Not available
+
+--- Video Record 88 ---
+Title: [Personal Project] Find Fitness Classes App
+Channel Title: Eric Tech
+Published At: 2021-12-07T15:00:12Z
+Views: 1788
+Likes: 14
+Total Comments: 1
+Duration: PT16M59S
+Duration In Seconds: 96059
+Description: In this video, I showcased one of my projects that I built. This application focus on helping people to find their ideal fitness group training classes and helping fitness instructor to post their group training classes for others to join.
+💻 Code: https://github.com/Eric-programming/find-fitness-classess
+⭐️ Course Contents ⭐️
+⌨️ (0:00) Intro
+⌨️ (0:30) App Demo
+⌨️ (6:24) API Swagger
+⌨️ (6:48) DB Relationships Diagram
+⌨️ (8:06) App Architecture
+⌨️ (11:01) App CQRS Mediator Pattern
+⌨️ (14:28) Areas to improve
+Transcript: Not available
+
+--- Video Record 89 ---
+Title: React Redux Typescript Complete Tutorial
+Channel Title: Eric Tech
+Published At: 2021-11-26T17:00:29Z
+Views: 2546
+Likes: 36
+Total Comments: 0
+Duration: PT11M33S
+Duration In Seconds: 66033
+Description: In this video, we are going to take a look at how we can use redux in react web app and how to use chrome dev tools to see our redux state. 
+Code: https://github.com/Eric-programming/Redux-tutorial/tree/main/2-Redux-with-react
+Transcript: Not available
+
+--- Video Record 90 ---
+Title: Redux Tutorial from Scratch with Node.ts
+Channel Title: Eric Tech
+Published At: 2021-11-25T17:00:42Z
+Views: 1235
+Likes: 22
+Total Comments: 0
+Duration: PT11M40S
+Duration In Seconds: 66040
+Description: In this video, we are going to take a look at how redux works (which is a state management library) and how we can use redux in a simple console application.
+Code: https://github.com/Eric-programming/Redux-tutorial/tree/main/1-Redux-Basics
+#redux #reduxnodejs
+Transcript: Not available
+
+--- Video Record 91 ---
+Title: Redis Tutorial - Implement Redis in Node.js/Express.js server
+Channel Title: Eric Tech
+Published At: 2021-11-24T17:00:26Z
+Views: 40458
+Likes: 319
+Total Comments: 14
+Duration: PT8M16S
+Duration In Seconds: 48016
+Description: In this video, we are going to take a look at how we can implement Redis in Node.js/Express.js server
+Transcript: Not available
+
+--- Video Record 92 ---
+Title: Redis Tutorial - List, Set, and Dictionary
+Channel Title: Eric Tech
+Published At: 2021-11-23T17:00:41Z
+Views: 2101
+Likes: 12
+Total Comments: 2
+Duration: PT8M45S
+Duration In Seconds: 48045
+Description: Redis is the most popular caching tool. It powers a huge portion of the web so it is important to understand how it works. In this video I will be covering how to use list, set, dictionary Redis Data Types in Command Line Interface.
+⭐️ Course Contents ⭐️
+⌨️ (0:00) List
+⌨️ (3:18) Set
+⌨️ (5:56) Dictionary
+#redis #datatypes #cache
+Transcript: Not available
+
+--- Video Record 93 ---
+Title: Redis Tutorial - Set Expiration on Key-Value Pair
+Channel Title: Eric Tech
+Published At: 2021-11-22T17:00:33Z
+Views: 3378
+Likes: 32
+Total Comments: 1
+Duration: PT2M43S
+Duration In Seconds: 12043
+Description: Redis is the most popular caching tool. It powers a huge portion of the web so it is important to understand how it works. In this video I will be covering how to Set Expiration on a key-value pair in Redis command line interface.
+#redis #expiry #cache
+Transcript: Not available
+
+--- Video Record 94 ---
+Title: Redis Tutorial - SET, GET, DEL Key-Value Pair Commands
+Channel Title: Eric Tech
+Published At: 2021-11-21T17:00:21Z
+Views: 2865
+Likes: 18
+Total Comments: 1
+Duration: PT3M21S
+Duration In Seconds: 18021
+Description: Redis is the most popular caching tool. It powers a huge portion of the web so it is important to understand how it works. In this video I will be covering how to SET, GET, DEL key-value pairs in Redis command line interface.
+Transcript: Not available
