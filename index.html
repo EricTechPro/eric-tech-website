@@ -22,52 +22,75 @@
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      /* Core brand colors */
-      --cyan-light: #CFF0FA;
-      --cyan-bright: #8CE4FF;
-      --cyan-deep: #36D0FF;
+      /* Core brand colors - Modern Enterprise Theme */
+      --navy-950: #020617;
+      --navy-900: #0f172a;
+      --slate-800: #1e293b;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-400: #94a3b8;
+      --slate-300: #cbd5e1;
+      --slate-100: #f1f5f9;
+
+      /* Accent Colors */
+      --blue-500: #3b82f6;
+      --blue-600: #2563eb;
+      --indigo-500: #6366f1;
+      --indigo-600: #4f46e5;
+      --teal-400: #2dd4bf;
+      --teal-500: #14b8a6;
+
+      --white: #ffffff;
 
       /* Theme colors */
-      --primary: var(--cyan-deep);
-      --secondary: var(--cyan-bright);
-      --background: #FFFFFF;
-      --text: #1A1A1A;
-      --text-light: #2D2D2D;
-      --text-lighter: #404040;
-      --card-bg: var(--cyan-light);
-      --card-bg-dark: #FFFFFF;
-      --nav-bg: rgba(255, 255, 255, 0.95);
-      --nav-bg-dark: rgba(26, 26, 26, 0.95);
-      --button-text: #FFFFFF;
-      --input-bg: #FFFFFF;
-      --input-text: #1A1A1A;
-      --input-border: var(--cyan-bright);
+      --primary: var(--blue-500);
+      --primary-glow: rgba(59, 130, 246, 0.5);
+      --secondary: var(--slate-100);
+      --accent: var(--teal-400);
+
+      --background: var(--navy-950);
+      --surface: rgba(30, 41, 59, 0.7);
+      /* Glassmorphism base */
+      --surface-border: rgba(148, 163, 184, 0.1);
+
+      --text: var(--white);
+      --text-muted: var(--slate-400);
+      --text-light: var(--slate-300);
+
+      --nav-bg: rgba(2, 6, 23, 0.8);
+      --border: var(--slate-800);
     }
 
-    [data-theme='dark'] {
-      --background: #1A1A1A;
-      --text: #FFFFFF;
-      --text-light: #E6E6E6;
-      --text-lighter: #CCCCCC;
-      --card-bg: #2D2D2D;
-      --card-bg-dark: #404040;
-      --nav-bg: rgba(26, 26, 26, 0.95);
-      --nav-bg-dark: rgba(45, 45, 45, 0.95);
-      --input-bg: #2D2D2D;
-      --input-text: #FFFFFF;
-      --input-border: var(--cyan-deep);
+    [data-theme='light'] {
+      --background: #f8fafc;
+      --surface: rgba(255, 255, 255, 0.8);
+      --surface-border: rgba(226, 232, 240, 0.8);
+      --text: var(--navy-900);
+      --text-muted: var(--slate-600);
+      --text-light: var(--slate-700);
+      --nav-bg: rgba(255, 255, 255, 0.9);
+      --border: var(--slate-300);
+      --primary: var(--blue-600);
+      --primary-glow: rgba(37, 99, 235, 0.3);
     }
 
     body {
       background-color: var(--background);
       color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       transition: background-color 0.3s ease, color 0.3s ease;
+      background-image:
+        radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(45, 212, 191, 0.08) 0%, transparent 25%);
+      background-attachment: fixed;
     }
 
     .section {
-      padding: 4rem 2rem;
+      padding: 6rem 2rem;
+      position: relative;
     }
 
     .container {
@@ -75,70 +98,118 @@
       margin: 0 auto;
     }
 
-    /* High contrast text utilities */
-    .text-high-contrast {
-      color: var(--text);
+    /* Glassmorphism Utilities */
+    .glass-panel {
+      background: var(--surface);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--surface-border);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
     }
 
-    .text-medium-contrast {
-      color: var(--text-light);
+    /* Typography */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      letter-spacing: -0.025em;
     }
 
-    .text-low-contrast {
-      color: var(--text-lighter);
+    .text-gradient {
+      background: linear-gradient(135deg, var(--white) 0%, var(--slate-400) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-    /* Card backgrounds */
-    .card-bg {
-      background-color: var(--card-bg);
+    [data-theme='light'] .text-gradient {
+      background: linear-gradient(135deg, var(--navy-900) 0%, var(--blue-600) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-    .card-bg-dark {
-      background-color: var(--card-bg-dark);
+    .text-gradient-primary {
+      background: linear-gradient(135deg, var(--blue-500) 0%, var(--teal-400) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-    /* Button styles with better contrast */
+    /* Buttons */
     .btn-primary {
-      background-color: var(--cyan-deep);
-      color: var(--button-text);
+      background: linear-gradient(135deg, var(--blue-600) 0%, var(--indigo-600) 100%);
+      color: #ffffff;
       font-weight: 600;
-      border: 2px solid var(--cyan-deep);
+      border: none;
+      box-shadow: 0 4px 14px 0 rgba(79, 70, 229, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, var(--indigo-600) 0%, var(--blue-600) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px 0 rgba(79, 70, 229, 0.6);
+    }
+
+    .btn-primary:hover::before {
+      opacity: 1;
+    }
+
+    .btn-primary span,
+    .btn-primary i {
+      position: relative;
+      z-index: 1;
     }
 
     .btn-secondary {
-      background-color: var(--cyan-bright);
-      color: #1A1A1A;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      color: var(--text);
       font-weight: 600;
-      border: 2px solid var(--cyan-bright);
+      border: 1px solid var(--surface-border);
+      transition: all 0.3s ease;
     }
 
-    .btn-primary:hover,
+    [data-theme='light'] .btn-secondary {
+      background: rgba(0, 0, 0, 0.05);
+      color: var(--navy-900);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
     .btn-secondary:hover {
-      opacity: 0.9;
-      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
     }
 
-    /* Form inputs */
-    .input-field {
-      background-color: var(--input-bg);
-      color: var(--input-text);
-      border: 2px solid var(--input-border);
-    }
-
-    .input-field:focus {
-      border-color: var(--cyan-deep);
-      outline: none;
-      box-shadow: 0 0 0 2px rgba(54, 208, 255, 0.2);
+    [data-theme='light'] .btn-secondary:hover {
+      background: rgba(0, 0, 0, 0.1);
     }
 
     /* Links */
     .link-primary {
-      color: var(--cyan-deep);
+      color: var(--primary);
       font-weight: 500;
+      transition: color 0.2s;
     }
 
     .link-primary:hover {
-      color: var(--cyan-bright);
+      color: var(--accent);
+      text-decoration: none;
     }
   </style>
   <style>
@@ -226,15 +297,771 @@
 <body>
   <script src="https://app.trickle.so/storage/trickle.js"></script>
   <div id="root"></div>
-  <script>function Navbar() { const [isMenuOpen, setIsMenuOpen] = React.useState(false); try { return React.createElement("nav", { "data-name": "navbar", className: "fixed w-full top-0 bg-opacity-90 backdrop-blur-sm z-50", style: { backgroundColor: "var(--nav-bg)" } }, React.createElement("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" }, React.createElement("div", { className: "flex items-center justify-between h-16" }, React.createElement("div", { className: "flex items-center" }, React.createElement("span", { "data-name": "logo", className: "text-xl font-bold", style: { color: "var(--primary)" } }, "EricTech")), React.createElement("div", { className: "hidden md:block" }, React.createElement("div", { className: "ml-10 flex items-baseline space-x-4" }, React.createElement("a", { href: "#home", "data-name": "nav-home", className: "text-high-contrast hover:text-primary px-3 py-2" }, "Home"), React.createElement("a", { href: "#expertise", "data-name": "nav-expertise", className: "text-high-contrast hover:text-primary px-3 py-2" }, "Expertise"), React.createElement("a", { href: "#projects", "data-name": "nav-projects", className: "text-high-contrast hover:text-primary px-3 py-2" }, "Projects"), React.createElement("a", { href: "#contact", "data-name": "nav-contact", className: "text-high-contrast hover:text-primary px-3 py-2" }, "Contact"))), React.createElement("div", { className: "md:hidden" }, React.createElement("button", { "data-name": "mobile-menu-button", onClick: () => setIsMenuOpen(!isMenuOpen), className: "inline-flex items-center justify-center p-2 rounded-md text-high-contrast hover:text-primary focus:outline-none" }, React.createElement("i", { className: `fas ${isMenuOpen ? "fa-times" : "fa-bars"}` }))))), isMenuOpen && React.createElement("div", { "data-name": "mobile-menu", className: "md:hidden card-bg" }, React.createElement("div", { className: "px-2 pt-2 pb-3 space-y-1 sm:px-3" }, React.createElement("a", { href: "#home", className: "block px-3 py-2 text-high-contrast hover:text-primary" }, "Home"), React.createElement("a", { href: "#expertise", className: "block px-3 py-2 text-high-contrast hover:text-primary" }, "Expertise"), React.createElement("a", { href: "#projects", className: "block px-3 py-2 text-high-contrast hover:text-primary" }, "Projects"), React.createElement("a", { href: "#contact", className: "block px-3 py-2 text-high-contrast hover:text-primary" }, "Contact")))) } catch (error) { reportError(error); return null } }</script>
-  <script>function Hero() { try { return React.createElement("section", { "data-name": "hero-section", id: "home", className: "section pt-24 min-h-screen flex items-center relative overflow-hidden" }, React.createElement("div", { className: "absolute inset-0 bg-gradient-to-r from-cyan-light to-cyan-bright opacity-20" }), React.createElement("div", { className: "container mx-auto px-4 relative z-10" }, React.createElement("div", { className: "max-w-3xl mx-auto text-center" }, React.createElement("div", { className: "mb-8 flex justify-center" }, React.createElement("img", { src: "https://app.trickle.so/storage/public/images/usr_0c9971ea40000001/4a19b60b-1c03-4123-91d2-d79cf7a7461b.png", alt: "Eric Tech Profile", className: "w-48 h-48 object-cover rounded-lg shadow-lg border-4", style: { borderColor: "var(--cyan-deep)" } })), React.createElement("h1", { "data-name": "hero-title", className: "text-4xl md:text-6xl font-bold mb-6 text-high-contrast fade-in" }, "Hi, I'm Eric", React.createElement("span", { className: "block", style: { color: "var(--cyan-deep)" } }, "Software Engineer & Tech Educator")), React.createElement("p", { "data-name": "hero-description", className: "text-xl md:text-2xl mb-8 text-medium-contrast slide-up" }, "Specializing in AI, Full-stack Development, Web3, and Career Growth"), React.createElement("div", { "data-name": "hero-cta", className: "flex flex-col sm:flex-row justify-center gap-4" }, React.createElement("a", { href: "#contact", className: "btn-primary px-8 py-3 rounded-lg transition-all hover-scale" }, "Let's connect! 🚀"))))) } catch (error) { reportError(error); return null } }</script>
-  <script>function ExpertiseSection() { const expertise = [{ title: "Full Stack Development", icon: "fa-code", youtubeUrl: "https://www.youtube.com/@EricWTech/featured" }, { title: "Blockchain Development", icon: "fa-link", youtubeUrl: "https://www.youtube.com/playlist?list=PLm7xfhMOszqwqvw0u-MU6ZZSMk4HEoVae" }, { title: "AI Automation", icon: "fa-robot", youtubeUrl: "https://www.youtube.com/playlist?list=PLm7xfhMOszqxLHdQxGZ_MYHevl6mBWuVL" }, { title: "Computer Science", icon: "fa-laptop-code", youtubeUrl: "https://www.youtube.com/@EricProgramming" }, { title: "Personal Projects", icon: "fa-project-diagram", youtubeUrl: "https://www.youtube.com/playlist?list=PLm7xfhMOszqwJQ42rLv53O1ONrd8A1avs" }, { title: "Tech Career Growth", icon: "fa-chart-line", youtubeUrl: "https://www.youtube.com/playlist?list=PLm7xfhMOszqy_PgIflEinGcDWI0ZTwr82" }]; try { return React.createElement("section", { "data-name": "expertise-section", id: "expertise", className: "section", style: { backgroundColor: "var(--cyan-light)" } }, React.createElement("div", { className: "container" }, React.createElement("h2", { "data-name": "expertise-title", className: "text-4xl font-bold text-center mb-12", style: { color: "var(--text)" } }, "My Expertise"), React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" }, expertise.map((item, index) => React.createElement("div", { key: index, "data-name": `expertise-card-${index}`, className: "card-bg-dark rounded-lg p-6 shadow-lg hover-scale" }, React.createElement("div", { className: "text-4xl mb-4", style: { color: "var(--cyan-deep)" } }, React.createElement("i", { className: `fas ${item.icon}` })), React.createElement("h3", { className: "text-xl font-semibold mb-4 text-high-contrast" }, item.title), React.createElement("a", { href: item.youtubeUrl, target: "_blank", className: "link-primary inline-flex items-center" }, React.createElement("span", null, "Watch Tutorials"), React.createElement("i", { className: "fas fa-arrow-right ml-2" }))))))) } catch (error) { reportError(error); return null } }</script>
-  <script>function ProjectsSection() { const projects = [{ title: "Find Fitness Classes", description: "App for people to find their ideal fitness classess", image: "https://app.trickle.so/storage/public/images/usr_0c9971ea40000001/8885d859-3839-4604-b075-d5a772dd42fd.jpeg", demoUrl: "https://github.com/Eric-programming/Find-Fitness-Classess" }, { title: "Simple Shop", description: "A Online E-commerce Shop built with Angular, Typescript, C#, .Net Core", image: "https://app.trickle.so/storage/public/images/usr_0c9971ea40000001/91a08771-9de9-4875-ad56-fccaa4f228bb.jpeg", demoUrl: "https://github.com/Eric-programming/Simple-Shop" }, { title: "Match Me", description: "A Dating App built with Next.js 14, Prisma, NextAuth, Pusher, and Cloudinary", image: "https://app.trickle.so/storage/public/images/usr_0c9971ea40000001/87fc50c2-2d09-4233-9fb3-82165ae358f7.png", demoUrl: "https://github.com/EricTechPro/match-me" }]; try { return React.createElement("section", { "data-name": "projects-section", id: "projects", className: "section" }, React.createElement("div", { className: "container" }, React.createElement("h2", { "data-name": "projects-title", className: "text-4xl font-bold text-center mb-12", style: { color: "var(--text)" } }, "Personal Projects"), React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" }, projects.map((project, index) => React.createElement("div", { key: index, "data-name": `project-card-${index}`, className: "group relative overflow-hidden rounded-lg shadow-lg hover-scale transition-all duration-300", style: { backgroundColor: "var(--card-bg)" } }, React.createElement("div", { className: "aspect-video relative overflow-hidden" }, React.createElement("img", { src: project.image, alt: project.title, className: "w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" }), React.createElement("div", { className: "absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center" }, React.createElement("button", { className: "btn-primary px-6 py-2 rounded-lg transform -translate-y-4 group-hover:translate-y-0 transition-transform duration-300", onClick: () => window.open(project.demoUrl, "_blank") }, "View Demo"))), React.createElement("div", { className: "p-6" }, React.createElement("h3", { className: "text-xl font-semibold mb-2 text-high-contrast" }, project.title), React.createElement("p", { className: "text-medium-contrast" }, project.description))))))) } catch (error) { reportError(error); return null } }</script>
-  <script>function ConsultationForm() { try { return React.createElement("section", { "data-name": "contact-section", id: "contact", className: "section", style: { backgroundColor: "var(--cyan-light)" } }, React.createElement("div", { className: "container max-w-4xl" }, React.createElement("h2", { "data-name": "contact-title", className: "text-4xl font-bold text-center mb-12", style: { color: "var(--text)" } }, "Get in Touch"), React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-8" }, React.createElement("div", { className: "p-6 rounded-lg hover-scale transition-all", style: { backgroundColor: "var(--card-bg-dark)" } }, React.createElement("div", { className: "text-4xl mb-4 text-center", style: { color: "var(--cyan-deep)" } }, React.createElement("i", { className: "fas fa-phone-alt" })), React.createElement("h3", { className: "text-xl font-bold text-center mb-4 text-high-contrast" }, "Free 15-min Call"), React.createElement("p", { className: "text-center mb-6 text-medium-contrast" }, "Quick chat on Career & Business Opportunities"), React.createElement("a", { href: "https://calendar.app.google/FmoWxnq7kCd1qsUv7", "data-name": "free-call-button", className: "btn-primary block p-4 rounded-lg text-center transition-all w-full" }, "Schedule Free Call")), React.createElement("div", { className: "p-6 rounded-lg hover-scale transition-all", style: { backgroundColor: "var(--card-bg-dark)" } }, React.createElement("div", { className: "text-4xl mb-4 text-center", style: { color: "var(--cyan-deep)" } }, React.createElement("i", { className: "fas fa-video" })), React.createElement("h3", { className: "text-xl font-bold text-center mb-4 text-high-contrast" }, "1-Hour Consultation"), React.createElement("p", { className: "text-center mb-6 text-medium-contrast" }, "Deep dive into technical challenges and solutions"), React.createElement("a", { href: "https://calendar.app.google/CqyLrraYXexRJAQj6", target: "_blank", "data-name": "paid-consultation-button", className: "btn-secondary block p-4 rounded-lg text-center transition-all w-full" }, "Book Paid Consultation"))))) } catch (error) { reportError(error); return null } }</script>
-  <script>function Footer() { const socialLinks = [{ icon: "fab fa-youtube", url: "https://www.youtube.com/@EricWTech", label: "YouTube" }, { icon: "fab fa-linkedin", url: "https://www.linkedin.com/in/ericwtech/", label: "LinkedIn" }, { icon: "fab fa-github", url: "https://github.com/erictechpro", label: "GitHub" }, { icon: "fas fa-file-alt", url: "https://drive.google.com/file/d/1uivQkO56-ptQ3qMz955_yJ8cVS6Ejcdl/view?usp=sharing", label: "CV" }]; try { return React.createElement("footer", { "data-name": "footer", className: "bg-gray-900 py-8" }, React.createElement("div", { className: "container" }, React.createElement("div", { className: "text-center mb-6" }, React.createElement("h2", { "data-name": "footer-title", className: "text-2xl font-bold mb-4 text-white" }, "Connect With Me"), React.createElement("div", { className: "flex justify-center space-x-6" }, socialLinks.map((link, index) => React.createElement("a", { key: index, href: link.url, target: "_blank", "data-name": `social-link-${link.label.toLowerCase()}`, className: "text-2xl text-white hover:text-cyan-bright transition-colors", "aria-label": link.label }, React.createElement("i", { className: link.icon }))))), React.createElement("div", { className: "text-center text-sm text-gray-400" }, React.createElement("p", { "data-name": "copyright" }, "\xA9 ", new Date().getFullYear(), " EricTech. All rights reserved.")))) } catch (error) { reportError(error); return null } }</script>
-  <script>function ThemeToggle() { const [isDark, setIsDark] = React.useState(false); React.useEffect(() => { const isDarkMode = localStorage.getItem("theme") === "dark"; setIsDark(isDarkMode); document.documentElement.setAttribute("data-theme", isDarkMode ? "dark" : "light") }, []); const toggleTheme = () => { try { const newTheme = isDark ? "light" : "dark"; setIsDark(!isDark); localStorage.setItem("theme", newTheme); document.documentElement.setAttribute("data-theme", newTheme) } catch (error) { reportError(error) } }; return React.createElement("button", { "data-name": "theme-toggle", onClick: toggleTheme, className: "fixed bottom-4 right-4 p-4 rounded-full shadow-lg z-50 transition-all hover:scale-110", style: { backgroundColor: isDark ? "var(--cyan-bright)" : "var(--cyan-deep)", color: isDark ? "#1A1A1A" : "#FFFFFF", border: `2px solid ${isDark ? "var(--cyan-deep)" : "var(--cyan-bright)"}` } }, React.createElement("i", { className: `fas ${isDark ? "fa-sun" : "fa-moon"} text-xl` })) }</script>
+  <script>
+    function Navbar() {
+      const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+      const [scrolled, setScrolled] = React.useState(false);
+
+      React.useEffect(() => {
+        const handleScroll = () => {
+          setScrolled(window.scrollY > 20);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+      }, []);
+
+      try {
+        return React.createElement("nav", {
+          "data-name": "navbar",
+          className: `fixed w-full top-0 z-50 transition-all duration-300 ${scrolled ? 'glass-panel border-b' : 'bg-transparent'}`,
+          style: {
+            borderColor: scrolled ? "var(--surface-border)" : "transparent"
+          }
+        }, React.createElement("div", {
+          className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        }, React.createElement("div", {
+          className: "flex items-center justify-between h-20"
+        }, React.createElement("div", {
+          className: "flex items-center"
+        }, React.createElement("span", {
+          "data-name": "logo",
+          className: "text-2xl font-bold tracking-tight",
+          style: {
+            color: "var(--text)"
+          }
+        }, "EricTech")), React.createElement("div", {
+          className: "hidden md:block"
+        }, React.createElement("div", {
+          className: "ml-10 flex items-baseline space-x-8"
+        }, React.createElement("a", {
+          href: "#home",
+          "data-name": "nav-home",
+          className: "text-sm font-medium transition-colors hover:text-blue-500",
+          style: {
+            color: "var(--text-muted)"
+          }
+        }, "Home"), React.createElement("a", {
+          href: "#capabilities",
+          "data-name": "nav-capabilities",
+          className: "text-sm font-medium transition-colors hover:text-blue-500",
+          style: {
+            color: "var(--text-muted)"
+          }
+        }, "Specialties"), React.createElement("a", {
+          href: "#projects",
+          "data-name": "nav-projects",
+          className: "text-sm font-medium transition-colors hover:text-blue-500",
+          style: {
+            color: "var(--text-muted)"
+          }
+        }, "Projects"), React.createElement("a", {
+          href: "#contact",
+          "data-name": "nav-contact",
+          className: "text-sm font-medium transition-colors hover:text-blue-500",
+          style: {
+            color: "var(--text-muted)"
+          }
+        }, "Contact"))), React.createElement("div", {
+          className: "md:hidden"
+        }, React.createElement("button", {
+          "data-name": "mobile-menu-button",
+          onClick: () => setIsMenuOpen(!isMenuOpen),
+          className: "inline-flex items-center justify-center p-2 rounded-md hover:text-blue-500 focus:outline-none",
+          style: {
+            color: "var(--text)"
+          }
+        }, React.createElement("i", {
+          className: `fas ${isMenuOpen ? "fa-times" : "fa-bars"}`
+        }))))), isMenuOpen && React.createElement("div", {
+          "data-name": "mobile-menu",
+          className: "md:hidden glass-panel border-b",
+          style: {
+            borderColor: "var(--surface-border)"
+          }
+        }, React.createElement("div", {
+          className: "px-2 pt-2 pb-3 space-y-1 sm:px-3"
+        }, React.createElement("a", {
+          href: "#home",
+          className: "block px-3 py-2 text-base font-medium hover:text-blue-500 rounded-md",
+          style: {
+            color: "var(--text)"
+          }
+        }, "Home"), React.createElement("a", {
+          href: "#capabilities",
+          className: "block px-3 py-2 text-base font-medium hover:text-blue-500 rounded-md",
+          style: {
+            color: "var(--text)"
+          }
+        }, "Specialties"), React.createElement("a", {
+          href: "#projects",
+          className: "block px-3 py-2 text-base font-medium hover:text-blue-500 rounded-md",
+          style: {
+            color: "var(--text)"
+          }
+        }, "Projects"), React.createElement("a", {
+          href: "#contact",
+          className: "block px-3 py-2 text-base font-medium hover:text-blue-500 rounded-md",
+          style: {
+            color: "var(--text)"
+          }
+        }, "Contact"))))
+      } catch (error) {
+        reportError(error);
+        return null
+      }
+    }
+  </script>
+  <script>
+    function Hero() {
+      try {
+        return React.createElement("section", {
+          "data-name": "hero-section",
+          id: "home",
+          className: "section pt-40 min-h-screen flex items-center relative overflow-hidden"
+        }, React.createElement("div", {
+          className: "absolute inset-0 z-0"
+        }, React.createElement("div", {
+          className: "absolute top-20 left-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob"
+        }), React.createElement("div", {
+          className: "absolute top-20 right-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000"
+        }), React.createElement("div", {
+          className: "absolute -bottom-8 left-20 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-4000"
+        })), React.createElement("div", {
+          className: "container mx-auto px-4 relative z-10"
+        }, React.createElement("div", {
+          className: "max-w-5xl mx-auto text-center"
+        }, React.createElement("div", {
+          className: "mb-8 flex justify-center"
+        }, React.createElement("div", {
+          className: "relative"
+        }, React.createElement("div", {
+          className: "absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full blur opacity-50"
+        }), React.createElement("img", {
+          src: "https://drive.google.com/thumbnail?id=1Fh3iMF5CoxsoDvDHOUl-HEDXsAJG_lRq&sz=w500",
+          alt: "Eric Tech Profile",
+          className: "w-32 h-32 object-cover rounded-full shadow-2xl border-4 relative z-10",
+          style: {
+            borderColor: "var(--surface-border)"
+          }
+        }))), React.createElement("h1", {
+          "data-name": "hero-title",
+          className: "text-6xl md:text-8xl font-bold mb-8 fade-in tracking-tight leading-tight",
+          style: {
+            color: "var(--text)"
+          }
+        }, "Automate Operations.", React.createElement("span", {
+          className: "block mt-2 text-gradient-primary"
+        }, "Scale Infrastructure.")), React.createElement("p", {
+          "data-name": "hero-description",
+          className: "text-xl md:text-2xl mb-12 slide-up max-w-3xl mx-auto leading-relaxed font-light",
+          style: {
+            color: "var(--text-muted)"
+          }
+        }, "Bridging the gap between Enterprise Rigor and Startup Speed. Architectural discipline of AWS/Microsoft for growing startups\u2014without the red tape."), React.createElement("div", {
+          "data-name": "hero-cta",
+          className: "flex flex-col sm:flex-row justify-center gap-6"
+        }, React.createElement("a", {
+          href: "https://calendar.app.google/sB9KrJP6e8j3EPmd9",
+          target: "_blank",
+          className: "btn-primary px-8 py-4 rounded-full transition-all hover-scale text-lg flex items-center justify-center gap-2"
+        }, React.createElement("span", null, "Book Strategy Call"), React.createElement("i", {
+          className: "fas fa-arrow-right text-sm"
+        })), React.createElement("a", {
+          href: "https://discord.com/invite/erictech",
+          target: "_blank",
+          className: "btn-secondary px-8 py-4 rounded-full transition-all hover-scale text-lg flex items-center justify-center gap-2"
+        }, React.createElement("i", {
+          className: "fab fa-discord"
+        }), "Join Community")))))
+      } catch (error) {
+        reportError(error);
+        return null
+      }
+    }
+  </script>
+  <script>
+    function SocialProof() {
+      try {
+        return React.createElement("section", {
+          "data-name": "social-proof",
+          className: "py-10 border-y relative overflow-hidden",
+          style: {
+            backgroundColor: "var(--background)",
+            borderColor: "var(--surface-border)"
+          }
+        }, React.createElement("div", {
+          className: "container mx-auto px-4"
+        }, React.createElement("p", {
+          className: "text-center text-sm font-semibold uppercase tracking-widest mb-8",
+          style: {
+            color: "var(--text-muted)"
+          }
+        }, "Trusted Experience From"), React.createElement("div", {
+          className: "flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-80"
+        }, React.createElement("div", {
+          className: "flex items-center gap-3 text-2xl font-bold grayscale hover:grayscale-0 transition-all duration-300",
+          style: {
+            color: "var(--text-light)"
+          }
+        }, React.createElement("i", {
+          className: "fab fa-microsoft text-3xl"
+        }), React.createElement("span", null, "Microsoft")), React.createElement("div", {
+          className: "flex items-center gap-3 text-2xl font-bold grayscale hover:grayscale-0 transition-all duration-300",
+          style: {
+            color: "var(--text-light)"
+          }
+        }, React.createElement("i", {
+          className: "fab fa-aws text-3xl"
+        }), React.createElement("span", null, "Amazon")), React.createElement("div", {
+          className: "px-6 py-2 rounded-full glass-panel border border-blue-500/30"
+        }, React.createElement("span", {
+          className: "text-sm font-semibold text-gradient-primary"
+        }, "20,000+ Developers Educated")))))
+      } catch (error) {
+        reportError(error);
+        return null
+      }
+    }
+  </script>
+  <script>
+    function CoreSpecialtiesSection() {
+      const specialties = [{
+        title: "AI Automation & Integration",
+        link: "https://www.youtube.com/playlist?list=PLm7xfhMOszqx2-GdKkQuBCxI9qRY_-au5",
+        icon: "fa-robot"
+      }, {
+        title: "Full-Stack Development",
+        link: "https://www.youtube.com/playlist?list=PLm7xfhMOszqwNiN8Uy0hBtKJyKcSDNIeZ",
+        icon: "fa-code"
+      }, {
+        title: "Cloud Solutions (AWS)",
+        link: "https://www.youtube.com/playlist?list=PLm7xfhMOszqwV1CXNC0iT0f3M2A3Q3Ngv",
+        icon: "fa-cloud"
+      }, {
+        title: "Blockchain & Web3 Consulting",
+        link: "https://www.youtube.com/playlist?list=PLm7xfhMOszqwqvw0u-MU6ZZSMk4HEoVae",
+        icon: "fa-link"
+      }, {
+        title: "System Design & Architecture",
+        link: "https://www.youtube.com/playlist?list=PLm7xfhMOszqz0WM_18EireAYA1mHShDbU",
+        icon: "fa-project-diagram"
+      }, {
+        title: "Tech Leadership & Strategy",
+        link: "https://www.youtube.com/playlist?list=PLm7xfhMOszqy_PgIflEinGcDWI0ZTwr82",
+        icon: "fa-chart-line"
+      }];
+
+      try {
+        return React.createElement("section", {
+          "data-name": "core-specialties-section",
+          id: "specialties",
+          className: "section"
+        }, React.createElement("div", {
+          className: "container"
+        }, React.createElement("h2", {
+          "data-name": "specialties-title",
+          className: "text-4xl md:text-5xl font-bold text-center mb-16",
+          style: {
+            color: "var(--text)"
+          }
+        }, "Core Specialties"), React.createElement("div", {
+          className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        }, specialties.map((spec, index) => React.createElement("a", {
+          key: index,
+          href: spec.link,
+          target: "_blank",
+          rel: "noopener noreferrer",
+          "data-name": `specialty-card-${index}`,
+          className: "block p-8 rounded-2xl glass-panel hover-scale transition-all duration-300 group",
+          "aria-label": `View ${spec.title} playlist`,
+          style: {
+            textDecoration: "none"
+          }
+        }, React.createElement("div", {
+          className: "text-4xl mb-6 w-16 h-16 rounded-xl flex items-center justify-center bg-cyan-500/10 group-hover:bg-cyan-500/20 transition-colors",
+          style: {
+            color: "var(--teal-400)"
+          }
+        }, React.createElement("i", {
+          className: `fas ${spec.icon}`
+        })), React.createElement("h3", {
+          className: "text-xl font-bold mb-4",
+          style: {
+            color: "var(--text)"
+          }
+        }, spec.title), React.createElement("span", {
+          className: "inline-flex items-center font-semibold transition-transform group-hover:translate-x-1",
+          style: {
+            color: "var(--primary)"
+          }
+        }, "View Playlist", React.createElement("i", {
+          className: "fas fa-arrow-right ml-2"
+        })))))))
+      } catch (error) {
+        reportError(error);
+        return null
+      }
+    }
+  </script>
+  <script>
+    function ProjectsSection() {
+      const projects = [{
+        title: "Match Me App",
+        description: "A full-stack dating application built with Next.js 14, Prisma, NextAuth, Pusher, and Cloudinary. Features real-time messaging and photo uploads.",
+        techStack: ["Next.js 14", "Prisma", "NextAuth", "Pusher", "PostgreSQL"],
+        thumbnail: "https://drive.google.com/thumbnail?id=17Tnz0dBOlxwIVJkglDaimTUediVGqrLU&sz=w1000",
+        videoUrl: "https://youtu.be/HqlJjX9uIuk?si=PR0nxEe637BZpOjm",
+        icon: "fa-heart"
+      }, {
+        title: "Simple Shop",
+        description: "Simple online shop built with C# ASP.NET Core and Angular TypeScript. Features product management, shopping cart, and secure checkout.",
+        techStack: ["ASP.NET Core", "Angular", "TypeScript", "C#", "SQL"],
+        thumbnail: "https://drive.google.com/thumbnail?id=1WFA-MhAe4kxsmvZzh2IvL4SKWKV5fq8f&sz=w1000",
+        videoUrl: "https://youtu.be/TJIhw7Ci5a8?si=HHQnXN6g32lDttni",
+        icon: "fa-shopping-bag"
+      }, {
+        title: "Find Fitness Classes",
+        description: "App for people to find their ideal fitness classes. Built with C# ASP.NET Core, React TypeScript, and SQLite with clean architecture.",
+        techStack: ["ASP.NET Core", "React", "TypeScript", "SQLite", "Cloudinary"],
+        thumbnail: "https://drive.google.com/thumbnail?id=1lvV9iB8ckzOzVN9UNgyRrw8IDJ8h2BPV&sz=w1000",
+        videoUrl: "https://youtu.be/R59OMmUBdM8?si=UyxcEVjL-qP6OLfd",
+        icon: "fa-dumbbell"
+      }];
+
+      try {
+        return React.createElement("section", {
+          "data-name": "projects-section",
+          id: "projects",
+          className: "section relative overflow-hidden"
+        }, React.createElement("div", {
+          className: "absolute inset-0 bg-gradient-to-b from-blue-900/5 to-transparent pointer-events-none"
+        }), React.createElement("div", {
+          className: "container relative z-10"
+        }, React.createElement("h2", {
+          "data-name": "projects-title",
+          className: "text-4xl md:text-5xl font-bold text-center mb-6",
+          style: {
+            color: "var(--text)"
+          }
+        }, "Featured Projects"), React.createElement("p", {
+          className: "text-center text-xl mb-16 max-w-2xl mx-auto",
+          style: {
+            color: "var(--text-muted)"
+          }
+        }, "Watch video demonstrations of full-stack applications I've built from the ground up."), React.createElement("div", {
+          className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        }, projects.map((project, index) => React.createElement("a", {
+          key: index,
+          href: project.videoUrl,
+          target: "_blank",
+          rel: "noopener noreferrer",
+          "data-name": `project-card-${index}`,
+          className: "group block rounded-2xl glass-panel overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer",
+          "aria-label": `Watch demo: ${project.title}`,
+          style: {
+            textDecoration: "none"
+          }
+        }, React.createElement("div", {
+          className: "relative overflow-hidden aspect-video bg-slate-800"
+        }, React.createElement("img", {
+          src: project.thumbnail,
+          alt: `${project.title} preview`,
+          className: "w-full h-full object-cover transition-all duration-300 group-hover:scale-110 group-hover:brightness-75",
+          loading: "lazy"
+        }), React.createElement("div", {
+          className: "absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        }, React.createElement("div", {
+          className: "w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border-2 border-white/50"
+        }, React.createElement("i", {
+          className: "fas fa-play text-white text-2xl ml-1"
+        }))), React.createElement("div", {
+          className: "absolute top-4 right-4 px-3 py-1.5 rounded-full bg-blue-600/90 backdrop-blur-sm text-white text-xs font-semibold flex items-center gap-2"
+        }, React.createElement("i", {
+          className: "fab fa-youtube"
+        }), "Watch Demo")), React.createElement("div", {
+          className: "p-6"
+        }, React.createElement("div", {
+          className: "flex items-center gap-3 mb-3"
+        }, React.createElement("div", {
+          className: "w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center",
+          style: {
+            color: "var(--primary)"
+          }
+        }, React.createElement("i", {
+          className: `fas ${project.icon}`
+        })), React.createElement("h3", {
+          className: "text-xl font-bold flex-1",
+          style: {
+            color: "var(--text)"
+          }
+        }, project.title)), React.createElement("p", {
+          className: "mb-4 leading-relaxed text-sm",
+          style: {
+            color: "var(--text-muted)"
+          }
+        }, project.description), React.createElement("div", {
+          className: "flex flex-wrap gap-2"
+        }, project.techStack.map((tech, techIndex) => React.createElement("span", {
+          key: techIndex,
+          className: "px-3 py-1 rounded-full text-xs font-medium border",
+          style: {
+            backgroundColor: "rgba(59, 130, 246, 0.1)",
+            borderColor: "rgba(59, 130, 246, 0.3)",
+            color: "var(--primary)"
+          }
+        }, tech))))))
+        )))
+      } catch (error) {
+        reportError(error);
+        return null
+      }
+    }
+  </script>
+  <script>
+    function ImpactLeadershipSection() {
+      const achievements = [
+        { stat: "$12M+", description: "Revenue generated through AWS Glue Studio product leadership" },
+        { stat: "750+", description: "Enterprise clients onboarded to AWS data pipeline solutions" },
+        { stat: "65%", description: "Reduction in ETL processing time through automation innovations" },
+        { stat: "15+", description: "Engineers led across cross-functional teams spanning 3 continents" },
+        { stat: "100K+", description: "Data pipelines deployed using no-code solutions built" },
+        { stat: "40%", description: "Cost savings achieved for enterprise customers through optimization" }
+      ];
+
+      try {
+        return React.createElement("section", {
+          "data-name": "impact-section",
+          className: "section relative overflow-hidden"
+        }, React.createElement("div", {
+          className: "absolute inset-0 bg-gradient-to-br from-blue-900/10 via-transparent to-indigo-900/10 pointer-events-none"
+        }), React.createElement("div", {
+          className: "container relative z-10"
+        }, React.createElement("div", {
+          className: "grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+        }, React.createElement("div", {
+          className: "order-2 lg:order-1",
+          "data-name": "impact-image-container"
+        }, React.createElement("div", {
+          className: "relative group"
+        }, React.createElement("div", {
+          className: "absolute inset-0 bg-gradient-to-br from-blue-600/20 to-indigo-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"
+        }), React.createElement("img", {
+          src: "https://drive.google.com/thumbnail?id=1I6iX49PDr9aU73aacVQXkbyKBmiNEWpu&sz=w1000",
+          alt: "Eric presenting TED-style tech demonstration at Amazon Web Services",
+          className: "relative rounded-2xl shadow-2xl w-full h-auto object-cover border-2 transition-transform duration-300 group-hover:scale-[1.02]",
+          style: {
+            borderColor: "var(--surface-border)"
+          },
+          loading: "lazy"
+        }))), React.createElement("div", {
+          className: "order-1 lg:order-2",
+          "data-name": "impact-content"
+        }, React.createElement("h2", {
+          "data-name": "impact-title",
+          className: "text-4xl md:text-5xl font-bold mb-6",
+          style: {
+            color: "var(--text)"
+          }
+        }, "Technical Leadership at ", React.createElement("span", {
+          className: "text-gradient-primary"
+        }, "Amazon Web Services")), React.createElement("p", {
+          className: "text-lg mb-8 leading-relaxed",
+          style: {
+            color: "var(--text-muted)"
+          }
+        }, "Led technical demonstrations and impactful projects at AWS, specializing in no-code/low-code data pipeline solutions. Focused on ETL processes, data integration, and enterprise-scale solutions that drive measurable business outcomes."), React.createElement("div", {
+          className: "space-y-4"
+        }, achievements.map((achievement, index) => React.createElement("div", {
+          key: index,
+          className: "flex items-start gap-4 group/item",
+          "data-name": `achievement-${index}`
+        }, React.createElement("div", {
+          className: "flex-shrink-0 w-3 h-3 mt-2 rounded-full border-2 transition-all duration-300 group-hover/item:scale-125 group-hover/item:shadow-lg",
+          style: {
+            borderColor: "var(--primary)",
+            backgroundColor: "transparent"
+          }
+        }), React.createElement("div", {
+          className: "flex-1"
+        }, React.createElement("span", {
+          className: "text-2xl font-bold mr-3",
+          style: {
+            color: "var(--primary)"
+          }
+        }, achievement.stat), React.createElement("span", {
+          className: "text-base",
+          style: {
+            color: "var(--text-light)"
+          }
+        }, achievement.description))))), React.createElement("div", {
+          className: "mt-10 pt-8 border-t",
+          style: {
+            borderColor: "var(--surface-border)"
+          }
+        }, React.createElement("p", {
+          className: "text-sm font-semibold uppercase tracking-wider mb-3",
+          style: {
+            color: "var(--text-muted)"
+          }
+        }, "Key Projects"), React.createElement("div", {
+          className: "flex flex-wrap gap-3"
+        }, ["AWS Glue Studio", "App Flow Integration", "No-Code Pipeline Builder", "ETL Automation"].map((project, idx) => React.createElement("span", {
+          key: idx,
+          className: "px-4 py-2 rounded-full text-sm font-medium glass-panel border transition-all hover:scale-105",
+          style: {
+            borderColor: "rgba(59, 130, 246, 0.3)",
+            color: "var(--text-light)"
+          }
+        }, project))))))))
+      } catch (error) {
+        reportError(error);
+        return null
+      }
+    }
+  </script>
+  <script>
+    function ContactSection() {
+      try {
+        return React.createElement("section", {
+          "data-name": "contact-section",
+          id: "contact",
+          className: "section",
+          style: {
+            backgroundColor: "transparent"
+          }
+        }, React.createElement("div", {
+          className: "container max-w-4xl"
+        }, React.createElement("div", {
+          className: "glass-panel rounded-3xl p-8 md:p-12 text-center"
+        }, React.createElement("h2", {
+          "data-name": "contact-title",
+          className: "text-3xl md:text-4xl font-bold mb-4",
+          style: {
+            color: "var(--text)"
+          }
+        }, "Ready to Scale?"), React.createElement("p", {
+          className: "text-xl mb-12 max-w-2xl mx-auto",
+          style: {
+            color: "var(--text-muted)"
+          }
+        }, "Choose the best way to work together based on your current needs."), React.createElement("div", {
+          className: "grid grid-cols-1 md:grid-cols-2 gap-8 mb-12"
+        }, React.createElement("div", {
+          className: "p-8 rounded-2xl border transition-all hover:border-blue-500/50 bg-opacity-50",
+          style: {
+            backgroundColor: "var(--background)",
+            borderColor: "var(--surface-border)"
+          }
+        }, React.createElement("div", {
+          className: "text-4xl mb-4 text-center",
+          style: {
+            color: "var(--primary)"
+          }
+        }, React.createElement("i", {
+          className: "fas fa-phone-alt"
+        })), React.createElement("h3", {
+          className: "text-xl font-bold text-center mb-2",
+          style: {
+            color: "var(--text)"
+          }
+        }, "Strategy Call"), React.createElement("p", {
+          className: "text-center mb-6 text-sm",
+          style: {
+            color: "var(--text-muted)"
+          }
+        }, "Discuss your automation & infrastructure needs."), React.createElement("a", {
+          href: "https://calendar.app.google/sB9KrJP6e8j3EPmd9",
+          target: "_blank",
+          "data-name": "strategy-call-button",
+          className: "btn-primary block p-4 rounded-xl text-center transition-all w-full font-bold"
+        }, React.createElement("span", null, "Book Strategy Call"))), React.createElement("div", {
+          className: "p-8 rounded-2xl border transition-all hover:border-blue-500/50 bg-opacity-50",
+          style: {
+            backgroundColor: "var(--background)",
+            borderColor: "var(--surface-border)"
+          }
+        }, React.createElement("div", {
+          className: "text-4xl mb-4 text-center",
+          style: {
+            color: "var(--primary)"
+          }
+        }, React.createElement("i", {
+          className: "fas fa-video"
+        })), React.createElement("h3", {
+          className: "text-xl font-bold text-center mb-2",
+          style: {
+            color: "var(--text)"
+          }
+        }, "Paid Consultation"), React.createElement("p", {
+          className: "text-center mb-6 text-sm",
+          style: {
+            color: "var(--text-muted)"
+          }
+        }, "Deep dive architecture review & advisory."), React.createElement("a", {
+          href: "https://calendar.app.google/BU9D589X3KNxnTeg6",
+          target: "_blank",
+          "data-name": "paid-consultation-button",
+          className: "btn-secondary block p-4 rounded-xl text-center transition-all w-full font-bold"
+        }, "Book Paid Consultation"))), React.createElement("div", {
+          className: "text-center pt-8 border-t",
+          style: {
+            borderColor: "var(--surface-border)"
+          }
+        }, React.createElement("h3", {
+          className: "text-lg font-semibold mb-4",
+          style: {
+            color: "var(--text)"
+          }
+        }, "Other Inquiries"), React.createElement("a", {
+          href: "https://calendar.app.google/PoSNUf3DCLdrLyW7A",
+          target: "_blank",
+          className: "btn-secondary inline-block px-8 py-4 rounded-xl font-bold transition-all hover-scale",
+          style: {
+            textDecoration: "none"
+          }
+            color: "var(--text-muted)"
+        }
+        }, "General Inquiry / Networking (30 min)")))))
+    } catch (error) {
+      reportError(error);
+      return null
+    }
+    }
+  </script>
+  <script>
+    function Footer() {
+      const socialLinks = [{
+        icon: "fab fa-youtube",
+        url: "https://www.youtube.com/@EricWTech",
+        label: "YouTube"
+      }, {
+        icon: "fab fa-linkedin",
+        url: "https://www.linkedin.com/in/ericwtech/",
+        label: "LinkedIn"
+      }, {
+        icon: "fab fa-discord",
+        url: "https://discord.com/invite/erictech",
+        label: "Discord"
+      }, {
+        icon: "fab fa-github",
+        url: "https://github.com/erictechpro",
+        label: "GitHub"
+      }];
+      try {
+        return React.createElement("footer", {
+          "data-name": "footer",
+          className: "py-12 border-t",
+          style: {
+            backgroundColor: "var(--navy-900)",
+            borderColor: "var(--surface-border)"
+          }
+        }, React.createElement("div", {
+          className: "container"
+        }, React.createElement("div", {
+          className: "text-center mb-8"
+        }, React.createElement("h2", {
+          "data-name": "footer-title",
+          className: "text-2xl font-bold mb-6 text-white"
+        }, "Connect With Me"), React.createElement("div", {
+          className: "flex justify-center space-x-8"
+        }, socialLinks.map((link, index) => React.createElement("a", {
+          key: index,
+          href: link.url,
+          target: "_blank",
+          "data-name": `social-link-${link.label.toLowerCase()}`,
+          className: "text-3xl text-gray-400 hover:text-white transition-colors hover:scale-110 transform",
+          "aria-label": link.label
+        }, React.createElement("i", {
+          className: link.icon
+        }))))), React.createElement("div", {
+          className: "text-center text-sm text-gray-500"
+        }, React.createElement("p", {
+          "data-name": "copyright"
+        }, "\xA9 ", new Date().getFullYear(), " EricTech. All rights reserved."))))
+      } catch (error) {
+        reportError(error);
+        return null
+      }
+    }
+  </script>
+  <script>
+    function ThemeToggle() {
+      const [isDark, setIsDark] = React.useState(false);
+      React.useEffect(() => {
+        const isDarkMode = localStorage.getItem("theme") === "dark";
+        setIsDark(isDarkMode);
+        document.documentElement.setAttribute("data-theme", isDarkMode ? "dark" : "light")
+      }, []);
+      const toggleTheme = () => {
+        try {
+          const newTheme = isDark ? "light" : "dark";
+          setIsDark(!isDark);
+          localStorage.setItem("theme", newTheme);
+          document.documentElement.setAttribute("data-theme", newTheme)
+        } catch (error) {
+          reportError(error)
+        }
+      };
+      return React.createElement("button", {
+        "data-name": "theme-toggle",
+        onClick: toggleTheme,
+        className: "fixed bottom-4 right-4 p-4 rounded-full shadow-lg z-50 transition-all hover:scale-110 glass-panel",
+        style: {
+          color: "var(--text)",
+          border: "1px solid var(--surface-border)"
+        }
+      }, React.createElement("i", {
+        className: `fas ${isDark ? "fa-sun" : "fa-moon"} text-xl`
+      }))
+    }
+  </script>
   <script>function initTheme() { try { const theme = localStorage.getItem("theme") || "light"; document.documentElement.setAttribute("data-theme", theme) } catch (error) { reportError(error) } }</script>
-  <script>class ErrorBoundary extends React.Component { constructor(props) { super(props); this.state = { hasError: false, error: null, errorInfo: null } } static getDerivedStateFromError(error) { return { hasError: true } } componentDidCatch(error, errorInfo) { if (window.location.origin.startsWith("https://preview__")) { window.parent.postMessage({ type: "error", data: error.toString() }, "*"); this.setState({ error: error, errorInfo: errorInfo }) } } render() { return this.props.children } } function App() { try { return React.createElement("div", { "data-name": "app", className: "min-h-screen" }, React.createElement(Navbar, null), React.createElement(Hero, null), React.createElement(ExpertiseSection, null), React.createElement(ProjectsSection, null), React.createElement(ConsultationForm, null), React.createElement(Footer, null), React.createElement(ThemeToggle, null)) } catch (error) { reportError(error); return null } } initTheme(); ReactDOM.render(React.createElement(ErrorBoundary, null, React.createElement(App, null)), document.getElementById("root"));</script>
+  <script>
+    class ErrorBoundary extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          hasError: false,
+          error: null,
+          errorInfo: null
+        }
+      }
+      static getDerivedStateFromError(error) {
+        return {
+          hasError: true
+        }
+      }
+      componentDidCatch(error, errorInfo) {
+        if (window.location.origin.startsWith("https://preview__")) {
+          window.parent.postMessage({
+            type: "error",
+            data: error.toString()
+          }, "*");
+          this.setState({
+            error: error,
+            errorInfo: errorInfo
+          })
+        }
+      }
+      render() {
+        return this.props.children
+      }
+    }
+
+    function App() {
+      try {
+        return React.createElement("div", {
+          "data-name": "app",
+          className: "min-h-screen"
+        }, React.createElement(Navbar, null), React.createElement(Hero, null), React.createElement(SocialProof, null), React.createElement(CoreSpecialtiesSection, null), React.createElement(ProjectsSection, null), React.createElement(ImpactLeadershipSection, null), React.createElement(ContactSection, null), React.createElement(Footer, null), React.createElement(ThemeToggle, null))
+      } catch (error) {
+        reportError(error);
+        return null
+      }
+    }
+    initTheme();
+    ReactDOM.render(React.createElement(ErrorBoundary, null, React.createElement(App, null)), document.getElementById("root"));
+  </script>
   <script type="text/babel">// file removed
   </script>
   <script>
