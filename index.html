@@ -4,1170 +4,466 @@
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <meta
-    content="EricTech - Software Engineer, YouTuber, and Tech Consultant specializing in AI, Full-stack Development, Web3, and Career Growth"
+    content="EricTech - Senior Engineer, Founder, and Creator. Building AI-powered products, leading engineering teams, and teaching 30,000+ developers."
     name="description" />
   <meta
-    content="software engineer, full stack developer, tech consultant, AI automation, blockchain, Web3, career growth, programming tutorials"
+    content="software engineer, full stack developer, AI automation, SaaS founder, AWS, React, Next.js, TypeScript, YouTube tutorials"
     name="keywords" />
-  <meta content="EricTech - Software Engineer &amp; Tech Consultant" property="og:title" />
-  <meta content="Expert in AI, Full-stack Development, Web3, and Career Growth. Watch tutorials and book consultations."
+  <meta content="Eric Tech - Senior Engineer & Founder" property="og:title" />
+  <meta content="Building AI-powered products, leading engineering at scale, and teaching 30,000+ developers on YouTube."
     property="og:description" />
   <meta content="website" property="og:type" />
   <meta content="summary_large_image" name="twitter:card" />
-  <meta content="EricTech - Software Engineer &amp; Tech Consultant" name="twitter:title" />
-  <meta content="Expert in AI, Full-stack Development, Web3, and Career Growth. Watch tutorials and book consultations."
+  <meta content="Eric Tech - Senior Engineer & Founder" name="twitter:title" />
+  <meta content="Building AI-powered products, leading engineering at scale, and teaching 30,000+ developers on YouTube."
     name="twitter:description" />
-  <title>EricTech - Software Engineer &amp; Tech Consultant</title>
+  <title>Eric Tech - Senior Engineer & Founder</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%232BAADF'/%3E%3Cstop offset='100%25' stop-color='%2314b8a6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='128' height='128' rx='28' fill='url(%23g)'/%3E%3Ctext x='64' y='82' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='700' font-size='56' fill='white'%3EET%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%232BAADF'/%3E%3Cstop offset='100%25' stop-color='%2314b8a6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='128' height='128' rx='28' fill='url(%23g)'/%3E%3Ctext x='64' y='82' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='700' font-size='56' fill='white'%3EET%3C/text%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%232BAADF'/%3E%3Cstop offset='100%25' stop-color='%2314b8a6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='128' height='128' rx='28' fill='url(%23g)'/%3E%3Ctext x='64' y='82' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='700' font-size='56' fill='white'%3EET%3C/text%3E%3C/svg%3E" />
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+            mono: ['"IBM Plex Mono"', 'monospace'],
+            body: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
   <style>
     :root {
-      /* Core brand colors - Modern Enterprise Theme */
-      --navy-950: #020617;
-      --navy-900: #0f172a;
-      --slate-800: #1e293b;
-      --slate-700: #334155;
-      --slate-600: #475569;
-      --slate-400: #94a3b8;
-      --slate-300: #cbd5e1;
-      --slate-100: #f1f5f9;
-
-      /* Accent Colors */
-      --blue-500: #3b82f6;
-      --blue-600: #2563eb;
-      --indigo-500: #6366f1;
-      --indigo-600: #4f46e5;
-      --teal-400: #2dd4bf;
-      --teal-500: #14b8a6;
-
-      --white: #ffffff;
-
-      /* Theme colors */
-      --primary: var(--blue-500);
-      --primary-glow: rgba(59, 130, 246, 0.5);
-      --secondary: var(--slate-100);
-      --accent: var(--teal-400);
-
-      --background: var(--navy-950);
-      --surface: rgba(30, 41, 59, 0.7);
-      /* Glassmorphism base */
-      --surface-border: rgba(148, 163, 184, 0.1);
-
-      --text: var(--white);
-      --text-muted: var(--slate-400);
-      --text-light: var(--slate-300);
-
-      --nav-bg: rgba(2, 6, 23, 0.8);
-      --border: var(--slate-800);
+      --bg: #FFFFFF; --surface: #FFFFFF; --surface-alt: #F8FAFC;
+      --border: #E2E8F0; --text: #0F172A; --text-muted: #475569;
+      --text-subtle: #94A3B8; --accent: #2BAADF; --accent-hover: #1A95C8;
+      --nav-bg: rgba(255,255,255,0.92);
     }
-
-    [data-theme='light'] {
-      --background: #f8fafc;
-      --surface: rgba(255, 255, 255, 0.8);
-      --surface-border: rgba(226, 232, 240, 0.8);
-      --text: var(--navy-900);
-      --text-muted: var(--slate-600);
-      --text-light: var(--slate-700);
-      --nav-bg: rgba(255, 255, 255, 0.9);
-      --border: var(--slate-300);
-      --primary: var(--blue-600);
-      --primary-glow: rgba(37, 99, 235, 0.3);
+    [data-theme='dark'] {
+      --bg: #0F172A; --surface: #1E293B; --surface-alt: #334155;
+      --border: #475569; --text: #F8FAFC; --text-muted: #94A3B8;
+      --text-subtle: #64748B; --accent: #55C5F0; --accent-hover: #7DD4F5;
+      --nav-bg: rgba(15,23,42,0.92);
     }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      background-color: var(--background);
-      color: var(--text);
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg); color: var(--text);
+      font-family: 'Inter', system-ui, sans-serif;
       transition: background-color 0.3s ease, color 0.3s ease;
+      -webkit-font-smoothing: antialiased;
       background-image:
-        radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 25%),
-        radial-gradient(circle at 85% 30%, rgba(45, 212, 191, 0.08) 0%, transparent 25%);
+        radial-gradient(circle at 15% 50%, rgba(43, 170, 223, 0.06) 0%, transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(43, 170, 223, 0.04) 0%, transparent 25%);
       background-attachment: fixed;
     }
-
-    .section {
-      padding: 4rem 1rem;
-      position: relative;
+    body::after {
+      content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none; z-index: 9999; opacity: 0.015;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat; background-size: 256px 256px;
     }
-
-    @media (min-width: 768px) {
-      .section {
-        padding: 6rem 2rem;
-      }
+    .reveal { opacity:0; transform:translateY(30px); transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1); }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+    .reveal-delay-1{transition-delay:.1s} .reveal-delay-2{transition-delay:.2s}
+    .reveal-delay-3{transition-delay:.3s} .reveal-delay-4{transition-delay:.4s}
+    @keyframes hero-fade-in { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes hero-scale-in { from{opacity:0;transform:scale(0.95)} to{opacity:1;transform:scale(1)} }
+    .hero-anim-1{animation:hero-fade-in .8s cubic-bezier(.22,1,.36,1) .1s both}
+    .hero-anim-2{animation:hero-fade-in .9s cubic-bezier(.22,1,.36,1) .3s both}
+    .hero-anim-3{animation:hero-scale-in .9s cubic-bezier(.22,1,.36,1) .5s both}
+    .hero-anim-4{animation:hero-fade-in .8s cubic-bezier(.22,1,.36,1) .6s both}
+    .hero-anim-5{animation:hero-fade-in .8s cubic-bezier(.22,1,.36,1) .8s both}
+    @keyframes pulse-dot { 0%,100%{opacity:1} 50%{opacity:.4} }
+    .pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+    @keyframes marquee-scroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    .marquee-track { animation: marquee-scroll 28s linear infinite; }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes blob-float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -20px) scale(1.05); }
+      66% { transform: translate(-15px, 15px) scale(0.95); }
     }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    /* Glassmorphism Utilities */
-    .glass-panel {
-      background: var(--surface);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--surface-border);
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
-    }
-
-    /* Typography */
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      letter-spacing: -0.025em;
-    }
-
-    .text-gradient {
-      background: linear-gradient(135deg, var(--white) 0%, var(--slate-400) 100%);
+    .animate-blob { animation: blob-float 8s ease-in-out infinite; }
+    .animation-delay-2000 { animation-delay: 2s; }
+    .animation-delay-4000 { animation-delay: 4s; }
+    .text-gradient-accent {
+      background: linear-gradient(135deg, #2BAADF 0%, #14b8a6 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-
-    [data-theme='light'] .text-gradient {
-      background: linear-gradient(135deg, var(--navy-900) 0%, var(--blue-600) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .text-gradient-primary {
-      background: linear-gradient(135deg, var(--blue-500) 0%, var(--teal-400) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    /* Buttons */
-    .btn-primary {
-      background: linear-gradient(135deg, var(--blue-600) 0%, var(--indigo-600) 100%);
-      color: #ffffff;
-      font-weight: 600;
-      border: none;
-      box-shadow: 0 4px 14px 0 rgba(79, 70, 229, 0.4);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn-primary::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, var(--indigo-600) 0%, var(--blue-600) 100%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px 0 rgba(79, 70, 229, 0.6);
-    }
-
-    .btn-primary:hover::before {
-      opacity: 1;
-    }
-
-    .btn-primary span,
-    .btn-primary i {
-      position: relative;
-      z-index: 1;
-    }
-
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      color: var(--text);
-      font-weight: 600;
-      border: 1px solid var(--surface-border);
-      transition: all 0.3s ease;
-    }
-
-    [data-theme='light'] .btn-secondary {
-      background: rgba(0, 0, 0, 0.05);
-      color: var(--navy-900);
-      border: 1px solid rgba(0, 0, 0, 0.1);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.2);
-      transform: translateY(-2px);
-    }
-
-    [data-theme='light'] .btn-secondary:hover {
-      background: rgba(0, 0, 0, 0.1);
-    }
-
-    /* Links */
-    .link-primary {
-      color: var(--primary);
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-
-    .link-primary:hover {
-      color: var(--accent);
-      text-decoration: none;
-    }
+    .text-outline { -webkit-text-stroke: 2px var(--text); color: transparent; }
+    @media(min-width:768px){ .text-outline { -webkit-text-stroke: 3px var(--text); } }
+    .card-hover { transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease; }
+    .card-hover:hover { transform:translateY(-3px); box-shadow:0 16px 40px rgba(0,0,0,.08); }
+    [data-theme='dark'] .card-hover:hover { box-shadow:0 16px 40px rgba(0,0,0,.3); }
+    html { scroll-behavior: smooth; }
   </style>
-  <style>
-    .fade-in {
-      animation: fadeIn 1s ease-in;
-    }
-
-    .slide-up {
-      animation: slideUp 0.5s ease-out;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-
-      to {
-        opacity: 1;
-      }
-    }
-
-    @keyframes slideUp {
-      from {
-        transform: translateY(20px);
-        opacity: 0;
-      }
-
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-    .hover-scale {
-      transition: transform 0.3s ease;
-    }
-
-    .hover-scale:hover {
-      transform: scale(1.05);
-    }
-  </style>
-  <script
-    id="trickle-project">window.__PROTO_STATE__ = { "projectId": "proj_154haRYBF6b", "userId": "usr_0c9971ea40000001", "workspaceId": "workspace_id_usr_0c9971ea40000001", "memberId": "member_id_usr_0c9971ea40000001", "projectTitle": "EricTech Landing Page" };</script>
-  <script id="trickle-report-error">function reportError(error) {
-      if (window.parent) {
-        window.parent.postMessage({
-          type: "error",
-          data: error.stack || error.message || ''
-        }, '*');
-      }
-    }</script>
-  <script id="trickle-inject">
-    window.addEventListener('error', (e) => {
-      console.log('error', e);
-      window.parent.postMessage({
-        type: "error",
-        data: (e.error ? e.error.stack || e.error.message : '')
-      }, "*");
-    });
-
-    window.addEventListener('unhandledrejection', (e) => {
-      console.log('unhandledrejection', e);
-      window.parent.postMessage({
-        type: "unhandledrejection",
-        data: (e.error ? e.error.stack || e.error.message : '')
-      }, "*");
-    });
-  </script>
-  <script id="trickle-teleport">
-    window.openTeleport = (element) => {
-      const wrapper = document.createElement('div');
-      wrapper.className = 'trickle-teleport';
-      wrapper.appendChild(element);
-      document.body.append(wrapper);
-    }
-
-    window.closeTeleport = () => {
-      document.querySelectorAll('.trickle-teleport').forEach((e) => {
-        e.remove();
-      });
-    }
-  </script>
 </head>
 
 <body>
-  <script src="https://app.trickle.so/storage/trickle.js"></script>
   <div id="root"></div>
   <script>
+    function initScrollReveal() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+      }, { threshold: 0.08 });
+      document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+    }
+
+    function useCountUp(target, duration, elRef) {
+      var s = React.useState(0), count = s[0], setCount = s[1], done = React.useRef(false);
+      React.useEffect(function() {
+        var el = elRef.current; if (!el) return;
+        var obs = new IntersectionObserver(function(entries) {
+          if (entries[0].isIntersecting && !done.current) {
+            done.current = true; var start = null;
+            function step(ts) { if (!start) start = ts; var p = Math.min((ts-start)/duration,1); setCount(Math.floor((1-Math.pow(1-p,3))*target)); if(p<1) requestAnimationFrame(step); }
+            requestAnimationFrame(step);
+          }
+        }, { threshold: 0.3 });
+        obs.observe(el); return function() { obs.disconnect(); };
+      }, []); return count;
+    }
+
+    function SectionLabel(num, title) {
+      return React.createElement("div", { className: "mb-6" },
+        React.createElement("span", { className: "font-mono text-xs font-medium uppercase", style: { letterSpacing:"0.15em", color:"var(--text-subtle)" } }, num + " / " + title),
+        React.createElement("div", { className: "mt-3", style: { width:"48px", height:"3px", backgroundColor:"var(--accent)" } })
+      );
+    }
+
     function Navbar() {
-      const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-      const [scrolled, setScrolled] = React.useState(false);
-
-      React.useEffect(() => {
-        const handleScroll = () => {
-          setScrolled(window.scrollY > 20);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+      var s1 = React.useState(false), isMenuOpen = s1[0], setIsMenuOpen = s1[1];
+      var s2 = React.useState(false), scrolled = s2[0], setScrolled = s2[1];
+      React.useEffect(function() {
+        var h = function() { setScrolled(window.scrollY > 20); };
+        window.addEventListener('scroll', h); return function() { window.removeEventListener('scroll', h); };
       }, []);
-
-      try {
-        return React.createElement("nav", {
-          "data-name": "navbar",
-          className: `fixed w-full top-0 z-50 transition-all duration-300 ${scrolled ? 'glass-panel border-b' : 'bg-transparent'}`,
-          style: {
-            borderColor: scrolled ? "var(--surface-border)" : "transparent"
-          }
-        }, React.createElement("div", {
-          className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-        }, React.createElement("div", {
-          className: "flex items-center justify-between h-20"
-        }, React.createElement("div", {
-          className: "flex items-center"
-        }, React.createElement("span", {
-          "data-name": "logo",
-          className: "text-2xl font-bold tracking-tight",
-          style: {
-            color: "var(--text)"
-          }
-        }, "EricTech")), React.createElement("div", {
-          className: "hidden md:block"
-        }, React.createElement("div", {
-          className: "ml-10 flex items-baseline space-x-8"
-        }, React.createElement("a", {
-          href: "#home",
-          "data-name": "nav-home",
-          className: "text-sm font-medium transition-colors hover:text-blue-500",
-          style: {
-            color: "var(--text-muted)"
-          }
-        }, "Home"), React.createElement("a", {
-          href: "#capabilities",
-          "data-name": "nav-capabilities",
-          className: "text-sm font-medium transition-colors hover:text-blue-500",
-          style: {
-            color: "var(--text-muted)"
-          }
-        }, "Specialties"), React.createElement("a", {
-          href: "#projects",
-          "data-name": "nav-projects",
-          className: "text-sm font-medium transition-colors hover:text-blue-500",
-          style: {
-            color: "var(--text-muted)"
-          }
-        }, "Projects"), React.createElement("a", {
-          href: "#contact",
-          "data-name": "nav-contact",
-          className: "text-sm font-medium transition-colors hover:text-blue-500",
-          style: {
-            color: "var(--text-muted)"
-          }
-        }, "Contact"))), React.createElement("div", {
-          className: "md:hidden"
-        }, React.createElement("button", {
-          "data-name": "mobile-menu-button",
-          onClick: () => setIsMenuOpen(!isMenuOpen),
-          className: "inline-flex items-center justify-center p-2 rounded-md hover:text-blue-500 focus:outline-none",
-          style: {
-            color: "var(--text)"
-          }
-        }, React.createElement("i", {
-          className: `fas ${isMenuOpen ? "fa-times" : "fa-bars"}`
-        }))))), isMenuOpen && React.createElement("div", {
-          "data-name": "mobile-menu",
-          className: "md:hidden glass-panel border-b",
-          style: {
-            borderColor: "var(--surface-border)"
-          }
-        }, React.createElement("div", {
-          className: "px-2 pt-2 pb-3 space-y-1 sm:px-3"
-        }, React.createElement("a", {
-          href: "#home",
-          className: "block px-3 py-2 text-base font-medium hover:text-blue-500 rounded-md",
-          style: {
-            color: "var(--text)"
-          }
-        }, "Home"), React.createElement("a", {
-          href: "#capabilities",
-          className: "block px-3 py-2 text-base font-medium hover:text-blue-500 rounded-md",
-          style: {
-            color: "var(--text)"
-          }
-        }, "Specialties"), React.createElement("a", {
-          href: "#projects",
-          className: "block px-3 py-2 text-base font-medium hover:text-blue-500 rounded-md",
-          style: {
-            color: "var(--text)"
-          }
-        }, "Projects"), React.createElement("a", {
-          href: "#contact",
-          className: "block px-3 py-2 text-base font-medium hover:text-blue-500 rounded-md",
-          style: {
-            color: "var(--text)"
-          }
-        }, "Contact"))))
-      } catch (error) {
-        reportError(error);
-        return null
-      }
+      var navLinks = [{ href:'#building', label:'Building' },{ href:'#projects', label:'Projects' },{ href:'#impact', label:'Impact' },{ href:'#youtube', label:'YouTube' },{ href:'#contact', label:'Contact' }];
+      return React.createElement("nav", { className:"fixed w-full top-0 z-50 transition-all duration-300", style:{ backgroundColor:scrolled?"var(--nav-bg)":"transparent", backdropFilter:scrolled?"blur(16px) saturate(180%)":"none", WebkitBackdropFilter:scrolled?"blur(16px) saturate(180%)":"none", borderBottom:scrolled?"2px solid var(--accent)":"2px solid transparent" } },
+        React.createElement("div", { className:"max-w-6xl mx-auto px-6" },
+          React.createElement("div", { className:"flex items-center justify-between h-16" },
+            React.createElement("a", { href:"#", className:"font-mono text-lg font-bold", style:{ color:"var(--text)", textDecoration:"none", letterSpacing:"-0.02em" } }, "ET"),
+            React.createElement("div", { className:"hidden md:flex items-center gap-8" },
+              navLinks.map(function(l,i){ return React.createElement("a", { key:i, href:l.href, className:"font-mono text-xs font-medium uppercase transition-colors duration-200", style:{ color:"var(--text-muted)", textDecoration:"none", letterSpacing:"0.08em" }, onMouseEnter:function(e){e.target.style.color="var(--accent)"}, onMouseLeave:function(e){e.target.style.color="var(--text-muted)"} }, l.label); })
+            ),
+            React.createElement("div", { className:"hidden md:block" },
+              React.createElement("a", { href:"https://calendar.app.google/sB9KrJP6e8j3EPmd9", target:"_blank", className:"inline-flex items-center justify-center w-10 h-10 transition-all duration-200", style:{ background:"linear-gradient(135deg, #2BAADF 0%, #1A95C8 50%, #14b8a6 100%)", color:"#fff", textDecoration:"none", borderRadius:"2px" }, onMouseEnter:function(e){e.currentTarget.style.opacity="0.9"}, onMouseLeave:function(e){e.currentTarget.style.opacity="1"} }, React.createElement("i", { className:"fas fa-calendar-alt text-sm" }))
+            ),
+            React.createElement("button", { className:"md:hidden p-2", onClick:function(){setIsMenuOpen(!isMenuOpen)}, style:{color:"var(--text)",background:"none",border:"none",cursor:"pointer"} }, React.createElement("i", { className:isMenuOpen?"fas fa-times text-xl":"fas fa-bars text-xl" }))
+          )
+        ),
+        isMenuOpen && React.createElement("div", { className:"md:hidden px-6 pb-6", style:{ backgroundColor:"var(--nav-bg)", backdropFilter:"blur(16px) saturate(180%)", borderBottom:"1px solid var(--border)" } },
+          navLinks.map(function(l,i){ return React.createElement("a", { key:i, href:l.href, onClick:function(){setIsMenuOpen(false)}, className:"block py-3 font-mono text-sm font-medium uppercase", style:{color:"var(--text)",textDecoration:"none",letterSpacing:"0.08em"} }, l.label); }),
+          React.createElement("a", { href:"https://calendar.app.google/sB9KrJP6e8j3EPmd9", target:"_blank", className:"inline-flex items-center gap-2 mt-3 font-mono text-xs font-semibold px-5 py-2.5 uppercase", style:{background:"linear-gradient(135deg, #2BAADF 0%, #1A95C8 50%, #14b8a6 100%)",color:"#fff",textDecoration:"none",borderRadius:"2px",letterSpacing:"0.08em"} }, React.createElement("i",{className:"fas fa-calendar-alt"}), "Book Now")
+        )
+      );
     }
-  </script>
-  <script>
+
     function Hero() {
-      try {
-        return React.createElement("section", {
-          "data-name": "hero-section",
-          id: "home",
-          className: "section pt-28 md:pt-40 min-h-screen flex items-center relative overflow-hidden"
-        }, React.createElement("div", {
-          className: "absolute inset-0 z-0"
-        }, React.createElement("div", {
-          className: "absolute top-20 left-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob"
-        }), React.createElement("div", {
-          className: "absolute top-20 right-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000"
-        }), React.createElement("div", {
-          className: "absolute -bottom-8 left-20 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-4000"
-        })), React.createElement("div", {
-          className: "container mx-auto px-4 relative z-10"
-        }, React.createElement("div", {
-          className: "max-w-5xl mx-auto text-center"
-        }, React.createElement("div", {
-          className: "mb-8 flex justify-center"
-        }, React.createElement("div", {
-          className: "relative"
-        }, React.createElement("div", {
-          className: "absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full blur opacity-50"
-        }), React.createElement("img", {
-          src: "https://drive.google.com/thumbnail?id=1Fh3iMF5CoxsoDvDHOUl-HEDXsAJG_lRq&sz=w500",
-          alt: "Eric Tech Profile",
-          className: "w-32 h-32 object-cover rounded-full shadow-2xl border-4 relative z-10",
-          style: {
-            borderColor: "var(--surface-border)"
-          }
-        }))), React.createElement("div", {
-          className: "mb-6 flex justify-center fade-in"
-        }, React.createElement("span", {
-          className: "px-4 py-1.5 rounded-full text-sm font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20"
-        }, "AWS Senior Engineer L6")), React.createElement("h1", {
-          "data-name": "hero-title",
-          className: "text-4xl sm:text-5xl md:text-7xl font-bold mb-6 fade-in tracking-tight leading-tight",
-          style: {
-            color: "var(--text)"
-          }
-        }, "Custom AI Solutions for", React.createElement("span", {
-          className: "block mt-2 text-gradient-primary"
-        }, "Technical Leaders")), React.createElement("p", {
-          "data-name": "hero-description",
-          className: "text-lg md:text-xl mb-10 slide-up max-w-3xl mx-auto leading-relaxed font-light",
-          style: {
-            color: "var(--text-muted)"
-          }
-        }, "Senior Engineer & YouTuber (30K+). I help growing startups ship enterprise-grade AI & data pipelines without the overhead."), React.createElement("div", {
-          "data-name": "hero-cta",
-          className: "flex flex-col sm:flex-row justify-center gap-4 sm:gap-6"
-        }, React.createElement("a", {
-          href: "https://calendar.app.google/sB9KrJP6e8j3EPmd9",
-          target: "_blank",
-          className: "btn-primary px-8 py-4 rounded-full transition-all hover-scale text-lg flex items-center justify-center gap-2 w-full sm:w-auto"
-        }, React.createElement("span", null, "Book Strategy Call"), React.createElement("i", {
-          className: "fas fa-arrow-right text-sm"
-        })), React.createElement("a", {
-          href: "https://discord.com/invite/erictech",
-          target: "_blank",
-          className: "btn-secondary px-8 py-4 rounded-full transition-all hover-scale text-lg flex items-center justify-center gap-2 w-full sm:w-auto"
-        }, React.createElement("i", {
-          className: "fab fa-discord"
-        }), "Join Community")))))
-      } catch (error) {
-        reportError(error);
-        return null
-      }
+      return React.createElement("section", { id:"home", className:"min-h-screen flex items-center pt-20 pb-16 px-6 relative overflow-hidden" },
+        React.createElement("div", { className:"absolute inset-0 z-0", style:{overflow:"hidden"} },
+          React.createElement("div", { className:"absolute animate-blob", style:{top:"-10%",left:"-5%",width:"45%",height:"45%",background:"radial-gradient(circle, rgba(43,170,223,0.12) 0%, transparent 70%)",filter:"blur(60px)"} }),
+          React.createElement("div", { className:"absolute animate-blob animation-delay-2000", style:{top:"20%",right:"-10%",width:"40%",height:"40%",background:"radial-gradient(circle, rgba(139,92,246,0.10) 0%, transparent 70%)",filter:"blur(60px)"} }),
+          React.createElement("div", { className:"absolute animate-blob animation-delay-4000", style:{bottom:"-5%",left:"30%",width:"35%",height:"35%",background:"radial-gradient(circle, rgba(20,184,166,0.10) 0%, transparent 70%)",filter:"blur(60px)"} })
+        ),
+        React.createElement("div", { className:"max-w-6xl mx-auto w-full relative z-10" },
+          React.createElement("div", { className:"grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center" },
+            React.createElement("div", { className:"lg:col-span-3" },
+              React.createElement("p", { className:"font-mono text-xs font-medium uppercase mb-8 hero-anim-1", style:{color:"var(--text-subtle)",letterSpacing:"0.15em"} }, "engineer \u00b7 founder \u00b7 creator"),
+              React.createElement("div", { className:"mb-6 hero-anim-2" },
+                React.createElement("h1", { className:"font-display font-bold leading-[0.9] tracking-tight", style:{fontSize:"clamp(4rem,12vw,10rem)",color:"var(--text)",letterSpacing:"-0.03em"} }, "ERIC", React.createElement("br"), React.createElement("span",{className:"text-outline"},"TECH"))
+              ),
+              React.createElement("div", { className:"mb-6 hero-anim-4", style:{width:"48px",height:"3px",background:"linear-gradient(135deg, #2BAADF 0%, #14b8a6 100%)"} }),
+              React.createElement("p", { className:"font-body text-base md:text-lg max-w-lg leading-relaxed mb-8 hero-anim-4", style:{color:"var(--text-muted)"} }, "Building AI-powered products, leading engineering at scale, and teaching ", React.createElement("span",{className:"text-gradient-accent",style:{fontWeight:600}},"30,000+ developers"), "."),
+              React.createElement("div", { className:"flex flex-wrap gap-3 hero-anim-5" },
+                React.createElement("a", { href:"https://calendar.app.google/sB9KrJP6e8j3EPmd9", target:"_blank", className:"font-mono text-xs font-semibold px-6 py-3.5 uppercase inline-flex items-center gap-2 transition-all duration-200", style:{background:"linear-gradient(135deg, #2BAADF 0%, #1A95C8 50%, #14b8a6 100%)",color:"#fff",textDecoration:"none",borderRadius:"2px",letterSpacing:"0.08em"}, onMouseEnter:function(e){e.currentTarget.style.opacity="0.9"}, onMouseLeave:function(e){e.currentTarget.style.opacity="1"} }, "Book Strategy Call", React.createElement("i",{className:"fas fa-arrow-right text-xs"})),
+                React.createElement("a", { href:"https://www.youtube.com/@EricWTech", target:"_blank", className:"font-mono text-xs font-semibold px-6 py-3.5 uppercase inline-flex items-center gap-2 transition-all duration-200", style:{backgroundColor:"transparent",color:"var(--text)",textDecoration:"none",border:"1.5px solid var(--border)",borderRadius:"2px",letterSpacing:"0.08em"}, onMouseEnter:function(e){e.currentTarget.style.borderColor="var(--accent)";e.currentTarget.style.color="var(--accent)"}, onMouseLeave:function(e){e.currentTarget.style.borderColor="var(--border)";e.currentTarget.style.color="var(--text)"} }, React.createElement("i",{className:"fab fa-youtube"}), "Watch on YouTube")
+              )
+            ),
+            React.createElement("div", { className:"lg:col-span-2 hero-anim-3" },
+              React.createElement("div", { style:{position:"relative"} },
+                React.createElement("div", { className:"absolute", style:{inset:"-20px",background:"linear-gradient(135deg, rgba(43,170,223,0.3) 0%, rgba(139,92,246,0.2) 100%)",filter:"blur(40px)",borderRadius:"50%",zIndex:0} }),
+                React.createElement("img", { src:"https://drive.google.com/thumbnail?id=1Fh3iMF5CoxsoDvDHOUl-HEDXsAJG_lRq&sz=w600", alt:"Eric Tech", className:"w-full object-cover relative", style:{borderRadius:"2px",zIndex:1}, loading:"eager" }),
+                React.createElement("div", { className:"absolute bottom-0 left-0", style:{width:"100%",height:"4px",background:"linear-gradient(135deg, #2BAADF 0%, #14b8a6 100%)",zIndex:1} })
+              )
+            )
+          )
+        )
+      );
     }
-  </script>
-  <script>
+
     function SocialProof() {
-      try {
-        return React.createElement("section", {
-          "data-name": "social-proof",
-          className: "py-10 border-y relative overflow-hidden",
-          style: {
-            backgroundColor: "var(--background)",
-            borderColor: "var(--surface-border)"
-          }
-        }, React.createElement("div", {
-          className: "container mx-auto px-4"
-        }, React.createElement("p", {
-          className: "text-center text-sm font-semibold uppercase tracking-widest mb-8",
-          style: {
-            color: "var(--text-muted)"
-          }
-        }, "Trusted Experience From"), React.createElement("div", {
-          className: "flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-80"
-        }, React.createElement("div", {
-          className: "flex items-center gap-3 text-2xl font-bold grayscale hover:grayscale-0 transition-all duration-300",
-          style: {
-            color: "var(--text-light)"
-          }
-        }, React.createElement("i", {
-          className: "fab fa-microsoft text-3xl"
-        }), React.createElement("span", null, "Microsoft")), React.createElement("div", {
-          className: "flex items-center gap-3 text-2xl font-bold grayscale hover:grayscale-0 transition-all duration-300",
-          style: {
-            color: "var(--text-light)"
-          }
-        }, React.createElement("i", {
-          className: "fab fa-aws text-3xl"
-        }), React.createElement("span", null, "Amazon")), React.createElement("div", {
-          className: "px-6 py-2 rounded-full glass-panel border border-blue-500/30"
-        }, React.createElement("span", {
-          className: "text-sm font-semibold text-gradient-primary"
-        }, "20,000+ Developers Educated")))))
-      } catch (error) {
-        reportError(error);
-        return null
-      }
+      function msI(){return React.createElement("svg",{width:16,height:16,viewBox:"0 0 23 23",fill:"currentColor","aria-hidden":"true",style:{flexShrink:0}},React.createElement("rect",{x:0,y:0,width:11,height:11}),React.createElement("rect",{x:12,y:0,width:11,height:11}),React.createElement("rect",{x:0,y:12,width:11,height:11}),React.createElement("rect",{x:12,y:12,width:11,height:11}))}
+      function awsI(){return React.createElement("svg",{width:24,height:8,viewBox:"0 22 60 16",fill:"currentColor","aria-hidden":"true",style:{flexShrink:0}},React.createElement("path",{d:"M52.1 28.2C46.2 32.7 37.7 35 30.5 35c-10.2 0-19.3-3.8-26.3-10-.5-.5-.1-1.1.6-.8 7.5 4.4 16.7 7 26.3 7 6.5 0 13.5-1.3 20-4.1 1-.4 1.8.7 1 1.5zm2.8-3.2c-.7-.9-4.8-.4-6.6-.2-.6.1-.6-.4-.1-.8 3.2-2.3 8.5-1.6 9.2-.9.6.8-.2 6.2-3.2 8.8-.5.4-.9.2-.7-.3.7-1.7 2.2-5.5 1.4-6.6z"}))}
+      var iS={fontFamily:"'IBM Plex Mono',monospace",fontSize:"11px",fontWeight:600,textTransform:"uppercase",letterSpacing:"0.12em",whiteSpace:"nowrap",display:"flex",alignItems:"center",gap:"8px",color:"var(--text-muted)"};
+      var sS={color:"var(--text-subtle)",fontSize:"18px",margin:"0 16px"};
+      return React.createElement("section",{className:"py-5",style:{borderTop:"1px solid var(--border)",borderBottom:"1px solid var(--border)"}},
+        React.createElement("div",{className:"flex items-center justify-center"},
+          React.createElement("span",{style:iS},msI(),"Microsoft"),
+          React.createElement("span",{style:sS,"aria-hidden":"true"},"\u00b7"),
+          React.createElement("span",{style:iS},awsI(),"Amazon Web Services"),
+          React.createElement("span",{style:sS,"aria-hidden":"true"},"\u00b7"),
+          React.createElement("span",{style:iS},"30,000+ Developers")
+        )
+      );
     }
-  </script>
-  <script>
-    function CoreSpecialtiesSection() {
-      const specialties = [{
-        title: "AI Automation & Integration",
-        link: "https://www.youtube.com/playlist?list=PLm7xfhMOszqx2-GdKkQuBCxI9qRY_-au5",
-        icon: "fa-robot"
-      }, {
-        title: "Full-Stack Development",
-        link: "https://www.youtube.com/playlist?list=PLm7xfhMOszqwNiN8Uy0hBtKJyKcSDNIeZ",
-        icon: "fa-code"
-      }, {
-        title: "Cloud Solutions (AWS)",
-        link: "https://www.youtube.com/playlist?list=PLm7xfhMOszqwV1CXNC0iT0f3M2A3Q3Ngv",
-        icon: "fa-cloud"
-      }, {
-        title: "Blockchain & Web3 Consulting",
-        link: "https://www.youtube.com/playlist?list=PLm7xfhMOszqwqvw0u-MU6ZZSMk4HEoVae",
-        icon: "fa-link"
-      }, {
-        title: "System Design & Architecture",
-        link: "https://www.youtube.com/playlist?list=PLm7xfhMOszqz0WM_18EireAYA1mHShDbU",
-        icon: "fa-project-diagram"
-      }, {
-        title: "Tech Leadership & Strategy",
-        link: "https://www.youtube.com/playlist?list=PLm7xfhMOszqy_PgIflEinGcDWI0ZTwr82",
-        icon: "fa-chart-line"
-      }];
 
-      try {
-        return React.createElement("section", {
-          "data-name": "core-specialties-section",
-          id: "specialties",
-          className: "section"
-        }, React.createElement("div", {
-          className: "container"
-        }, React.createElement("h2", {
-          "data-name": "specialties-title",
-          className: "text-4xl md:text-5xl font-bold text-center mb-16",
-          style: {
-            color: "var(--text)"
-          }
-        }, "Core Specialties"), React.createElement("div", {
-          className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        }, specialties.map((spec, index) => React.createElement("a", {
-          key: index,
-          href: spec.link,
-          target: "_blank",
-          rel: "noopener noreferrer",
-          "data-name": `specialty-card-${index}`,
-          "data-name": `specialty-card-${index}`,
-          className: "block p-6 md:p-8 rounded-2xl glass-panel hover-scale transition-all duration-300 group",
-          "aria-label": `View ${spec.title} playlist`,
-          "aria-label": `View ${spec.title} playlist`,
-          style: {
-            textDecoration: "none"
-          }
-        }, React.createElement("div", {
-          className: "text-4xl mb-6 w-16 h-16 rounded-xl flex items-center justify-center bg-cyan-500/10 group-hover:bg-cyan-500/20 transition-colors",
-          style: {
-            color: "var(--teal-400)"
-          }
-        }, React.createElement("i", {
-          className: `fas ${spec.icon}`
-        })), React.createElement("h3", {
-          className: "text-xl font-bold mb-4",
-          style: {
-            color: "var(--text)"
-          }
-        }, spec.title), React.createElement("span", {
-          className: "inline-flex items-center font-semibold transition-transform group-hover:translate-x-1",
-          style: {
-            color: "var(--primary)"
-          }
-        }, "View Playlist", React.createElement("i", {
-          className: "fas fa-arrow-right ml-2"
-        })))))))
-      } catch (error) {
-        reportError(error);
-        return null
-      }
+    function CurrentlyBuilding() {
+      var techPills = ["Next.js 15","React 19","TypeScript","Supabase","Stripe","Google Gemini","Tailwind","shadcn/ui"];
+      var infraPills = ["Sentry","GitHub Actions","AWS S3","Route 53","Redis","Vercel","Playwright","Resend","Google Analytics","Jira"];
+      var metrics = [{value:"99%",label:"AI Accuracy"},{value:"<5s",label:"Latency"},{value:"1K+",label:"Users Ready"},{value:"Solo",label:"Founded"}];
+      React.useEffect(function(){initScrollReveal();},[]);
+      return React.createElement("section",{id:"building",className:"py-24 md:py-32 px-6"},
+        React.createElement("div",{className:"max-w-6xl mx-auto"},
+          React.createElement("div",{className:"reveal"},SectionLabel("01","CURRENTLY BUILDING")),
+          React.createElement("div",{className:"grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start mt-8"},
+            React.createElement("div",{className:"reveal"},
+              React.createElement("div",{className:"mb-6"},
+                React.createElement("img",{src:"https://drive.google.com/thumbnail?id=1Fh3iMF5CoxsoDvDHOUl-HEDXsAJG_lRq&sz=w500",alt:"Eric Tech",className:"w-16 h-16 object-cover",style:{border:"2px solid var(--border)",borderRadius:"2px"},loading:"lazy"})
+              ),
+              React.createElement("h2",{className:"font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-3",style:{color:"var(--text)",letterSpacing:"-0.03em"}},"BookKeeper Pro"),
+              React.createElement("p",{className:"font-mono text-sm font-medium mb-6",style:{color:"var(--accent)"}},"AI-Powered Receipt Management"),
+              React.createElement("p",{className:"font-body text-base leading-relaxed mb-8",style:{color:"var(--text-muted)"}},"AI-powered bookkeeping that extracts receipt data with 99% accuracy in under 5 seconds \u2014 60% cheaper than QuickBooks. Full production SaaS with Stripe billing, bank reconciliation, and Canadian tax compliance. Solo-built and scaling toward YC Q2 2026."),
+              React.createElement("p",{className:"font-mono text-xs font-semibold uppercase mb-3",style:{color:"var(--text-subtle)",letterSpacing:"0.12em"}},"Stack"),
+              React.createElement("div",{className:"flex flex-wrap gap-2 mb-6"},
+                techPills.map(function(t,i){return React.createElement("span",{key:i,className:"font-mono text-xs font-medium px-3 py-1.5 transition-colors duration-200",style:{backgroundColor:"var(--surface-alt)",color:"var(--text-muted)",border:"1px solid var(--border)",borderRadius:"2px"}},"#"+t)})
+              ),
+              React.createElement("p",{className:"font-mono text-xs font-semibold uppercase mb-3",style:{color:"var(--text-subtle)",letterSpacing:"0.12em"}},"Infrastructure & DevOps"),
+              React.createElement("div",{className:"flex flex-wrap gap-2"},
+                infraPills.map(function(t,i){return React.createElement("span",{key:i,className:"font-mono text-xs font-medium px-3 py-1.5 transition-colors duration-200",style:{backgroundColor:"var(--surface-alt)",color:"var(--text-muted)",border:"1px solid var(--border)",borderRadius:"2px"}},"#"+t)})
+              )
+            ),
+            React.createElement("div",{className:"reveal lg:mt-12 p-8 card-hover",style:{backgroundColor:"var(--surface)",border:"1px solid var(--border)",borderLeft:"4px solid var(--accent)",borderRadius:"2px"}},
+              React.createElement("div",{className:"flex items-center gap-2 mb-6"},
+                React.createElement("span",{className:"pulse-dot inline-block w-2.5 h-2.5",style:{backgroundColor:"var(--accent)",borderRadius:"50%"}}),
+                React.createElement("span",{className:"font-mono text-xs font-bold uppercase",style:{color:"var(--accent)",letterSpacing:"0.15em"}},"LIVE")
+              ),
+              React.createElement("h3",{className:"font-display text-2xl md:text-3xl font-bold mb-2",style:{color:"var(--text)"}},"BookKeeper Pro"),
+              React.createElement("a",{href:"https://bookkeepers.cloud",target:"_blank",className:"font-mono text-sm inline-flex items-center gap-1.5 mb-8 transition-colors",style:{color:"var(--accent)",textDecoration:"none"}},"bookkeepers.cloud",React.createElement("i",{className:"fas fa-external-link-alt text-xs"})),
+              React.createElement("div",{className:"grid grid-cols-2 gap-6 mb-8"},
+                metrics.map(function(m,i){return React.createElement("div",{key:i},React.createElement("p",{className:"font-mono text-2xl md:text-3xl font-bold",style:{color:"var(--accent)"}},m.value),React.createElement("p",{className:"font-mono text-xs mt-1",style:{color:"var(--text-subtle)"}},m.label))})
+              ),
+              React.createElement("a",{href:"https://bookkeepers.cloud",target:"_blank",className:"font-mono text-xs font-semibold px-6 py-3 uppercase inline-flex items-center gap-2 transition-all duration-200",style:{background:"linear-gradient(135deg, #2BAADF 0%, #1A95C8 50%, #14b8a6 100%)",color:"#fff",textDecoration:"none",borderRadius:"2px",letterSpacing:"0.08em"},onMouseEnter:function(e){e.currentTarget.style.opacity="0.9"},onMouseLeave:function(e){e.currentTarget.style.opacity="1"}},"Visit Site",React.createElement("i",{className:"fas fa-arrow-right text-xs"}))
+            )
+          )
+        )
+      );
     }
-  </script>
-  <script>
-    function ProjectsSection() {
-      const projects = [{
-        title: "Match Me App",
-        description: "A full-stack dating application built with Next.js 14, Prisma, NextAuth, Pusher, and Cloudinary. Features real-time messaging and photo uploads.",
-        techStack: ["Next.js 14", "Prisma", "NextAuth", "Pusher", "PostgreSQL"],
-        thumbnail: "https://drive.google.com/thumbnail?id=17Tnz0dBOlxwIVJkglDaimTUediVGqrLU&sz=w1000",
-        videoUrl: "https://youtu.be/HqlJjX9uIuk?si=PR0nxEe637BZpOjm",
-        icon: "fa-heart"
-      }, {
-        title: "Simple Shop",
-        description: "Simple online shop built with C# ASP.NET Core and Angular TypeScript. Features product management, shopping cart, and secure checkout.",
-        techStack: ["ASP.NET Core", "Angular", "TypeScript", "C#", "SQL"],
-        thumbnail: "https://drive.google.com/thumbnail?id=1WFA-MhAe4kxsmvZzh2IvL4SKWKV5fq8f&sz=w1000",
-        videoUrl: "https://youtu.be/TJIhw7Ci5a8?si=HHQnXN6g32lDttni",
-        icon: "fa-shopping-bag"
-      }, {
-        title: "Find Fitness Classes",
-        description: "App for people to find their ideal fitness classes. Built with C# ASP.NET Core, React TypeScript, and SQLite with clean architecture.",
-        techStack: ["ASP.NET Core", "React", "TypeScript", "SQLite", "Cloudinary"],
-        thumbnail: "https://drive.google.com/thumbnail?id=1lvV9iB8ckzOzVN9UNgyRrw8IDJ8h2BPV&sz=w1000",
-        videoUrl: "https://youtu.be/R59OMmUBdM8?si=UyxcEVjL-qP6OLfd",
-        icon: "fa-dumbbell"
-      }];
 
-      try {
-        return React.createElement("section", {
-          "data-name": "projects-section",
-          id: "projects",
-          className: "section relative overflow-hidden"
-        }, React.createElement("div", {
-          className: "absolute inset-0 bg-gradient-to-b from-blue-900/5 to-transparent pointer-events-none"
-        }), React.createElement("div", {
-          className: "container relative z-10"
-        }, React.createElement("h2", {
-          "data-name": "projects-title",
-          className: "text-4xl md:text-5xl font-bold text-center mb-6",
-          style: {
-            color: "var(--text)"
-          }
-        }, "Featured Projects"), React.createElement("p", {
-          className: "text-center text-lg md:text-xl mb-12 md:mb-16 max-w-2xl mx-auto px-4",
-          style: {
-            color: "var(--text-muted)"
-          }
-        }, "Watch video demonstrations of full-stack applications I've built from the ground up."), React.createElement("div", {
-          className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        }, projects.map((project, index) => React.createElement("a", {
-          key: index,
-          href: project.videoUrl,
-          target: "_blank",
-          rel: "noopener noreferrer",
-          "data-name": `project-card-${index}`,
-          className: "group block rounded-2xl glass-panel overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer",
-          "aria-label": `Watch demo: ${project.title}`,
-          style: {
-            textDecoration: "none"
-          }
-        }, React.createElement("div", {
-          className: "relative overflow-hidden aspect-video bg-slate-800"
-        }, React.createElement("img", {
-          src: project.thumbnail,
-          alt: `${project.title} preview`,
-          className: "w-full h-full object-cover transition-all duration-300 group-hover:scale-110 group-hover:brightness-75",
-          loading: "lazy"
-        }), React.createElement("div", {
-          className: "absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        }, React.createElement("div", {
-          className: "w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border-2 border-white/50"
-        }, React.createElement("i", {
-          className: "fas fa-play text-white text-2xl ml-1"
-        }))), React.createElement("div", {
-          className: "absolute top-4 right-4 px-3 py-1.5 rounded-full bg-blue-600/90 backdrop-blur-sm text-white text-xs font-semibold flex items-center gap-2"
-        }, React.createElement("i", {
-          className: "fab fa-youtube"
-        }), "Watch Demo")), React.createElement("div", {
-          className: "p-6"
-        }, React.createElement("div", {
-          className: "flex items-center gap-3 mb-3"
-        }, React.createElement("div", {
-          className: "w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center",
-          style: {
-            color: "var(--primary)"
-          }
-        }, React.createElement("i", {
-          className: `fas ${project.icon}`
-        })), React.createElement("h3", {
-          className: "text-xl font-bold flex-1",
-          style: {
-            color: "var(--text)"
-          }
-        }, project.title)), React.createElement("p", {
-          className: "mb-4 leading-relaxed text-sm",
-          style: {
-            color: "var(--text-muted)"
-          }
-        }, project.description), React.createElement("div", {
-          className: "flex flex-wrap gap-2"
-        }, project.techStack.map((tech, techIndex) => React.createElement("span", {
-          key: techIndex,
-          className: "px-3 py-1 rounded-full text-xs font-medium border",
-          style: {
-            backgroundColor: "rgba(59, 130, 246, 0.1)",
-            borderColor: "rgba(59, 130, 246, 0.3)",
-            color: "var(--primary)"
-          }
-        }, tech))))))
-        )))
-      } catch (error) {
-        reportError(error);
-        return null
-      }
-    }
-  </script>
-  <script>
-    function ImpactLeadershipSection() {
-      const achievements = [
-        { stat: "$12M+", description: "Revenue generated through AWS Glue Studio product leadership" },
-        { stat: "750+", description: "Enterprise clients onboarded to AWS data pipeline solutions" },
-        { stat: "65%", description: "Reduction in ETL processing time through automation innovations" },
-        { stat: "15+", description: "Engineers led across cross-functional teams spanning 3 continents" },
-        { stat: "100K+", description: "Data pipelines deployed using no-code solutions built" },
-        { stat: "40%", description: "Cost savings achieved for enterprise customers through optimization" }
+    function TechStack() {
+      var technologies = [
+        {name:"React",icon:"devicon-react-original colored",iconColor:"#61DAFB"},
+        {name:"Next.js",icon:"devicon-nextjs-plain",iconColor:"currentColor"},
+        {name:"Angular",icon:"devicon-angular-plain colored",iconColor:"#DD0031"},
+        {name:"TypeScript",icon:"devicon-typescript-plain colored",iconColor:"#3178C6"},
+        {name:"Tailwind CSS",icon:"devicon-tailwindcss-original colored",iconColor:"#06B6D4"},
+        {name:"shadcn/ui",icon:"fa-solid fa-palette",iconColor:"currentColor"},
+        {name:"Node.js",icon:"devicon-nodejs-plain colored",iconColor:"#339933"},
+        {name:"Python",icon:"devicon-python-plain colored",iconColor:"#3776AB"},
+        {name:"C# / .NET",icon:"devicon-csharp-plain colored",iconColor:"#512BD4"},
+        {name:"GraphQL",icon:"devicon-graphql-plain colored",iconColor:"#E10098"},
+        {name:"Apollo",icon:"devicon-apollographql-plain",iconColor:"#311C87"},
+        {name:"Redis",icon:"devicon-redis-plain colored",iconColor:"#DC382D"},
+        {name:"AWS",icon:"devicon-amazonwebservices-plain-wordmark colored",iconColor:"#FF9900"},
+        {name:"Google Cloud",icon:"devicon-googlecloud-plain colored",iconColor:"#4285F4"},
+        {name:"Supabase",icon:"devicon-supabase-plain colored",iconColor:"#3FCF8E"},
+        {name:"PostgreSQL",icon:"devicon-postgresql-plain colored",iconColor:"#4169E1"},
+        {name:"Prisma",icon:"devicon-prisma-original",iconColor:"#2D3748"},
+        {name:"Docker",icon:"devicon-docker-plain colored",iconColor:"#2496ED"},
+        {name:"Terraform",icon:"devicon-terraform-plain colored",iconColor:"#7B42BC"},
+        {name:"Playwright",icon:"devicon-playwright-plain colored",iconColor:"#2D4552"},
+        {name:"Puppeteer",icon:"fa-solid fa-spider",iconColor:"#40B5E0"},
+        {name:"Google Gemini",icon:"devicon-google-plain colored",iconColor:"#4285F4"},
+        {name:"Claude",icon:"fa-solid fa-robot",iconColor:"#DA6B4F"},
+        {name:"n8n",icon:"fa-solid fa-diagram-project",iconColor:"#DF3E01"},
+        {name:"Stripe",icon:"fa-brands fa-stripe",iconColor:"#635BFF"},
+        {name:"Resend",icon:"fa-solid fa-paper-plane",iconColor:"#000000"},
       ];
+      return React.createElement("section",{className:"py-24 md:py-32 px-6",style:{backgroundColor:"var(--surface-alt)"}},
+        React.createElement("div",{className:"max-w-6xl mx-auto"},
+          React.createElement("div",{className:"reveal"},
+            SectionLabel("02","TECH STACK"),
+            React.createElement("h2",{className:"font-display text-3xl md:text-5xl font-bold mb-4 mt-6",style:{color:"var(--text)",letterSpacing:"-0.03em"}},"Tools of the trade"),
+            React.createElement("p",{className:"font-body text-base mb-12",style:{color:"var(--text-muted)"}},"The technologies I work with across the full modern stack.")
+          ),
+          React.createElement("div",{className:"grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 reveal"},
+            technologies.map(function(t,i){return React.createElement("div",{key:i,className:"flex items-center gap-3 px-4 py-3.5 font-body text-sm font-medium transition-all duration-200 cursor-default",style:{border:"1px solid var(--border)",color:"var(--text-muted)",backgroundColor:"var(--surface)",borderRadius:"2px"},onMouseEnter:function(e){var c=t.iconColor==="currentColor"?"var(--accent)":t.iconColor;e.currentTarget.style.borderColor=c;e.currentTarget.style.color="var(--text)"},onMouseLeave:function(e){e.currentTarget.style.borderColor="var(--border)";e.currentTarget.style.color="var(--text-muted)"}},React.createElement("i",{className:t.icon+" text-lg",style:{color:t.iconColor}}),t.name)})
+          )
+        )
+      );
+    }
 
-      try {
-        return React.createElement("section", {
-          "data-name": "impact-section",
-          className: "section relative overflow-hidden"
-        }, React.createElement("div", {
-          className: "absolute inset-0 bg-gradient-to-br from-blue-900/10 via-transparent to-indigo-900/10 pointer-events-none"
-        }), React.createElement("div", {
-          className: "container relative z-10"
-        }, React.createElement("div", {
-          className: "grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
-        }, React.createElement("div", {
-          className: "order-2 lg:order-1",
-          "data-name": "impact-image-container"
-        }, React.createElement("div", {
-          className: "relative group"
-        }, React.createElement("div", {
-          className: "absolute inset-0 bg-gradient-to-br from-blue-600/20 to-indigo-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"
-        }), React.createElement("img", {
-          src: "https://drive.google.com/thumbnail?id=1I6iX49PDr9aU73aacVQXkbyKBmiNEWpu&sz=w1000",
-          alt: "Eric presenting TED-style tech demonstration at Amazon Web Services",
-          className: "relative rounded-2xl shadow-2xl w-full h-auto object-cover border-2 transition-transform duration-300 group-hover:scale-[1.02]",
-          style: {
-            borderColor: "var(--surface-border)"
-          },
-          loading: "lazy"
-        }))), React.createElement("div", {
-          className: "order-1 lg:order-2",
-          "data-name": "impact-content"
-        }, React.createElement("h2", {
-          "data-name": "impact-title",
-          className: "text-4xl md:text-5xl font-bold mb-6",
-          style: {
-            color: "var(--text)"
-          }
-        }, "Technical Leadership at ", React.createElement("span", {
-          className: "text-gradient-primary"
-        }, "Amazon Web Services")), React.createElement("p", {
-          className: "text-lg mb-8 leading-relaxed",
-          style: {
-            color: "var(--text-muted)"
-          }
-        }, "Led technical demonstrations and impactful projects at AWS, specializing in no-code/low-code data pipeline solutions. Focused on ETL processes, data integration, and enterprise-scale solutions that drive measurable business outcomes."), React.createElement("div", {
-          className: "space-y-4"
-        }, achievements.map((achievement, index) => React.createElement("div", {
-          key: index,
-          className: "flex items-start gap-4 group/item",
-          "data-name": `achievement-${index}`
-        }, React.createElement("div", {
-          className: "flex-shrink-0 w-3 h-3 mt-2 rounded-full border-2 transition-all duration-300 group-hover/item:scale-125 group-hover/item:shadow-lg",
-          style: {
-            borderColor: "var(--primary)",
-            backgroundColor: "transparent"
-          }
-        }), React.createElement("div", {
-          className: "flex-1"
-        }, React.createElement("span", {
-          className: "text-2xl font-bold mr-3",
-          style: {
-            color: "var(--primary)"
-          }
-        }, achievement.stat), React.createElement("span", {
-          className: "text-base",
-          style: {
-            color: "var(--text-light)"
-          }
-        }, achievement.description))))), React.createElement("div", {
-          className: "mt-10 pt-8 border-t",
-          style: {
-            borderColor: "var(--surface-border)"
-          }
-        }, React.createElement("p", {
-          className: "text-sm font-semibold uppercase tracking-wider mb-3",
-          style: {
-            color: "var(--text-muted)"
-          }
-        }, "Key Projects"), React.createElement("div", {
-          className: "flex flex-wrap gap-3"
-        }, ["AWS Glue Studio", "App Flow Integration", "No-Code Pipeline Builder", "ETL Automation"].map((project, idx) => React.createElement("span", {
-          key: idx,
-          className: "px-4 py-2 rounded-full text-sm font-medium glass-panel border transition-all hover:scale-105",
-          style: {
-            borderColor: "rgba(59, 130, 246, 0.3)",
-            color: "var(--text-light)"
-          }
-        }, project))))))))
-      } catch (error) {
-        reportError(error);
-        return null
+    function ProjectsSection() {
+      var projects = [{title:"Match Me App",description:"Full-stack dating application with real-time messaging, NextAuth authentication, and Cloudinary photo uploads.",techStack:["Next.js 14","Prisma","NextAuth","Pusher","PostgreSQL"],thumbnail:"https://drive.google.com/thumbnail?id=17Tnz0dBOlxwIVJkglDaimTUediVGqrLU&sz=w1000",videoUrl:"https://youtu.be/HqlJjX9uIuk?si=PR0nxEe637BZpOjm",badge:"Tutorial"},{title:"Simple Shop",description:"Online shop with product management, shopping cart, and secure checkout built with C# and Angular.",techStack:["ASP.NET Core","Angular","TypeScript","C#","SQL"],thumbnail:"https://drive.google.com/thumbnail?id=1WFA-MhAe4kxsmvZzh2IvL4SKWKV5fq8f&sz=w1000",videoUrl:"https://youtu.be/TJIhw7Ci5a8?si=HHQnXN6g32lDttni",badge:"Tutorial"},{title:"Find Fitness Classes",description:"Fitness class finder with clean architecture, React frontend, and SQLite storage.",techStack:["ASP.NET Core","React","TypeScript","SQLite","Cloudinary"],thumbnail:"https://drive.google.com/thumbnail?id=1lvV9iB8ckzOzVN9UNgyRrw8IDJ8h2BPV&sz=w1000",videoUrl:"https://youtu.be/R59OMmUBdM8?si=UyxcEVjL-qP6OLfd",badge:"Tutorial"}];
+      function projCard(p,idx,featured){
+        var imgEl=React.createElement("div",{className:featured?"md:w-1/2 overflow-hidden relative":"aspect-video overflow-hidden relative"},
+          React.createElement("img",{src:p.thumbnail,alt:p.title+" preview",className:"w-full h-full object-cover transition-transform duration-500",style:featured?{minHeight:"260px"}:{},loading:"lazy",onMouseEnter:function(e){e.currentTarget.style.transform="scale(1.03)"},onMouseLeave:function(e){e.currentTarget.style.transform="scale(1)"}}),
+          React.createElement("div",{className:"absolute inset-0 pointer-events-none",style:{background:"linear-gradient(135deg,rgba(43,170,223,0.08) 0%,transparent 60%)"}})
+        );
+        var contentEl=React.createElement("div",{className:featured?"md:w-1/2 p-6 md:p-8 flex flex-col justify-center":"p-6"},
+          React.createElement("div",{className:"flex items-center gap-3 mb-3"},
+            React.createElement("h3",{className:"font-display text-"+(featured?"2xl":"xl")+" font-bold",style:{color:"var(--text)"}},p.title),
+            React.createElement("span",{className:"font-mono text-xs font-semibold px-2.5 py-1 uppercase",style:{backgroundColor:"rgba(43,170,223,0.1)",color:"var(--accent)",border:"1px solid rgba(43,170,223,0.2)",borderRadius:"2px",letterSpacing:"0.05em"}},p.badge)
+          ),
+          React.createElement("p",{className:"font-body text-sm leading-relaxed mb-4",style:{color:"var(--text-muted)"}},p.description),
+          React.createElement("div",{className:"flex flex-wrap gap-1.5 mb-5"},p.techStack.map(function(t,i){return React.createElement("span",{key:i,className:"font-mono text-xs px-2.5 py-1",style:{backgroundColor:"var(--surface-alt)",color:"var(--text-subtle)",borderRadius:"2px"}},t)})),
+          React.createElement("a",{href:p.videoUrl,target:"_blank",className:"font-mono text-xs font-semibold uppercase inline-flex items-center gap-2 transition-colors",style:{color:"var(--accent)",textDecoration:"none",letterSpacing:"0.08em"},onMouseEnter:function(e){e.currentTarget.style.color="var(--accent-hover)"},onMouseLeave:function(e){e.currentTarget.style.color="var(--accent)"}},"Watch Demo",React.createElement("i",{className:"fas fa-arrow-right text-xs"}))
+        );
+        if(featured){return React.createElement("div",{key:idx,className:"reveal lg:col-span-2 overflow-hidden card-hover",style:{border:"1px solid var(--border)",backgroundColor:"var(--surface)",borderRadius:"2px"}},React.createElement("div",{className:"flex flex-col md:flex-row"},imgEl,contentEl))}
+        return React.createElement("div",{key:idx,className:"reveal overflow-hidden card-hover",style:{border:"1px solid var(--border)",backgroundColor:"var(--surface)",borderRadius:"2px"}},imgEl,contentEl);
       }
+      return React.createElement("section",{id:"projects",className:"py-24 md:py-32 px-6"},
+        React.createElement("div",{className:"max-w-6xl mx-auto"},
+          React.createElement("div",{className:"reveal mb-12"},SectionLabel("03","PROJECTS"),React.createElement("h2",{className:"font-display text-3xl md:text-5xl font-bold mb-4 mt-6",style:{color:"var(--text)",letterSpacing:"-0.03em"}},"Things I\u2019ve built"),React.createElement("p",{className:"font-body text-base",style:{color:"var(--text-muted)"}},"Full-stack applications built from the ground up, with video walkthroughs.")),
+          React.createElement("div",{className:"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"},
+            projCard(projects[0],0,false),
+            projCard(projects[1],1,false),
+            projCard(projects[2],2,false)
+          )
+        )
+      );
     }
-  </script>
-  <script>
+
+    function ImpactSection() {
+      var achievements = [{stat:"$12M+",description:"Revenue generated through product leadership"},{stat:"750+",description:"Enterprise clients onboarded"},{stat:"65%",description:"Reduction in ETL processing time"},{stat:"15+",description:"Engineers led across 3 continents"},{stat:"100K+",description:"Data pipelines deployed"},{stat:"40%",description:"Cost savings for enterprise customers"}];
+      var keyProjects = ["AWS Glue Studio","App Flow Integration","No-Code Pipeline Builder","ETL Automation"];
+      return React.createElement("section",{id:"impact",className:"py-24 md:py-32 px-6",style:{backgroundColor:"var(--surface-alt)"}},
+        React.createElement("div",{className:"max-w-6xl mx-auto"},
+          React.createElement("div",{className:"reveal"},SectionLabel("04","IMPACT")),
+          React.createElement("div",{className:"reveal grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mt-8"},
+            React.createElement("div",{className:"relative"},
+              React.createElement("div",{className:"absolute",style:{inset:"-24px",background:"linear-gradient(135deg, rgba(43,170,223,0.2) 0%, rgba(139,92,246,0.12) 100%)",filter:"blur(40px)",borderRadius:"24px",zIndex:0}}),
+              React.createElement("img",{src:"https://drive.google.com/thumbnail?id=1I6iX49PDr9aU73aacVQXkbyKBmiNEWpu&sz=w1000",alt:"Eric presenting at Amazon Web Services",className:"w-full object-cover relative",style:{borderRadius:"2px",zIndex:1},loading:"lazy"})
+            ),
+            React.createElement("div",null,
+              React.createElement("h2",{className:"font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4",style:{color:"var(--text)",letterSpacing:"-0.03em"}},"Engineering leadership at ", React.createElement("span",{className:"text-gradient-accent"},"Amazon Web Services")),
+              React.createElement("p",{className:"font-body text-base leading-relaxed mb-8",style:{color:"var(--text-muted)"}},"Led technical demonstrations and high-impact projects at AWS, specializing in no-code/low-code data pipeline solutions. Focused on ETL, data integration, and enterprise-scale solutions."),
+              React.createElement("div",{className:"flex flex-col gap-4 mb-8"},
+                achievements.map(function(a,i){return React.createElement("div",{key:i,className:"flex items-start gap-4"},
+                  React.createElement("span",{className:"font-mono text-lg md:text-xl font-bold flex-shrink-0",style:{color:"var(--accent)",minWidth:"72px"}},a.stat),
+                  React.createElement("p",{className:"font-body text-sm leading-relaxed pt-0.5",style:{color:"var(--text-muted)"}},a.description)
+                )})
+              ),
+              React.createElement("div",{className:"pt-6",style:{borderTop:"1px solid var(--border)"}},
+                React.createElement("p",{className:"font-mono text-xs font-semibold uppercase mb-3",style:{color:"var(--text-subtle)",letterSpacing:"0.15em"}},"Key Projects"),
+                React.createElement("div",{className:"flex flex-wrap gap-2"},keyProjects.map(function(p,i){return React.createElement("span",{key:i,className:"font-mono text-xs font-medium px-3.5 py-1.5",style:{border:"1px solid var(--border)",color:"var(--text-muted)",backgroundColor:"var(--surface)",borderRadius:"2px"}},p)}))
+              )
+            )
+          )
+        )
+      );
+    }
+
+    function YouTubeSection() {
+      var counterRef = React.useRef(null);
+      var count = useCountUp(30000, 2000, counterRef);
+      var playlists = [
+        {title:"AI & Automation",url:"https://www.youtube.com/playlist?list=PLm7xfhMOszqx2-GdKkQuBCxI9qRY_-au5",icon:"fas fa-robot"},
+        {title:"Full-Stack Dev",url:"https://www.youtube.com/playlist?list=PLm7xfhMOszqwNiN8Uy0hBtKJyKcSDNIeZ",icon:"fas fa-code"},
+        {title:"Cloud & AWS",url:"https://www.youtube.com/playlist?list=PLm7xfhMOszqwV1CXNC0iT0f3M2A3Q3Ngv",icon:"fas fa-cloud"},
+        {title:"Career Growth",url:"https://www.youtube.com/playlist?list=PLm7xfhMOszqy_PgIflEinGcDWI0ZTwr82",icon:"fas fa-chart-line"},
+        {title:"Web3 & Blockchain",url:"https://www.youtube.com/playlist?list=PLm7xfhMOszqwqvw0u-MU6ZZSMk4HEoVae",icon:"fas fa-link"},
+        {title:"System Design",url:"https://www.youtube.com/playlist?list=PLm7xfhMOszqz0WM_18EireAYA1mHShDbU",icon:"fas fa-project-diagram"},
+      ];
+      return React.createElement("section",{id:"youtube",className:"py-24 md:py-32 px-6"},
+        React.createElement("div",{className:"max-w-6xl mx-auto"},
+          React.createElement("div",{className:"reveal"},SectionLabel("05","YOUTUBE")),
+          React.createElement("div",{className:"grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 mt-8"},
+            React.createElement("div",{className:"reveal"},
+              React.createElement("h2",{className:"font-display text-3xl md:text-5xl font-bold mb-4",style:{color:"var(--text)",letterSpacing:"-0.03em"}},"I teach developers how to build ", React.createElement("span",{className:"text-gradient-accent"},"real things")),
+              React.createElement("p",{className:"font-body text-base mb-8",style:{color:"var(--text-muted)"}},"Practical tutorials on building production software."),
+              React.createElement("div",{ref:counterRef},
+                React.createElement("p",{className:"font-mono text-6xl md:text-7xl font-bold mb-2",style:{color:"var(--accent)"}},count.toLocaleString()+"+"),
+                React.createElement("p",{className:"font-mono text-sm",style:{color:"var(--text-subtle)"}},"developers learning on YouTube")
+              ),
+              React.createElement("div",{className:"flex flex-wrap gap-3 mt-8"},
+                React.createElement("a",{href:"https://www.youtube.com/@EricWTech",target:"_blank",className:"font-mono text-xs font-semibold px-6 py-3 uppercase inline-flex items-center gap-2 transition-all duration-200",style:{background:"linear-gradient(135deg, #2BAADF 0%, #1A95C8 50%, #14b8a6 100%)",color:"#fff",textDecoration:"none",borderRadius:"2px",letterSpacing:"0.08em"},onMouseEnter:function(e){e.currentTarget.style.opacity="0.9"},onMouseLeave:function(e){e.currentTarget.style.opacity="1"}},React.createElement("i",{className:"fab fa-youtube"}),"Subscribe"),
+                React.createElement("a",{href:"https://discord.com/invite/erictech",target:"_blank",className:"font-mono text-xs font-semibold px-6 py-3 uppercase inline-flex items-center gap-2 transition-all duration-200",style:{border:"1.5px solid var(--border)",color:"var(--text)",textDecoration:"none",borderRadius:"2px",letterSpacing:"0.08em"},onMouseEnter:function(e){e.currentTarget.style.borderColor="var(--accent)";e.currentTarget.style.color="var(--accent)"},onMouseLeave:function(e){e.currentTarget.style.borderColor="var(--border)";e.currentTarget.style.color="var(--text)"}},React.createElement("i",{className:"fab fa-discord"}),"Join Discord")
+              )
+            ),
+            React.createElement("div",{className:"reveal flex flex-col gap-0"},
+              playlists.map(function(pl,i){return React.createElement("a",{key:i,href:pl.url,target:"_blank",className:"flex items-center gap-4 px-5 py-4 font-body text-sm font-medium transition-all duration-200",style:{textDecoration:"none",color:"var(--text-muted)",borderBottom:"1px solid var(--border)"},onMouseEnter:function(e){e.currentTarget.style.backgroundColor="var(--surface)";e.currentTarget.style.color="var(--text)";e.currentTarget.style.paddingLeft="24px"},onMouseLeave:function(e){e.currentTarget.style.backgroundColor="transparent";e.currentTarget.style.color="var(--text-muted)";e.currentTarget.style.paddingLeft="20px"}},React.createElement("i",{className:pl.icon+" text-base",style:{width:"20px",textAlign:"center",color:"var(--accent)"}}),React.createElement("span",{className:"flex-1"},pl.title),React.createElement("i",{className:"fas fa-arrow-right text-xs",style:{color:"var(--text-subtle)"}}))})
+            )
+          )
+        )
+      );
+    }
+
     function ContactSection() {
-      try {
-        return React.createElement("section", {
-          "data-name": "contact-section",
-          id: "contact",
-          className: "section",
-          style: {
-            backgroundColor: "transparent"
-          }
-        }, React.createElement("div", {
-          className: "container max-w-4xl"
-        }, React.createElement("div", {
-          className: "glass-panel rounded-3xl p-8 md:p-12 text-center"
-        }, React.createElement("h2", {
-          "data-name": "contact-title",
-          className: "text-3xl md:text-4xl font-bold mb-4",
-          style: {
-            color: "var(--text)"
-          }
-        }, "Ready to Scale?"), React.createElement("p", {
-          className: "text-xl mb-12 max-w-2xl mx-auto",
-          style: {
-            color: "var(--text-muted)"
-          }
-        }, "Choose the best way to work together based on your current needs."), React.createElement("div", {
-          className: "grid grid-cols-1 md:grid-cols-2 gap-8 mb-12"
-        }, React.createElement("div", {
-          className: "p-8 rounded-2xl border transition-all hover:border-blue-500/50 bg-opacity-50",
-          style: {
-            backgroundColor: "var(--background)",
-            borderColor: "var(--surface-border)"
-          }
-        }, React.createElement("div", {
-          className: "text-4xl mb-4 text-center",
-          style: {
-            color: "var(--primary)"
-          }
-        }, React.createElement("i", {
-          className: "fas fa-phone-alt"
-        })), React.createElement("h3", {
-          className: "text-xl font-bold text-center mb-2",
-          style: {
-            color: "var(--text)"
-          }
-        }, "Strategy Call"), React.createElement("p", {
-          className: "text-center mb-6 text-sm",
-          style: {
-            color: "var(--text-muted)"
-          }
-        }, "Discuss your automation & infrastructure needs."), React.createElement("a", {
-          href: "https://calendar.app.google/sB9KrJP6e8j3EPmd9",
-          target: "_blank",
-          "data-name": "strategy-call-button",
-          className: "btn-primary block p-4 rounded-xl text-center transition-all w-full font-bold"
-        }, React.createElement("span", null, "Book Strategy Call"))), React.createElement("div", {
-          className: "p-8 rounded-2xl border transition-all hover:border-blue-500/50 bg-opacity-50",
-          style: {
-            backgroundColor: "var(--background)",
-            borderColor: "var(--surface-border)"
-          }
-        }, React.createElement("div", {
-          className: "text-4xl mb-4 text-center",
-          style: {
-            color: "var(--primary)"
-          }
-        }, React.createElement("i", {
-          className: "fas fa-video"
-        })), React.createElement("h3", {
-          className: "text-xl font-bold text-center mb-2",
-          style: {
-            color: "var(--text)"
-          }
-        }, "Paid Consultation"), React.createElement("p", {
-          className: "text-center mb-6 text-sm",
-          style: {
-            color: "var(--text-muted)"
-          }
-        }, "Deep dive architecture review & advisory."), React.createElement("a", {
-          href: "https://calendar.app.google/BU9D589X3KNxnTeg6",
-          target: "_blank",
-          "data-name": "paid-consultation-button",
-          className: "btn-secondary block p-4 rounded-xl text-center transition-all w-full font-bold"
-        }, "Book Paid Consultation"))), React.createElement("div", {
-          className: "text-center pt-8 border-t",
-          style: {
-            borderColor: "var(--surface-border)"
-          }
-        }, React.createElement("h3", {
-          className: "text-lg font-semibold mb-4",
-          style: {
-            color: "var(--text)"
-          }
-        }, "Other Inquiries"), React.createElement("a", {
-          href: "https://calendar.app.google/PoSNUf3DCLdrLyW7A",
-          target: "_blank",
-          className: "btn-secondary inline-block px-8 py-4 rounded-xl font-bold transition-all hover-scale",
-          style: {
-            textDecoration: "none",
-            color: "var(--text-muted)"
-          }
-        }, "General Inquiry / Networking (30 min)")))))
-      } catch (error) {
-        reportError(error);
-        return null
-      }
+      var doors = [
+        {title:"Strategy Call",description:"30-min free consultation to discuss your project, architecture, or career.",icon:"fas fa-phone-alt",url:"https://calendar.app.google/sB9KrJP6e8j3EPmd9",color:"var(--accent)"},
+        {title:"Paid Consultation",description:"Deep-dive technical session for complex problems and code review.",icon:"fas fa-video",url:"https://calendar.app.google/BU9D589X3KNxnTeg6",color:"var(--accent)"},
+        {title:"General Inquiry",description:"Networking, collaborations, speaking engagements, or just say hello.",icon:"fas fa-envelope",url:"https://calendar.app.google/PoSNUf3DCLdrLyW7A",color:"var(--text-subtle)"},
+      ];
+      return React.createElement("section",{id:"contact",className:"py-24 md:py-32 px-6",style:{backgroundColor:"var(--surface-alt)"}},
+        React.createElement("div",{className:"max-w-6xl mx-auto"},
+          React.createElement("div",{className:"reveal text-center mb-12"},
+            SectionLabel("06","CONTACT"),
+            React.createElement("h2",{className:"font-display text-4xl md:text-6xl font-bold mb-5 mt-6",style:{color:"var(--text)",letterSpacing:"-0.03em"}},"Let\u2019s work ", React.createElement("span",{className:"text-gradient-accent"},"together")),
+            React.createElement("p",{className:"font-body text-base md:text-lg",style:{color:"var(--text-muted)"}},"Choose the best way to connect based on your current needs.")
+          ),
+          React.createElement("div",{className:"grid grid-cols-1 sm:grid-cols-3 gap-4 reveal"},
+            doors.map(function(d,i){return React.createElement("a",{key:i,href:d.url,target:"_blank",className:"block p-6 md:p-8 text-center transition-all duration-300 card-hover",style:{backgroundColor:"var(--surface)",borderTop:"4px solid",borderTopColor:d.color,borderLeft:"1px solid var(--border)",borderRight:"1px solid var(--border)",borderBottom:"1px solid var(--border)",borderRadius:"2px",textDecoration:"none",color:"var(--text)"},onMouseEnter:function(e){e.currentTarget.style.backgroundColor=d.color;e.currentTarget.style.color="#fff";e.currentTarget.style.borderColor=d.color},onMouseLeave:function(e){e.currentTarget.style.backgroundColor="var(--surface)";e.currentTarget.style.color="var(--text)";e.currentTarget.style.borderColor="var(--border)";e.currentTarget.style.borderTopColor=d.color}},
+              React.createElement("i",{className:d.icon+" text-2xl mb-4 block",style:{color:"inherit"}}),
+              React.createElement("h3",{className:"font-display text-lg font-bold mb-2",style:{color:"inherit"}},d.title),
+              React.createElement("p",{className:"font-body text-sm leading-relaxed",style:{color:"inherit",opacity:0.8}},d.description)
+            )})
+          )
+        )
+      );
     }
-  </script>
-  <script>
+
     function Footer() {
-      const socialLinks = [{
-        icon: "fab fa-youtube",
-        url: "https://www.youtube.com/@EricWTech",
-        label: "YouTube"
-      }, {
-        icon: "fab fa-linkedin",
-        url: "https://www.linkedin.com/in/ericwtech/",
-        label: "LinkedIn"
-      }, {
-        icon: "fab fa-discord",
-        url: "https://discord.com/invite/erictech",
-        label: "Discord"
-      }, {
-        icon: "fab fa-github",
-        url: "https://github.com/erictechpro",
-        label: "GitHub"
-      }];
-      try {
-        return React.createElement("footer", {
-          "data-name": "footer",
-          className: "py-12 border-t",
-          style: {
-            backgroundColor: "var(--navy-900)",
-            borderColor: "var(--surface-border)"
-          }
-        }, React.createElement("div", {
-          className: "container"
-        }, React.createElement("div", {
-          className: "text-center mb-8"
-        }, React.createElement("h2", {
-          "data-name": "footer-title",
-          className: "text-2xl font-bold mb-6 text-white"
-        }, "Connect With Me"), React.createElement("div", {
-          className: "flex justify-center space-x-8"
-        }, socialLinks.map((link, index) => React.createElement("a", {
-          key: index,
-          href: link.url,
-          target: "_blank",
-          "data-name": `social-link-${link.label.toLowerCase()}`,
-          className: "text-3xl text-gray-400 hover:text-white transition-colors hover:scale-110 transform",
-          "aria-label": link.label
-        }, React.createElement("i", {
-          className: link.icon
-        }))))), React.createElement("div", {
-          className: "text-center text-sm text-gray-500"
-        }, React.createElement("p", {
-          "data-name": "copyright"
-        }, "\xA9 ", new Date().getFullYear(), " EricTech. All rights reserved."))))
-      } catch (error) {
-        reportError(error);
-        return null
-      }
-    }
-  </script>
-  <script>
-    function ThemeToggle() {
-      const [isDark, setIsDark] = React.useState(false);
-      React.useEffect(() => {
-        const isDarkMode = localStorage.getItem("theme") === "dark";
-        setIsDark(isDarkMode);
-        document.documentElement.setAttribute("data-theme", isDarkMode ? "dark" : "light")
-      }, []);
-      const toggleTheme = () => {
-        try {
-          const newTheme = isDark ? "light" : "dark";
-          setIsDark(!isDark);
-          localStorage.setItem("theme", newTheme);
-          document.documentElement.setAttribute("data-theme", newTheme)
-        } catch (error) {
-          reportError(error)
-        }
-      };
-      return React.createElement("button", {
-        "data-name": "theme-toggle",
-        onClick: toggleTheme,
-        className: "fixed bottom-4 right-4 p-4 rounded-full shadow-lg z-50 transition-all hover:scale-110 glass-panel",
-        style: {
-          color: "var(--text)",
-          border: "1px solid var(--surface-border)"
-        }
-      }, React.createElement("i", {
-        className: `fas ${isDark ? "fa-sun" : "fa-moon"} text-xl`
-      }))
-    }
-  </script>
-  <script>function initTheme() { try { const theme = localStorage.getItem("theme") || "light"; document.documentElement.setAttribute("data-theme", theme) } catch (error) { reportError(error) } }</script>
-  <script>
-    class ErrorBoundary extends React.Component {
-      constructor(props) {
-        super(props);
-        this.state = {
-          hasError: false,
-          error: null,
-          errorInfo: null
-        }
-      }
-      static getDerivedStateFromError(error) {
-        return {
-          hasError: true
-        }
-      }
-      componentDidCatch(error, errorInfo) {
-        if (window.location.origin.startsWith("https://preview__")) {
-          window.parent.postMessage({
-            type: "error",
-            data: error.toString()
-          }, "*");
-          this.setState({
-            error: error,
-            errorInfo: errorInfo
-          })
-        }
-      }
-      render() {
-        return this.props.children
-      }
+      var socialLinks = [
+        {icon:"fab fa-youtube",url:"https://www.youtube.com/@EricWTech",label:"YouTube"},
+        {icon:"fab fa-linkedin",url:"https://www.linkedin.com/in/ericwtech/",label:"LinkedIn"},
+        {icon:"fab fa-discord",url:"https://discord.com/invite/erictech",label:"Discord"},
+        {icon:"fab fa-github",url:"https://github.com/erictechpro",label:"GitHub"},
+      ];
+      return React.createElement("footer",{className:"py-12 px-6",style:{borderTop:"1px solid var(--border)"}},
+        React.createElement("div",{className:"max-w-6xl mx-auto"},
+          React.createElement("div",{className:"flex flex-col md:flex-row items-center justify-between gap-6 mb-6"},
+            React.createElement("span",{className:"font-mono text-xl font-bold",style:{color:"var(--text)"}},"ET"),
+            React.createElement("div",{className:"flex items-center gap-6"},
+              socialLinks.map(function(l,i){return React.createElement("a",{key:i,href:l.url,target:"_blank",className:"font-mono text-xs font-medium uppercase inline-flex items-center gap-2 transition-colors duration-200",style:{color:"var(--text-subtle)",textDecoration:"none",letterSpacing:"0.08em"},"aria-label":l.label,onMouseEnter:function(e){e.currentTarget.style.color="var(--accent)"},onMouseLeave:function(e){e.currentTarget.style.color="var(--text-subtle)"}},React.createElement("i",{className:l.icon}),l.label)})
+            )
+          ),
+          React.createElement("div",{className:"text-center pt-6",style:{borderTop:"1px solid var(--border)"}},
+            React.createElement("span",{className:"font-mono text-xs",style:{color:"var(--text-subtle)"}},"\u00a9 "+new Date().getFullYear()+" Eric Tech. All rights reserved.")
+          )
+        )
+      );
     }
 
     function App() {
-      try {
-        return React.createElement("div", {
-          "data-name": "app",
-          className: "min-h-screen"
-        }, React.createElement(Navbar, null), React.createElement(Hero, null), React.createElement(SocialProof, null), React.createElement(CoreSpecialtiesSection, null), React.createElement(ProjectsSection, null), React.createElement(ImpactLeadershipSection, null), React.createElement(ContactSection, null), React.createElement(Footer, null), React.createElement(ThemeToggle, null))
-      } catch (error) {
-        reportError(error);
-        return null
-      }
+      React.useEffect(function() { setTimeout(initScrollReveal, 100); }, []);
+      return React.createElement("div", { className: "min-h-screen" },
+        React.createElement(Navbar),
+        React.createElement(Hero),
+        React.createElement(SocialProof),
+        React.createElement(CurrentlyBuilding),
+        React.createElement(TechStack),
+        React.createElement(ProjectsSection),
+        React.createElement(ImpactSection),
+        React.createElement(YouTubeSection),
+        React.createElement(ContactSection),
+        React.createElement(Footer)
+      );
     }
-    initTheme();
-    ReactDOM.render(React.createElement(ErrorBoundary, null, React.createElement(App, null)), document.getElementById("root"));
-  </script>
-  <script type="text/babel">// file removed
-  </script>
-  <script>
-    (function () {
-      // Create a highlight div
-      const highlightDiv = document.createElement('div');
-      highlightDiv.style.position = 'absolute';
-      highlightDiv.style.pointerEvents = 'none';
-      highlightDiv.style.border = '2px solid red';
-      highlightDiv.style.zIndex = '9999';
-      highlightDiv.style.display = 'none';
-      document.body.appendChild(highlightDiv);
 
-      // Create a label div for displaying the element's type
-      const labelDiv = document.createElement('div');
-      labelDiv.style.position = 'absolute';
-      labelDiv.style.pointerEvents = 'none';
-      labelDiv.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
-      labelDiv.style.color = 'white';
-      labelDiv.style.fontSize = '12px';
-      labelDiv.style.padding = '2px 5px';
-      labelDiv.style.borderRadius = '3px';
-      labelDiv.style.zIndex = '10000';
-      labelDiv.style.display = 'none';
-      document.body.appendChild(labelDiv);
+    document.documentElement.setAttribute("data-theme", "light");
 
-      let currentElement = null;
-      let inspectModeEnabled = false;
-
-      // Initialize inspect mode
-      function initInspectMode() {
-        document.addEventListener('mousemove', handleMouseMove);
-        document.addEventListener('click', handleClick, true);
-      }
-
-      // Disable inspect mode
-      function disableInspectMode() {
-        highlightDiv.style.display = 'none';
-        labelDiv.style.display = 'none';
-        currentElement = null;
-        document.removeEventListener('mousemove', handleMouseMove);
-        document.removeEventListener('click', handleClick, true);
-      }
-
-      // Mouse move event to update highlight position
-      function handleMouseMove(event) {
-        if (!inspectModeEnabled) return;
-        const element = document.elementFromPoint(event.clientX, event.clientY);
-        if (element && element !== currentElement) {
-          currentElement = element;
-          const rect = element.getBoundingClientRect();
-
-          // Update highlight div
-          highlightDiv.style.width = rect.width + 'px';
-          highlightDiv.style.height = rect.height + 'px';
-          highlightDiv.style.left = rect.left + window.scrollX + 'px';
-          highlightDiv.style.top = rect.top + window.scrollY + 'px';
-          highlightDiv.style.display = 'block';
-
-          // Update label div
-          labelDiv.textContent = element.getAttribute('data-name') || element.tagName.toLowerCase();
-          labelDiv.style.left = rect.left + window.scrollX + 'px';
-          labelDiv.style.top = rect.top + window.scrollY - labelDiv.offsetHeight + 'px';
-          labelDiv.style.display = 'block';
-        }
-      }
-
-      // Mouse click event to log element
-      function handleClick(event) {
-        if (!inspectModeEnabled) return;
-        event.preventDefault();
-        event.stopPropagation();
-        if (currentElement) {
-          window.parent.postMessage({ type: 'elementSelected', data: currentElement.outerHTML }, '*');
-        }
-      }
-
-      // Mouse out to hide highlight and label
-      document.addEventListener('mouseout', () => {
-        highlightDiv.style.display = 'none';
-        labelDiv.style.display = 'none';
-        currentElement = null;
-      });
-
-      window.addEventListener('message', (event) => {
-        if (event.data.action === 'toggleInspectMode') {
-          inspectModeEnabled = event.data.enabled;
-          if (inspectModeEnabled) {
-            initInspectMode();
-          } else {
-            disableInspectMode();
-          }
-        }
-      });
-    })();
+    ReactDOM.render(React.createElement(App), document.getElementById("root"));
   </script>
 </body>
 
