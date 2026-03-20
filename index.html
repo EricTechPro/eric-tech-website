@@ -7,7 +7,7 @@
     content="EricTech - Senior Engineer, Founder, and Creator. Building AI-powered products, leading engineering teams, and teaching 30,000+ developers."
     name="description" />
   <meta
-    content="software engineer, full stack developer, AI automation, SaaS founder, AWS, React, Next.js, TypeScript, YouTube tutorials"
+    content="software engineer, full stack developer, AI automation, SaaS founder, AWS, React, Next.js, TypeScript, YouTube tutorials, BookZero, bookzero.ai, AI bookkeeping, receipt scanner, QuickBooks alternative"
     name="keywords" />
   <meta content="Eric Tech - Senior Engineer & Founder" property="og:title" />
   <meta content="Building AI-powered products, leading engineering at scale, and teaching 30,000+ developers on YouTube."
@@ -219,9 +219,9 @@
     }
 
     function CurrentlyBuilding() {
-      var techPills = ["Next.js 15","React 19","TypeScript","Supabase","Stripe","Google Gemini","Tailwind","shadcn/ui"];
-      var infraPills = ["Sentry","GitHub Actions","AWS S3","Route 53","Redis","Vercel","Playwright","Resend","Google Analytics","Jira"];
-      var metrics = [{value:"99%",label:"AI Accuracy"},{value:"<5s",label:"Latency"},{value:"1K+",label:"Users Ready"},{value:"Solo",label:"Founded"}];
+      var techPills = ["Next.js 15","React 19","TypeScript","Supabase","Stripe","Google Gemini","Tailwind","shadcn/ui","Claude AI","Zustand","Zod"];
+      var infraPills = ["Sentry","GitHub Actions","AWS S3","Route 53","Redis","Vercel","Playwright","Resend","Google Analytics","Jira","pg_cron"];
+      var metrics = [{value:"2M+",label:"Receipts Processed"},{value:"92%",label:"Auto-Match Rate"},{value:"60%",label:"Cheaper vs QuickBooks"},{value:"Solo",label:"Founded"}];
       React.useEffect(function(){initScrollReveal();},[]);
       return React.createElement("section",{id:"building",className:"py-24 md:py-32 px-6"},
         React.createElement("div",{className:"max-w-6xl mx-auto"},
@@ -231,9 +231,9 @@
               React.createElement("div",{className:"mb-6"},
                 React.createElement("img",{src:"https://drive.google.com/thumbnail?id=1Fh3iMF5CoxsoDvDHOUl-HEDXsAJG_lRq&sz=w500",alt:"Eric Tech",className:"w-16 h-16 object-cover",style:{border:"2px solid var(--border)",borderRadius:"2px"},loading:"lazy"})
               ),
-              React.createElement("h2",{className:"font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-3",style:{color:"var(--text)",letterSpacing:"-0.03em"}},"BookKeeper Pro"),
-              React.createElement("p",{className:"font-mono text-sm font-medium mb-6",style:{color:"var(--accent)"}},"AI-Powered Receipt Management"),
-              React.createElement("p",{className:"font-body text-base leading-relaxed mb-8",style:{color:"var(--text-muted)"}},"AI-powered bookkeeping that extracts receipt data with 99% accuracy in under 5 seconds \u2014 60% cheaper than QuickBooks. Full production SaaS with Stripe billing, bank reconciliation, and Canadian tax compliance. Solo-built and scaling toward YC Q2 2026."),
+              React.createElement("h2",{className:"font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-3",style:{color:"var(--text)",letterSpacing:"-0.03em"}},"BookZero"),
+              React.createElement("p",{className:"font-mono text-sm font-medium mb-6",style:{color:"var(--accent)"}},"AI Bookkeeping Software for Small Business"),
+              React.createElement("p",{className:"font-body text-base leading-relaxed mb-8",style:{color:"var(--text-muted)"}},"BookZero is AI bookkeeping software that scans receipts and matches bank statements automatically \u2014 powered by Google Gemini AI. 92% auto-match rate, 60% cheaper than QuickBooks, with full Canadian tax compliance (CRA T2125). Production SaaS with Stripe billing and real-time bank reconciliation. Solo-built and scaling toward YC Q2 2026."),
               React.createElement("p",{className:"font-mono text-xs font-semibold uppercase mb-3",style:{color:"var(--text-subtle)",letterSpacing:"0.12em"}},"Stack"),
               React.createElement("div",{className:"flex flex-wrap gap-2 mb-6"},
                 techPills.map(function(t,i){return React.createElement("span",{key:i,className:"font-mono text-xs font-medium px-3 py-1.5 transition-colors duration-200",style:{backgroundColor:"var(--surface-alt)",color:"var(--text-muted)",border:"1px solid var(--border)",borderRadius:"2px"}},"#"+t)})
@@ -248,12 +248,12 @@
                 React.createElement("span",{className:"pulse-dot inline-block w-2.5 h-2.5",style:{backgroundColor:"var(--accent)",borderRadius:"50%"}}),
                 React.createElement("span",{className:"font-mono text-xs font-bold uppercase",style:{color:"var(--accent)",letterSpacing:"0.15em"}},"LIVE")
               ),
-              React.createElement("h3",{className:"font-display text-2xl md:text-3xl font-bold mb-2",style:{color:"var(--text)"}},"BookKeeper Pro"),
-              React.createElement("a",{href:"https://bookkeepers.cloud",target:"_blank",className:"font-mono text-sm inline-flex items-center gap-1.5 mb-8 transition-colors",style:{color:"var(--accent)",textDecoration:"none"}},"bookkeepers.cloud",React.createElement("i",{className:"fas fa-external-link-alt text-xs"})),
+              React.createElement("h3",{className:"font-display text-2xl md:text-3xl font-bold mb-2",style:{color:"var(--text)"}},"BookZero"),
+              React.createElement("a",{href:"https://bookzero.ai",target:"_blank",className:"font-mono text-sm inline-flex items-center gap-1.5 mb-8 transition-colors",style:{color:"var(--accent)",textDecoration:"none"}},"bookzero.ai \u2014 AI Bookkeeping Software",React.createElement("i",{className:"fas fa-external-link-alt text-xs"})),
               React.createElement("div",{className:"grid grid-cols-2 gap-6 mb-8"},
                 metrics.map(function(m,i){return React.createElement("div",{key:i},React.createElement("p",{className:"font-mono text-2xl md:text-3xl font-bold",style:{color:"var(--accent)"}},m.value),React.createElement("p",{className:"font-mono text-xs mt-1",style:{color:"var(--text-subtle)"}},m.label))})
               ),
-              React.createElement("a",{href:"https://bookkeepers.cloud",target:"_blank",className:"font-mono text-xs font-semibold px-6 py-3 uppercase inline-flex items-center gap-2 transition-all duration-200",style:{background:"linear-gradient(135deg, #2BAADF 0%, #1A95C8 50%, #14b8a6 100%)",color:"#fff",textDecoration:"none",borderRadius:"2px",letterSpacing:"0.08em"},onMouseEnter:function(e){e.currentTarget.style.opacity="0.9"},onMouseLeave:function(e){e.currentTarget.style.opacity="1"}},"Visit Site",React.createElement("i",{className:"fas fa-arrow-right text-xs"}))
+              React.createElement("a",{href:"https://bookzero.ai",target:"_blank",className:"font-mono text-xs font-semibold px-6 py-3 uppercase inline-flex items-center gap-2 transition-all duration-200",style:{background:"linear-gradient(135deg, #2BAADF 0%, #1A95C8 50%, #14b8a6 100%)",color:"#fff",textDecoration:"none",borderRadius:"2px",letterSpacing:"0.08em"},onMouseEnter:function(e){e.currentTarget.style.opacity="0.9"},onMouseLeave:function(e){e.currentTarget.style.opacity="1"}},"Visit Site",React.createElement("i",{className:"fas fa-arrow-right text-xs"}))
             )
           )
         )
