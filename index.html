@@ -153,10 +153,33 @@
       animation: cta-glow-pulse 2.5s ease-in-out infinite;
     }
     .cta-sticky-pulse:hover { animation: none; }
+    .cta-bridge-btn {
+      background: linear-gradient(135deg, var(--accent) 0%, #1a7ab5 100%) !important;
+      box-shadow: 0 4px 16px var(--accent-glow-medium), 0 0 0 0 transparent;
+      transition: transform .25s cubic-bezier(.22,1,.36,1), box-shadow .25s ease, background .25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-bridge-btn::before {
+      content: "";
+      position: absolute;
+      top: 0; left: -100%; width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      transition: left 0.5s ease;
+    }
+    .cta-bridge-btn:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 8px 32px var(--accent-glow-strong), 0 0 0 4px var(--accent-glow-light);
+    }
+    .cta-bridge-btn:hover::before {
+      left: 100%;
+    }
     @media (prefers-reduced-motion: reduce) {
       .cta-primary, .cta-primary:hover { transform: none; transition: none; }
       .cta-primary .cta-arrow, .cta-primary:hover .cta-arrow { transform: none; transition: none; }
       .cta-sticky-pulse { animation: none; }
+      .cta-bridge-btn, .cta-bridge-btn:hover { transform: none; transition: none; }
+      .cta-bridge-btn::before { display: none; }
     }
     :focus-visible {
       outline: 2px solid var(--accent);
@@ -293,7 +316,7 @@
             )
           ),
           React.createElement("div", { className:"mb-10 hero-anim-4", style:{width:"64px",height:"4px",background:"var(--accent)"} }),
-          React.createElement("div", { className:"flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 hero-anim-5" },
+          React.createElement("div", { className:"flex flex-col md:flex-row md:items-end md:justify-between gap-10 hero-anim-5" },
             React.createElement("div", { className:"max-w-xl" },
               React.createElement("p", { className:"font-body text-lg md:text-xl leading-relaxed mb-8", style:{color:"var(--text-muted)",lineHeight:"1.7"} }, "Building AI-powered products, leading engineering at scale, and teaching ", React.createElement("span",{style:{color:"var(--accent)",fontWeight:600}},"60,000+ developers"), "."),
               React.createElement("div", { className:"flex flex-wrap gap-3" },
@@ -303,12 +326,12 @@
             ),
             React.createElement("div", { className:"flex items-center gap-6 hero-anim-3" },
               React.createElement("div", { style:{position:"relative",flexShrink:0} },
-                React.createElement("div", { style:{width:"200px",height:"200px",borderRadius:"50%",overflow:"hidden",border:"3px solid var(--accent)",boxShadow:"0 0 0 10px var(--accent-glow)"} },
+                React.createElement("div", { style:{width:"clamp(140px, 18vw, 200px)",height:"clamp(140px, 18vw, 200px)",borderRadius:"50%",overflow:"hidden",border:"3px solid var(--accent)",boxShadow:"0 0 0 10px var(--accent-glow)"} },
                   React.createElement("img", { src:"https://drive.google.com/thumbnail?id=1Fh3iMF5CoxsoDvDHOUl-HEDXsAJG_lRq&sz=w400", alt:"Eric Tech, software engineer and founder", width:400, height:400, className:"w-full h-full object-cover", loading:"eager" })
                 )
               ),
               React.createElement("div", null,
-                React.createElement("p", { className:"font-mono text-2xl font-bold", style:{color:"var(--accent)"} }, "60,000+"),
+                React.createElement("p", { className:"font-mono text-xl md:text-2xl font-bold", style:{color:"var(--accent)"} }, "60,000+"),
                 React.createElement("p", { className:"font-body text-xs", style:{color:"var(--text-subtle)"} }, "developers on YouTube")
               )
             )
@@ -339,9 +362,6 @@
           React.createElement("div",{className:"reveal"},SectionLabel("01","CURRENTLY BUILDING")),
           React.createElement("div",{className:"grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start mt-8"},
             React.createElement("div",{className:"reveal"},
-              React.createElement("div",{className:"mb-6"},
-                React.createElement("img",{src:"logos/logo-icon.png",alt:"BookZero logo",width:64,height:64,className:"w-16 h-16",style:{border:"2px solid var(--border)",borderRadius:"8px"},loading:"eager"})
-              ),
               React.createElement("h2",{className:"font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-3",style:{color:"var(--text)",letterSpacing:"-0.03em"}},"BookZero"),
               React.createElement("p",{className:"font-body text-sm font-medium mb-6",style:{color:"var(--accent)"}},"AI Bookkeeping Software for Small Business"),
               React.createElement("p",{className:"font-body text-base leading-relaxed mb-8",style:{color:"var(--text-muted)",lineHeight:"1.7"}},"AI bookkeeping that scans receipts and matches bank statements automatically \u2014 powered by Google Gemini AI. 92% auto-match rate, 60% cheaper than QuickBooks, with full Canadian tax compliance. Solo-built and scaling toward YC 2026."),
@@ -354,24 +374,45 @@
                 infraPills.map(function(t,i){return React.createElement("span",{key:i,className:"font-mono text-xs font-medium px-3 py-1.5 transition-colors duration-200",style:{backgroundColor:"var(--surface-alt)",color:"var(--text-muted)",border:"1px solid var(--border)",borderRadius:"2px"}},"#"+t)})
               )
             ),
-            React.createElement("div",{className:"reveal lg:mt-12 p-8 md:p-10 card-hover",style:{backgroundColor:"var(--surface)",border:"1px solid var(--border)",borderRadius:"2px"}},
+            React.createElement("div",{className:"reveal lg:mt-12 p-6 md:p-8",style:{backgroundColor:"var(--surface)",border:"1px solid var(--border)",borderRadius:"2px"}},
               React.createElement("div",{className:"flex items-center justify-between mb-6"},
                 React.createElement("div",{className:"flex items-center gap-2"},
-                  React.createElement("span",{className:"pulse-dot inline-block w-2.5 h-2.5",style:{backgroundColor:"var(--accent)",borderRadius:"50%"}}),
+                  React.createElement("span",{className:"inline-block w-2 h-2",style:{backgroundColor:"var(--accent)",borderRadius:"50%",opacity:"0.85"}}),
                   React.createElement("span",{className:"font-mono text-xs font-bold uppercase",style:{color:"var(--accent)",letterSpacing:"0.15em"}},"LIVE")
                 ),
                 React.createElement("img",{src:"logos/logo-icon.png",alt:"BookZero logo",width:40,height:40,className:"w-10 h-10",style:{borderRadius:"6px"},loading:"eager"})
               ),
               React.createElement("h3",{className:"font-display text-2xl md:text-3xl font-bold mb-2",style:{color:"var(--text)"}},"BookZero"),
-              React.createElement("a",{href:"https://bookzero.ai",target:"_blank",rel:"noopener noreferrer",className:"font-mono text-sm inline-flex items-center gap-1.5 mb-8 transition-colors cursor-pointer",style:{color:"var(--accent)",textDecoration:"none"}},"bookzero.ai \u2014 AI Bookkeeping Software",React.createElement("i",{className:"fas fa-external-link-alt text-xs"})),
-              React.createElement("div",{className:"mb-8"},
-                React.createElement("p",{className:"font-body text-sm leading-relaxed",style:{color:"var(--text-muted)"}},
-                  React.createElement("span",{className:"font-display text-2xl font-bold",style:{color:"var(--accent)"}},"2M+"),
-                  " receipts processed with a ",
-                  React.createElement("span",{style:{fontWeight:600,color:"var(--text)"}},"92% auto-match rate"),
-                  " \u2014 ",
-                  React.createElement("span",{style:{fontWeight:600,color:"var(--text)"}},"60% cheaper"),
-                  " than QuickBooks. Solo-founded."
+              React.createElement("a",{href:"https://bookzero.ai",target:"_blank",rel:"noopener noreferrer",className:"font-mono text-sm inline-flex items-center gap-1.5 mb-6 transition-colors cursor-pointer",style:{color:"var(--accent)",textDecoration:"none"}},"bookzero.ai \u2014 AI Bookkeeping Software",React.createElement("i",{className:"fas fa-external-link-alt text-xs"})),
+              React.createElement("div",{className:"flex items-center gap-6 mb-6 pt-4",style:{borderTop:"1px solid var(--border)"}},
+                React.createElement("div",null,
+                  React.createElement("span",{className:"font-display text-lg font-bold",style:{color:"var(--text)"}},"2M+"),
+                  React.createElement("span",{className:"font-mono text-xs ml-1.5",style:{color:"var(--text-subtle)"}},"receipts")
+                ),
+                React.createElement("div",null,
+                  React.createElement("span",{className:"font-display text-lg font-bold",style:{color:"var(--text)"}},"92%"),
+                  React.createElement("span",{className:"font-mono text-xs ml-1.5",style:{color:"var(--text-subtle)"}},"auto-match")
+                ),
+                React.createElement("div",null,
+                  React.createElement("span",{className:"font-display text-lg font-bold",style:{color:"var(--text)"}},"60%"),
+                  React.createElement("span",{className:"font-mono text-xs ml-1.5",style:{color:"var(--text-subtle)"}},"cheaper")
+                )
+              ),
+              React.createElement("div",{className:"mb-6"},
+                React.createElement("div",{className:"flex items-center justify-between mb-3"},
+                  React.createElement("p",{className:"font-mono text-xs uppercase",style:{color:"var(--text-subtle)",letterSpacing:"0.1em"}},"User Growth"),
+                  React.createElement("span",{className:"font-mono text-xs font-medium",style:{color:"var(--text-muted)"}},"1,247 users")
+                ),
+                React.createElement("svg",{viewBox:"0 0 200 60",className:"w-full",style:{height:"56px"}},
+                  React.createElement("defs",null,
+                    React.createElement("linearGradient",{id:"lineGrad",x1:"0",y1:"0",x2:"0",y2:"1"},
+                      React.createElement("stop",{offset:"0%",stopColor:"var(--accent)",stopOpacity:"0.2"}),
+                      React.createElement("stop",{offset:"100%",stopColor:"var(--accent)",stopOpacity:"0"})
+                    )
+                  ),
+                  React.createElement("path",{d:"M0,52 C10,50 18,48 28,46 C38,44 48,43 57,40 C67,37 77,36 85,33 C95,30 105,28 114,24 C124,20 134,18 142,15 C152,12 162,10 171,8 C181,6 190,5 200,4 L200,60 L0,60 Z",fill:"url(#lineGrad)"}),
+                  React.createElement("path",{d:"M0,52 C10,50 18,48 28,46 C38,44 48,43 57,40 C67,37 77,36 85,33 C95,30 105,28 114,24 C124,20 134,18 142,15 C152,12 162,10 171,8 C181,6 190,5 200,4",fill:"none",stroke:"var(--accent)",strokeWidth:"2",strokeLinecap:"round",strokeLinejoin:"round"}),
+                  React.createElement("circle",{cx:"200",cy:"4",r:"3",fill:"var(--accent)"})
                 )
               ),
               React.createElement("a",{href:"https://bookzero.ai",target:"_blank",rel:"noopener noreferrer",className:"font-body text-xs font-semibold px-6 py-3 uppercase inline-flex items-center gap-2 transition-all duration-200 cursor-pointer",style:{background:"var(--accent)",color:"#fff",textDecoration:"none",borderRadius:"2px",letterSpacing:"0.08em"},onMouseEnter:function(e){e.currentTarget.style.background="var(--accent-hover)"},onMouseLeave:function(e){e.currentTarget.style.background="var(--accent)"}},"Visit Site",React.createElement("i",{className:"fas fa-arrow-right text-xs"}))
@@ -524,7 +565,7 @@
               ),
               React.createElement("div",{className:"flex flex-wrap gap-3 mt-8"},
                 React.createElement("a",{href:"https://www.youtube.com/@EricWTech",target:"_blank",rel:"noopener noreferrer",className:"font-body text-xs font-semibold px-6 py-3 uppercase inline-flex items-center gap-2 transition-all duration-200 cursor-pointer",style:{background:"var(--accent)",color:"#fff",textDecoration:"none",borderRadius:"2px",letterSpacing:"0.08em"},onMouseEnter:function(e){e.currentTarget.style.background="var(--accent-hover)"},onMouseLeave:function(e){e.currentTarget.style.background="var(--accent)"}},React.createElement("i",{className:"fab fa-youtube"}),"Subscribe"),
-                React.createElement("a",{href:"https://www.skool.com/erictech",target:"_blank",rel:"noopener noreferrer",className:"font-body text-xs font-semibold px-6 py-3 uppercase inline-flex items-center gap-2 transition-all duration-200 cursor-pointer",style:{border:"1.5px solid var(--border)",color:"var(--text)",textDecoration:"none",borderRadius:"2px",letterSpacing:"0.08em"},onMouseEnter:function(e){e.currentTarget.style.borderColor="var(--accent)";e.currentTarget.style.color="var(--accent)"},onMouseLeave:function(e){e.currentTarget.style.borderColor="var(--border)";e.currentTarget.style.color="var(--text)"}},React.createElement("i",{className:"fas fa-graduation-cap"}),"Join Skool")
+                React.createElement("a",{href:"https://www.skool.com/erictech",target:"_blank",rel:"noopener noreferrer",className:"font-body text-xs font-semibold px-6 py-3 uppercase inline-flex items-center gap-2 transition-all duration-200 cursor-pointer",style:{border:"1.5px solid var(--border)",color:"var(--text)",textDecoration:"none",borderRadius:"2px",letterSpacing:"0.08em"},onMouseEnter:function(e){e.currentTarget.style.borderColor="var(--accent)";e.currentTarget.style.color="var(--accent)"},onMouseLeave:function(e){e.currentTarget.style.borderColor="var(--border)";e.currentTarget.style.color="var(--text)"}},React.createElement("img",{src:"logos/skool.png",alt:"Skool",style:{height:"14px",width:"auto",objectFit:"contain"}}),"Join Skool")
               )
             ),
             React.createElement("div",{className:"reveal flex flex-col gap-0"},
@@ -537,7 +578,7 @@
 
     function ContactSection() {
       var doors = [
-        {title:"Strategy Call",description:"30-min free consultation to discuss your project, architecture, or career.",icon:"fas fa-phone-alt",url:"https://calendar.app.google/sB9KrJP6e8j3EPmd9",color:"var(--accent)",badge:"Free"},
+        {title:"Strategy Call",description:"15-min free consultation to discuss your project, architecture, or career.",icon:"fas fa-phone-alt",url:"https://calendar.app.google/sB9KrJP6e8j3EPmd9",color:"var(--accent)",badge:"Free"},
         {title:"Paid Consultation",description:"Deep-dive technical session for complex problems and code review.",icon:"fas fa-video",url:"https://calendar.app.google/BU9D589X3KNxnTeg6",color:"var(--accent)",badge:null},
         {title:"General Inquiry",description:"Networking, collaborations, speaking engagements, or just say hello.",icon:"fas fa-envelope",url:"https://calendar.app.google/PoSNUf3DCLdrLyW7A",color:"var(--text-subtle)",badge:null},
       ];
@@ -564,15 +605,15 @@
       var socialLinks = [
         {icon:"fab fa-youtube",url:"https://www.youtube.com/@EricWTech",label:"YouTube"},
         {icon:"fab fa-linkedin",url:"https://www.linkedin.com/in/ericwtech/",label:"LinkedIn"},
-        {icon:"fas fa-graduation-cap",url:"https://www.skool.com/erictech",label:"Skool"},
+        {img:"logos/skool.png",url:"https://www.skool.com/erictech",label:"Skool"},
         {icon:"fab fa-github",url:"https://github.com/erictechpro",label:"GitHub"},
       ];
-      return React.createElement("footer",{role:"contentinfo",className:"py-12 px-6",style:{borderTop:"1px solid var(--border)"}},
+      return React.createElement("footer",{role:"contentinfo",className:"py-12 pb-20 px-6",style:{borderTop:"1px solid var(--border)"}},
         React.createElement("div",{className:"max-w-6xl mx-auto"},
           React.createElement("div",{className:"flex flex-col md:flex-row items-center justify-between gap-6 mb-6"},
             React.createElement("span",{className:"font-mono text-xl font-bold",style:{color:"var(--text)"}},"ET"),
             React.createElement("div",{className:"flex items-center gap-6"},
-              socialLinks.map(function(l,i){return React.createElement("a",{key:i,href:l.url,target:"_blank",rel:"noopener noreferrer",className:"font-body text-xs font-medium uppercase inline-flex items-center gap-2 transition-colors duration-200 cursor-pointer",style:{color:"var(--text-subtle)",textDecoration:"none",letterSpacing:"0.08em"},"aria-label":l.label,onMouseEnter:function(e){e.currentTarget.style.color="var(--accent)"},onMouseLeave:function(e){e.currentTarget.style.color="var(--text-subtle)"}},React.createElement("i",{className:l.icon}),l.label)})
+              socialLinks.map(function(l,i){return React.createElement("a",{key:i,href:l.url,target:"_blank",rel:"noopener noreferrer",className:"font-body text-xs font-medium uppercase inline-flex items-center gap-2 transition-colors duration-200 cursor-pointer",style:{color:"var(--text-subtle)",textDecoration:"none",letterSpacing:"0.08em"},"aria-label":l.label,onMouseEnter:function(e){e.currentTarget.style.color="var(--accent)"},onMouseLeave:function(e){e.currentTarget.style.color="var(--text-subtle)"}},l.img?React.createElement("img",{src:l.img,alt:l.label,style:{height:"14px",width:"auto",objectFit:"contain"}}):React.createElement("i",{className:l.icon}),l.img?null:l.label)})
             )
           ),
           React.createElement("div",{className:"text-center pt-6",style:{borderTop:"1px solid var(--border)"}},
@@ -595,6 +636,12 @@
         };
         window.addEventListener('scroll', h); return function() { window.removeEventListener('scroll', h); };
       }, [dismissed]);
+      React.useEffect(function() {
+        if (visible && !dismissed) {
+          var timer = setTimeout(function() { setDismissed(true); }, 15000);
+          return function() { clearTimeout(timer); };
+        }
+      }, [visible, dismissed]);
       if (!visible || dismissed) return null;
       return React.createElement("div", {
         className: "fixed bottom-0 left-0 right-0 z-40 anim-slide-up",
@@ -603,7 +650,7 @@
         React.createElement("div", { className: "max-w-6xl mx-auto px-6 py-3 flex items-center justify-between gap-4" },
           React.createElement("div", { className: "flex items-center gap-3 min-w-0" },
             React.createElement("span", { className: "pulse-dot inline-block w-2 h-2 flex-shrink-0", style: { backgroundColor: "#22c55e", borderRadius: "50%" } }),
-            React.createElement("p", { className: "font-body text-sm font-medium truncate", style: { color: "var(--text)" } }, "Free 30-min strategy call \u2014 limited spots this week")
+            React.createElement("p", { className: "font-body text-sm font-medium truncate", style: { color: "var(--text)" } }, "Free 15-min strategy call \u2014 limited spots this week")
           ),
           React.createElement("div", { className: "flex items-center gap-2 flex-shrink-0" },
             React.createElement("a", {
@@ -630,20 +677,28 @@
       return React.createElement("div", { className: "reveal py-16 md:py-20 px-6" },
         React.createElement("div", { className: "max-w-4xl mx-auto" },
           React.createElement("div", { className: "flex flex-col md:flex-row items-center gap-8 md:gap-12" },
-            props.image && React.createElement("div", { className: "flex-shrink-0", style: { width: "280px", maxWidth: "100%" } },
-              React.createElement("img", { src: props.image, alt: props.imageAlt || "Eric Tech", width: 280, height: props.imageRatio === "landscape" ? 158 : 280, className: "w-full object-cover", style: { borderRadius: "2px", border: "1px solid var(--border)" }, loading: "lazy" })
+            props.image && React.createElement("div", { className: "flex-shrink-0", style: { width: "360px", maxWidth: "100%" } },
+              React.createElement("img", { src: props.image, alt: props.imageAlt || "Eric Tech", width: 360, height: props.imageRatio === "landscape" ? 203 : 360, className: "w-full object-cover", style: { borderRadius: "2px", border: "1px solid var(--border)", objectPosition: props.imagePosition || "center 20%", aspectRatio: props.imageRatio === "landscape" ? "16/9" : "1/1" }, loading: "lazy" })
             ),
             React.createElement("div", { className: "text-center md:text-left" },
               React.createElement("div", { style: { width: "48px", height: "3px", background: "var(--accent)", margin: props.image ? "0 0 24px" : "0 auto 24px" } }),
               React.createElement("p", { className: "font-display text-2xl md:text-3xl font-bold mb-3", style: { color: "var(--text)", letterSpacing: "-0.02em" } }, props.headline),
-              React.createElement("p", { className: "font-body text-sm mb-6", style: { color: "var(--text-muted)" } }, props.subtext),
+              !props.subtextItems && React.createElement("p", { className: "font-body text-sm mb-6", style: { color: "var(--text-muted)" } }, props.subtext),
+              props.subtextItems && React.createElement("ul", { className: "font-body text-sm mb-6", style: { color: "var(--text-muted)", listStyle: "none", padding: 0, margin: "0 0 24px" } },
+                props.subtextItems.map(function(item, i) {
+                  return React.createElement("li", { key: i, className: "flex items-start gap-2 mb-1.5", style: { textAlign: "left" } },
+                    React.createElement("span", { style: { color: "var(--accent)", flexShrink: 0 } }, "\u2713"),
+                    item
+                  );
+                })
+              ),
               React.createElement("a", {
-                href: "https://calendar.app.google/sB9KrJP6e8j3EPmd9", target: "_blank", rel: "noopener noreferrer",
-                className: "cta-primary font-body text-xs font-semibold px-7 py-3.5 uppercase inline-flex items-center gap-2 cursor-pointer",
-                style: { backgroundColor: "var(--accent)", color: "#fff", textDecoration: "none", borderRadius: "2px", letterSpacing: "0.08em" },
-                onMouseEnter: function(e) { e.currentTarget.style.backgroundColor = "var(--accent-hover)"; },
-                onMouseLeave: function(e) { e.currentTarget.style.backgroundColor = "var(--accent)"; }
-              }, props.ctaText || "Book a Free Strategy Call", React.createElement("span",{className:"cta-arrow inline-flex"},React.createElement("i", { className: "fas fa-arrow-right text-xs" })))
+                href: props.ctaLink || "https://calendar.app.google/sB9KrJP6e8j3EPmd9", target: "_blank", rel: "noopener noreferrer",
+                className: "cta-primary cta-bridge-btn font-body text-xs font-semibold px-7 py-3.5 uppercase inline-flex items-center gap-2 cursor-pointer",
+                style: { background: "linear-gradient(135deg, var(--accent) 0%, #1a7ab5 100%)", color: "#fff", textDecoration: "none", borderRadius: "2px", letterSpacing: "0.08em" },
+                onMouseEnter: function(e) { e.currentTarget.style.background = "linear-gradient(135deg, var(--accent-hover) 0%, #1584c0 100%)"; },
+                onMouseLeave: function(e) { e.currentTarget.style.background = "linear-gradient(135deg, var(--accent) 0%, #1a7ab5 100%)"; }
+              }, props.ctaIcon && React.createElement("img",{src:props.ctaIcon,alt:"",style:{height:"14px",width:"auto",objectFit:"contain"}}), props.ctaText || "Book a Free Strategy Call", React.createElement("span",{className:"cta-arrow inline-flex"},React.createElement("i", { className: "fas fa-arrow-right text-xs" })))
             )
           )
         )
@@ -669,7 +724,7 @@
           React.createElement("div", {
             className: "flex-shrink-0",
             style: { width: "56px", height: "56px", borderRadius: "50%", overflow: "hidden", border: "2px solid var(--accent)" }
-          }, React.createElement("img", { src: "CTA/eric-toast.png", alt: "Eric Tech", width: 56, height: 56, className: "w-full h-full object-cover", loading: "eager" })),
+          }, React.createElement("img", { src: "CTA/eric-toast.jpg", alt: "Eric Tech", width: 56, height: 56, className: "w-full h-full object-cover", loading: "eager" })),
           React.createElement("div", { className: "min-w-0" },
             React.createElement("p", { className: "font-body text-sm font-semibold", style: { color: "var(--text)" } }, "14 strategy calls booked"),
             React.createElement("p", { className: "font-body text-xs", style: { color: "var(--text-subtle)" } }, "in the last 30 days")
@@ -716,9 +771,9 @@
           React.createElement("div", {
             className: "inline-block mb-6",
             style: { width: "160px", height: "160px", borderRadius: "50%", overflow: "hidden", border: "3px solid var(--accent)", boxShadow: "0 0 0 8px var(--accent-glow)" }
-          }, React.createElement("img", { src: "CTA/eric-popup.png", alt: "Eric Tech pointing to book a call", width: 160, height: 160, className: "w-full h-full object-cover", loading: "eager" })),
+          }, React.createElement("img", { src: "CTA/eric-popup.jpg", alt: "Eric Tech pointing to book a call", width: 160, height: 160, className: "w-full h-full object-cover", loading: "eager" })),
           React.createElement("h3", { className: "font-display text-2xl md:text-3xl font-bold mb-3", style: { color: "var(--text)", letterSpacing: "-0.02em" } }, "Let\u2019s build something together"),
-          React.createElement("p", { className: "font-body text-sm mb-8", style: { color: "var(--text-muted)", lineHeight: "1.7" } }, "You\u2019ve seen what I bring to the table. Book a free 30-minute strategy call to discuss your project, architecture, or next career move."),
+          React.createElement("p", { className: "font-body text-sm mb-8", style: { color: "var(--text-muted)", lineHeight: "1.7" } }, "You\u2019ve seen what I bring to the table. Book a free 15-minute strategy call to discuss your project, architecture, or next career move."),
           React.createElement("div", { className: "flex flex-col sm:flex-row gap-3 justify-center" },
             React.createElement("a", {
               href: "https://calendar.app.google/sB9KrJP6e8j3EPmd9", target: "_blank", rel: "noopener noreferrer",
@@ -747,13 +802,13 @@
         React.createElement("main", { id:"main-content", role:"main" },
           React.createElement(Hero),
           React.createElement(CurrentlyBuilding),
-          React.createElement(InlineCTABridge, { headline: "Building something ambitious?", subtext: "I help founders and teams ship AI-powered products faster. Let\u2019s talk architecture.", ctaText: "Book a Free Strategy Call", image: "CTA/eric-bridge-building.png", imageAlt: "Eric Tech at desk with code editor and development setup", imageRatio: "landscape" }),
+          React.createElement(InlineCTABridge, { headline: "Building something ambitious?", subtext: "I help founders and teams ship AI-powered products faster. Let\u2019s talk architecture.", ctaText: "Book a Free Strategy Call", image: "CTA/eric-bridge-building.jpg", imageAlt: "Eric Tech at desk with code editor and development setup", imageRatio: "landscape", imagePosition: "center 25%" }),
           React.createElement(TechStack),
           React.createElement(ProjectsSection),
           React.createElement(ImpactSection),
-          React.createElement(InlineCTABridge, { headline: "Impressed by the results?", subtext: "Let\u2019s discuss how I can bring the same impact to your project.", ctaText: "Book a Free Strategy Call", image: "CTA/eric-bridge-impact.png", imageAlt: "Eric Tech mid-conversation on a strategy call with AI tools", imageRatio: "landscape" }),
+          React.createElement(InlineCTABridge, { headline: "Learn AI from the Best", subtextItems: ["Ex-Microsoft & Amazon Senior AI Engineer", "Code vault + templates", "Weekly live masterclass", "Direct support & Q&A", "Network of builders"], ctaText: "Join the Community", ctaIcon: "logos/skool.png", ctaLink: "https://www.skool.com/erictech", image: "CTA/eric-bridge-impact.jpg", imageAlt: "Eric Tech pointing to get started", imageRatio: "landscape", imagePosition: "center 30%" }),
           React.createElement(YouTubeSection),
-          React.createElement(InlineCTABridge, { headline: "Want personalized guidance?", subtext: "Skip the tutorials \u2014 get direct answers in a free 30-minute strategy call.", ctaText: "Schedule Your Call", image: "CTA/eric-bridge-youtube.png", imageAlt: "Eric Tech at desk with database and Claude Code", imageRatio: "landscape" }),
+          React.createElement(InlineCTABridge, { headline: "Want personalized guidance?", subtext: "Skip the tutorials \u2014 get direct answers in a free 15-minute strategy call.", ctaText: "Schedule Your Call", image: "CTA/eric-bridge-youtube.jpg", imageAlt: "Eric Tech at desk with database and Claude Code", imageRatio: "landscape", imagePosition: "center 25%" }),
           React.createElement(ContactSection)
         ),
         React.createElement(Footer),
