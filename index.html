@@ -62,17 +62,17 @@
       --nav-bg: rgba(255,255,255,0.92);
     }
     [data-theme='dark'] {
-      --bg: #0F172A; --surface: #1E293B; --surface-alt: #334155;
-      --border: #475569; --text: #F8FAFC; --text-muted: #94A3B8;
-      --text-subtle: #64748B; --accent: #55C5F0; --accent-hover: #7DD4F5;
-      --accent-glow: rgba(85, 197, 240, 0.12); --accent-glow-light: rgba(85, 197, 240, 0.06);
-      --accent-glow-subtle: rgba(85, 197, 240, 0.08); --accent-glow-tint: rgba(85, 197, 240, 0.1);
-      --accent-glow-medium: rgba(85, 197, 240, 0.2); --accent-glow-strong: rgba(85, 197, 240, 0.3);
-      --accent-glow-border: rgba(85, 197, 240, 0.2);
-      --purple-glow: rgba(139, 92, 246, 0.10); --purple-glow-medium: rgba(139, 92, 246, 0.2);
-      --teal-glow: rgba(20, 184, 166, 0.10);
-      --shadow-hover: rgba(0,0,0,0.3);
-      --nav-bg: rgba(15,23,42,0.92);
+      --bg: #0a0a0a; --surface: #111111; --surface-alt: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.08); --text: #EDEDED; --text-muted: #A1A1A1;
+      --text-subtle: #666666; --accent: #55C5F0; --accent-hover: #7DD4F5;
+      --accent-glow: rgba(85, 197, 240, 0.15); --accent-glow-light: rgba(85, 197, 240, 0.08);
+      --accent-glow-subtle: rgba(85, 197, 240, 0.10); --accent-glow-tint: rgba(85, 197, 240, 0.12);
+      --accent-glow-medium: rgba(85, 197, 240, 0.25); --accent-glow-strong: rgba(85, 197, 240, 0.35);
+      --accent-glow-border: rgba(85, 197, 240, 0.20);
+      --purple-glow: rgba(139, 92, 246, 0.08); --purple-glow-medium: rgba(139, 92, 246, 0.15);
+      --teal-glow: rgba(20, 184, 166, 0.08);
+      --shadow-hover: rgba(255,255,255,0.04);
+      --nav-bg: rgba(0,0,0,0.80);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { overflow-x: hidden; }
@@ -91,6 +91,28 @@
       pointer-events: none; z-index: 9999; opacity: 0.012;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
       background-repeat: repeat; background-size: 256px 256px;
+    }
+    [data-theme='dark'] body {
+      background-image:
+        radial-gradient(circle at 15% 50%, var(--accent-glow-light) 0%, transparent 35%),
+        radial-gradient(circle at 85% 30%, var(--accent-glow-light) 0%, transparent 35%);
+    }
+    [data-theme='dark'] body::after { opacity: 0.018; }
+    [data-theme='dark'] section + section {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+    }
+    [data-theme='dark'] section + section::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 1px;
+      background: radial-gradient(ellipse at center, rgba(85, 197, 240, 0.10) 0%, transparent 70%);
+      pointer-events: none;
     }
     .reveal { opacity:0; transform:translateY(30px); transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1); }
     .reveal.visible { opacity:1; transform:translateY(0); }
@@ -430,7 +452,7 @@
             React.createElement("span",{className:"font-mono text-xs font-semibold px-2.5 py-1 uppercase",style:{backgroundColor:"var(--accent-glow-tint)",color:"var(--accent)",border:"1px solid var(--accent-glow-border)",borderRadius:"2px",letterSpacing:"0.05em"}},p.badge)
           ),
           React.createElement("p",{className:"font-body text-sm leading-relaxed mb-4",style:{color:"var(--text-muted)"}},p.description),
-          React.createElement("div",{className:"flex flex-wrap gap-1.5 mb-5"},p.techStack.map(function(t,i){return React.createElement("span",{key:i,className:"font-mono text-xs px-2.5 py-1",style:{backgroundColor:"var(--surface-alt)",color:"var(--text-subtle)",borderRadius:"2px"}},t)})),
+          React.createElement("div",{className:"flex flex-wrap gap-1.5 mb-5"},p.techStack.map(function(t,i){return React.createElement("span",{key:i,className:"font-mono text-xs px-2.5 py-1",style:{backgroundColor:"var(--surface-alt)",color:"var(--text-subtle)",borderRadius:"2px",border:"1px solid var(--border)"}},t)})),
           React.createElement("a",{href:p.videoUrl,target:"_blank",rel:"noopener noreferrer",className:"font-body text-xs font-semibold uppercase inline-flex items-center gap-2 transition-colors cursor-pointer",style:{color:"var(--accent)",textDecoration:"none",letterSpacing:"0.08em"},onMouseEnter:function(e){e.currentTarget.style.color="var(--accent-hover)"},onMouseLeave:function(e){e.currentTarget.style.color="var(--accent)"}},"Watch Demo",React.createElement("i",{className:"fas fa-arrow-right text-xs"}))
         );
         if(featured){return React.createElement("div",{key:idx,className:"reveal md:col-span-2 overflow-hidden card-hover",style:{border:"1px solid var(--border)",backgroundColor:"var(--surface)",borderRadius:"2px",transition:"transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease, border-color .3s ease"},onMouseEnter:function(e){e.currentTarget.style.borderTopColor="var(--accent)"},onMouseLeave:function(e){e.currentTarget.style.borderTopColor="var(--border)"}},React.createElement("div",{className:"flex flex-col md:flex-row"},imgEl,contentEl))}
@@ -642,7 +664,7 @@
       },
         React.createElement("div", {
           className: "flex items-start gap-3 p-4",
-          style: { backgroundColor: "var(--surface)", border: "1px solid var(--border)", borderRadius: "2px", boxShadow: "0 8px 32px rgba(0,0,0,0.12)" }
+          style: { backgroundColor: "var(--surface)", border: "1px solid var(--border)", borderRadius: "2px", boxShadow: "0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.06)" }
         },
           React.createElement("div", {
             className: "flex-shrink-0",
@@ -683,7 +705,7 @@
       },
         React.createElement("div", {
           className: "mx-6 p-8 md:p-12 text-center anim-slide-up",
-          style: { backgroundColor: "var(--surface)", border: "1px solid var(--border)", borderRadius: "2px", maxWidth: "480px", width: "100%", boxShadow: "0 24px 64px rgba(0,0,0,0.2)" }
+          style: { backgroundColor: "var(--surface)", border: "1px solid var(--border)", borderRadius: "2px", maxWidth: "480px", width: "100%", boxShadow: "0 24px 64px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06)" }
         },
           React.createElement("button", {
             onClick: function() { setVisible(false); },
