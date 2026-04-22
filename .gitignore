@@ -1,5 +1,9 @@
 # Playwright MCP artifacts
 .playwright-mcp/
 
-# Screenshots
-*.png
+# Screenshots (root-level only)
+/*.png
+
+# Allow project assets
+!logos/*.png
+!CTA/*.png
