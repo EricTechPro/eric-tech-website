@@ -108,7 +108,34 @@
     @media(min-width:768px){ .text-outline { -webkit-text-stroke: 3px var(--text); } }
     .card-hover { transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease; }
     .card-hover:hover { transform:translateY(-3px); box-shadow:0 16px 40px var(--shadow-hover); }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    .cta-primary {
+      box-shadow: 0 2px 12px var(--accent-glow), 0 0 0 0 transparent;
+      transition: transform .2s cubic-bezier(.22,1,.36,1), box-shadow .2s ease, background-color .2s ease;
+    }
+    .cta-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px var(--accent-glow-medium), 0 0 0 3px var(--accent-glow-light);
+    }
+    .cta-primary .cta-arrow {
+      transition: transform .2s ease;
+    }
+    .cta-primary:hover .cta-arrow {
+      transform: translateX(3px);
+    }
+    @keyframes cta-glow-pulse {
+      0%, 100% { box-shadow: 0 2px 12px var(--accent-glow); }
+      50% { box-shadow: 0 4px 24px var(--accent-glow-medium), 0 0 0 4px var(--accent-glow-light); }
+    }
+    .cta-sticky-pulse {
+      animation: cta-glow-pulse 2.5s ease-in-out infinite;
+    }
+    .cta-sticky-pulse:hover { animation: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .cta-primary, .cta-primary:hover { transform: none; transition: none; }
+      .cta-primary .cta-arrow, .cta-primary:hover .cta-arrow { transform: none; transition: none; }
+      .cta-sticky-pulse { animation: none; }
+    }
     :focus-visible {
       outline: 2px solid var(--accent);
       outline-offset: 2px;
@@ -216,7 +243,7 @@
             ),
             React.createElement("div", { className:"hidden md:flex items-center gap-3" },
               React.createElement(ThemeToggle),
-              React.createElement("a", { href:"https://calendar.app.google/sB9KrJP6e8j3EPmd9", target:"_blank", rel:"noopener noreferrer", "aria-label":"Book a strategy call", className:"inline-flex items-center justify-center w-11 h-11 transition-all duration-200 cursor-pointer", style:{ background:"var(--accent)", color:"#fff", textDecoration:"none", borderRadius:"2px" }, onMouseEnter:function(e){e.currentTarget.style.background="var(--accent-hover)"}, onMouseLeave:function(e){e.currentTarget.style.background="var(--accent)"} }, React.createElement("i", { className:"fas fa-calendar-alt text-sm" }))
+              React.createElement("a", { href:"https://calendar.app.google/sB9KrJP6e8j3EPmd9", target:"_blank", rel:"noopener noreferrer", "aria-label":"Book a strategy call", className:"cta-primary inline-flex items-center justify-center w-11 h-11 cursor-pointer", style:{ backgroundColor:"var(--accent)", color:"#fff", textDecoration:"none", borderRadius:"2px" }, onMouseEnter:function(e){e.currentTarget.style.backgroundColor="var(--accent-hover)"}, onMouseLeave:function(e){e.currentTarget.style.backgroundColor="var(--accent)"} }, React.createElement("i", { className:"fas fa-calendar-alt text-sm" }))
             ),
             React.createElement("div", { className:"md:hidden flex items-center gap-2" },
               React.createElement(ThemeToggle),
@@ -226,7 +253,7 @@
         ),
         isMenuOpen && React.createElement("div", { className:"md:hidden px-6 pb-6", style:{ backgroundColor:"var(--nav-bg)", backdropFilter:"blur(16px) saturate(180%)", borderBottom:"1px solid var(--border)" } },
           navLinks.map(function(l,i){ return React.createElement("a", { key:i, href:l.href, onClick:function(){setIsMenuOpen(false)}, className:"block py-3 font-body text-sm font-semibold uppercase", style:{color:"var(--text)",textDecoration:"none",letterSpacing:"0.08em"} }, l.label); }),
-          React.createElement("a", { href:"https://calendar.app.google/sB9KrJP6e8j3EPmd9", target:"_blank", rel:"noopener noreferrer", className:"inline-flex items-center gap-2 mt-3 font-body text-xs font-semibold px-5 py-2.5 uppercase cursor-pointer", style:{background:"var(--accent)",color:"#fff",textDecoration:"none",borderRadius:"2px",letterSpacing:"0.08em"} }, React.createElement("i",{className:"fas fa-calendar-alt"}), "Book Now")
+          React.createElement("a", { href:"https://calendar.app.google/sB9KrJP6e8j3EPmd9", target:"_blank", rel:"noopener noreferrer", className:"cta-primary inline-flex items-center gap-2 mt-3 font-body text-xs font-semibold px-5 py-2.5 uppercase cursor-pointer", style:{backgroundColor:"var(--accent)",color:"#fff",textDecoration:"none",borderRadius:"2px",letterSpacing:"0.08em"} }, React.createElement("i",{className:"fas fa-calendar-alt"}), "Book Now")
         )
       );
     }
@@ -248,7 +275,7 @@
             React.createElement("div", { className:"max-w-xl" },
               React.createElement("p", { className:"font-body text-lg md:text-xl leading-relaxed mb-8", style:{color:"var(--text-muted)",lineHeight:"1.7"} }, "Building AI-powered products, leading engineering at scale, and teaching ", React.createElement("span",{style:{color:"var(--accent)",fontWeight:600}},"60,000+ developers"), "."),
               React.createElement("div", { className:"flex flex-wrap gap-3" },
-                React.createElement("a", { href:"https://calendar.app.google/sB9KrJP6e8j3EPmd9", target:"_blank", rel:"noopener noreferrer", className:"font-body text-xs font-semibold px-7 py-4 uppercase inline-flex items-center gap-2 transition-all duration-200 cursor-pointer", style:{background:"var(--accent)",color:"#fff",textDecoration:"none",borderRadius:"2px",letterSpacing:"0.08em"}, onMouseEnter:function(e){e.currentTarget.style.background="var(--accent-hover)"}, onMouseLeave:function(e){e.currentTarget.style.background="var(--accent)"} }, "Book Strategy Call", React.createElement("i",{className:"fas fa-arrow-right text-xs"})),
+                React.createElement("a", { href:"https://calendar.app.google/sB9KrJP6e8j3EPmd9", target:"_blank", rel:"noopener noreferrer", className:"cta-primary font-body text-xs font-semibold px-7 py-4 uppercase inline-flex items-center gap-2 cursor-pointer", style:{backgroundColor:"var(--accent)",color:"#fff",textDecoration:"none",borderRadius:"2px",letterSpacing:"0.08em"}, onMouseEnter:function(e){e.currentTarget.style.backgroundColor="var(--accent-hover)"}, onMouseLeave:function(e){e.currentTarget.style.backgroundColor="var(--accent)"} }, "Book Strategy Call", React.createElement("span",{className:"cta-arrow inline-flex"},React.createElement("i",{className:"fas fa-arrow-right text-xs"}))),
                 React.createElement("a", { href:"https://www.youtube.com/@EricWTech", target:"_blank", rel:"noopener noreferrer", className:"font-body text-xs font-semibold px-7 py-4 uppercase inline-flex items-center gap-2 transition-all duration-200 cursor-pointer", style:{backgroundColor:"transparent",color:"var(--text)",textDecoration:"none",border:"1.5px solid var(--border)",borderRadius:"2px",letterSpacing:"0.08em"}, onMouseEnter:function(e){e.currentTarget.style.borderColor="var(--accent)";e.currentTarget.style.color="var(--accent)"}, onMouseLeave:function(e){e.currentTarget.style.borderColor="var(--border)";e.currentTarget.style.color="var(--text)"} }, React.createElement("i",{className:"fab fa-youtube"}), "Watch on YouTube")
               )
             ),
@@ -285,13 +312,13 @@
       var techPills = ["Next.js 15","React 19","TypeScript","Supabase","Stripe","Google Gemini","Tailwind","shadcn/ui","Claude AI","Zustand","Zod"];
       var infraPills = ["Sentry","GitHub Actions","AWS S3","Route 53","Redis","Vercel","Playwright","Resend","Google Analytics","Jira","pg_cron"];
       React.useEffect(function(){initScrollReveal();},[]);
-      return React.createElement("section",{id:"building","aria-label":"Currently Building",className:"py-32 md:py-44 px-6"},
+      return React.createElement("section",{id:"building","aria-label":"Currently Building",className:"py-32 md:py-44 px-6",style:{backgroundImage:"radial-gradient(circle at 20% 80%, var(--accent-glow-light) 0%, transparent 40%), radial-gradient(circle at 80% 20%, var(--purple-glow) 0%, transparent 40%)"}},
         React.createElement("div",{className:"max-w-6xl mx-auto"},
           React.createElement("div",{className:"reveal"},SectionLabel("01","CURRENTLY BUILDING")),
           React.createElement("div",{className:"grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start mt-8"},
             React.createElement("div",{className:"reveal"},
               React.createElement("div",{className:"mb-6"},
-                React.createElement("img",{src:"logos/logo-icon.png",alt:"BookZero logo",width:64,height:64,className:"w-16 h-16 object-cover",style:{border:"2px solid var(--border)",borderRadius:"8px"},loading:"lazy"})
+                React.createElement("img",{src:"logos/logo-icon.png",alt:"BookZero logo",width:64,height:64,className:"w-16 h-16",style:{border:"2px solid var(--border)",borderRadius:"8px"},loading:"eager"})
               ),
               React.createElement("h2",{className:"font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-3",style:{color:"var(--text)",letterSpacing:"-0.03em"}},"BookZero"),
               React.createElement("p",{className:"font-body text-sm font-medium mb-6",style:{color:"var(--accent)"}},"AI Bookkeeping Software for Small Business"),
@@ -311,7 +338,7 @@
                   React.createElement("span",{className:"pulse-dot inline-block w-2.5 h-2.5",style:{backgroundColor:"var(--accent)",borderRadius:"50%"}}),
                   React.createElement("span",{className:"font-mono text-xs font-bold uppercase",style:{color:"var(--accent)",letterSpacing:"0.15em"}},"LIVE")
                 ),
-                React.createElement("img",{src:"logos/logo-icon.png",alt:"BookZero logo",width:40,height:40,className:"w-10 h-10 object-cover",style:{borderRadius:"6px"},loading:"lazy"})
+                React.createElement("img",{src:"logos/logo-icon.png",alt:"BookZero logo",width:40,height:40,className:"w-10 h-10",style:{borderRadius:"6px"},loading:"eager"})
               ),
               React.createElement("h3",{className:"font-display text-2xl md:text-3xl font-bold mb-2",style:{color:"var(--text)"}},"BookZero"),
               React.createElement("a",{href:"https://bookzero.ai",target:"_blank",rel:"noopener noreferrer",className:"font-mono text-sm inline-flex items-center gap-1.5 mb-8 transition-colors cursor-pointer",style:{color:"var(--accent)",textDecoration:"none"}},"bookzero.ai \u2014 AI Bookkeeping Software",React.createElement("i",{className:"fas fa-external-link-alt text-xs"})),
@@ -409,7 +436,7 @@
         if(featured){return React.createElement("div",{key:idx,className:"reveal md:col-span-2 overflow-hidden card-hover",style:{border:"1px solid var(--border)",backgroundColor:"var(--surface)",borderRadius:"2px",transition:"transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease, border-color .3s ease"},onMouseEnter:function(e){e.currentTarget.style.borderTopColor="var(--accent)"},onMouseLeave:function(e){e.currentTarget.style.borderTopColor="var(--border)"}},React.createElement("div",{className:"flex flex-col md:flex-row"},imgEl,contentEl))}
         return React.createElement("div",{key:idx,className:"reveal overflow-hidden card-hover",style:{border:"1px solid var(--border)",backgroundColor:"var(--surface)",borderRadius:"2px",transition:"transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease, border-color .3s ease"},onMouseEnter:function(e){e.currentTarget.style.borderTopColor="var(--accent)"},onMouseLeave:function(e){e.currentTarget.style.borderTopColor="var(--border)"}},imgEl,contentEl);
       }
-      return React.createElement("section",{id:"projects","aria-label":"Projects",className:"py-32 md:py-44 px-6"},
+      return React.createElement("section",{id:"projects","aria-label":"Projects",className:"py-32 md:py-44 px-6",style:{backgroundImage:"radial-gradient(circle at 70% 90%, var(--purple-glow) 0%, transparent 40%), radial-gradient(circle at 30% 10%, var(--accent-glow-light) 0%, transparent 40%)"}},
         React.createElement("div",{className:"max-w-6xl mx-auto"},
           React.createElement("div",{className:"reveal mb-12"},SectionLabel("03","PROJECTS"),React.createElement("h2",{className:"font-display text-3xl md:text-5xl font-bold mb-4 mt-6",style:{color:"var(--text)",letterSpacing:"-0.03em"}},"Things I\u2019ve built"),React.createElement("p",{className:"font-body text-base",style:{color:"var(--text-muted)",lineHeight:"1.7"}},"Full-stack applications built from the ground up, with video walkthroughs.")),
           React.createElement("div",{className:"grid grid-cols-1 md:grid-cols-2 gap-6"},
@@ -462,7 +489,7 @@
         {title:"Web3 & Blockchain",url:"https://www.youtube.com/playlist?list=PLm7xfhMOszqwqvw0u-MU6ZZSMk4HEoVae",icon:"fas fa-link"},
         {title:"System Design",url:"https://www.youtube.com/playlist?list=PLm7xfhMOszqz0WM_18EireAYA1mHShDbU",icon:"fas fa-project-diagram"},
       ];
-      return React.createElement("section",{id:"youtube","aria-label":"YouTube",className:"py-32 md:py-44 px-6"},
+      return React.createElement("section",{id:"youtube","aria-label":"YouTube",className:"py-32 md:py-44 px-6",style:{backgroundImage:"radial-gradient(circle at 10% 30%, var(--accent-glow-light) 0%, transparent 35%), radial-gradient(circle at 90% 70%, var(--purple-glow) 0%, transparent 35%)"}},
         React.createElement("div",{className:"max-w-6xl mx-auto"},
           React.createElement("div",{className:"reveal"},SectionLabel("05","YOUTUBE")),
           React.createElement("div",{className:"grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 mt-8"},
@@ -559,11 +586,11 @@
           React.createElement("div", { className: "flex items-center gap-2 flex-shrink-0" },
             React.createElement("a", {
               href: "https://calendar.app.google/sB9KrJP6e8j3EPmd9", target: "_blank", rel: "noopener noreferrer",
-              className: "font-body text-xs font-semibold px-5 py-2.5 uppercase inline-flex items-center gap-2 transition-all duration-200 cursor-pointer",
-              style: { background: "var(--accent)", color: "#fff", textDecoration: "none", borderRadius: "2px", letterSpacing: "0.08em", whiteSpace: "nowrap" },
-              onMouseEnter: function(e) { e.currentTarget.style.background = "var(--accent-hover)"; },
-              onMouseLeave: function(e) { e.currentTarget.style.background = "var(--accent)"; }
-            }, "Book Now", React.createElement("i", { className: "fas fa-arrow-right text-xs" })),
+              className: "cta-primary cta-sticky-pulse font-body text-xs font-semibold px-5 py-2.5 uppercase inline-flex items-center gap-2 cursor-pointer",
+              style: { backgroundColor: "var(--accent)", color: "#fff", textDecoration: "none", borderRadius: "2px", letterSpacing: "0.08em", whiteSpace: "nowrap" },
+              onMouseEnter: function(e) { e.currentTarget.style.backgroundColor = "var(--accent-hover)"; },
+              onMouseLeave: function(e) { e.currentTarget.style.backgroundColor = "var(--accent)"; }
+            }, "Book Now", React.createElement("span",{className:"cta-arrow inline-flex"},React.createElement("i", { className: "fas fa-arrow-right text-xs" }))),
             React.createElement("button", {
               onClick: function() { setDismissed(true); },
               "aria-label": "Dismiss booking bar",
@@ -590,11 +617,11 @@
               React.createElement("p", { className: "font-body text-sm mb-6", style: { color: "var(--text-muted)" } }, props.subtext),
               React.createElement("a", {
                 href: "https://calendar.app.google/sB9KrJP6e8j3EPmd9", target: "_blank", rel: "noopener noreferrer",
-                className: "font-body text-xs font-semibold px-7 py-3.5 uppercase inline-flex items-center gap-2 transition-all duration-200 cursor-pointer",
-                style: { background: "var(--accent)", color: "#fff", textDecoration: "none", borderRadius: "2px", letterSpacing: "0.08em" },
-                onMouseEnter: function(e) { e.currentTarget.style.background = "var(--accent-hover)"; },
-                onMouseLeave: function(e) { e.currentTarget.style.background = "var(--accent)"; }
-              }, props.ctaText || "Book a Free Strategy Call", React.createElement("i", { className: "fas fa-arrow-right text-xs" }))
+                className: "cta-primary font-body text-xs font-semibold px-7 py-3.5 uppercase inline-flex items-center gap-2 cursor-pointer",
+                style: { backgroundColor: "var(--accent)", color: "#fff", textDecoration: "none", borderRadius: "2px", letterSpacing: "0.08em" },
+                onMouseEnter: function(e) { e.currentTarget.style.backgroundColor = "var(--accent-hover)"; },
+                onMouseLeave: function(e) { e.currentTarget.style.backgroundColor = "var(--accent)"; }
+              }, props.ctaText || "Book a Free Strategy Call", React.createElement("span",{className:"cta-arrow inline-flex"},React.createElement("i", { className: "fas fa-arrow-right text-xs" })))
             )
           )
         )
@@ -673,11 +700,11 @@
           React.createElement("div", { className: "flex flex-col sm:flex-row gap-3 justify-center" },
             React.createElement("a", {
               href: "https://calendar.app.google/sB9KrJP6e8j3EPmd9", target: "_blank", rel: "noopener noreferrer",
-              className: "font-body text-xs font-semibold px-7 py-4 uppercase inline-flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer",
-              style: { background: "var(--accent)", color: "#fff", textDecoration: "none", borderRadius: "2px", letterSpacing: "0.08em" },
-              onMouseEnter: function(e) { e.currentTarget.style.background = "var(--accent-hover)"; },
-              onMouseLeave: function(e) { e.currentTarget.style.background = "var(--accent)"; }
-            }, "Book Free Strategy Call", React.createElement("i", { className: "fas fa-arrow-right text-xs" })),
+              className: "cta-primary font-body text-xs font-semibold px-7 py-4 uppercase inline-flex items-center justify-center gap-2 cursor-pointer",
+              style: { backgroundColor: "var(--accent)", color: "#fff", textDecoration: "none", borderRadius: "2px", letterSpacing: "0.08em" },
+              onMouseEnter: function(e) { e.currentTarget.style.backgroundColor = "var(--accent-hover)"; },
+              onMouseLeave: function(e) { e.currentTarget.style.backgroundColor = "var(--accent)"; }
+            }, "Book Free Strategy Call", React.createElement("span",{className:"cta-arrow inline-flex"},React.createElement("i", { className: "fas fa-arrow-right text-xs" }))),
             React.createElement("button", {
               onClick: function() { setVisible(false); },
               className: "font-body text-xs font-semibold px-7 py-4 uppercase transition-all duration-200 cursor-pointer",
