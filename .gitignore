@@ -1,6 +1,9 @@
 # Playwright MCP artifacts
 .playwright-mcp/
 
+# Local Codex settings and private memories
+.Codex/settings.local.json
+
 # Screenshots (root-level only)
 /*.png
 

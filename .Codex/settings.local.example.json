@@ -1,0 +1,10 @@
+{
+  "profile": {
+    "name": "",
+    "age": null,
+    "notes": []
+  },
+  "telegram": {
+    "defaultChatId": ""
+  }
+}
