@@ -10,3 +10,6 @@
 # Allow project assets
 !logos/*.png
 !CTA/*.png
+.DS_Store
+.claude/settings.local.json
+.claude/*.log

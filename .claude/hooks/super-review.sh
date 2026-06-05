@@ -1,0 +1,1 @@
+/Users/erictech/Desktop/EricTechOS/.claude/hooks/super-review.sh
