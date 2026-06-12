@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eric Tech — Option B · Sleek Current</title>
+<meta name="description" content="Eric Tech — engineer, founder, creator. Building AI-powered products, leading engineering at scale, and teaching 60,000+ developers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* =====================================================
+   SHADCN/UI DESIGN-SYSTEM CHASSIS — token set
+   Maps 1:1 to globals.css @theme in a Next.js rebuild.
+   Component CSS references ONLY these tokens.
+   ===================================================== */
+:root{
+  --background:#FFFFFF;
+  --foreground:#0F172A;
+  --card:#FFFFFF;
+  --card-foreground:#0F172A;
+  --primary:#2BAADF;
+  --primary-foreground:#FFFFFF;
+  --secondary:#F1F5F9;
+  --secondary-foreground:#0F172A;
+  --muted:#F8FAFC;
+  --muted-foreground:#475569;
+  --accent:#F1F5F9;
+  --accent-foreground:#0F172A;
+  --border:#E2E8F0;
+  --input:#E2E8F0;
+  --ring:#2BAADF;
+  --radius:0.5rem; /* shadcn default for this option */
+
+  /* Tailwind-scale shadows (shadow-sm / shadow-md / shadow-lg) */
+  --shadow-sm:0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md:0 4px 6px -1px rgb(0 0 0 / 0.1),0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg:0 10px 15px -3px rgb(0 0 0 / 0.1),0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  /* ---- DECORATION LAYER (non-chassis, brand atmosphere only) ----
+     Used exclusively by the gradient mesh, gradient text/bars, the
+     glass nav glow, and the one allowed gradient divider — never by
+     standard component chrome. */
+  --brand-deep:#1A7AB5;
+  --brand-violet:#8B5CF6;
+  --gradient-brand:linear-gradient(135deg,var(--primary) 0%,var(--brand-deep) 100%);
+  --glow:0 8px 24px rgb(43 170 223 / 0.35),0 2px 6px rgb(26 122 181 / 0.30);
+
+  --ease:cubic-bezier(0.22,1,0.36,1);
+  --font-display:'Archivo',sans-serif;
+  --font-body:'Space Grotesk',sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--background);
+  color:var(--foreground);
+  font-family:var(--font-body);
+  font-size:16px;line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+::selection{background:rgb(43 170 223 / 0.22)}
+
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--foreground);color:var(--background);padding:10px 18px;z-index:10000;border-radius:0 0 var(--radius) 0;font-size:13px}
+.skip-link:focus{left:0}
+:focus-visible{outline:2px solid var(--ring);outline-offset:2px;border-radius:4px}
+
+/* ================= LAYOUT UTILITIES ================= */
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.section-label{
+  display:inline-flex;align-items:center;gap:12px;
+  font-family:var(--font-mono);font-size:12px;font-weight:500;
+  text-transform:uppercase;letter-spacing:.16em;color:var(--muted-foreground);
+  margin-bottom:20px;
+}
+.section-label::before{content:'';width:36px;height:2px;border-radius:2px;background:var(--gradient-brand)}
+.section-title{
+  font-family:var(--font-display);font-weight:900;
+  font-size:clamp(2rem,4.5vw,3.25rem);
+  letter-spacing:-0.03em;line-height:1.05;margin-bottom:18px;
+}
+.section-sub{color:var(--muted-foreground);font-size:17px;max-width:560px}
+.grad-text{
+  background:linear-gradient(120deg,var(--primary) 10%,var(--brand-deep) 55%,var(--brand-violet) 110%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+}
+
+/* =====================================================
+   SEPARATOR — shadcn primitive (height 1px, bg border)
+   ===================================================== */
+.separator{height:1px;border:none;background:var(--border);max-width:1120px;margin:0 auto}
+/* The ONE decorative gradient divider kept (below hero) */
+.separator-gradient{
+  height:1px;border:none;max-width:1120px;margin:0 auto;
+  background:linear-gradient(90deg,transparent,rgb(43 170 223 / 0.35) 30%,rgb(139 92 246 / 0.30) 70%,transparent);
+}
+
+/* =====================================================
+   BUTTON — shadcn anatomy + metrics
+   base: inline-flex items-center justify-center gap-2
+         text-sm font-medium h-10 px-4 rounded-md
+         focus-visible ring / transition
+   size lg: h-11 px-8
+   ===================================================== */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;
+  font-family:var(--font-body);font-size:0.875rem;font-weight:500;line-height:1;
+  height:2.5rem;padding:0 1rem;
+  border-radius:var(--radius);border:none;
+  text-decoration:none;white-space:nowrap;cursor:pointer;
+  transition:color .2s var(--ease),background-color .2s var(--ease),border-color .2s var(--ease),box-shadow .3s var(--ease),transform .3s var(--ease);
+}
+.btn:focus-visible{outline:2px solid var(--ring);outline-offset:2px}
+.btn-lg{height:2.75rem;padding:0 2rem}
+.btn .arrow{display:inline-flex;transition:transform .3s var(--ease)}
+.btn:hover .arrow{transform:translateX(4px)}
+
+/* variant: default — bg-primary text-primary-foreground hover:bg-primary/90 */
+.btn-default{background:var(--primary);color:var(--primary-foreground);box-shadow:var(--shadow-sm)}
+.btn-default:hover{background:color-mix(in srgb,var(--primary) 90%,transparent)}
+
+/* variant: outline — border border-input bg-background hover:bg-accent hover:text-accent-foreground */
+.btn-outline{background:var(--background);color:var(--foreground);border:1px solid var(--input);box-shadow:var(--shadow-sm)}
+.btn-outline:hover{background:var(--accent);color:var(--accent-foreground);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+
+/* variant: ghost — hover:bg-accent hover:text-accent-foreground */
+.btn-ghost{background:transparent;color:var(--foreground)}
+.btn-ghost:hover{background:var(--accent);color:var(--accent-foreground)}
+
+/* variant: link — text-primary underline-offset-4 hover:underline */
+.btn-link{background:transparent;color:var(--primary);height:auto;padding:0}
+.btn-link:hover{text-decoration:underline;text-underline-offset:4px}
+
+/* CUSTOM variant: gradient — Option B's signature CTA,
+   layered on the same .btn base metrics (decoration layer) */
+.btn-gradient{background:var(--gradient-brand);color:var(--primary-foreground);box-shadow:var(--shadow-sm)}
+.btn-gradient:hover{transform:translateY(-2px);box-shadow:var(--glow)}
+.btn-gradient:active{transform:translateY(0)}
+
+/* =====================================================
+   CARD — shadcn anatomy
+   card: bg-card text-card-foreground border
+         rounded-[calc(radius+4px)] shadow-sm
+   ===================================================== */
+.card{
+  background:var(--card);color:var(--card-foreground);
+  border:1px solid var(--border);
+  border-radius:calc(var(--radius) + 4px);
+  box-shadow:var(--shadow-sm);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);
+}
+.card-hover:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.card-header{display:flex;flex-direction:column;gap:0.375rem;padding:1.5rem 1.5rem 0}
+.card-title{font-family:var(--font-display);font-weight:900;font-size:1.5rem;letter-spacing:-0.02em;line-height:1.2}
+.card-description{font-size:0.875rem;color:var(--muted-foreground)}
+.card-content{padding:1.5rem}
+
+/* =====================================================
+   BADGE — shadcn primitive
+   rounded-full border px-2.5 py-0.5 text-xs font-semibold
+   ===================================================== */
+.badge{
+  display:inline-flex;align-items:center;gap:4px;
+  border-radius:9999px;border:1px solid transparent;
+  padding:0.125rem 0.625rem;
+  font-size:0.75rem;font-weight:600;line-height:1.5;
+  transition:border-color .25s var(--ease),color .25s var(--ease),transform .25s var(--ease);
+}
+.badge-default{background:var(--primary);color:var(--primary-foreground)}
+.badge-secondary{background:var(--secondary);color:var(--secondary-foreground);border-color:var(--border)}
+.badge-outline{background:transparent;color:var(--foreground);border-color:var(--border)}
+/* tech pills = badge-secondary, mono with brand # prefix */
+.badge-pill{font-family:var(--font-mono);font-weight:400;font-size:0.6875rem;color:var(--muted-foreground)}
+.badge-pill::before{content:'#';color:var(--primary);margin-right:1px}
+.badge-pill:hover{border-color:color-mix(in srgb,var(--primary) 50%,transparent);color:var(--primary);transform:translateY(-1px)}
+/* "Live" status badge */
+.badge-live{
+  font-family:var(--font-mono);font-weight:500;font-size:0.625rem;text-transform:uppercase;letter-spacing:.12em;
+  background:color-mix(in srgb,var(--primary) 10%,var(--background));
+  color:var(--brand-deep);
+  border-color:color-mix(in srgb,var(--primary) 25%,transparent);
+}
+
+/* =====================================================
+   AVATAR — shadcn primitive (rounded-full)
+   ===================================================== */
+.avatar{border-radius:9999px;object-fit:cover}
+
+/* ================= NAV (glass decoration on chassis tokens) ================= */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  transition:background-color .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease);
+  border-bottom:1px solid transparent;
+}
+.nav.scrolled{
+  background:color-mix(in srgb,var(--background) 78%,transparent);
+  backdrop-filter:blur(18px) saturate(180%);
+  -webkit-backdrop-filter:blur(18px) saturate(180%);
+  border-bottom-color:var(--border);
+  box-shadow:var(--shadow-sm);
+}
+.nav-inner{
+  max-width:1120px;margin:0 auto;padding:0 24px;
+  height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.monogram{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:38px;height:38px;border-radius:var(--radius);
+  background:var(--gradient-brand);color:var(--primary-foreground);
+  font-family:var(--font-display);font-weight:900;font-size:14px;letter-spacing:-0.02em;
+  text-decoration:none;box-shadow:var(--shadow-sm);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease);
+}
+.monogram:hover{transform:translateY(-2px);box-shadow:var(--glow)}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{font-size:14px;font-weight:500}
+@media(max-width:760px){.nav-links{display:none}}
+
+/* link underline-slide micro-interaction */
+.slide-link{position:relative;text-decoration:none;color:var(--muted-foreground);transition:color .25s var(--ease)}
+.slide-link::after{
+  content:'';position:absolute;left:0;bottom:-3px;height:1.5px;width:100%;
+  background:var(--gradient-brand);border-radius:2px;
+  transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease);
+}
+.slide-link:hover{color:var(--foreground)}
+.slide-link:hover::after{transform:scaleX(1);transform-origin:left}
+
+/* ================= HERO / GRADIENT MESH (decoration layer) ================= */
+.hero{
+  position:relative;min-height:100svh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:140px 0 90px;overflow:hidden;isolation:isolate;
+}
+.mesh{position:absolute;inset:0;z-index:-2;overflow:hidden;background:linear-gradient(180deg,#F2FAFE 0%,var(--background) 80%)}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);will-change:transform;transform:translateZ(0)}
+.blob-1{
+  width:55vw;height:55vw;min-width:520px;min-height:520px;top:-22%;left:-12%;
+  background:radial-gradient(circle at 35% 35%,rgb(43 170 223 / 0.55),rgb(43 170 223 / 0) 65%);
+  animation:drift1 26s var(--ease) infinite alternate;
+}
+.blob-2{
+  width:48vw;height:48vw;min-width:460px;min-height:460px;top:-10%;right:-16%;
+  background:radial-gradient(circle at 60% 40%,rgb(26 122 181 / 0.42),rgb(26 122 181 / 0) 65%);
+  animation:drift2 32s var(--ease) infinite alternate;
+}
+.blob-3{
+  width:40vw;height:40vw;min-width:380px;min-height:380px;bottom:-8%;left:28%;
+  background:radial-gradient(circle at 50% 50%,rgb(139 92 246 / 0.20),rgb(139 92 246 / 0) 65%);
+  animation:drift3 38s var(--ease) infinite alternate;
+}
+.blob-4{
+  width:30vw;height:30vw;min-width:300px;min-height:300px;top:30%;left:48%;
+  background:radial-gradient(circle at 50% 50%,rgb(43 170 223 / 0.28),rgb(43 170 223 / 0) 62%);
+  animation:drift4 22s var(--ease) infinite alternate;
+}
+@keyframes drift1{0%{transform:translate3d(0,0,0) scale(1) rotate(0deg)}100%{transform:translate3d(10vw,9vh,0) scale(1.18) rotate(18deg)}}
+@keyframes drift2{0%{transform:translate3d(0,0,0) scale(1.1)}100%{transform:translate3d(-9vw,12vh,0) scale(.92)}}
+@keyframes drift3{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(-12vw,-8vh,0) scale(1.22)}}
+@keyframes drift4{0%{transform:translate3d(0,0,0) scale(.9)}100%{transform:translate3d(8vw,-10vh,0) scale(1.15)}}
+.mesh::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgb(255 255 255 / 0) 45%,rgb(255 255 255 / 0.85) 86%,var(--background) 100%);
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:radial-gradient(rgb(15 23 42 / 0.07) 1px,transparent 1px);
+  background-size:28px 28px;
+  mask-image:radial-gradient(ellipse 75% 60% at 50% 38%,#000 20%,transparent 75%);
+  -webkit-mask-image:radial-gradient(ellipse 75% 60% at 50% 38%,#000 20%,transparent 75%);
+}
+.hero-inner{position:relative;text-align:center;max-width:980px;margin:0 auto;padding:0 24px}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--font-mono);font-size:11.5px;font-weight:500;
+  text-transform:uppercase;letter-spacing:.2em;color:var(--brand-deep);
+  background:color-mix(in srgb,var(--background) 66%,transparent);
+  border:1px solid color-mix(in srgb,var(--primary) 30%,transparent);
+  padding:9px 18px;border-radius:9999px;
+  backdrop-filter:blur(10px) saturate(160%);-webkit-backdrop-filter:blur(10px) saturate(160%);
+  box-shadow:var(--shadow-sm);margin-bottom:34px;
+}
+.hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--primary);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.hero-title{
+  font-family:var(--font-display);font-weight:900;
+  font-size:clamp(3.4rem,11vw,9.5rem);
+  line-height:.9;letter-spacing:-0.045em;margin-bottom:30px;
+}
+.hero-title .line-2{
+  display:block;
+  background:linear-gradient(110deg,var(--primary) 0%,var(--brand-deep) 55%,var(--brand-violet) 115%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+}
+.hero-sub{
+  font-size:clamp(1.05rem,2vw,1.3rem);color:var(--muted-foreground);
+  max-width:580px;margin:0 auto 40px;line-height:1.65;
+}
+.hero-sub strong{color:var(--brand-deep);font-weight:600}
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:64px}
+
+.trust{display:flex;align-items:center;justify-content:center;gap:14px 36px;flex-wrap:wrap}
+.trust-label{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:var(--muted-foreground);opacity:.7}
+.trust-item{
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:var(--font-mono);font-size:11px;font-weight:500;
+  text-transform:uppercase;letter-spacing:.1em;color:var(--muted-foreground);opacity:.85;
+}
+.trust-item img{height:16px;width:auto;object-fit:contain;opacity:.72;filter:grayscale(35%)}
+
+/* hero load stagger */
+.stagger{opacity:0;transform:translateY(22px);animation:rise .9s var(--ease) forwards}
+.s1{animation-delay:.1s}.s2{animation-delay:.22s}.s3{animation-delay:.36s}.s4{animation-delay:.5s}.s5{animation-delay:.68s}
+@keyframes rise{to{opacity:1;transform:translateY(0)}}
+
+/* ================= SECTIONS ================= */
+section{padding:110px 0}
+@media(max-width:760px){section{padding:78px 0}}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+
+/* ---------- 01 BUILDING ---------- */
+.building-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:56px}
+@media(max-width:880px){.building-grid{grid-template-columns:1fr;gap:40px}}
+
+/* BookZero — a real shadcn Card; gradient top edge is decoration */
+.product-card{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--card) 0%,var(--muted) 100%)}
+.product-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gradient-brand)}
+.product-card:hover{box-shadow:var(--shadow-lg)}
+.product-head{display:flex;align-items:center;gap:14px}
+.product-head img{width:42px;height:42px;border-radius:var(--radius);box-shadow:var(--shadow-sm)}
+.product-head .badge-live{margin-left:auto}
+
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:26px}
+.stat{padding:14px 12px;text-align:center}
+.stat:hover{border-color:color-mix(in srgb,var(--primary) 40%,transparent)}
+.stat .num{
+  font-family:var(--font-display);font-weight:900;font-size:22px;letter-spacing:-0.02em;display:block;
+  background:var(--gradient-brand);-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+}
+.stat .lbl{font-family:var(--font-mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted-foreground)}
+
+.chart-box{padding:4px 0 0}
+.chart-meta{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.chart-meta .t{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted-foreground);opacity:.8}
+.chart-meta .v{font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--brand-deep)}
+#growthPath{stroke-dasharray:640;stroke-dashoffset:640;transition:stroke-dashoffset 2.2s var(--ease) .3s}
+.in #growthPath{stroke-dashoffset:0}
+#growthFill{opacity:0;transition:opacity 1.4s var(--ease) 1.2s}
+.in #growthFill{opacity:1}
+
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+
+/* ---------- 02 IMPACT ---------- */
+.impact{background:linear-gradient(180deg,var(--background) 0%,var(--muted) 55%,var(--background) 100%)}
+.logo-row{display:flex;gap:14px;flex-wrap:wrap;margin:34px 0 44px}
+.logo-chip{display:inline-flex;align-items:center;gap:12px;padding:14px 22px;font-weight:600;font-size:14px}
+.logo-chip img{height:20px;width:auto;object-fit:contain}
+.logo-chip .role{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted-foreground);font-weight:500}
+.ach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:880px){.ach-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.ach-grid{grid-template-columns:1fr 1fr;gap:12px}}
+.ach{padding:26px 22px}
+.ach:hover{border-color:color-mix(in srgb,var(--primary) 35%,transparent)}
+.ach .num{
+  font-family:var(--font-display);font-weight:900;font-size:clamp(1.6rem,3vw,2.2rem);
+  letter-spacing:-0.03em;display:block;margin-bottom:6px;
+  background:var(--gradient-brand);-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+}
+.ach p{font-size:13px;color:var(--muted-foreground);line-height:1.5}
+
+/* ---------- 03 YOUTUBE ---------- */
+.yt-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+@media(max-width:880px){.yt-grid{grid-template-columns:1fr;gap:36px}}
+.yt-stat{
+  display:flex;align-items:center;gap:22px;padding:34px;
+  background:linear-gradient(135deg,rgb(43 170 223 / 0.07),rgb(139 92 246 / 0.06));
+  box-shadow:var(--shadow-md);
+}
+.yt-stat:hover{box-shadow:var(--shadow-lg)}
+.yt-stat img{height:44px;width:auto;object-fit:contain}
+.yt-stat .big{
+  font-family:var(--font-display);font-weight:900;font-size:clamp(2.4rem,5vw,3.6rem);
+  letter-spacing:-0.04em;line-height:1;
+  background:var(--gradient-brand);-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+}
+.yt-stat .cap{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted-foreground);margin-top:6px}
+.yt-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn-skool img{height:15px;width:auto;object-fit:contain}
+
+/* ---------- FINAL CTA ---------- */
+.final{position:relative;overflow:hidden;isolation:isolate;padding:130px 0}
+.final .mesh-2{
+  position:absolute;inset:0;z-index:-1;
+  background:
+    radial-gradient(60% 90% at 18% 20%,rgb(43 170 223 / 0.16),transparent 60%),
+    radial-gradient(50% 80% at 85% 75%,rgb(139 92 246 / 0.10),transparent 60%),
+    radial-gradient(45% 70% at 60% 10%,rgb(26 122 181 / 0.12),transparent 60%),
+    linear-gradient(180deg,var(--background),#F4FAFE);
+}
+.final-card{
+  max-width:820px;margin:0 auto;text-align:center;padding:64px 40px;
+  background:color-mix(in srgb,var(--card) 72%,transparent);
+  backdrop-filter:blur(16px) saturate(170%);-webkit-backdrop-filter:blur(16px) saturate(170%);
+  box-shadow:var(--shadow-lg);
+}
+.final-card .avatar{
+  width:72px;height:72px;margin:0 auto 22px;
+  border:3px solid var(--background);
+  box-shadow:0 0 0 2px color-mix(in srgb,var(--ring) 45%,transparent),var(--shadow-md);
+}
+.final-title{font-family:var(--font-display);font-weight:900;font-size:clamp(1.9rem,4vw,3rem);letter-spacing:-0.03em;line-height:1.08;margin-bottom:16px}
+.final-sub{color:var(--muted-foreground);max-width:480px;margin:0 auto 36px;font-size:16px}
+.final-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* ---------- FOOTER ---------- */
+footer{border-top:1px solid var(--border);padding:36px 0}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.foot .left{display:flex;align-items:center;gap:14px}
+.foot .mono-sm{font-family:var(--font-mono);font-size:11px;color:var(--muted-foreground);letter-spacing:.06em;opacity:.8}
+.foot-links{display:flex;gap:22px;list-style:none}
+.foot-links a{font-size:13px}
+
+/* ================= REDUCED MOTION ================= */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .blob{animation:none!important}
+  .stagger{animation:none;opacity:1;transform:none}
+  .reveal{transition:none;opacity:1;transform:none}
+  #growthPath{transition:none;stroke-dashoffset:0}
+  #growthFill{transition:none;opacity:1}
+  .hero-eyebrow .dot{animation:none}
+  *{transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#building">Skip to content</a>
+
+<!-- ================= NAV ================= -->
+<nav class="nav" id="nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a href="#" class="monogram" aria-label="Eric Tech home">ET</a>
+    <ul class="nav-links">
+      <li><a class="slide-link" href="#building">Building</a></li>
+      <li><a class="slide-link" href="#projects">Projects</a></li>
+      <li><a class="slide-link" href="#impact">Impact</a></li>
+      <li><a class="slide-link" href="#youtube">YouTube</a></li>
+      <li><a class="slide-link" href="#contact">Contact</a></li>
+    </ul>
+    <a class="btn btn-gradient" href="https://calendar.app.google/sB9KrJP6e8j3EPmd9" target="_blank" rel="noopener noreferrer">
+      Book a call <span class="arrow">&rarr;</span>
+    </a>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="mesh" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+  </div>
+  <div class="hero-grid" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+    <span class="hero-eyebrow stagger s1"><span class="dot"></span>engineer &middot; founder &middot; creator</span>
+    <h1 class="hero-title stagger s2">ERIC<span class="line-2">TECH</span></h1>
+    <p class="hero-sub stagger s3">
+      Building AI-powered products, leading engineering at scale, and teaching
+      <strong>60,000+ developers</strong>.
+    </p>
+    <div class="hero-ctas stagger s4">
+      <a class="btn btn-lg btn-gradient" href="https://calendar.app.google/sB9KrJP6e8j3EPmd9" target="_blank" rel="noopener noreferrer">
+        Book Strategy Call <span class="arrow">&rarr;</span>
+      </a>
+      <a class="btn btn-lg btn-outline" href="https://www.youtube.com/@EricWTech" target="_blank" rel="noopener noreferrer">
+        &#9654;&nbsp; Watch on YouTube
+      </a>
+    </div>
+    <div class="trust stagger s5">
+      <span class="trust-label">Trusted at</span>
+      <span class="trust-item"><img src="../logos/microsoft-logo.png" alt="Microsoft logo">Microsoft</span>
+      <span class="trust-item"><img src="../logos/amazon-logo.png" alt="Amazon Web Services logo">Amazon Web Services</span>
+      <span class="trust-item">60,000+ developers</span>
+    </div>
+  </div>
+</header>
+
+<!-- the ONE decorative gradient divider -->
+<hr class="separator-gradient">
+
+<!-- ================= 01 CURRENTLY BUILDING ================= -->
+<section id="building" aria-label="Currently building">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="section-label">01 / Currently Building</span>
+      <h2 class="section-title">Shipping <span class="grad-text">BookZero</span></h2>
+      <p class="section-sub">AI bookkeeping that scans receipts and matches bank statements automatically &mdash; powered by Google Gemini AI, with full Canadian tax compliance. Solo-built and scaling toward YC 2026.</p>
+    </div>
+
+    <div class="building-grid" id="projects">
+      <!-- shadcn Card anatomy: header / title / description / content -->
+      <div class="card card-hover product-card reveal d1">
+        <div class="card-header">
+          <div class="product-head">
+            <img src="../logos/logo-icon.png" alt="BookZero logo">
+            <h3 class="card-title">BookZero</h3>
+            <span class="badge badge-live">Live</span>
+          </div>
+          <p class="card-description">AI Bookkeeping Software &mdash; receipts in, clean books out. 60% cheaper than QuickBooks.</p>
+        </div>
+        <div class="card-content">
+          <div class="stat-row">
+            <div class="card stat"><span class="num">2M+</span><span class="lbl">receipts</span></div>
+            <div class="card stat"><span class="num">92%</span><span class="lbl">auto-match</span></div>
+            <div class="card stat"><span class="num">60%</span><span class="lbl">cheaper</span></div>
+          </div>
+          <div class="chart-box">
+            <div class="chart-meta">
+              <span class="t">Receipts processed / month</span>
+              <span class="v">&uarr; growing</span>
+            </div>
+            <svg viewBox="0 0 320 110" width="100%" height="110" role="img" aria-label="BookZero growth chart trending upward">
+              <defs>
+                <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#2BAADF"/>
+                  <stop offset="70%" stop-color="#1A7AB5"/>
+                  <stop offset="100%" stop-color="#8B5CF6"/>
+                </linearGradient>
+                <linearGradient id="fillGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#2BAADF" stop-opacity="0.22"/>
+                  <stop offset="100%" stop-color="#2BAADF" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <g stroke="#E2E8F0" stroke-width="1">
+                <line x1="0" y1="28" x2="320" y2="28"/>
+                <line x1="0" y1="56" x2="320" y2="56"/>
+                <line x1="0" y1="84" x2="320" y2="84"/>
+              </g>
+              <path id="growthFill" d="M0,96 C40,92 60,88 90,80 C120,72 140,66 175,52 C210,38 240,30 280,18 C295,14 310,11 320,9 L320,110 L0,110 Z" fill="url(#fillGrad)"/>
+              <path id="growthPath" d="M0,96 C40,92 60,88 90,80 C120,72 140,66 175,52 C210,38 240,30 280,18 C295,14 310,11 320,9" fill="none" stroke="url(#lineGrad)" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="320" cy="9" r="4" fill="#8B5CF6"/>
+              <circle cx="320" cy="9" r="8" fill="#8B5CF6" opacity="0.18"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal d2">
+        <h3 style="font-family:var(--font-display);font-weight:700;font-size:22px;letter-spacing:-0.02em;margin-bottom:14px">Built with a modern, boring-on-purpose stack</h3>
+        <p style="color:var(--muted-foreground);font-size:15px;margin-bottom:8px">Production infrastructure tuned for one engineer shipping fast: AI-first pipeline, automated QA, and observability from day one.</p>
+        <div class="pills">
+          <span class="badge badge-secondary badge-pill">Next.js</span>
+          <span class="badge badge-secondary badge-pill">TypeScript</span>
+          <span class="badge badge-secondary badge-pill">Gemini AI</span>
+          <span class="badge badge-secondary badge-pill">Supabase</span>
+          <span class="badge badge-secondary badge-pill">Vercel</span>
+          <span class="badge badge-secondary badge-pill">AWS S3</span>
+          <span class="badge badge-secondary badge-pill">Redis</span>
+          <span class="badge badge-secondary badge-pill">Playwright</span>
+          <span class="badge badge-secondary badge-pill">Sentry</span>
+          <span class="badge badge-secondary badge-pill">pg_cron</span>
+        </div>
+        <div style="margin-top:34px">
+          <a class="btn btn-lg btn-outline" href="https://calendar.app.google/sB9KrJP6e8j3EPmd9" target="_blank" rel="noopener noreferrer">
+            Talk product or architecture <span class="arrow">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="separator">
+
+<!-- ================= 02 IMPACT ================= -->
+<section id="impact" class="impact" aria-label="Impact and career">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="section-label">02 / Impact</span>
+      <h2 class="section-title">Engineering leadership<br>at <span class="grad-text">global scale</span></h2>
+      <p class="section-sub">Senior engineer with leadership runs at Microsoft and Amazon Web Services &mdash; no-code/low-code data pipelines, ETL automation, and enterprise-scale delivery.</p>
+    </div>
+
+    <div class="logo-row reveal d1">
+      <span class="card card-hover logo-chip"><img src="../logos/microsoft-logo.png" alt="Microsoft logo"> Microsoft <span class="role">Senior Engineer</span></span>
+      <span class="card card-hover logo-chip"><img src="../logos/amazon-logo.png" alt="Amazon Web Services logo"> Amazon Web Services <span class="role">Eng Leadership</span></span>
+    </div>
+
+    <div class="ach-grid reveal d2">
+      <div class="card card-hover ach"><span class="num">$12M+</span><p>Revenue generated through product leadership</p></div>
+      <div class="card card-hover ach"><span class="num">750+</span><p>Enterprise clients onboarded</p></div>
+      <div class="card card-hover ach"><span class="num">65%</span><p>Reduction in ETL processing time</p></div>
+      <div class="card card-hover ach"><span class="num">15+</span><p>Engineers led across 3 continents</p></div>
+      <div class="card card-hover ach"><span class="num">100K+</span><p>Data pipelines deployed</p></div>
+      <div class="card card-hover ach"><span class="num">40%</span><p>Cost savings for enterprise customers</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="separator">
+
+<!-- ================= 03 YOUTUBE ================= -->
+<section id="youtube" aria-label="YouTube">
+  <div class="wrap">
+    <div class="yt-grid">
+      <div class="reveal">
+        <span class="section-label">03 / YouTube</span>
+        <h2 class="section-title">Teaching <span class="grad-text">60,000+</span><br>developers</h2>
+        <p class="section-sub">Practical AI engineering, system design, and cloud tutorials &mdash; the lessons from Microsoft, AWS, and building BookZero, taught in public.</p>
+        <div class="yt-actions">
+          <a class="btn btn-lg btn-gradient" href="https://www.youtube.com/@EricWTech" target="_blank" rel="noopener noreferrer">
+            youtube.com/@EricWTech <span class="arrow">&rarr;</span>
+          </a>
+          <a class="btn btn-lg btn-outline btn-skool" href="https://www.skool.com/erictech" target="_blank" rel="noopener noreferrer">
+            <img src="../logos/skool.png" alt="Skool logo"> Join the community
+          </a>
+        </div>
+      </div>
+      <div class="card card-hover yt-stat reveal d2">
+        <img src="../logos/youtube-logo.png" alt="YouTube logo">
+        <div>
+          <span class="big">60,000+</span>
+          <p class="cap">developers learning on YouTube</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section id="contact" class="final" aria-label="Contact">
+  <div class="mesh-2" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="card final-card reveal">
+      <img class="avatar" src="../logos/EricTechProfile.png" alt="Eric Tech portrait">
+      <h2 class="final-title">Let&rsquo;s build something<br><span class="grad-text">worth shipping</span></h2>
+      <p class="final-sub">A free 15-minute strategy call &mdash; your product, your architecture, or your career. Or learn alongside the community.</p>
+      <div class="final-ctas">
+        <a class="btn btn-lg btn-gradient" href="https://calendar.app.google/sB9KrJP6e8j3EPmd9" target="_blank" rel="noopener noreferrer">
+          Book Strategy Call <span class="arrow">&rarr;</span>
+        </a>
+        <a class="btn btn-lg btn-outline btn-skool" href="https://www.skool.com/erictech" target="_blank" rel="noopener noreferrer">
+          <img src="../logos/skool.png" alt="Skool logo"> Join Skool
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap foot">
+    <div class="left">
+      <a href="#" class="monogram" aria-label="Eric Tech home" style="width:32px;height:32px;font-size:12px">ET</a>
+      <span class="mono-sm">&copy; 2026 Eric Tech &middot; erictech.ca</span>
+    </div>
+    <ul class="foot-links">
+      <li><a class="slide-link" href="https://www.youtube.com/@EricWTech" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+      <li><a class="slide-link" href="https://www.skool.com/erictech" target="_blank" rel="noopener noreferrer">Skool</a></li>
+      <li><a class="slide-link" href="https://calendar.app.google/sB9KrJP6e8j3EPmd9" target="_blank" rel="noopener noreferrer">Book a call</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Glass nav on scroll
+  var nav=document.getElementById('nav');
+  function onScroll(){nav.classList.toggle('scrolled',window.scrollY>20)}
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+
+  // Scroll reveal
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var items=document.querySelectorAll('.reveal');
+  if(reduced||!('IntersectionObserver' in window)){
+    items.forEach(function(el){el.classList.add('in')});
+    return;
+  }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
+    });
+  },{threshold:0.08});
+  items.forEach(function(el){io.observe(el)});
+})();
+</script>
+</body>
+</html>

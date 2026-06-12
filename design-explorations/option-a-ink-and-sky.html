@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Eric Tech — Ink &amp; Sky</title>
+<meta name="description" content="Building AI-powered products, leading engineering at scale, and teaching 60,000+ developers." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  /* ============================================================
+     INK & SKY — Option A · shadcn/ui token chassis
+     Anthropic-dominant editorial. Paper, ink, one blue thread.
+     95% neutral / 5% primary gilding.
+
+     Chassis rules (for 1:1 Next.js + shadcn/ui translation):
+     - Component CSS references ONLY the shadcn token set below.
+     - Faint tints are derived from tokens via color-mix().
+     - Dark mode = `.dark` class remapping the same tokens
+       (applied to the YouTube stage section — components inside
+       need no changes, which is the proof of the chassis).
+     ============================================================ */
+
+  /* ---- shadcn/ui tokens — light (paper & ink) ---- */
+  :root {
+    --background: #FAFAF9;            /* paper */
+    --foreground: #0F172A;            /* ink (slate-900) */
+    --card: #FFFFFF;
+    --card-foreground: #0F172A;
+    --primary: #2BAADF;               /* EricTech Sky Blue */
+    --primary-foreground: #FFFFFF;
+    --secondary: #F4F4F2;
+    --secondary-foreground: #0F172A;
+    --muted: #F4F4F2;
+    --muted-foreground: #44506B;
+    --accent: #F4F4F2;
+    --accent-foreground: #0F172A;
+    --border: #E4E4E0;
+    --input: #E4E4E0;
+    --ring: #2BAADF;
+    --radius: 0.25rem;
+
+    /* Tailwind-scale shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --gutter: clamp(1.5rem, 5vw, 5rem);
+    --measure: 72rem;
+  }
+
+  /* ---- shadcn dark-mode scope (true-black stage) ---- */
+  .dark {
+    --background: #0A0A0A;
+    --foreground: #EDEDED;
+    --card: #111111;
+    --card-foreground: #EDEDED;
+    --primary: #55C5F0;
+    --primary-foreground: #0A0A0A;
+    --secondary: rgba(255, 255, 255, 0.06);
+    --secondary-foreground: #EDEDED;
+    --muted: rgba(255, 255, 255, 0.04);
+    --muted-foreground: #A1A1A1;
+    --accent: rgba(255, 255, 255, 0.08);
+    --accent-foreground: #EDEDED;
+    --border: rgba(255, 255, 255, 0.10);
+    --input: rgba(255, 255, 255, 0.10);
+    --ring: #55C5F0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection { background: var(--primary); color: var(--primary-foreground); }
+
+  .serif { font-family: "Newsreader", Georgia, serif; font-optical-sizing: auto; }
+  .mono  { font-family: "JetBrains Mono", monospace; }
+
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+
+  .skip-link {
+    position: absolute; left: -9999px; top: 0; z-index: 10001;
+    background: var(--foreground); color: var(--background);
+    padding: 0.6rem 1rem; font-size: 0.8rem; border-radius: var(--radius);
+  }
+  .skip-link:focus { left: 1rem; top: 1rem; }
+
+  :focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+
+  /* ---- Film grain (kept from current site) ---- */
+  .grain {
+    position: fixed; inset: 0; z-index: 9999; pointer-events: none;
+    opacity: 0.012;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .wrap { max-width: var(--measure); margin: 0 auto; padding-inline: var(--gutter); }
+
+  /* ============================================================
+     shadcn/ui primitives (Button · Card · Badge · Separator · Avatar)
+     ============================================================ */
+
+  /* ---- Button — shadcn anatomy + metrics ---- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.875rem; font-weight: 500;
+    height: 2.5rem; padding-inline: 1rem;
+    border-radius: var(--radius);
+    border: 1px solid transparent;
+    text-decoration: none; white-space: nowrap; cursor: pointer;
+    transition: color 0.2s var(--ease), background-color 0.2s var(--ease),
+                border-color 0.2s var(--ease), box-shadow 0.2s var(--ease),
+                transform 0.2s var(--ease);
+    /* Ink & Sky typography layer */
+    font-family: "JetBrains Mono", monospace;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .btn:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+  .btn-lg { height: 2.75rem; padding-inline: 2rem; }
+
+  .btn-default { background: var(--primary); color: var(--primary-foreground); }
+  .btn-default:hover {
+    background: color-mix(in srgb, var(--primary) 90%, transparent);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px color-mix(in srgb, var(--primary) 28%, transparent);
+  }
+  .btn-outline {
+    border-color: var(--input); background: var(--background);
+    color: var(--foreground);
+  }
+  .btn-outline:hover {
+    background: var(--accent); color: var(--accent-foreground);
+    border-color: color-mix(in srgb, var(--input) 60%, var(--foreground));
+  }
+  .btn-ghost { background: transparent; color: var(--foreground); }
+  .btn-ghost:hover { background: var(--accent); color: var(--accent-foreground); }
+  .btn-link {
+    background: transparent; color: var(--primary);
+    height: auto; padding: 0; text-transform: none; letter-spacing: 0;
+  }
+  .btn-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+  .btn .arrow { transition: transform 0.3s var(--ease); display: inline-block; }
+  .btn:hover .arrow { transform: translateX(3px); }
+  .btn img { height: 14px; width: auto; }
+
+  /* ---- Card — shadcn anatomy ---- */
+  .card {
+    background: var(--card); color: var(--card-foreground);
+    border: 1px solid var(--border);
+    border-radius: calc(var(--radius) + 4px);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .card-header {
+    display: flex; flex-direction: column; gap: 0.375rem;
+    padding: 1.5rem;
+  }
+  .card-title {
+    font-weight: 600; letter-spacing: -0.015em; line-height: 1.1;
+    /* Ink & Sky typography layer */
+    font-family: "Newsreader", serif; font-size: 1.7rem; font-weight: 500;
+  }
+  .card-description {
+    font-size: 0.875rem; color: var(--muted-foreground);
+    /* Ink & Sky typography layer: mono eyebrow treatment */
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: color-mix(in srgb, var(--muted-foreground) 65%, var(--background));
+  }
+  .card-content { padding: 1.5rem; padding-top: 0; }
+
+  /* ---- Badge — shadcn anatomy ---- */
+  .badge {
+    display: inline-flex; align-items: center;
+    border-radius: 9999px;
+    border: 1px solid transparent;
+    padding: 0.125rem 0.625rem;
+    font-size: 0.75rem; font-weight: 600;
+    transition: border-color 0.25s var(--ease), color 0.25s var(--ease);
+    /* Ink & Sky typography layer */
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.66rem; font-weight: 500; letter-spacing: 0.05em;
+  }
+  .badge-default { background: var(--primary); color: var(--primary-foreground); }
+  .badge-secondary { background: var(--secondary); color: var(--secondary-foreground); }
+  .badge-outline {
+    border-color: var(--border); color: var(--muted-foreground);
+    background: transparent;
+  }
+  .badge-outline:hover { border-color: var(--primary); color: var(--primary); }
+  .badge-outline::before {
+    content: "# ";
+    color: color-mix(in srgb, var(--muted-foreground) 55%, var(--background));
+  }
+
+  /* ---- Separator — all hairlines ---- */
+  .separator { height: 1px; width: 100%; background: var(--border); border: 0; }
+
+  /* ---- Avatar ---- */
+  .avatar {
+    border-radius: 9999px; overflow: hidden;
+    display: inline-flex; flex-shrink: 0;
+  }
+  .avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ============================================================
+     Page composition (typography + decoration on the chassis)
+     ============================================================ */
+
+  /* ============ NAV ============ */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    border-bottom: 1px solid transparent;
+    transition: background 0.4s var(--ease), border-color 0.4s var(--ease);
+  }
+  .nav.scrolled {
+    background: color-mix(in srgb, var(--background) 88%, transparent);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    backdrop-filter: blur(14px) saturate(160%);
+    border-bottom-color: var(--border);
+  }
+  .nav-inner {
+    max-width: var(--measure); margin: 0 auto; padding: 1.1rem var(--gutter);
+    display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+  }
+  .monogram {
+    font-family: "Newsreader", serif; font-weight: 500; font-style: italic;
+    font-size: 1.45rem; letter-spacing: -0.01em; text-decoration: none;
+    line-height: 1;
+  }
+  .monogram .dot { color: var(--primary); font-style: normal; }
+  .nav-links { display: flex; align-items: center; gap: 2.25rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.02em;
+    text-decoration: none; color: var(--muted-foreground); position: relative;
+    padding-block: 0.25rem;
+    transition: color 0.25s var(--ease);
+  }
+  .nav-links a::after {
+    content: ""; position: absolute; left: 0; bottom: 0;
+    width: 100%; height: 1px; background: var(--primary);
+    transform: scaleX(0); transform-origin: right;
+    transition: transform 0.35s var(--ease);
+  }
+  .nav-links a:hover { color: var(--foreground); }
+  .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
+  .nav .btn { height: 2.25rem; }
+
+  /* ============ HERO ============ */
+  .hero {
+    min-height: 100svh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding-top: 7rem; padding-bottom: 4rem;
+    position: relative;
+  }
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: color-mix(in srgb, var(--muted-foreground) 65%, var(--background));
+  }
+  .eyebrow .tick { color: var(--primary); }
+
+  .hero h1 {
+    font-family: "Newsreader", serif; font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: clamp(4.25rem, 14.5vw, 13.5rem);
+    line-height: 0.92; letter-spacing: -0.035em;
+    margin-top: 1.75rem;
+  }
+  .hero h1 em { font-style: italic; font-weight: 300; }
+  .hero h1 .period { color: var(--primary); }
+
+  .hero-top {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: clamp(1.5rem, 4vw, 4rem); flex-wrap: wrap;
+  }
+  .hero-portrait {
+    width: clamp(140px, 18vw, 200px); height: clamp(140px, 18vw, 200px);
+    border: 3px solid var(--primary);
+    box-shadow: 0 0 0 10px color-mix(in srgb, var(--primary) 12%, transparent);
+    margin-bottom: clamp(0.5rem, 1.5vw, 1.5rem);
+  }
+
+  .hero-deck {
+    margin-top: 2.5rem;
+    max-width: 34rem;
+    font-family: "Newsreader", serif;
+    font-size: clamp(1.2rem, 2vw, 1.45rem);
+    font-weight: 400; line-height: 1.5; letter-spacing: -0.005em;
+    color: var(--muted-foreground);
+  }
+  .hero-row {
+    margin-top: 3rem;
+    display: flex; flex-wrap: wrap; align-items: flex-end;
+    justify-content: space-between; gap: 2.5rem;
+  }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 0.85rem; }
+
+  .trust {
+    display: flex; align-items: center; flex-wrap: wrap; gap: 1.6rem;
+  }
+  .trust-label {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: color-mix(in srgb, var(--muted-foreground) 65%, var(--background));
+  }
+  .trust-logos { display: flex; align-items: center; gap: 1.5rem; }
+  .trust-logos img {
+    height: 17px; width: auto; object-fit: contain;
+    opacity: 0.9;
+    transition: opacity 0.3s var(--ease);
+  }
+  .trust-logos img:hover { opacity: 1; }
+  /* amazon mark is a dark navy chip — round it so it reads deliberate */
+  .trust-logos img[src*="amazon"],
+  .impact-employers img[src*="amazon"] { border-radius: 3px; }
+  .trust-devs {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem; letter-spacing: 0.06em; color: var(--muted-foreground);
+    border-left: 1px solid var(--border); padding-left: 1.5rem;
+  }
+  .trust-devs strong { color: var(--foreground); font-weight: 500; }
+
+  /* ============ SECTION SCAFFOLD ============ */
+  section.chapter { padding-block: clamp(6rem, 12vw, 10.5rem); }
+
+  .rule-head { margin-bottom: clamp(3.5rem, 7vw, 6rem); }
+  .rule-head-row {
+    display: flex; align-items: baseline; gap: 1.5rem;
+    padding-top: 1.4rem;
+  }
+  .rule-head .num {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem; letter-spacing: 0.12em;
+    color: var(--primary);
+  }
+  .rule-head .title {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: color-mix(in srgb, var(--muted-foreground) 65%, var(--background));
+  }
+
+  .chapter h2 {
+    font-family: "Newsreader", serif; font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: clamp(2.4rem, 4.6vw, 4.1rem);
+    line-height: 1.06; letter-spacing: -0.025em;
+  }
+  .chapter h2 em { font-style: italic; font-weight: 300; }
+
+  .lede {
+    font-size: 1.02rem; line-height: 1.8; color: var(--muted-foreground);
+    max-width: 32rem;
+  }
+
+  .two-col {
+    display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: clamp(2.5rem, 6vw, 6rem);
+    align-items: start;
+  }
+
+  /* ============ 01 — BUILDING ============ */
+  .sky-link {
+    color: var(--primary); text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--primary) 35%, transparent);
+    transition: border-color 0.25s var(--ease);
+  }
+  .sky-link:hover { border-bottom-color: var(--primary); }
+
+  .product-head { display: flex; align-items: center; gap: 1rem; }
+  .product-head img { width: 42px; height: 42px; border-radius: var(--radius); }
+  .product-head .live {
+    margin-left: auto;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--primary);
+    display: inline-flex; align-items: center; gap: 0.45rem;
+  }
+  .live i {
+    width: 6px; height: 6px; border-radius: 9999px; background: var(--primary);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+  .card-content p.body { font-size: 0.95rem; color: var(--muted-foreground); }
+
+  .stat-sep { margin-top: 2rem; }
+  .stat-row {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    margin-top: 1.75rem; gap: 1rem;
+  }
+  .stat .n {
+    font-family: "Newsreader", serif; font-weight: 400;
+    font-size: clamp(1.9rem, 3.4vw, 2.7rem); line-height: 1; letter-spacing: -0.02em;
+    font-variant-numeric: lining-nums;
+  }
+  .stat .n sup { font-size: 0.45em; color: var(--primary); top: -0.8em; position: relative; }
+  .stat .l {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: color-mix(in srgb, var(--muted-foreground) 65%, var(--background));
+    margin-top: 0.55rem;
+  }
+
+  .badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; }
+
+  /* ============ 02 — IMPACT ============ */
+  .impact-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--border);
+    border-left: 1px solid var(--border);
+    margin-top: clamp(3rem, 6vw, 5rem);
+  }
+  .impact-cell {
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    transition: background 0.35s var(--ease);
+  }
+  .impact-cell:hover { background: var(--card); }
+  .impact-cell .n {
+    font-family: "Newsreader", serif;
+    font-size: clamp(2.1rem, 4vw, 3.2rem); line-height: 1; letter-spacing: -0.025em;
+    font-variant-numeric: lining-nums;
+  }
+  .impact-cell .l {
+    font-size: 0.8rem; color: var(--muted-foreground); margin-top: 0.75rem; line-height: 1.55;
+  }
+  .impact-employers {
+    display: flex; align-items: center; gap: 2rem; margin-top: 2.25rem;
+  }
+  .impact-employers img { height: 20px; width: auto; opacity: 0.9; }
+
+  /* ============ COMMUNITY BRIDGE (photo CTA · paper, blue gilding) ============ */
+  .bridge { padding-top: 0; }
+  .bridge-card {
+    display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    overflow: hidden;
+  }
+  .bridge-media { position: relative; min-height: 24rem; }
+  .bridge-media img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center 30%;
+  }
+  .bridge-media::after {
+    /* fade into the card paper, not black */
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(to right, transparent 60%, var(--card));
+  }
+  .bridge-body {
+    padding: clamp(2rem, 4vw, 3.5rem);
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .bridge-body h2 {
+    font-family: "Newsreader", serif; font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: clamp(1.9rem, 3.4vw, 2.9rem);
+    line-height: 1.08; letter-spacing: -0.02em;
+  }
+  .bridge-body h2 em { font-style: italic; font-weight: 300; color: var(--primary); }
+  .bridge-list {
+    list-style: none; margin-top: 1.75rem;
+    display: flex; flex-direction: column; gap: 0.7rem;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted-foreground);
+  }
+  .bridge-list li { display: flex; align-items: baseline; gap: 0.7rem; }
+  .bridge-list li::before { content: "/"; color: var(--primary); }
+  .bridge-cta { margin-top: 2.25rem; align-self: flex-start; }
+
+  /* ============ 03 — STAGE (YouTube · `.dark` token scope) ============
+     Background/foreground come straight from the remapped tokens. */
+  .stage {
+    background: var(--background); color: var(--foreground);
+    padding-block: clamp(6.5rem, 13vw, 11.5rem);
+    position: relative; overflow: hidden;
+  }
+  .stage::after {
+    /* faint blue light leak on the top hairline */
+    content: ""; position: absolute; top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: min(48rem, 90vw); height: 1px;
+    background: radial-gradient(ellipse at center,
+      color-mix(in srgb, var(--primary) 70%, transparent), transparent 70%);
+  }
+  .stage .glow-num {
+    color: var(--primary);
+    text-shadow: 0 0 36px color-mix(in srgb, var(--primary) 45%, transparent);
+  }
+  .stage-deck {
+    font-family: "Newsreader", serif;
+    font-size: clamp(1.15rem, 1.9vw, 1.4rem); font-weight: 300;
+    line-height: 1.55; color: var(--muted-foreground);
+    max-width: 36rem; margin-top: 2rem;
+  }
+  .stage-row {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 1rem;
+    margin-top: 3rem;
+  }
+  .stage-foot-sep { margin-top: clamp(3.5rem, 7vw, 5.5rem); }
+  .stage-foot {
+    margin-top: 1.5rem;
+    display: flex; flex-wrap: wrap; gap: 2.5rem;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: color-mix(in srgb, var(--muted-foreground) 70%, var(--background));
+  }
+  .stage-foot b { color: var(--foreground); font-weight: 500; }
+
+  /* ============ FINAL CTA — the one Stripe moment ============ */
+  .finale {
+    position: relative; overflow: hidden;
+    padding-block: clamp(7rem, 14vw, 12rem);
+    border-top: 1px solid var(--border);
+    background: var(--card);
+  }
+  .mesh { position: absolute; inset: 0; pointer-events: none; }
+  .blob {
+    position: absolute; border-radius: 9999px;
+    filter: blur(90px); opacity: 0.5;
+    will-change: transform;
+  }
+  .blob-a {
+    width: 46rem; height: 46rem; right: -14rem; top: -18rem;
+    background: radial-gradient(circle,
+      color-mix(in srgb, var(--primary) 55%, transparent), transparent 65%);
+    animation: drift-a 26s var(--ease) infinite alternate;
+  }
+  .blob-b {
+    width: 34rem; height: 34rem; left: -10rem; bottom: -14rem;
+    background: radial-gradient(circle,
+      color-mix(in srgb, var(--primary) 45%, #1A7AB5) , transparent 65%);
+    opacity: 0.4;
+    animation: drift-b 32s var(--ease) infinite alternate;
+  }
+  .blob-c {
+    width: 22rem; height: 22rem; left: 38%; top: 30%;
+    background: radial-gradient(circle,
+      color-mix(in srgb, var(--primary) 40%, #7DD4F5), transparent 65%);
+    opacity: 0.4;
+    animation: drift-c 22s var(--ease) infinite alternate;
+  }
+  @keyframes drift-a { from { transform: translate(0,0) scale(1); } to { transform: translate(-6rem, 4rem) scale(1.12); } }
+  @keyframes drift-b { from { transform: translate(0,0) scale(1); } to { transform: translate(5rem, -3rem) scale(1.08); } }
+  @keyframes drift-c { from { transform: translate(0,0) scale(0.95); } to { transform: translate(-4rem, -4rem) scale(1.1); } }
+
+  .finale-inner { position: relative; text-align: center; }
+  .finale h2 {
+    font-family: "Newsreader", serif; font-weight: 400;
+    font-size: clamp(2.6rem, 5.6vw, 5rem);
+    line-height: 1.05; letter-spacing: -0.025em;
+    max-width: 22ch; margin-inline: auto;
+  }
+  .finale h2 em { font-style: italic; font-weight: 300; }
+  .finale p {
+    margin: 1.75rem auto 0; max-width: 30rem;
+    color: var(--muted-foreground); font-size: 1rem;
+  }
+  .finale-ctas {
+    margin-top: 3rem;
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 0.85rem;
+  }
+
+  /* ============ FOOTER ============ */
+  footer { padding-bottom: 2.75rem; }
+  .foot-inner {
+    padding-top: 2.25rem;
+    display: flex; flex-wrap: wrap; align-items: center;
+    justify-content: space-between; gap: 1.25rem;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: color-mix(in srgb, var(--muted-foreground) 65%, var(--background));
+  }
+  .foot-inner a {
+    text-decoration: none;
+    color: color-mix(in srgb, var(--muted-foreground) 65%, var(--background));
+    transition: color 0.25s var(--ease);
+  }
+  .foot-inner a:hover { color: var(--primary); }
+  .foot-links { display: flex; gap: 1.75rem; }
+
+  /* ============ Reveal ============ */
+  .reveal {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity 0.85s var(--ease), transform 0.85s var(--ease);
+  }
+  .reveal.in { opacity: 1; transform: none; }
+  .reveal[data-d="1"] { transition-delay: 0.1s; }
+  .reveal[data-d="2"] { transition-delay: 0.2s; }
+  .reveal[data-d="3"] { transition-delay: 0.3s; }
+  .reveal[data-d="4"] { transition-delay: 0.4s; }
+  .reveal[data-d="5"] { transition-delay: 0.5s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .blob, .live i { animation: none; }
+    .btn, .card, .nav-links a::after { transition: none; }
+  }
+
+  /* ============ Responsive ============ */
+  @media (max-width: 880px) {
+    .nav-links { display: none; }
+    .two-col { grid-template-columns: 1fr; }
+    .impact-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-row { flex-direction: column; align-items: flex-start; }
+    .trust-devs { border-left: none; padding-left: 0; }
+    .hero-top { flex-direction: column-reverse; align-items: flex-start; }
+    .hero-portrait { margin-bottom: 0; }
+    .bridge-card { grid-template-columns: 1fr; }
+    .bridge-media { min-height: 16rem; }
+    .bridge-media::after {
+      background: linear-gradient(to bottom, transparent 60%, var(--card));
+    }
+  }
+  @media (max-width: 480px) {
+    .stat-row { grid-template-columns: 1fr 1fr; }
+    .stat:last-child { grid-column: span 2; }
+    .impact-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: clamp(3.4rem, 19vw, 5rem); }
+    .btn { width: 100%; }
+    .nav .btn { width: auto; }
+    .finale-ctas { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ================= NAV ================= -->
+<nav class="nav" id="nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a class="monogram serif" href="#top" aria-label="Eric Tech home">ET<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="#building">Building</a></li>
+      <li><a href="#building">Projects</a></li>
+      <li><a href="#impact">Impact</a></li>
+      <li><a href="#youtube">YouTube</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="btn btn-default" href="https://calendar.app.google/sB9KrJP6e8j3EPmd9" target="_blank" rel="noopener noreferrer">Book a call</a>
+  </div>
+</nav>
+
+<main id="main">
+<!-- ================= HERO ================= -->
+<header class="hero wrap" id="top">
+  <p class="eyebrow reveal">engineer <span class="tick">·</span> founder <span class="tick">·</span> creator</p>
+  <div class="hero-top">
+    <h1 class="reveal" data-d="1">Eric <em>Tech</em><span class="period">.</span></h1>
+    <span class="avatar hero-portrait reveal" data-d="2">
+      <img src="../logos/EricTechProfile.png" alt="Eric Tech, software engineer and founder" />
+    </span>
+  </div>
+  <p class="hero-deck reveal" data-d="2">Building AI-powered products, leading engineering at scale, and teaching <strong style="font-weight:500;">60,000+ developers</strong>.</p>
+  <div class="hero-row reveal" data-d="3">
+    <div class="hero-ctas">
+      <a class="btn btn-default btn-lg" href="https://calendar.app.google/sB9KrJP6e8j3EPmd9" target="_blank" rel="noopener noreferrer">Book Strategy Call <span class="arrow">&rarr;</span></a>
+      <a class="btn btn-outline btn-lg" href="https://www.youtube.com/@EricWTech" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+    </div>
+    <div class="trust">
+      <span class="trust-label">Trusted&nbsp;at</span>
+      <div class="trust-logos">
+        <img src="../logos/microsoft-logo.png" alt="Microsoft" />
+        <img src="../logos/amazon-logo.png" alt="Amazon Web Services" />
+      </div>
+      <span class="trust-devs"><strong>60,000+</strong> developers taught</span>
+    </div>
+  </div>
+</header>
+
+<!-- ================= 01 / CURRENTLY BUILDING ================= -->
+<section class="chapter wrap" id="building" aria-label="Currently building">
+  <div class="rule-head reveal">
+    <div class="separator" role="presentation"></div>
+    <div class="rule-head-row">
+      <span class="num">01</span>
+      <span class="title">Currently Building</span>
+    </div>
+  </div>
+  <div class="two-col">
+    <div class="reveal">
+      <h2>The books should <em>keep themselves</em>.</h2>
+      <p class="lede" style="margin-top:1.75rem;">BookZero is AI bookkeeping that scans receipts and matches bank statements automatically — powered by Google Gemini. Full Canadian tax compliance. Solo-built and scaling toward <a class="sky-link" href="https://bookzero.ai" target="_blank" rel="noopener noreferrer">YC&nbsp;2026</a>.</p>
+    </div>
+    <div class="card reveal" data-d="1">
+      <div class="card-header">
+        <div class="product-head">
+          <img src="../logos/logo-icon.png" alt="BookZero logo" width="42" height="42" />
+          <h3 class="card-title">BookZero</h3>
+          <span class="live"><i></i>Live</span>
+        </div>
+        <p class="card-description">AI Bookkeeping Software</p>
+      </div>
+      <div class="card-content">
+        <p class="body">Receipts in, clean books out. The matching engine reconciles transactions against bank statements with no manual data entry.</p>
+        <div class="separator stat-sep" role="presentation"></div>
+        <div class="stat-row">
+          <div class="stat"><div class="n serif">2M<sup>+</sup></div><div class="l">receipts</div></div>
+          <div class="stat"><div class="n serif">92<sup>%</sup></div><div class="l">auto-match</div></div>
+          <div class="stat"><div class="n serif">60<sup>%</sup></div><div class="l">cheaper</div></div>
+        </div>
+        <div class="badges" aria-label="Technology stack">
+          <span class="badge badge-outline">nextjs</span><span class="badge badge-outline">typescript</span><span class="badge badge-outline">gemini-ai</span><span class="badge badge-outline">supabase</span><span class="badge badge-outline">stripe</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 02 / IMPACT ================= -->
+<section class="chapter wrap" id="impact" aria-label="Impact" style="padding-top:0;">
+  <div class="rule-head reveal">
+    <div class="separator" role="presentation"></div>
+    <div class="rule-head-row">
+      <span class="num">02</span>
+      <span class="title">Impact</span>
+    </div>
+  </div>
+  <div class="two-col">
+    <div class="reveal">
+      <h2>A decade of shipping <em>at scale</em>.</h2>
+    </div>
+    <div class="reveal" data-d="1">
+      <p class="lede">Senior engineering and product leadership at Microsoft and Amazon Web Services — building data platforms used by hundreds of enterprise clients, and leading teams across three continents.</p>
+      <div class="impact-employers">
+        <img src="../logos/microsoft-logo.png" alt="Microsoft" />
+        <img src="../logos/amazon-logo.png" alt="Amazon Web Services" />
+      </div>
+    </div>
+  </div>
+  <div class="impact-grid reveal" data-d="2">
+    <div class="impact-cell"><div class="n serif">$12M+</div><div class="l">Revenue generated through product leadership</div></div>
+    <div class="impact-cell"><div class="n serif">750+</div><div class="l">Enterprise clients onboarded</div></div>
+    <div class="impact-cell"><div class="n serif">15+</div><div class="l">Engineers led across 3 continents</div></div>
+    <div class="impact-cell"><div class="n serif">100K+</div><div class="l">Data pipelines deployed</div></div>
+    <div class="impact-cell"><div class="n serif">65%</div><div class="l">Reduction in ETL processing time</div></div>
+    <div class="impact-cell"><div class="n serif">40%</div><div class="l">Cost savings for enterprise customers</div></div>
+  </div>
+</section>
+
+<!-- ================= COMMUNITY BRIDGE — photo CTA ================= -->
+<section class="chapter wrap bridge" id="community" aria-label="Join the community">
+  <div class="card bridge-card reveal">
+    <div class="bridge-media">
+      <img src="../CTA/eric-bridge-skool-community-03.jpg" alt="Eric Tech hosting an AI community live masterclass" loading="lazy" />
+    </div>
+    <div class="bridge-body">
+      <h2>Learn AI <em>from the best</em>.</h2>
+      <ul class="bridge-list">
+        <li>Ex-Microsoft &amp; Amazon Senior AI Engineer</li>
+        <li>Code vault + templates</li>
+        <li>Weekly live masterclass</li>
+        <li>Direct support &amp; Q&amp;A</li>
+        <li>Network of builders</li>
+      </ul>
+      <a class="btn btn-default btn-lg bridge-cta" href="https://www.skool.com/erictech" target="_blank" rel="noopener noreferrer"><img src="../logos/skool.png" alt="" aria-hidden="true" /> Join the Community <span class="arrow">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 03 / YOUTUBE — black stage (.dark token scope) ================= -->
+<section class="stage dark" id="youtube" aria-label="YouTube">
+  <div class="wrap">
+    <div class="rule-head reveal">
+      <div class="separator" role="presentation"></div>
+      <div class="rule-head-row">
+        <span class="num">03</span>
+        <span class="title">Teaching</span>
+      </div>
+    </div>
+    <h2 class="reveal serif" data-d="1" style="font-weight:400;font-size:clamp(2.4rem,4.6vw,4.1rem);line-height:1.06;letter-spacing:-0.025em;"><span class="glow-num">60,000+</span> developers<br />learn here, <em style="font-weight:300;">free</em>.</h2>
+    <p class="stage-deck reveal" data-d="2">Full-stack builds, AI engineering, and career strategy — taught the way a senior engineer would explain it to a colleague. No fluff, all source code included.</p>
+    <div class="stage-row reveal" data-d="3">
+      <a class="btn btn-default btn-lg" href="https://www.youtube.com/@EricWTech" target="_blank" rel="noopener noreferrer">youtube.com/@EricWTech <span class="arrow">&rarr;</span></a>
+      <a class="btn btn-outline btn-lg" href="https://www.skool.com/erictech" target="_blank" rel="noopener noreferrer"><img src="../logos/skool.png" alt="" aria-hidden="true" /> Join the community</a>
+    </div>
+    <div class="reveal" data-d="4">
+      <div class="separator stage-foot-sep" role="presentation"></div>
+      <div class="stage-foot">
+        <span><b>Weekly</b> live masterclass</span>
+        <span><b>Code vault</b> + templates</span>
+        <span><b>Direct</b> support &amp; Q&amp;A</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA — gradient mesh ================= -->
+<section class="finale" id="contact" aria-label="Contact">
+  <div class="mesh" aria-hidden="true">
+    <div class="blob blob-a"></div>
+    <div class="blob blob-b"></div>
+    <div class="blob blob-c"></div>
+  </div>
+  <div class="wrap finale-inner">
+    <p class="eyebrow reveal">04 <span class="tick">/</span> Work with Eric</p>
+    <h2 class="reveal" data-d="1" style="margin-top:1.5rem;">Let&rsquo;s build something <em>worth shipping</em>.</h2>
+    <p class="reveal" data-d="2">A free 15-minute strategy call to talk through your product, architecture, or career — or join 60,000+ developers learning in the community.</p>
+    <div class="finale-ctas reveal" data-d="3">
+      <a class="btn btn-default btn-lg" href="https://calendar.app.google/sB9KrJP6e8j3EPmd9" target="_blank" rel="noopener noreferrer">Book Strategy Call <span class="arrow">&rarr;</span></a>
+      <a class="btn btn-outline btn-lg" href="https://www.skool.com/erictech" target="_blank" rel="noopener noreferrer"><img src="../logos/skool.png" alt="" aria-hidden="true" /> Join Skool</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="separator" role="presentation"></div>
+    <div class="foot-inner">
+      <span>&copy; 2026 Eric Tech</span>
+      <div class="foot-links">
+        <a href="https://www.youtube.com/@EricWTech" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a href="https://www.skool.com/erictech" target="_blank" rel="noopener noreferrer">Skool</a>
+        <a href="https://calendar.app.google/sB9KrJP6e8j3EPmd9" target="_blank" rel="noopener noreferrer">Book a call</a>
+      </div>
+      <span>Ink &amp; Sky &mdash; Option A</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav: hairline + blur after scroll
+  var nav = document.getElementById('nav');
+  function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 20); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Scroll reveal
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var targets = document.querySelectorAll('.reveal');
+  if (reduced || !('IntersectionObserver' in window)) {
+    targets.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
+    targets.forEach(function (el) { io.observe(el); });
+  }
+</script>
+</body>
+</html>
