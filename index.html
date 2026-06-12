@@ -372,6 +372,27 @@
     box-shadow: inset 0 0 0 1px rgba(43,170,223,0.4), 0 0 14px var(--glow-12);
   }
 
+  .theme-dock {
+    position: fixed;
+    right: 1.25rem;
+    bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
+    z-index: 70;
+  }
+  .theme-dock .theme-toggle {
+    background: var(--dock-bg, var(--card));
+    -webkit-backdrop-filter: blur(14px) saturate(150%); backdrop-filter: blur(14px) saturate(150%);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35), 0 0 18px var(--glow-08);
+  }
+  [data-theme='light'] .theme-dock .theme-toggle {
+    --dock-bg: rgba(255,255,255,0.88);
+    box-shadow: 0 8px 28px rgba(15,23,42,0.14), 0 0 14px var(--glow-08);
+  }
+  .theme-dock .theme-toggle:hover { box-shadow: 0 10px 36px rgba(0,0,0,0.4), 0 0 26px var(--glow-12); }
+  @media (max-width: 480px) {
+    .theme-dock { right: 0.875rem; bottom: calc(0.875rem + env(safe-area-inset-bottom, 0px)); }
+    .theme-dock .theme-toggle .side { padding: 0 0.625rem; font-size: 0.5625rem; }
+  }
+
   /* ============================================================
      PAGE
      ============================================================ */
@@ -453,7 +474,6 @@
     border-bottom: 1px solid var(--border);
   }
   .nav-mobile a:last-of-type { border-bottom: none; }
-  .nav-mobile .theme-toggle { margin-top: 0.875rem; align-self: flex-start; }
 
   /* ---------- Hero ---------- */
   .hero {
@@ -861,11 +881,6 @@
       <a href="#contact">Contact</a>
     </div>
     <div class="nav-actions">
-      <button class="theme-toggle js-theme-toggle" type="button" aria-pressed="false" aria-label="Switch to light mode">
-        <span class="indicator" aria-hidden="true"></span>
-        <span class="side side-dark"><span class="glyph" aria-hidden="true">☾</span>Dark&nbsp;Mode</span>
-        <span class="side side-light"><span class="glyph" aria-hidden="true">☀</span>Light&nbsp;Mode</span>
-      </button>
       <a class="btn btn-gradient btn-sm" href="https://calendar.app.google/sB9KrJP6e8j3EPmd9" target="_blank" rel="noopener noreferrer">Book a Call</a>
     </div>
     <button class="nav-burger" id="burger" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
@@ -876,13 +891,17 @@
     <a href="#youtube">YouTube</a>
     <a href="#contact">Contact</a>
     <a href="https://calendar.app.google/sB9KrJP6e8j3EPmd9" target="_blank" rel="noopener noreferrer" style="color: var(--primary);">Book a Call →</a>
-    <button class="theme-toggle js-theme-toggle" type="button" aria-pressed="false" aria-label="Switch to light mode">
-      <span class="indicator" aria-hidden="true"></span>
-      <span class="side side-dark"><span class="glyph" aria-hidden="true">☾</span>Dark&nbsp;Mode</span>
-      <span class="side side-light"><span class="glyph" aria-hidden="true">☀</span>Light&nbsp;Mode</span>
-    </button>
   </div>
 </nav>
+
+<!-- Sticky theme dock — bottom right -->
+<div class="theme-dock">
+  <button class="theme-toggle js-theme-toggle" type="button" aria-pressed="false" aria-label="Switch to light mode">
+    <span class="indicator" aria-hidden="true"></span>
+    <span class="side side-dark"><span class="glyph" aria-hidden="true">☾</span>Dark&nbsp;Mode</span>
+    <span class="side side-light"><span class="glyph" aria-hidden="true">☀</span>Light&nbsp;Mode</span>
+  </button>
+</div>
 
 <main id="main">
 
