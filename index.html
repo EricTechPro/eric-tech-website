@@ -835,10 +835,21 @@
   @keyframes tmRise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
   .tm-name { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; color: var(--foreground); }
   [data-theme='light'] .tm-name { font-weight: 500; }
-  .tm-name a { color: inherit; text-decoration: none; border-bottom: 1px solid transparent; transition: color 0.3s var(--ease), border-color 0.3s var(--ease); }
-  .tm-name a:hover { color: var(--primary); border-color: var(--primary); }
-  .tm-name a:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
-  .tm-role { font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted-foreground); opacity: 0.85; margin-top: 0.5rem; }
+  .tm-logo { height: 1rem; width: auto; object-fit: contain; border-radius: 2px; opacity: 0.95; }
+  .tm-link {
+    display: inline-flex; align-items: center; gap: 0.375rem; margin-top: 0.75rem;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem;
+    color: var(--primary); text-decoration: none; transition: color 0.3s var(--ease);
+  }
+  .tm-link:hover { color: var(--primary-hover); text-decoration: underline; text-underline-offset: 4px; }
+  .tm-link:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+  .tm-note {
+    font-family: 'Newsreader', Georgia, serif; font-weight: 300;
+    font-size: clamp(1.15rem, 1.9vw, 1.4rem); line-height: 1.55; color: var(--muted-foreground); margin: 0;
+  }
+  .tm-body.no-quote { padding-top: 0; }
+  .tm-body.no-quote::before { display: none; }
+  .tm-role { font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted-foreground); opacity: 0.85; margin-top: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
   .tm-relation { font-size: 0.875rem; font-weight: 300; color: var(--muted-foreground); margin-top: 0.375rem; }
   .tm-nav { display: flex; align-items: center; gap: 0.75rem; margin-top: 2.25rem; }
   .tm-arrow {
@@ -1260,7 +1271,7 @@
     <p class="hero-serif reveal" style="--d: 0.3s">Built with <em>intent.</em></p>
     <div class="hero-row">
       <div>
-        <p class="hero-lede reveal" style="--d: 0.42s">Building AI-powered products, leading engineering at scale, and teaching <strong>60,000+ developers</strong>.</p>
+        <p class="hero-lede reveal" style="--d: 0.42s">Building AI-powered products, leading engineering at scale, and teaching <strong>77,000+ developers</strong>.</p>
         <div class="hero-ctas reveal" style="--d: 0.55s">
           <a class="btn btn-gradient btn-lg" href="https://calendar.app.google/sB9KrJP6e8j3EPmd9" target="_blank" rel="noopener noreferrer">Book Strategy Call <span class="arrow">→</span></a>
           <a class="btn btn-outline btn-lg" href="https://www.youtube.com/@EricWTech" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
@@ -1273,7 +1284,7 @@
           </span>
         </div>
         <div class="portrait-stat">
-          <div class="num">60,000+</div>
+          <div class="num">77,000+</div>
           <div class="lbl">developers on YouTube</div>
         </div>
       </div>
@@ -1281,7 +1292,7 @@
     <div class="trust-row reveal" style="--d: 0.7s">
       <span class="trust-item"><img src="logos/microsoft-logo.png" alt="" loading="eager">Microsoft</span>
       <span class="trust-item"><img src="logos/amazon-logo.png" alt="" loading="eager">Amazon Web Services</span>
-      <span class="trust-item">60,000+ Developers</span>
+      <span class="trust-item">77,000+ Developers</span>
     </div>
   </div>
 </section>
@@ -1377,7 +1388,7 @@
       <div class="spline-copy">
         <p class="eyebrow reveal" style="--d: 0.2s">engineer&nbsp;&nbsp;<span class="tick">·</span>&nbsp;&nbsp;founder&nbsp;&nbsp;<span class="tick">·</span>&nbsp;&nbsp;creator</p>
         <h1 class="reveal" style="--d: 0.3s">Eric<br>Tech</h1>
-        <p class="lede reveal" style="--d: 0.42s">Building AI-powered products, leading engineering at scale, and teaching <strong>60,000+ developers</strong> on YouTube.</p>
+        <p class="lede reveal" style="--d: 0.42s">Building AI-powered products, leading engineering at scale, and teaching <strong>77,000+ developers</strong> on YouTube.</p>
         <div class="hero-ctas reveal" style="--d: 0.55s">
           <a class="btn btn-gradient btn-lg" href="https://calendar.app.google/sB9KrJP6e8j3EPmd9" target="_blank" rel="noopener noreferrer">Book Strategy Call <span class="arrow">→</span></a>
           <a class="btn btn-outline btn-lg" href="https://www.youtube.com/@EricWTech" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
@@ -1394,7 +1405,7 @@
     <div class="trust-row reveal" style="--d: 0.7s">
       <span class="trust-item"><img src="logos/microsoft-logo.png" alt="" loading="eager">Microsoft</span>
       <span class="trust-item"><img src="logos/amazon-logo.png" alt="" loading="eager">Amazon Web Services</span>
-      <span class="trust-item">60,000+ Developers</span>
+      <span class="trust-item">77,000+ Developers</span>
     </div>
   </div>
 </section>
@@ -1744,7 +1755,8 @@
   var TESTIMONIALS = [
     {
       name: "Robert Desjardins",
-      role: "Software Engineer 2, Microsoft",
+      role: "Software Engineer 2",
+      company: "Microsoft", logo: "logos/microsoft-logo.png",
       relation: "Worked with Eric on the same team · July 2023",
       url: "https://www.linkedin.com/in/desjardinsrobert/",
       src: "testimonials/robert-desjardins.jpg",
@@ -1752,11 +1764,23 @@
     },
     {
       name: "João Cangussu",
-      role: "Principal Software Engineer Manager, Microsoft",
+      role: "Principal Software Engineer Manager",
+      company: "Microsoft", logo: "logos/microsoft-logo.png",
       relation: "Managed Eric directly · June 2022",
       url: "https://www.linkedin.com/in/jo%C3%A3o-cangussu-40b681/",
       src: "testimonials/joao-cangussu.jpg",
       quote: "I have worked with Eric in the last few months; he is a very dedicated developer. It is very easy to collaborate with him and he is a great team player; always ready to learn new things and help the team."
+    },
+    {
+      name: "R. Matt Sampson",
+      role: "Senior Software Development Manager, Glue",
+      company: "Amazon Web Services", logo: "logos/amazon-logo.png",
+      relation: "Colleague at AWS",
+      url: "https://www.linkedin.com/in/r-matt-sampson-9b5b625/",
+      src: "testimonials/matt-sampson.jpg",
+      /* ponytail: no written recommendation yet. Paste Matt's own words into quote when he sends one; note is shown until then. */
+      quote: "",
+      note: "Worked directly with Eric at Amazon Web Services, building ETL data pipelines in Glue Studio."
     }
   ];
   var tmStage = document.getElementById("tmStage");
@@ -1790,12 +1814,15 @@
       var words = t.quote.split(" ").map(function (w, i) {
         return '<span class="w" style="--i:' + i + '">' + tmEsc(w) + '</span>';
       }).join(" ");
+      var handle = decodeURIComponent(t.url).replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
+      tmBody.className = "tm-body" + (t.quote ? "" : " no-quote");
       tmBody.innerHTML =
-        '<blockquote class="tm-quote">' + words + '</blockquote>' +
+        (t.quote ? '<blockquote class="tm-quote">' + words + '</blockquote>' : '<p class="tm-note">' + tmEsc(t.note || "") + '</p>') +
         '<div class="tm-meta">' +
-          '<p class="tm-name"><a href="' + t.url + '" target="_blank" rel="noopener noreferrer">' + tmEsc(t.name) + '</a></p>' +
-          '<p class="tm-role">' + tmEsc(t.role) + '</p>' +
+          '<p class="tm-name">' + tmEsc(t.name) + '</p>' +
+          '<p class="tm-role"><img class="tm-logo" src="' + t.logo + '" alt="' + tmEsc(t.company) + ' logo" loading="lazy">' + tmEsc(t.role) + ', ' + tmEsc(t.company) + '</p>' +
           '<p class="tm-relation">' + tmEsc(t.relation) + '</p>' +
+          '<a class="tm-link" href="' + t.url + '" target="_blank" rel="noopener noreferrer">' + tmEsc(handle) + ' <span aria-hidden="true">↗</span></a>' +
         '</div>';
       document.getElementById("tmCount").innerHTML = '<span class="num">' + tmPad(tmIndex + 1) + '</span> / ' + tmPad(tmN);
     }
