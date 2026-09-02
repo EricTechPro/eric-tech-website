@@ -920,6 +920,85 @@
     .btn-gradient::before { display: none; }
     *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
   }
+
+  /* ============================================================
+     AIRLOCK HERO (v1) — scroll-locked, scrub-driven video
+     ============================================================ */
+  .airlock {
+    position: relative; width: 100%; height: 100vh; height: 100dvh;
+    overflow: hidden; background: #05070d; color: #f2f4f8;
+  }
+  .airlock-video {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    opacity: 0; transform-origin: center center; will-change: transform;
+    transition: opacity 0.6s ease;
+  }
+  .airlock.is-ready .airlock-video { opacity: 1; }
+  .airlock-falloff, .airlock-scrim { position: absolute; inset: 0; pointer-events: none; }
+  .airlock-falloff {
+    background: linear-gradient(180deg, rgba(5,7,13,0.38), rgba(5,7,13,0) 30%, rgba(5,7,13,0.15) 70%, rgba(5,7,13,0.58));
+  }
+  /* Keeps type legible over the daylit planet; comes and goes with the type */
+  .airlock-scrim {
+    background: radial-gradient(ellipse 62% 44% at 50% 50%, rgba(5,7,13,0.68), rgba(5,7,13,0) 72%);
+  }
+  .airlock-title, .airlock-tagline {
+    position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+    padding: 0 6%; pointer-events: none; will-change: transform, filter, opacity;
+  }
+  .airlock-eyebrow { justify-content: center; margin-bottom: 1.75rem; color: rgba(240,244,248,0.72); opacity: 1; }
+  .airlock-eyebrow::before { display: none; }
+  .airlock-title h1 {
+    font-family: 'Archivo', sans-serif; font-weight: 900; text-transform: uppercase;
+    font-size: clamp(3.4rem, 11vw, 11.5rem); line-height: 0.85; letter-spacing: -0.05em;
+    color: #f2f4f8; text-shadow: 0 4px 30px rgba(0,0,0,0.55); margin: 0;
+  }
+  .airlock-title h1 .text-outline {
+    -webkit-text-stroke-color: rgba(242,244,248,0.85);
+    text-shadow: 0 0 60px rgba(85,197,240,0.25);
+  }
+  .airlock-tagline { opacity: 0; }
+  .airlock-tagline p {
+    font-family: 'Newsreader', serif; font-style: italic; font-weight: 300;
+    font-size: clamp(1.75rem, 4vw, 3.25rem); letter-spacing: 0.01em; line-height: 1.2;
+    color: #f2f4f8; text-shadow: 0 4px 24px rgba(0,0,0,0.6); max-width: 22ch;
+  }
+  .airlock-tagline em { color: #7DD4F5; }
+  .airlock-hint {
+    position: absolute; left: 50%; bottom: clamp(20px, 6vh, 48px); transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    font-family: 'JetBrains Mono', monospace; font-size: clamp(10px, 1.4vw, 12px); font-weight: 600;
+    letter-spacing: 0.3em; color: rgba(240,244,248,0.72); pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+  .airlock-hint svg { animation: airlock-bounce 1.6s ease-in-out infinite; }
+  @keyframes airlock-bounce {
+    0%, 100% { transform: translateY(0); opacity: 0.5; }
+    50% { transform: translateY(5px); opacity: 1; }
+  }
+  /* Never trap anyone: keyboard-reachable way straight to the page */
+  .airlock-skip {
+    position: absolute; left: 50%; top: 5rem; z-index: 10; transform: translateX(-50%);
+    padding: 0.5rem 1rem; border: 0; border-radius: 999px; cursor: pointer;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: #f2f4f8; background: rgba(5,7,13,0.7); opacity: 0; transition: opacity 0.3s ease;
+  }
+  .airlock-skip:focus-visible { opacity: 1; outline: 2px solid var(--primary); outline-offset: 2px; }
+  .airlock-bar { position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: rgba(255,255,255,0.12); }
+  .airlock-bar-fill {
+    height: 100%; width: 100%; transform-origin: left; transform: scaleX(0);
+    background: linear-gradient(90deg, #1A7AB5, #7DD4F5);
+  }
+
+  /* Nav sits on the video until the glass bar takes over at 20px of scroll */
+  html.airlock-on .nav-links a, html.airlock-on .monogram, html.airlock-on .nav-burger { color: #f2f4f8; }
+
+  .hero-after { min-height: 0; padding: 5.5rem 1.75rem 5.5rem; }
+  @media (max-width: 480px) {
+    .airlock-eyebrow { font-size: 0.625rem; letter-spacing: 0.14em; margin-bottom: 1.25rem; }
+  }
   </style>
 
   <noscript>
@@ -995,27 +1074,48 @@
 
 <main id="main">
 
-<!-- ================= HERO ================= -->
-<section class="hero" id="home" aria-label="Introduction">
+<!-- ================= HERO: AIRLOCK (v1) ================= -->
+<!-- Scroll-locked, scrub-driven video. The page is pinned until the film runs out,
+     then handed back. Scrolling back to the top takes the lock again at the last frame. -->
+<section class="airlock" id="home" aria-label="Introduction">
+  <video class="airlock-video"
+    src="https://cdn.jsdelivr.net/gh/yuraoak/airlock-hero-assets@main/iss-hero-1080p.mp4"
+    poster="https://cdn.jsdelivr.net/gh/yuraoak/airlock-hero-assets@main/iss-hero-poster.jpg"
+    muted playsinline preload="auto" aria-hidden="true"></video>
+  <div class="airlock-falloff" aria-hidden="true"></div>
+  <div class="airlock-scrim" aria-hidden="true"></div>
+  <div class="airlock-title">
+    <p class="eyebrow airlock-eyebrow">engineer&nbsp;&nbsp;<span class="tick">·</span>&nbsp;&nbsp;founder&nbsp;&nbsp;<span class="tick">·</span>&nbsp;&nbsp;creator</p>
+    <h1>ERIC<br><span class="text-outline">TECH</span></h1>
+  </div>
+  <div class="airlock-tagline">
+    <p>Built with <em>intent.</em></p>
+  </div>
+  <div class="airlock-hint" aria-hidden="true">
+    <span>SCROLL</span>
+    <svg width="14" height="18" viewBox="0 0 14 18" aria-hidden="true"><path d="M7 1 L7 17 M2 12 L7 17 L12 12" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+  <button class="airlock-skip" type="button">Skip intro</button>
+  <div class="airlock-bar" aria-hidden="true"><div class="airlock-bar-fill"></div></div>
+</section>
+
+<!-- The copy that sat under the headline now follows the film -->
+<section class="hero hero-after" aria-label="Introduction, continued">
   <div class="orb orb-1" aria-hidden="true"></div>
   <div class="orb orb-2" aria-hidden="true"></div>
   <div class="hero-inner">
-    <p class="eyebrow reveal" style="--d: 0.05s">engineer&nbsp;&nbsp;<span class="tick">·</span>&nbsp;&nbsp;founder&nbsp;&nbsp;<span class="tick">·</span>&nbsp;&nbsp;creator</p>
-    <h1 class="reveal dark-only" style="--d: 0.15s">ERIC<br><span class="text-outline">TECH</span></h1>
-    <h1 class="h1-light reveal light-only" style="--d: 0.15s">Eric <em>Tech</em><span class="period">.</span></h1>
-    <p class="hero-serif reveal" style="--d: 0.3s">Built with <em>intent.</em></p>
     <div class="hero-row">
       <div>
-        <p class="hero-lede reveal" style="--d: 0.42s">Building AI-powered products, leading engineering at scale, and teaching <strong>60,000+ developers</strong>.</p>
-        <div class="hero-ctas reveal" style="--d: 0.55s">
+        <p class="hero-lede reveal" style="--d: 0.05s">Building AI-powered products, leading engineering at scale, and teaching <strong>60,000+ developers</strong>.</p>
+        <div class="hero-ctas reveal" style="--d: 0.18s">
           <a class="btn btn-gradient btn-lg" href="https://calendar.app.google/sB9KrJP6e8j3EPmd9" target="_blank" rel="noopener noreferrer">Book Strategy Call <span class="arrow">→</span></a>
           <a class="btn btn-outline btn-lg" href="https://www.youtube.com/@EricWTech" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
         </div>
       </div>
-      <div class="hero-portrait reveal" style="--d: 0.5s">
+      <div class="hero-portrait reveal" style="--d: 0.12s">
         <div class="avatar-ring">
           <span class="avatar">
-            <img src="logos/EricTechProfile.png" alt="Eric Tech, software engineer and founder" width="400" height="400" loading="eager">
+            <img src="logos/EricTechProfile.png" alt="Eric Tech, software engineer and founder" width="400" height="400" loading="lazy">
           </span>
         </div>
         <div class="portrait-stat">
@@ -1024,9 +1124,9 @@
         </div>
       </div>
     </div>
-    <div class="trust-row reveal" style="--d: 0.7s">
-      <span class="trust-item"><img src="logos/microsoft-logo.png" alt="" loading="eager">Microsoft</span>
-      <span class="trust-item"><img src="logos/amazon-logo.png" alt="" loading="eager">Amazon Web Services</span>
+    <div class="trust-row reveal" style="--d: 0.3s">
+      <span class="trust-item"><img src="logos/microsoft-logo.png" alt="" loading="lazy">Microsoft</span>
+      <span class="trust-item"><img src="logos/amazon-logo.png" alt="" loading="lazy">Amazon Web Services</span>
       <span class="trust-item">60,000+ Developers</span>
     </div>
   </div>
@@ -1391,6 +1491,160 @@
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && !exitModal.hidden) closeExit();
     });
+  }
+})();
+</script>
+<script>
+/* ---------- Airlock hero: scroll-locked video scrub ---------- */
+(function () {
+  "use strict";
+  var section = document.getElementById("home");
+  if (!section || !section.classList.contains("airlock")) return;
+  var q = function (s) { return section.querySelector(s); };
+  var video = q(".airlock-video"), titleEl = q(".airlock-title"), hintEl = q(".airlock-hint"),
+      tagEl = q(".airlock-tagline"), barEl = q(".airlock-bar-fill"), scrimEl = q(".airlock-scrim"),
+      skipBtn = q(".airlock-skip");
+  var root = document.documentElement;
+  var exitModal = document.getElementById("exitModal");
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* Input pixels to scrub the whole film, then extra pixels spent on a held last frame */
+  var SCRUB = 3200, HOLD = 1100, TOTAL = SCRUB + HOLD, SHARE = SCRUB / TOTAL;
+  var KEYS = { ArrowDown: 140, ArrowUp: -140, PageDown: 700, PageUp: -700, " ": 700, End: 1e9, Home: -1e9 };
+
+  var duration = 0, target = 0, shown = 0, moved = false;
+  var seeking = false, queued = null, lastSeek = -1;
+  var locked = false, lockedY = 0, released = false, lastY = 0, touchY = 0, primed = false;
+
+  function clamp(v, a, b) { return Math.min(b, Math.max(a, v)); }
+
+  /* One seek in flight at a time; the newest request wins */
+  function seekTo(t) {
+    if (Math.abs(t - lastSeek) < 0.002) return;
+    lastSeek = t;
+    if (seeking) { queued = t; return; }
+    seeking = true;
+    video.currentTime = t;
+  }
+  video.addEventListener("seeked", function () {
+    seeking = false;
+    if (queued !== null) { var t = queued; queued = null; seeking = true; video.currentTime = t; }
+  });
+
+  /* p runs 0-1 across SCRUB and HOLD together; the film occupies the first SHARE */
+  function paint(p) {
+    var vp = clamp(p / SHARE, 0, 1);
+    /* Stop a hair short of the end: the very last frame paints black in some browsers */
+    if (duration > 0) seekTo(Math.min(vp * duration, duration - 0.04));
+    var tA = 1 - clamp(vp / 0.35, 0, 1);
+    var gA = clamp((vp - 0.82) / 0.18, 0, 1);
+    video.style.transform = "scale(" + (1 + vp * 0.06) + ")";
+    scrimEl.style.opacity = String(Math.max(tA, gA));
+    titleEl.style.opacity = String(tA);
+    titleEl.style.transform = "translateY(" + ((1 - tA) * -24) + "px) scale(" + (0.96 + tA * 0.04) + ")";
+    titleEl.style.filter = "blur(" + ((1 - tA) * 10) + "px)";
+    hintEl.style.opacity = moved ? "0" : "1";
+    tagEl.style.opacity = String(gA);
+    tagEl.style.transform = "translateY(" + ((1 - gA) * 20) + "px) scale(" + (0.97 + gA * 0.03) + ")";
+    tagEl.style.filter = "blur(" + ((1 - gA) * 8) + "px)";
+    barEl.style.transform = "scaleX(" + p + ")";
+  }
+
+  /* Pin the body the way modal libraries do; overflow:hidden alone is not reliable */
+  function engageLock() {
+    if (locked) return;
+    locked = true; released = false; lockedY = window.scrollY;
+    var b = document.body.style;
+    b.position = "fixed"; b.top = "-" + lockedY + "px"; b.left = "0"; b.right = "0"; b.width = "100%";
+    root.classList.add("airlock-on");
+  }
+  function releaseLock() {
+    if (!locked) return;
+    locked = false;
+    var y = lockedY, b = document.body.style;
+    b.position = ""; b.top = ""; b.left = ""; b.right = ""; b.width = "";
+    /* The page uses scroll-behavior: smooth; this jump must be instant */
+    var prev = root.style.scrollBehavior;
+    root.style.scrollBehavior = "auto";
+    window.scrollTo(0, y);
+    root.style.scrollBehavior = prev;
+    released = true; lastY = y;
+    if (y > 20) root.classList.remove("airlock-on");
+  }
+
+  /* iOS will not decode frames for a video that never played; one muted play/pause wakes it */
+  function prime() {
+    if (primed) return;
+    primed = true;
+    var p = video.play();
+    if (p && p.then) p.then(function () { video.pause(); }).catch(function () {});
+  }
+
+  /* Spend a gesture on the scrub. True = the hero used it, swallow the event. */
+  function consume(deltaY) {
+    if (!locked) return false;
+    if (exitModal && !exitModal.hidden) return false;
+    prime();
+    /* Wait for the picture to catch up before letting go, or a hard flick lands mid-shot */
+    if (target >= 1 && shown > 0.98 && deltaY > 0) { releaseLock(); return false; }
+    target = clamp(target + deltaY / TOTAL, 0, 1);
+    if (target > 0.001) moved = true;
+    return true;
+  }
+
+  function onWheel(e) { if (consume(e.deltaY)) e.preventDefault(); }
+  function onTouchStart(e) { touchY = e.touches[0] ? e.touches[0].clientY : 0; }
+  function onTouchMove(e) {
+    var y = e.touches[0] ? e.touches[0].clientY : touchY;
+    var d = touchY - y; touchY = y;
+    if (consume(d)) e.preventDefault();
+  }
+  function onKeyDown(e) {
+    var step = KEYS[e.key];
+    if (step === undefined) return;
+    var t = e.target;
+    if (t && t.closest && t.closest("button, a, input, textarea, select, [contenteditable]")) return;
+    if (consume(step)) e.preventDefault();
+  }
+
+  /* Climbing back to the top takes the lock again at the last frame, so it runs backwards.
+     Direction matters, or the hero would grab the wheel the moment it mounts. */
+  function onScroll() {
+    var y = window.scrollY;
+    root.classList.toggle("airlock-on", locked || y <= 20);
+    if (locked || !released || reduceMotion) return;
+    var climbing = y < lastY;
+    lastY = y;
+    if (climbing && y <= section.offsetTop) { target = shown = 1; paint(1); engageLock(); }
+  }
+
+  function onLoaded() {
+    duration = video.duration || 0;
+    section.classList.add("is-ready");
+    if (reduceMotion) { target = shown = 1; moved = true; paint(1); }
+  }
+  video.addEventListener("loadeddata", onLoaded);
+  if (video.readyState >= 2) onLoaded();
+
+  skipBtn.addEventListener("click", function () {
+    target = shown = 1; moved = true; paint(1); releaseLock();
+  });
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  if (!reduceMotion) {
+    if (window.scrollY <= section.offsetTop + 1) engageLock();
+    else { released = true; lastY = window.scrollY; }
+    window.addEventListener("wheel", onWheel, { passive: false });
+    window.addEventListener("touchstart", onTouchStart, { passive: true });
+    window.addEventListener("touchmove", onTouchMove, { passive: false });
+    window.addEventListener("keydown", onKeyDown);
+    (function frame() {
+      shown += (target - shown) * 0.18;
+      paint(shown);
+      requestAnimationFrame(frame);
+    })();
   }
 })();
 </script>

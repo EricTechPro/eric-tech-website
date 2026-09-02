@@ -2,18 +2,21 @@
 
 ## What this project is
 - Static personal/creator website for Eric Tech at `erictech.ca`.
-- Main implementation is a single `index.html` file using React 18 UMD, Tailwind CDN, Font Awesome, Devicon, and Google Fonts.
+- Main implementation is a single `index.html` file: hand-written HTML, CSS variables, and one vanilla JS block. Google Fonts only; no React, Tailwind, or icon CDNs.
 - There is no current `package.json`, build step, or app framework directory in this folder.
 - Public brand position: "Senior Engineer & Founder" / "engineer - founder - creator".
 
 ## Public site content
-- Hero: Eric Tech, building AI-powered products, leading engineering at scale, teaching 60,000+ developers.
+- Hero: an Airlock scroll-locked video scrub. The page pins at load; wheel, touch, and keys drive a 10-second film; "ERIC TECH" fades out, "Built with intent." fades in, then the page is handed back. The lede, CTAs, portrait, and trust row sit in a short section right under the film.
 - Currently building: BookZero, an AI bookkeeping product for small business at `https://bookzero.ai`.
 - BookZero messaging currently mentions receipt scanning, bank statement matching, Google Gemini AI, Canadian tax compliance, 92% auto-match rate, 60% cheaper than QuickBooks, and YC 2026 ambition.
 - Main CTA: book a free 15-minute strategy call.
 - YouTube channel: Eric Tech / `@EricWTech`, focused on AI automation, software development, career growth, full-stack tutorials, cloud/AWS, system design, and productivity.
 - Community: Skool at `https://www.skool.com/erictech`.
 - Social links currently include YouTube, LinkedIn, Skool, and GitHub.
+
+## Variant pages
+- `v1.html`: the review copy of the Airlock hero, merged into `index.html` on 2026-09-02. Differs from `index.html` only by `noindex` and its own canonical. Video and poster come from the jsDelivr `yuraoak/airlock-hero-assets` demo until Eric supplies his own.
 
 ## Site structure in `index.html`
 - `Navbar`
