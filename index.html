@@ -38,6 +38,12 @@
       }
       document.documentElement.setAttribute("data-theme", t);
     })();
+    /* Hero rotation: classic, airlock, or spline, one per visit. ?hero=<name> forces one for review. */
+    (function () {
+      var names = ["classic", "airlock", "spline"];
+      var forced = /[?&]hero=(classic|airlock|spline)\b/.exec(location.search);
+      document.documentElement.setAttribute("data-hero", forced ? forced[1] : names[Math.floor(Math.random() * names.length)]);
+    })();
   </script>
 
   <style>
@@ -984,8 +990,79 @@
   .reveal.visible { opacity: 1; transform: translateY(0); }
   .hero .reveal { transition-duration: 1.1s; }
 
+  /* ---------- Hero rotation ---------- */
+  /* Only the variant named on <html data-hero> renders; no JS = classic. */
+  [data-hero-variant] { display: none; }
+  html:not([data-hero]) [data-hero-variant='classic'],
+  html[data-hero='classic'] [data-hero-variant='classic'],
+  html[data-hero='airlock'] [data-hero-variant='airlock'],
+  html[data-hero='spline'] [data-hero-variant='spline'] { display: block; }
+
+  /* ---------- Hero variant: Spline card ---------- */
+  .hero.hero-spline { padding: 7.5rem 1.75rem 4.5rem; }
+  /* The card: always near-black, in both themes, like the reference */
+  .spline-card {
+    position: relative; overflow: hidden; display: flex;
+    width: 100%; height: 31.25rem;
+    background: rgba(0,0,0,0.96); color: #EDEDED;
+    border: 1px solid rgba(255,255,255,0.08); border-radius: 0.75rem;
+  }
+  [data-theme='light'] .spline-card {
+    border-color: #E2E8F0;
+    box-shadow: 0 30px 80px -30px rgba(15,23,42,0.35);
+  }
+
+  /* Spotlight: one blurred ellipse that sweeps in once */
+  .spotlight {
+    position: absolute; z-index: 1; pointer-events: none; opacity: 0;
+    top: -10rem; left: 0; width: 138%; height: 169%;
+    animation: spotlight 2s ease 0.75s 1 forwards;
+  }
+  @media (min-width: 768px) { .spotlight { top: -5rem; left: 15rem; } }
+  @media (min-width: 1024px) { .spotlight { width: 84%; } }
+  @keyframes spotlight {
+    from { opacity: 0; transform: translate(-72%, -62%) scale(0.5); }
+    to   { opacity: 1; transform: translate(-50%, -40%) scale(1); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .spotlight { animation: none; opacity: 1; transform: translate(-50%, -40%); }
+  }
+
+  .spline-copy {
+    flex: 1; position: relative; z-index: 10; padding: 2rem;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .spline-copy .eyebrow { color: #a3a3a3; margin-bottom: 1.5rem; }
+  .spline-copy h1 {
+    font-family: 'Archivo', sans-serif; font-weight: 900; text-transform: uppercase;
+    font-size: clamp(2.5rem, 5.5vw, 4rem); line-height: 0.9; letter-spacing: -0.045em;
+    background: linear-gradient(to bottom, #fafafa, #a3a3a3);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .spline-copy .lede {
+    margin-top: 1.25rem; max-width: 32rem;
+    font-size: clamp(1rem, 1.3vw, 1.125rem); font-weight: 300; line-height: 1.6;
+    color: #d4d4d4;
+  }
+  .spline-copy .lede strong { color: var(--primary); font-weight: 600; }
+  .spline-copy .hero-ctas { margin-top: 1.75rem; }
+
+  .spline-stage { flex: 1; position: relative; min-height: 0; }
+  .spline-stage canvas { position: absolute; inset: 0; width: 100% !important; height: 100% !important; display: block; }
+  .spline-stage .loader {
+    position: absolute; top: 50%; left: 50%; width: 2.75rem; height: 2.75rem;
+    margin: -1.375rem 0 0 -1.375rem; border-radius: 50%;
+    border: 3px solid rgba(255,255,255,0.12); border-top-color: var(--primary);
+    animation: spin 0.9s linear infinite;
+  }
+  .spline-stage.loaded .loader { display: none; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+
   /* ---------- Responsive ---------- */
   @media (max-width: 920px) {
+    .spline-card { flex-direction: column; height: auto; }
+    .spline-stage { min-height: 22rem; }
     .building-grid, .impact-grid, .yt-wrap { grid-template-columns: 1fr; }
     .bridge .card { grid-template-columns: 1fr; }
     .bridge-media { min-height: 13rem; }
@@ -996,6 +1073,9 @@
     .hero-row { flex-direction: column-reverse; align-items: flex-start; }
   }
   @media (max-width: 480px) {
+    .spline-copy { padding: 1.75rem 1.5rem; }
+    .spline-copy .eyebrow { font-size: 0.625rem; letter-spacing: 0.18em; gap: 0; }
+    .spline-copy .eyebrow::before { display: none; }
     .stat-row { gap: 0.625rem; }
     .achievement .num { min-width: 4.875rem; }
     .btn { width: 100%; }
@@ -1166,14 +1246,64 @@
 
 <main id="main">
 
+<!-- ================= HERO: one of three, picked per visit (see data-hero in <head>) ================= -->
+<div id="home" class="hero-rotation">
+<div data-hero-variant="classic">
+<!-- ================= HERO ================= -->
+<section class="hero" aria-label="Introduction">
+  <div class="orb orb-1" aria-hidden="true"></div>
+  <div class="orb orb-2" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <p class="eyebrow reveal" style="--d: 0.05s">engineer&nbsp;&nbsp;<span class="tick">·</span>&nbsp;&nbsp;founder&nbsp;&nbsp;<span class="tick">·</span>&nbsp;&nbsp;creator</p>
+    <h1 class="reveal dark-only" style="--d: 0.15s">ERIC<br><span class="text-outline">TECH</span></h1>
+    <h1 class="h1-light reveal light-only" style="--d: 0.15s">Eric <em>Tech</em><span class="period">.</span></h1>
+    <p class="hero-serif reveal" style="--d: 0.3s">Built with <em>intent.</em></p>
+    <div class="hero-row">
+      <div>
+        <p class="hero-lede reveal" style="--d: 0.42s">Building AI-powered products, leading engineering at scale, and teaching <strong>60,000+ developers</strong>.</p>
+        <div class="hero-ctas reveal" style="--d: 0.55s">
+          <a class="btn btn-gradient btn-lg" href="https://calendar.app.google/sB9KrJP6e8j3EPmd9" target="_blank" rel="noopener noreferrer">Book Strategy Call <span class="arrow">→</span></a>
+          <a class="btn btn-outline btn-lg" href="https://www.youtube.com/@EricWTech" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+        </div>
+      </div>
+      <div class="hero-portrait reveal" style="--d: 0.5s">
+        <div class="avatar-ring">
+          <span class="avatar">
+            <img src="logos/EricTechProfile.png" alt="Eric Tech, software engineer and founder" width="400" height="400" loading="eager">
+          </span>
+        </div>
+        <div class="portrait-stat">
+          <div class="num">60,000+</div>
+          <div class="lbl">developers on YouTube</div>
+        </div>
+      </div>
+    </div>
+    <div class="trust-row reveal" style="--d: 0.7s">
+      <span class="trust-item"><img src="logos/microsoft-logo.png" alt="" loading="eager">Microsoft</span>
+      <span class="trust-item"><img src="logos/amazon-logo.png" alt="" loading="eager">Amazon Web Services</span>
+      <span class="trust-item">60,000+ Developers</span>
+    </div>
+  </div>
+</section>
+</div>
+
+<div data-hero-variant="airlock">
 <!-- ================= HERO: AIRLOCK (v1) ================= -->
 <!-- Scroll-locked, scrub-driven video. The page is pinned until the film runs out,
      then handed back. Scrolling back to the top takes the lock again at the last frame. -->
-<section class="airlock" id="home" aria-label="Introduction">
+<section class="airlock" aria-label="Introduction">
   <video class="airlock-video"
     src="https://cdn.jsdelivr.net/gh/yuraoak/airlock-hero-assets@main/iss-hero-1080p.mp4"
-    poster="https://cdn.jsdelivr.net/gh/yuraoak/airlock-hero-assets@main/iss-hero-poster.jpg"
+    data-poster="https://cdn.jsdelivr.net/gh/yuraoak/airlock-hero-assets@main/iss-hero-poster.jpg"
     muted playsinline preload="auto" aria-hidden="true"></video>
+  <script>
+    /* Not this visit's hero: drop the film before the browser starts fetching it */
+    (function () {
+      var v = document.currentScript.previousElementSibling;
+      if (document.documentElement.getAttribute("data-hero") === "airlock") v.setAttribute("poster", v.getAttribute("data-poster"));
+      else v.removeAttribute("src");
+    })();
+  </script>
   <div class="airlock-falloff" aria-hidden="true"></div>
   <div class="airlock-scrim" aria-hidden="true"></div>
   <div class="airlock-title">
@@ -1223,6 +1353,53 @@
     </div>
   </div>
 </section>
+</div>
+
+<div data-hero-variant="spline">
+<!-- ================= HERO (v2: Spline card) ================= -->
+<section class="hero hero-spline" aria-label="Introduction">
+  <div class="hero-inner">
+    <div class="spline-card reveal" style="--d: 0.05s">
+      <svg class="spotlight" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3787 2842" fill="none" aria-hidden="true">
+        <g filter="url(#spotlight-blur)">
+          <ellipse cx="1924.71" cy="273.501" rx="1924.71" ry="273.501" transform="matrix(-0.822377 -0.568943 -0.568943 0.822377 3631.88 2291.09)" fill="white" fill-opacity="0.21"></ellipse>
+        </g>
+        <defs>
+          <filter id="spotlight-blur" x="0.860352" y="0.838989" width="3785.16" height="2840.26" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
+            <feGaussianBlur stdDeviation="151" result="effect1_foregroundBlur"></feGaussianBlur>
+          </filter>
+        </defs>
+      </svg>
+
+      <!-- Left: copy -->
+      <div class="spline-copy">
+        <p class="eyebrow reveal" style="--d: 0.2s">engineer&nbsp;&nbsp;<span class="tick">·</span>&nbsp;&nbsp;founder&nbsp;&nbsp;<span class="tick">·</span>&nbsp;&nbsp;creator</p>
+        <h1 class="reveal" style="--d: 0.3s">Eric<br>Tech</h1>
+        <p class="lede reveal" style="--d: 0.42s">Building AI-powered products, leading engineering at scale, and teaching <strong>60,000+ developers</strong> on YouTube.</p>
+        <div class="hero-ctas reveal" style="--d: 0.55s">
+          <a class="btn btn-gradient btn-lg" href="https://calendar.app.google/sB9KrJP6e8j3EPmd9" target="_blank" rel="noopener noreferrer">Book Strategy Call <span class="arrow">→</span></a>
+          <a class="btn btn-outline btn-lg" href="https://www.youtube.com/@EricWTech" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+        </div>
+      </div>
+
+      <!-- Right: 3D scene -->
+      <div class="spline-stage" id="splineStage">
+        <span class="loader" aria-hidden="true"></span>
+        <canvas id="splineCanvas" aria-label="Interactive 3D scene"></canvas>
+      </div>
+    </div>
+
+    <div class="trust-row reveal" style="--d: 0.7s">
+      <span class="trust-item"><img src="logos/microsoft-logo.png" alt="" loading="eager">Microsoft</span>
+      <span class="trust-item"><img src="logos/amazon-logo.png" alt="" loading="eager">Amazon Web Services</span>
+      <span class="trust-item">60,000+ Developers</span>
+    </div>
+  </div>
+</section>
+</div>
+</div>
 
 <hr class="separator separator-gilded" aria-hidden="true">
 
@@ -1692,7 +1869,7 @@
 /* ---------- Airlock hero: scroll-locked video scrub ---------- */
 (function () {
   "use strict";
-  var section = document.getElementById("home");
+  var section = document.documentElement.getAttribute("data-hero") === "airlock" ? document.querySelector(".airlock") : null;
   if (!section || !section.classList.contains("airlock")) return;
   var q = function (s) { return section.querySelector(s); };
   var video = q(".airlock-video"), titleEl = q(".airlock-title"), hintEl = q(".airlock-hint"),
@@ -1841,6 +2018,16 @@
     })();
   }
 })();
+</script>
+<script type="module">
+  /* Spline hero: the runtime (what @splinetool/react-spline wraps) downloads only when this variant is the one shown. */
+  if (document.documentElement.getAttribute("data-hero") === "spline") {
+    import("https://unpkg.com/@splinetool/runtime@2.0.32/build/runtime.js").then(function (m) {
+      var stage = document.getElementById("splineStage");
+      var app = new m.Application(document.getElementById("splineCanvas"));
+      return app.load("https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode").then(function () { stage.classList.add("loaded"); });
+    }).catch(function (err) { console.error("Spline scene failed to load", err); });
+  }
 </script>
 </body>
 </html>
