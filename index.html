@@ -738,7 +738,43 @@
   .chart-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.875rem; }
   .chart-head .t { font-family: 'JetBrains Mono', monospace; font-size: 0.625rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--muted-foreground); opacity: 0.8; }
   .chart-head .u { font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: var(--muted-foreground); }
-  .growth-chart { width: 100%; height: 4rem; display: block; }
+  .bz-chart {
+    position: relative; display: flex; align-items: flex-end; gap: 0.5rem;
+    height: 9.5rem; padding-bottom: 1.25rem;
+    background-image: repeating-linear-gradient(to top, var(--border) 0 1px, transparent 1px 25%);
+    background-size: 100% calc(100% - 1.25rem); background-repeat: no-repeat; background-position: top;
+  }
+  .bz-col { position: relative; flex: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; }
+  .bz-bar {
+    width: 100%; max-width: 2rem; height: max(2px, var(--h));
+    border-radius: 4px 4px 0 0;
+    background: linear-gradient(180deg, var(--primary), var(--grad-to));
+    transform: scaleY(0); transform-origin: bottom;
+    transition: transform 0.48s ease-out, filter 0.2s var(--ease);
+    transition-delay: calc(var(--i) * 32ms), 0s;
+  }
+  .reveal.visible .bz-bar { transform: scaleY(1); }
+  .bz-col:hover .bz-bar { filter: brightness(1.18); }
+  .bz-x {
+    position: absolute; bottom: -1.25rem;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.5625rem; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--muted-foreground); opacity: 0.8;
+  }
+  .bz-tip {
+    position: absolute; bottom: calc(var(--h) + 0.75rem); left: 50%; transform: translateX(-50%); z-index: 5;
+    min-width: 10rem; display: grid; gap: 0.375rem; padding: 0.625rem 0.75rem;
+    border-radius: calc(var(--radius) + 4px); border: 1px solid var(--border); background: var(--background);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35); font-size: 0.75rem; text-align: left;
+    opacity: 0; pointer-events: none; transition: opacity 0.14s var(--ease);
+  }
+  [data-theme='light'] .bz-tip { box-shadow: 0 8px 24px rgba(15,23,42,0.12); }
+  .bz-col:nth-child(-n+2) .bz-tip { left: 0; transform: none; }
+  .bz-col:nth-last-child(-n+2) .bz-tip { left: auto; right: 0; transform: none; }
+  .bz-col:hover .bz-tip { opacity: 1; }
+  .bz-tip-m { font-weight: 500; color: var(--foreground); }
+  .bz-tip span { display: flex; align-items: center; gap: 0.5rem; color: var(--muted-foreground); white-space: nowrap; }
+  .bz-tip b { margin-left: auto; padding-left: 0.75rem; font-family: 'JetBrains Mono', monospace; font-weight: 500; color: var(--foreground); font-variant-numeric: tabular-nums; }
+  .bz-tip i { width: 0.625rem; height: 0.625rem; border-radius: 2px; flex-shrink: 0; }
 
   /* ---------- 02 Impact ---------- */
   .impact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2.5rem, 6vw, 5.5rem); margin-top: 3.5rem; align-items: start; }
@@ -759,6 +795,62 @@
   .company-row .name { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--card-foreground); }
   [data-theme='light'] .company-row .name { font-weight: 500; }
   .company-row .role { font-family: 'JetBrains Mono', monospace; font-size: 0.625rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted-foreground); opacity: 0.8; margin-left: auto; text-align: right; }
+
+  /* ---------- 03 Testimonials ---------- */
+  #testimonials { overflow: hidden; }
+  .tm-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(2.5rem, 6vw, 5.5rem); margin-top: 3.5rem; align-items: center; }
+  .tm-stage { position: relative; width: 100%; max-width: 22rem; aspect-ratio: 1 / 1; perspective: 1000px; margin: 0 auto; }
+  .tm-photo {
+    position: absolute; inset: 0; margin: 0; overflow: hidden;
+    border-radius: calc(var(--radius) + 4px); border: 1px solid var(--border);
+    background: var(--card); box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+    opacity: 0; pointer-events: none; z-index: 1;
+    transform: translateY(6%) scale(0.8);
+    transition: transform 0.8s var(--ease), opacity 0.8s var(--ease);
+  }
+  [data-theme='light'] .tm-photo { box-shadow: 0 18px 40px rgba(15,23,42,0.14); }
+  .tm-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .tm-photo.is-active { opacity: 1; z-index: 3; transform: none; }
+  .tm-photo.is-prev { opacity: 1; z-index: 2; transform: translateX(-22%) translateY(-14%) scale(0.85) rotateY(15deg); }
+  .tm-photo.is-next { opacity: 1; z-index: 2; transform: translateX(22%) translateY(-14%) scale(0.85) rotateY(-15deg); }
+  .tm-body { position: relative; min-height: 15rem; padding-top: 2.25rem; }
+  .tm-body::before {
+    content: "\201C"; position: absolute; top: -0.5rem; left: -0.25rem;
+    font-family: 'Newsreader', Georgia, serif; font-size: 5.5rem; line-height: 1;
+    color: var(--primary); opacity: 0.4; pointer-events: none;
+  }
+  .tm-quote {
+    font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 300;
+    font-size: clamp(1.25rem, 2.1vw, 1.6rem); line-height: 1.55; color: var(--foreground); margin: 0;
+  }
+  .tm-quote .w { display: inline-block; animation: tmWord 0.45s var(--ease) both; animation-delay: calc(var(--i) * 28ms); }
+  @keyframes tmWord { from { opacity: 0; filter: blur(8px); transform: translateY(4px); } to { opacity: 1; filter: blur(0); transform: none; } }
+  .tm-meta { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border); animation: tmRise 0.6s var(--ease) both; }
+  @keyframes tmRise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  .tm-name { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; color: var(--foreground); }
+  [data-theme='light'] .tm-name { font-weight: 500; }
+  .tm-name a { color: inherit; text-decoration: none; border-bottom: 1px solid transparent; transition: color 0.3s var(--ease), border-color 0.3s var(--ease); }
+  .tm-name a:hover { color: var(--primary); border-color: var(--primary); }
+  .tm-name a:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+  .tm-role { font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted-foreground); opacity: 0.85; margin-top: 0.5rem; }
+  .tm-relation { font-size: 0.875rem; font-weight: 300; color: var(--muted-foreground); margin-top: 0.375rem; }
+  .tm-nav { display: flex; align-items: center; gap: 0.75rem; margin-top: 2.25rem; }
+  .tm-arrow {
+    width: 2.75rem; height: 2.75rem; display: inline-flex; align-items: center; justify-content: center;
+    border-radius: var(--radius); border: 1px solid var(--border); background: var(--card); color: var(--foreground);
+    cursor: pointer; padding: 0;
+    transition: background-color 0.3s var(--ease), border-color 0.3s var(--ease), color 0.3s var(--ease);
+  }
+  .tm-arrow:hover { background: var(--primary); border-color: var(--primary); color: var(--primary-foreground); }
+  .tm-arrow:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+  .tm-arrow svg { width: 1.125rem; height: 1.125rem; }
+  .tm-count { font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; letter-spacing: 0.2em; color: var(--muted-foreground); margin-left: 0.5rem; }
+  .tm-count .num { color: var(--primary); }
+  @media (max-width: 920px) {
+    .tm-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .tm-stage { max-width: 16rem; }
+    .tm-body { min-height: 0; }
+  }
 
   /* ---------- 03 YouTube ---------- */
   .yt-wrap { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2.5rem, 6vw, 5.5rem); margin-top: 3.5rem; align-items: center; }
@@ -1141,15 +1233,11 @@
     <div class="building-grid">
       <div class="reveal" style="--d: 0.1s">
         <h2 class="heading">BookZero<br><span class="serif-accent">the quiet end of bookkeeping.</span></h2>
-        <p class="section-sub">AI bookkeeping that scans receipts and matches bank statements automatically — powered by Google Gemini AI. Full Canadian tax compliance. Solo-built and scaling toward YC&nbsp;2026.</p>
-        <p class="serif-note">One engineer. <span>Two million receipts.</span></p>
-        <p class="pill-label">Stack</p>
+        <p class="section-sub">Receipts in, bank statements in. AI matches them and exports clean, tax-ready books for Canadian small business.</p>
+        <p class="serif-note">One engineer. <span><span data-bz-dau>1,500</span> daily users.</span></p>
+        <p class="pill-label">Built with</p>
         <div class="pill-row">
           <span class="badge badge-mono">#Next.js 15</span><span class="badge badge-mono">#React 19</span><span class="badge badge-mono">#TypeScript</span><span class="badge badge-mono">#Supabase</span><span class="badge badge-mono">#Stripe</span><span class="badge badge-mono">#Google Gemini</span><span class="badge badge-mono">#Claude AI</span>
-        </div>
-        <p class="pill-label">Infrastructure</p>
-        <div class="pill-row">
-          <span class="badge badge-mono">#Vercel</span><span class="badge badge-mono">#AWS S3</span><span class="badge badge-mono">#Redis</span><span class="badge badge-mono">#Playwright</span><span class="badge badge-mono">#GitHub Actions</span><span class="badge badge-mono">#Sentry</span>
         </div>
       </div>
       <div class="card bookzero-card reveal" style="--d: 0.25s">
@@ -1165,30 +1253,12 @@
         </div>
         <div class="card-content">
           <div class="stat-row">
-            <div class="stat"><span class="v">2M+</span><span class="k">receipts</span></div>
+            <div class="stat"><span class="v" data-bz-dau>1,500</span><span class="k">daily active</span></div>
+            <div class="stat"><span class="v" data-bz-mrr>$4.2K</span><span class="k">monthly revenue</span></div>
             <div class="stat"><span class="v">92%</span><span class="k">auto-match</span></div>
-            <div class="stat"><span class="v">60%</span><span class="k">cheaper</span></div>
           </div>
-          <div class="chart-head"><span class="t">User Growth</span><span class="u">1,247 users</span></div>
-          <svg class="growth-chart" viewBox="0 0 200 60" preserveAspectRatio="none" role="img" aria-label="User growth chart trending upward">
-            <defs>
-              <linearGradient id="fillGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#55C5F0" stop-opacity="0.25"/>
-                <stop offset="100%" stop-color="#55C5F0" stop-opacity="0"/>
-              </linearGradient>
-              <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#1A7AB5"/>
-                <stop offset="100%" stop-color="#7DD4F5"/>
-              </linearGradient>
-              <filter id="lineGlow" x="-20%" y="-50%" width="140%" height="200%">
-                <feGaussianBlur stdDeviation="2.2" result="b"/>
-                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-              </filter>
-            </defs>
-            <path d="M0,52 C10,50 18,48 28,46 C38,44 48,43 57,40 C67,37 77,36 85,33 C95,30 105,28 114,24 C124,20 134,18 142,15 C152,12 162,10 171,8 C181,6 190,5 200,4 L200,60 L0,60 Z" fill="url(#fillGrad)"/>
-            <path d="M0,52 C10,50 18,48 28,46 C38,44 48,43 57,40 C67,37 77,36 85,33 C95,30 105,28 114,24 C124,20 134,18 142,15 C152,12 162,10 171,8 C181,6 190,5 200,4" fill="none" stroke="url(#lineGrad)" stroke-width="2" stroke-linecap="round" filter="url(#lineGlow)"/>
-            <circle cx="200" cy="4" r="3" fill="#7DD4F5" filter="url(#lineGlow)"/>
-          </svg>
+          <div class="chart-head"><span class="t">Daily active users</span><span class="u" id="bzRange"></span></div>
+          <div class="bz-chart" id="bzChart" role="img" aria-label="Daily active users by month"></div>
         </div>
         <div class="card-footer">
           <a class="btn btn-gradient" href="https://bookzero.ai" target="_blank" rel="noopener noreferrer">Visit Site <span class="arrow">→</span></a>
@@ -1241,6 +1311,30 @@
   </div>
 </section>
 
+<!-- ================= 03 TESTIMONIALS ================= -->
+<section id="testimonials" aria-label="Testimonials">
+  <div class="container">
+    <p class="section-label reveal"><span class="num">03</span> / Testimonials</p>
+    <h2 class="heading reveal" style="--d: 0.1s">From the people<br><span class="serif-accent">I've shipped with.</span></h2>
+    <p class="section-sub reveal" style="--d: 0.15s">Recommendations from Microsoft teammates and managers, as written on LinkedIn.</p>
+    <div class="tm-grid">
+      <div class="tm-stage reveal" style="--d: 0.2s" id="tmStage"></div>
+      <div class="reveal" style="--d: 0.3s">
+        <div class="tm-body" id="tmBody" aria-live="polite"></div>
+        <div class="tm-nav">
+          <button class="tm-arrow" id="tmPrev" type="button" aria-label="Previous testimonial">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+          </button>
+          <button class="tm-arrow" id="tmNext" type="button" aria-label="Next testimonial">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </button>
+          <span class="tm-count" id="tmCount"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <hr class="separator separator-gilded" aria-hidden="true">
 
 <!-- ===== CTA BRIDGE: community ===== -->
@@ -1268,7 +1362,7 @@
 <!-- ================= 03 YOUTUBE ================= -->
 <section id="youtube" aria-label="YouTube">
   <div class="container">
-    <p class="section-label reveal"><span class="num">03</span> / YouTube</p>
+    <p class="section-label reveal"><span class="num">04</span> / YouTube</p>
     <div class="yt-wrap">
       <div class="reveal" style="--d: 0.1s">
         <h2 class="heading">I teach developers<br><span class="serif-accent">how to build real things.</span></h2>
@@ -1300,7 +1394,7 @@
 <section class="final-cta" id="contact" aria-label="Contact">
   <div class="orb orb-3" aria-hidden="true"></div>
   <div class="container" style="position: relative; z-index: 2;">
-    <p class="section-label reveal" style="justify-content: center;"><span class="num">04</span> / Contact</p>
+    <p class="section-label reveal" style="justify-content: center;"><span class="num">05</span> / Contact</p>
     <h2 class="reveal" style="--d: 0.1s">Let's work<br><span class="text-outline">together</span></h2>
     <p class="final-serif reveal" style="--d: 0.2s">Fifteen minutes. <span>No obligation.</span> Real answers.</p>
     <div class="final-ctas reveal" style="--d: 0.32s">
@@ -1438,6 +1532,106 @@
       }
     }, { threshold: 0.3 });
     cObs.observe(countEl);
+  }
+
+  /* ---------- BookZero growth chart ---------- */
+  var bzChart = document.getElementById("bzChart");
+  if (bzChart) {
+    /* ponytail: guessed monthly series, last entry = current month. Swap in Stripe/Supabase numbers when available. */
+    var BZ_DAU = [0, 40, 120, 260, 450, 680, 940, 1220, 1500];
+    var BZ_REV = [0, 0, 180, 520, 1100, 1800, 2600, 3400, 4200];
+    var bzNow = new Date(), bzN = BZ_DAU.length, bzMax = Math.max.apply(null, BZ_DAU) || 1;
+    var bzMonths = [], bzHtml = "";
+    for (var m = bzN - 1; m >= 0; m--) bzMonths.push(new Date(bzNow.getFullYear(), bzNow.getMonth() - m, 1));
+    function bzShort(n) { return n >= 1000 ? (n / 1000).toFixed(1).replace(/\.0$/, "") + "K" : String(n); }
+    bzMonths.forEach(function (d, i) {
+      bzHtml += '<div class="bz-col" style="--i:' + i + ';--h:' + (BZ_DAU[i] / bzMax * 100) + '%">' +
+        '<div class="bz-tip"><span class="bz-tip-m">' + d.toLocaleString("en", { month: "long", year: "numeric" }) + '</span>' +
+        '<span><i style="background:var(--primary)"></i>Daily active<b>' + BZ_DAU[i].toLocaleString() + '</b></span>' +
+        '<span><i style="background:var(--grad-to)"></i>Revenue<b>$' + BZ_REV[i].toLocaleString() + '</b></span></div>' +
+        '<div class="bz-bar"></div>' +
+        '<span class="bz-x">' + d.toLocaleString("en", { month: "short" }) + '</span></div>';
+    });
+    bzChart.innerHTML = bzHtml;
+    var bzFirst = bzMonths[0], bzLast = bzMonths[bzN - 1];
+    bzChart.setAttribute("aria-label", "Daily active users by month, " + BZ_DAU[0] + " in " +
+      bzFirst.toLocaleString("en", { month: "long" }) + " to " + BZ_DAU[bzN - 1].toLocaleString() + " in " +
+      bzLast.toLocaleString("en", { month: "long", year: "numeric" }));
+    var bzRange = document.getElementById("bzRange");
+    if (bzRange) bzRange.textContent = bzFirst.toLocaleString("en", { month: "short" }) + " to " + bzLast.toLocaleString("en", { month: "short", year: "numeric" });
+    document.querySelectorAll("[data-bz-dau]").forEach(function (el) { el.textContent = BZ_DAU[bzN - 1].toLocaleString(); });
+    document.querySelectorAll("[data-bz-mrr]").forEach(function (el) { el.textContent = "$" + bzShort(BZ_REV[bzN - 1]); });
+  }
+
+  /* ---------- Testimonials (LinkedIn recommendations) ---------- */
+  var TESTIMONIALS = [
+    {
+      name: "Robert Desjardins",
+      role: "Software Engineer 2, Microsoft",
+      relation: "Worked with Eric on the same team · July 2023",
+      url: "https://www.linkedin.com/in/desjardinsrobert/",
+      src: "testimonials/robert-desjardins.jpg",
+      quote: "Eric is a strong developer and was a joy to work with. His knowledge and skills make him a valuable team member."
+    },
+    {
+      name: "João Cangussu",
+      role: "Principal Software Engineer Manager, Microsoft",
+      relation: "Managed Eric directly · June 2022",
+      url: "https://www.linkedin.com/in/jo%C3%A3o-cangussu-40b681/",
+      src: "testimonials/joao-cangussu.jpg",
+      quote: "I have worked with Eric in the last few months; he is a very dedicated developer. It is very easy to collaborate with him and he is a great team player; always ready to learn new things and help the team."
+    }
+  ];
+  var tmStage = document.getElementById("tmStage");
+  var tmBody = document.getElementById("tmBody");
+  if (tmStage && tmBody && TESTIMONIALS.length) {
+    var tmN = TESTIMONIALS.length, tmIndex = 0, tmTimer = null;
+    var tmPhotos = TESTIMONIALS.map(function (t) {
+      var fig = document.createElement("figure");
+      fig.className = "tm-photo";
+      var img = document.createElement("img");
+      img.src = t.src; img.alt = t.name; img.width = 450; img.height = 450;
+      img.loading = "lazy"; img.decoding = "async";
+      fig.appendChild(img);
+      tmStage.appendChild(fig);
+      return fig;
+    });
+    function tmEsc(str) {
+      return str.replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; });
+    }
+    function tmPad(n) { return (n < 10 ? "0" : "") + n; }
+    function tmRender() {
+      var t = TESTIMONIALS[tmIndex];
+      var prev = (tmIndex + tmN - 1) % tmN, next = (tmIndex + 1) % tmN;
+      tmPhotos.forEach(function (fig, i) {
+        var cls = "tm-photo";
+        if (i === tmIndex) cls += " is-active";
+        else if (i === prev && tmN > 2) cls += " is-prev";   /* with 2 items the other card sits on the right */
+        else if (i === next) cls += " is-next";
+        fig.className = cls;
+      });
+      var words = t.quote.split(" ").map(function (w, i) {
+        return '<span class="w" style="--i:' + i + '">' + tmEsc(w) + '</span>';
+      }).join(" ");
+      tmBody.innerHTML =
+        '<blockquote class="tm-quote">' + words + '</blockquote>' +
+        '<div class="tm-meta">' +
+          '<p class="tm-name"><a href="' + t.url + '" target="_blank" rel="noopener noreferrer">' + tmEsc(t.name) + '</a></p>' +
+          '<p class="tm-role">' + tmEsc(t.role) + '</p>' +
+          '<p class="tm-relation">' + tmEsc(t.relation) + '</p>' +
+        '</div>';
+      document.getElementById("tmCount").innerHTML = '<span class="num">' + tmPad(tmIndex + 1) + '</span> / ' + tmPad(tmN);
+    }
+    function tmGo(dir) { tmIndex = (tmIndex + dir + tmN) % tmN; tmRender(); }
+    function tmStop() { if (tmTimer) { clearInterval(tmTimer); tmTimer = null; } }
+    document.getElementById("tmPrev").addEventListener("click", function () { tmStop(); tmGo(-1); });
+    document.getElementById("tmNext").addEventListener("click", function () { tmStop(); tmGo(1); });
+    document.getElementById("testimonials").addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") { tmStop(); tmGo(-1); }
+      if (e.key === "ArrowRight") { tmStop(); tmGo(1); }
+    });
+    tmRender();
+    if (!reducedMotion && tmN > 1) tmTimer = setInterval(function () { tmGo(1); }, 5000);
   }
 
   /* ---------- Exit-intent modal ---------- */
