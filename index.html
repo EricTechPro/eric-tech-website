@@ -986,17 +986,39 @@
   .teach-body .btn { margin-top: 1.125rem; }
   [data-theme='light'] .teach-card { border-color: rgba(15,23,42,0.12); }
 
-  /* ---------- Final CTA ---------- */
-  .final-cta { text-align: center; overflow: hidden; }
-  .final-cta .orb-3 {
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    width: 70vw; height: 60vh; max-width: 56.25rem;
-    background: radial-gradient(ellipse, rgba(43,170,223,0.13) 0%, transparent 65%);
-    filter: blur(120px); border-radius: 50%; pointer-events: none;
-    transition: opacity 0.45s var(--ease);
+  /* ---------- Final CTA: grain gradient band (Paper Shaders, site palette) ---------- */
+  .final-cta {
+    min-height: 100vh; min-height: 100svh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; overflow: hidden; background: #0A0A0A; color: #EDEDED;
   }
-  [data-theme='light'] .final-cta { background: var(--card); border-top: 1px solid var(--border); }
-  [data-theme='light'] .final-cta .orb-3 { opacity: 0.55; }
+  [data-theme='light'] .final-cta { background: #FAFAF9; color: #0F172A; border-top: 1px solid var(--border); }
+  .final-cta .container { position: relative; z-index: 2; }
+  /* Soft vignette behind the copy so the light blobs never cross the text (matters on phone aspect ratios) */
+  .final-cta .container::before {
+    content: ""; position: absolute; inset: -18% -10%; z-index: -1; pointer-events: none;
+    background: radial-gradient(ellipse 62% 58% at 50% 50%, rgba(10,10,10,0.72) 0%, rgba(10,10,10,0.35) 45%, transparent 72%);
+  }
+  [data-theme='light'] .final-cta .container::before {
+    background: radial-gradient(ellipse 62% 58% at 50% 50%, rgba(250,250,249,0.82) 0%, rgba(250,250,249,0.4) 45%, transparent 72%);
+  }
+  .final-shader {
+    position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    /* ponytail: CSS stand-in until the WebGL shader mounts, and for browsers without WebGL2 */
+    background:
+      radial-gradient(60% 55% at 0% 0%, #1A7AB5 0%, transparent 70%),
+      radial-gradient(55% 50% at 100% 100%, #55C5F0 0%, transparent 70%),
+      radial-gradient(45% 45% at 100% 0%, #0B2F4A 0%, transparent 70%),
+      radial-gradient(45% 45% at 0% 100%, #7DD4F5 0%, transparent 70%);
+  }
+  [data-theme='light'] .final-shader {
+    background:
+      radial-gradient(60% 55% at 0% 0%, #2BAADF 0%, transparent 70%),
+      radial-gradient(55% 50% at 100% 100%, #7DD4F5 0%, transparent 70%),
+      radial-gradient(45% 45% at 100% 0%, #1A95C8 0%, transparent 70%),
+      radial-gradient(45% 45% at 0% 100%, #FFFFFF 0%, transparent 70%);
+  }
+  .final-shader canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
   .final-cta h2 {
     font-family: 'Archivo', sans-serif; font-weight: 900;
     font-size: clamp(2.4rem, 6.5vw, 5.2rem); letter-spacing: -0.04em; line-height: 0.95;
@@ -1007,7 +1029,7 @@
     letter-spacing: -0.025em; line-height: 1.05;
   }
   [data-theme='light'] .final-cta h2 .text-outline {
-    color: var(--primary); -webkit-text-stroke: 0; text-shadow: none;
+    color: #0F172A; -webkit-text-stroke: 0; text-shadow: none;
     font-style: italic; font-weight: 300;
   }
   .final-serif {
@@ -1015,7 +1037,17 @@
     font-size: clamp(1.3rem, 2.6vw, 1.9rem); color: var(--muted-foreground); margin-bottom: 3rem;
   }
   .final-serif span { color: var(--primary); }
+  [data-theme='light'] .final-cta .final-serif span { color: #1A7AB5; }
   .final-ctas { display: flex; gap: 0.875rem; justify-content: center; flex-wrap: wrap; }
+  /* Buttons on the band: white on dark, ink on light (reference: bg-white text-black hover:bg-gray-100) */
+  .final-cta .btn-gradient { background: #FFFFFF; color: #0A0A0A; box-shadow: 0 8px 28px rgba(0,0,0,0.35); }
+  .final-cta .btn-gradient:hover { background: #F4F4F2; box-shadow: 0 14px 44px rgba(0,0,0,0.45); }
+  .final-cta .btn-outline { color: #FFFFFF; border-color: rgba(255,255,255,0.45); background: rgba(10,10,10,0.25); backdrop-filter: blur(8px); }
+  .final-cta .btn-outline:hover { color: #FFFFFF; border-color: #FFFFFF; background: rgba(255,255,255,0.12); }
+  [data-theme='light'] .final-cta .btn-gradient { background: #0A0A0A; color: #FFFFFF; box-shadow: 0 8px 24px rgba(15,23,42,0.25); }
+  [data-theme='light'] .final-cta .btn-gradient:hover { background: #1E293B; }
+  [data-theme='light'] .final-cta .btn-outline { color: #0F172A; border-color: rgba(15,23,42,0.35); background: rgba(255,255,255,0.7); }
+  [data-theme='light'] .final-cta .btn-outline:hover { color: #0F172A; border-color: #0F172A; background: #FFFFFF; }
 
   /* ---------- Footer ---------- */
   footer { padding: 3rem 1.75rem 4rem; position: relative; }
@@ -1585,8 +1617,8 @@
 
 <!-- ================= FINAL CTA ================= -->
 <section class="final-cta" id="contact" aria-label="Contact">
-  <div class="orb orb-3" aria-hidden="true"></div>
-  <div class="container" style="position: relative; z-index: 2;">
+  <div class="final-shader" id="finalShader" aria-hidden="true"></div>
+  <div class="container">
     <p class="section-label reveal" style="justify-content: center;"><span class="num">05</span> / Contact</p>
     <h2 class="reveal" style="--d: 0.1s">Let's work<br><span class="text-outline">together</span></h2>
     <p class="final-serif reveal" style="--d: 0.2s">Fifteen minutes. <span>No obligation.</span> Real answers.</p>
@@ -2060,6 +2092,50 @@
       return app.load("https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode").then(function () { stage.classList.add("loaded"); });
     }).catch(function (err) { console.error("Spline scene failed to load", err); });
   }
+</script>
+<script type="module">
+  /* Final CTA: Paper Shaders GrainGradient (what @paper-design/shaders-react wraps), default preset recoloured to the site palette per theme.
+     The 200 KB module downloads only once the visitor scrolls within 800px of the section. */
+  (function () {
+    var mountEl = document.getElementById("finalShader");
+    if (!mountEl || !("IntersectionObserver" in window)) return;
+    var PALETTE = {
+      dark:  { back: "#0A0A0A", colors: ["#1A7AB5", "#7DD4F5", "#55C5F0", "#0B2F4A"] },
+      light: { back: "#FAFAF9", colors: ["#2BAADF", "#FFFFFF", "#7DD4F5", "#1A95C8"] }
+    };
+    function theme() { return document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark"; }
+    var io = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      io.disconnect();
+      import("https://cdn.jsdelivr.net/npm/@paper-design/shaders@0.0.80/+esm").then(function (m) {
+        /* The noise texture is an <img>; the React wrapper decodes it before mounting, so do the same. */
+        var noise = m.getShaderNoiseTexture();
+        return noise.decode().then(function () { return [m, noise]; });
+      }).then(function (pair) {
+        var m = pair[0];
+        var base = {
+          u_softness: 0.5, u_intensity: 0.5, u_noise: 0.25,
+          u_shape: m.GrainGradientShapes.corners,
+          u_noiseTexture: pair[1],
+          u_fit: m.ShaderFitOptions.contain, u_scale: 1, u_rotation: 0,
+          u_offsetX: 0, u_offsetY: 0, u_originX: 0.5, u_originY: 0.5, u_worldWidth: 0, u_worldHeight: 0
+        };
+        function uniforms() {
+          var p = PALETTE[theme()];
+          return Object.assign({}, base, {
+            u_colorBack: m.getShaderColorFromString(p.back),
+            u_colors: p.colors.map(m.getShaderColorFromString),
+            u_colorsCount: p.colors.length
+          });
+        }
+        var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var mount = new m.ShaderMount(mountEl, m.grainGradientFragmentShader, uniforms(), undefined, reduced ? 0 : 1);
+        new MutationObserver(function () { mount.setUniforms(uniforms()); })
+          .observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+      }).catch(function (err) { console.error("Grain gradient failed to load", err); });
+    }, { rootMargin: "800px 0px" });
+    io.observe(mountEl);
+  })();
 </script>
 </body>
 </html>
