@@ -984,6 +984,15 @@
   }
   .teach-list li::before { content: "+"; color: #7DD4F5; font-weight: 700; }
   .teach-body .btn { margin-top: 1.125rem; }
+  .teach-aside .btn { margin-top: 0.25rem; }
+  .teach-top { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; width: 100%; }
+  .teach-tag {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.625rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.16em;
+    color: #0A0A0A; background: #7DD4F5; padding: 0.3rem 0.6rem; border-radius: 999px; white-space: nowrap;
+  }
+  .teach-body .btn-outline { color: #fff; border-color: rgba(255,255,255,0.4); background: rgba(10,10,10,0.35); box-shadow: none; }
+  .teach-body .btn-outline:hover { color: #fff; border-color: #7DD4F5; background: rgba(255,255,255,0.08); }
   [data-theme='light'] .teach-card { border-color: rgba(15,23,42,0.12); }
 
   /* ---------- Final CTA: grain gradient band (Paper Shaders, site palette) ---------- */
@@ -1568,13 +1577,14 @@
       <h2 class="heading reveal" style="--d: 0.1s">I teach developers<br><span class="serif-accent">how to build real things.</span></h2>
       <div class="teach-aside reveal" style="--d: 0.2s">
         <p class="section-sub">Practical tutorials on production software: AI, full-stack, cloud, and system design. Free on YouTube, hands-on inside the community.</p>
+        <a class="btn btn-gradient btn-lg" href="https://www.skool.com/erictech" target="_blank" rel="noopener noreferrer"><img class="skool-ic" src="logos/skool.png" alt="">Join the Community <span class="arrow">→</span></a>
         <div class="teach-proof">
           <div class="teach-avatars" aria-hidden="true">
             <img src="testimonials/joao-cangussu.jpg" alt="" loading="lazy">
             <img src="testimonials/robert-desjardins.jpg" alt="" loading="lazy">
             <span>80k</span>
           </div>
-          <p class="teach-proof-lbl">Join 80,000+ developers learning with Eric</p>
+          <p class="teach-proof-lbl">80,000+ developers already learn with Eric</p>
         </div>
       </div>
     </div>
@@ -1582,7 +1592,7 @@
       <article class="card teach-card reveal" style="--d: 0.25s">
         <img src="CTA/eric-aws-talk.jpg" alt="Eric Tech presenting a live AWS data-pipeline demo" style="object-position: center 40%;">
         <div class="teach-body">
-          <span class="handle"><img src="logos/youtube-logo.png" alt="YouTube" loading="lazy">youtube.com/@EricWTech</span>
+          <div class="teach-top"><span class="handle"><img src="logos/youtube-logo.png" alt="YouTube" loading="lazy">youtube.com/@EricWTech</span></div>
           <div class="teach-num" data-count="80000" data-suffix="+" aria-label="80,000 plus subscribers">80,000+</div>
           <p class="teach-num-lbl">subscribers on YouTube</p>
           <h3>Production software, <span>taught in the open.</span></h3>
@@ -1591,13 +1601,13 @@
             <li>Production builds, start to finish</li>
             <li>Free on YouTube</li>
           </ul>
-          <a class="btn btn-gradient" href="https://www.youtube.com/@EricWTech" target="_blank" rel="noopener noreferrer">Subscribe <span class="arrow">→</span></a>
+          <a class="btn btn-outline" href="https://www.youtube.com/@EricWTech" target="_blank" rel="noopener noreferrer">Watch on YouTube <span class="arrow">→</span></a>
         </div>
       </article>
       <article class="card teach-card reveal" style="--d: 0.38s">
         <img src="CTA/skool-master-ai-systems.jpg" alt="Eric Tech AI Builders community on Skool: Master AI Systems" style="object-position: 70% center;">
         <div class="teach-body">
-          <span class="handle"><img src="logos/skool.png" alt="Skool" loading="lazy">skool.com/erictech</span>
+          <div class="teach-top"><span class="handle"><img src="logos/skool.png" alt="Skool" loading="lazy">skool.com/erictech</span><span class="teach-tag">Start here</span></div>
           <div class="teach-num" data-count="250" data-suffix="+" aria-label="250 plus members">250+</div>
           <p class="teach-num-lbl">builders in the community</p>
           <h3>Learn AI <span>from the best.</span></h3>
