@@ -30,6 +30,7 @@
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" />
   <noscript><link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" /></noscript>
+  <link rel="preload" as="image" href="assets/img/video-poster.webp" fetchpriority="high" />
   <link rel="stylesheet" href="assets/site.css?r=6" />
   <script type="application/ld+json">
 {
@@ -101,7 +102,7 @@
          data-embed="https://www.youtube-nocookie.com/embed/3DYYFj_MBkM"
          data-title="My Complete Claude Code Workflow (Amazon Engineer Edition)">
       <button class="videobox-poster" type="button" aria-label="Watch first — play My Complete Claude Code Workflow">
-        <img src="assets/img/video-poster.webp" alt="" width="1100" height="619" />
+        <img src="assets/img/video-poster.webp" alt="" width="1100" height="619" fetchpriority="high" decoding="async" />
         <span class="videobox-play" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5Z"/></svg>
         </span>
@@ -116,8 +117,7 @@
 
         <a class="hub-card hub-card-blue" href="community.html">
           <div class="hub-card-art">
-            <img src="assets/img/skool-feed.webp?r=5" alt="Members posting builds, questions and wins in the community" loading="lazy" width="960" height="600" />
-            <span class="card-platform"><img src="assets/img/skool.webp" alt="Skool" width="96" height="41" /></span>
+            <img class="contain" src="assets/img/skool-card.webp" alt="Skool" loading="lazy" width="960" height="600" />
           </div>
           <div class="hub-card-body">
             <h3>Join My AI Builders Community</h3>
