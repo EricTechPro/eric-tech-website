@@ -30,7 +30,7 @@
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" />
   <noscript><link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" /></noscript>
-  <link rel="stylesheet" href="assets/site.css?r=5" />
+  <link rel="stylesheet" href="assets/site.css?r=6" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -113,11 +113,15 @@
   <section aria-label="Video tour" style="padding-top: 0;">
     <div class="container-narrow">
       <!-- Swap data-embed + the poster when Eric supplies the community tour clip. -->
+      <!-- Eric's own community tour, embedded from Google Drive. The source
+           file is 1.18GB so it cannot be self-hosted; the Drive share has to
+           stay on "anyone with the link" or the embed goes blank for visitors.
+           The poster is a real frame from the video at 1:36. -->
       <div class="videobox"
-           data-embed="https://www.youtube-nocookie.com/embed/3DYYFj_MBkM"
-           data-title="My Complete Claude Code Workflow (Amazon Engineer Edition)">
+           data-embed="https://drive.google.com/file/d/1QwTTgHZjX9d18r-kWSGiKHEMB1M9vVAW/preview"
+           data-title="Inside Eric Tech AI Builders — a quick tour">
         <button class="videobox-poster" type="button" aria-label="What's inside — play the community tour">
-          <img src="assets/img/video-poster.webp" alt="" loading="lazy" width="1100" height="619" />
+          <img src="assets/img/community-video-poster.webp" alt="" loading="lazy" width="1280" height="720" />
           <span class="videobox-play" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5Z"/></svg>
           </span>
@@ -626,6 +630,6 @@
   </div>
 </footer>
 
-<script src="assets/site.js?r=5"></script>
+<script src="assets/site.js?r=6"></script>
 </body>
 </html>

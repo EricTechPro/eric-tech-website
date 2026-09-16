@@ -10,7 +10,8 @@
       if (!src) return;
 
       var frame = document.createElement("iframe");
-      frame.src = src + (src.indexOf("?") === -1 ? "?" : "&") + "autoplay=1";
+      var isYouTube = /youtube(-nocookie)?\.com/.test(src);
+      frame.src = isYouTube ? src + (src.indexOf("?") === -1 ? "?" : "&") + "autoplay=1" : src;
       frame.title = box.getAttribute("data-title") || "Video";
       frame.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
       frame.allowFullscreen = true;
