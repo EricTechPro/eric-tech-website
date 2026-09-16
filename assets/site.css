@@ -1,0 +1,674 @@
+/* ==========================================================================
+   Eric Tech — site stylesheet
+   Structure and shape language follow benai.co: warm-paper canvas, 2px ink
+   borders, hard offset "sticker" shadows, generous radii, Space Grotesk at
+   weight 500 for headings. Recoloured to Eric's blue on a cool canvas.
+   Light only — there is no dark theme.
+   ========================================================================== */
+
+:root {
+  /* Surface */
+  --canvas:        #F8FAFC;
+  --panel:         #EFF5F9;
+  --card:          #FFFFFF;
+
+  /* Ink */
+  --ink:           #0B1220;
+  --ink-soft:      #46586B;
+  --ink-faint:     #64748B;   /* 4.75:1 on white; #8296A8 was 3.05:1 */
+
+  /* Accent */
+  --accent:        #2BAADF;
+  --accent-deep:   #1A7AB5;
+  --accent-mid:    #1F9BCE;   /* hover; ink text = 5.9:1 */
+  --accent-deeper: #145F8D;
+  --accent-wash:   #EAF6FC;
+
+  /* Card tints — one per offer, so the two never read as the same card */
+  --tint-blue:     #FFFFFF;
+  --tint-sand:     #FFFFFF;
+
+  /* Line + shadow */
+  --line:          #D6E1EA;
+  --line-ink:      #0B1220;
+  --shadow:        #C7D4DE;
+  --hard-2:        2px 2px 0 var(--shadow);
+  --hard-3:        3px 3px 0 var(--shadow);
+  --hard-4:        4px 4px 0 var(--shadow);
+  --hard-ink:      4px 4px 0 var(--ink);
+
+  /* Shape — skins override these */
+  --r-sm:          8px;
+  --r-md:          12px;
+  --r-lg:          16px;
+  --bw:            2px;       /* border width */
+  --hw:            500;       /* heading weight */
+  --grid:          var(--line);
+  --grid-size:     3.25rem;
+
+  /* Elevation — skins swap hard offsets for soft shadows */
+  --sh-sm:         2px 2px 0 var(--shadow);
+  --sh-card:       3px 3px 0 var(--shadow);
+  --sh-card-hover: 6px 6px 0 var(--shadow);
+  --sh-btn:        4px 4px 0 var(--shadow);
+  --press:         translate(2px, 2px);
+  --press-sh:      var(--sh-sm);
+  --lift:          translate(-2px, -2px);
+
+  /* Fills */
+  --btn-fill:      var(--ink);
+  --btn-fill-fg:   #fff;
+  --cta-bg:        var(--ink);
+  --cta-fg:        #fff;
+  --tint-blue-fg:  var(--ink);
+  --chip:          var(--tint-blue);   /* chips stay light even when cards go dark */
+  --tint-sand-fg:  var(--ink);
+
+  --font:          'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --ease:          cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--canvas);
+  /* Faint graph paper, the way benai.co grounds its canvas. */
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(to right, var(--grid) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+  color: var(--ink);
+  font-family: var(--font);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+::selection { background: var(--accent); color: #fff; }
+
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 999;
+  background: var(--ink); color: #fff; padding: 0.75rem 1.25rem;
+  font-size: 0.8125rem; text-decoration: none; border-radius: 0 0 var(--r-sm) 0;
+}
+.skip-link:focus { left: 0; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* ==========================================================================
+   TYPE
+   ========================================================================== */
+h1, h2, h3, h4 { font-weight: var(--hw); letter-spacing: -0.03em; line-height: 1.15; }
+
+h1.display  { font-size: clamp(2.2rem, 5.2vw, 3.4rem); }
+h2.heading  { font-size: clamp(1.85rem, 4.2vw, 2.75rem); }
+
+.lead {
+  color: var(--ink-soft); font-size: 1.0625rem; line-height: 1.7;
+  font-weight: 400;
+}
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8125rem; font-weight: 500; line-height: 1;
+  color: var(--ink-soft);
+  background: var(--card);
+  border: var(--bw) solid var(--line-ink);
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+}
+.muted { color: var(--ink-soft); }
+.tiny { font-size: 0.8125rem; color: var(--ink-soft); }
+
+/* ==========================================================================
+   LAYOUT
+   ========================================================================== */
+section { position: relative; padding: clamp(3rem, 7vw, 5.5rem) 1.5rem; }
+.container { max-width: 72rem; margin: 0 auto; }
+.container-narrow { max-width: 52rem; margin: 0 auto; }
+
+.section-head { text-align: center; max-width: 42rem; margin: 0 auto clamp(2rem, 4vw, 3rem); }
+.section-head .lead { margin: 0.875rem auto 0; max-width: 36rem; }
+.section-head .eyebrow { margin-bottom: 1.25rem; }
+
+/* ==========================================================================
+   BUTTONS — ink fill, 2px border, hard offset shadow (benai.co signature)
+   ========================================================================== */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  font-family: var(--font); font-size: 1rem; font-weight: 500; line-height: 1;
+  min-height: 2.875rem; padding: 0.7rem 1.5rem;
+  border-radius: var(--r-sm);
+  border: var(--bw) solid var(--line-ink);
+  text-decoration: none; cursor: pointer; white-space: nowrap;
+  transition: transform 0.18s var(--ease), box-shadow 0.18s var(--ease),
+              background-color 0.18s var(--ease);
+}
+.btn-primary {
+  background: var(--btn-fill); color: var(--btn-fill-fg);
+  box-shadow: var(--sh-btn);
+}
+.btn-primary:hover { transform: var(--press); box-shadow: var(--press-sh); }
+.btn-primary:active { transform: var(--press); box-shadow: var(--press-sh); }
+
+.btn-accent {
+  /* White text on blue, so the fill has to be --accent-deep (#1A7AB5 = 4.67:1).
+     White on the brighter --accent (#2BAADF) is only 2.65:1 and fails WCAG AA;
+     there is no blue light enough to look "bright" that passes with white. */
+  background: var(--accent-deep); color: #fff; border-color: var(--line-ink);
+  box-shadow: var(--sh-btn);
+}
+.btn-accent:hover { background: var(--accent-deeper); transform: var(--press); box-shadow: var(--press-sh); }
+.btn-accent:active { transform: var(--press); box-shadow: var(--press-sh); }
+
+.btn-ghost {
+  background: var(--card); color: var(--ink);
+  box-shadow: var(--sh-btn);
+}
+.btn-ghost:hover { background: var(--accent-wash); transform: var(--press); box-shadow: var(--press-sh); }
+.btn-ghost:active { transform: var(--press); box-shadow: var(--press-sh); }
+
+.btn-lg { font-size: 1.0625rem; padding: 0.9rem 1.85rem; min-height: 3.25rem; }
+.btn-sm { font-size: 0.9375rem; padding: 0.55rem 1.1rem; min-height: 2.5rem; box-shadow: var(--sh-sm); }
+.btn-sm:hover { transform: var(--press); box-shadow: var(--press-sh); }
+.btn .skool-ic { height: 1.05rem; width: auto; border-radius: 3px; }
+.btn .arrow { transition: transform 0.18s var(--ease); }
+.btn:hover .arrow { transform: translateX(3px); }
+
+/* ==========================================================================
+   PANELS + CARDS
+   ========================================================================== */
+.panel {
+  background: var(--panel);
+  border: var(--bw) solid var(--line-ink);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-btn);
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+.panel-title { font-size: clamp(1.35rem, 3vw, 1.75rem); text-align: center; margin-bottom: 1.25rem; }
+
+.card {
+  background: var(--card);
+  border: var(--bw) solid var(--line-ink);
+  border-radius: var(--r-md);
+  box-shadow: var(--sh-card);
+  transition: transform 0.18s var(--ease), box-shadow 0.18s var(--ease);
+}
+.card-hover:hover { transform: var(--lift); box-shadow: var(--sh-card-hover); }
+
+/* ==========================================================================
+   NAV
+   ========================================================================== */
+nav.site-nav {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--canvas);
+  border-bottom: var(--bw) solid var(--line-ink);
+}
+.nav-inner {
+  max-width: 72rem; margin: 0 auto; padding: 0.75rem 1.5rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.nav-brand {
+  display: inline-flex; align-items: center; gap: 0.625rem;
+  text-decoration: none; color: var(--ink);
+  font-size: 1.125rem; font-weight: 500; letter-spacing: -0.02em;
+}
+.nav-brand img { width: 2rem; height: 2rem; border-radius: 50%; border: var(--bw) solid var(--line-ink); }
+
+/* ==========================================================================
+   HUB (index.html)
+   ========================================================================== */
+.hub { padding: clamp(2.5rem, 6vw, 4rem) 1.5rem 3rem; }
+.hub-inner {
+  max-width: 56rem; margin: 0 auto;
+  display: flex; flex-direction: column; gap: clamp(1.75rem, 3.5vw, 2.5rem);
+}
+.hub-id { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
+.hub-avatar {
+  width: 5.5rem; height: 5.5rem; border-radius: 50%; object-fit: cover;
+  border: var(--bw) solid var(--line-ink);
+  box-shadow: var(--sh-btn);
+}
+.hub-name { font-size: clamp(2.5rem, 8vw, 3.75rem); letter-spacing: -0.045em; }
+.hub-tagline { color: var(--ink-soft); font-size: 1.0625rem; }
+
+.social-row { display: flex; align-items: center; justify-content: center; gap: 0.625rem; flex-wrap: wrap; margin-top: 0.25rem; }
+.social-row a {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 2.75rem; height: 2.75rem;
+  border: var(--bw) solid var(--line-ink); border-radius: var(--r-sm);
+  background: var(--card); color: var(--ink);
+  box-shadow: var(--sh-sm);
+  transition: transform 0.18s var(--ease), box-shadow 0.18s var(--ease), background-color 0.18s var(--ease);
+}
+.social-row a:hover { background: var(--tint-blue); transform: var(--press); box-shadow: var(--press-sh); }
+.social-row svg { width: 1.125rem; height: 1.125rem; }
+/* Logos keep their own aspect ratio — skool.png is a 2.34:1 wordmark,
+   amazon is 1.31:1. Never pin both axes or they squash. */
+.social-row img { height: 1.125rem; width: auto; max-width: 1.75rem; object-fit: contain; border-radius: 3px; }
+
+.hub-cards { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+@media (min-width: 760px) { .hub-cards { grid-template-columns: 1fr 1fr; } }
+
+.hub-card {
+  display: flex; flex-direction: column; overflow: hidden;
+  border: var(--bw) solid var(--line-ink); border-radius: var(--r-md);
+  box-shadow: var(--sh-card);
+  text-decoration: none; color: var(--ink);
+  transition: transform 0.18s var(--ease), box-shadow 0.18s var(--ease);
+}
+.hub-card:hover { transform: var(--lift); box-shadow: var(--sh-card-hover); }
+.hub-card-blue { background: var(--tint-blue); color: var(--tint-blue-fg); }
+.hub-card-blue p { color: var(--tint-body, var(--ink-soft)); }
+.hub-card-sand { background: var(--tint-sand); color: var(--tint-sand-fg); }
+.hub-card-sand p { color: var(--tint-body, var(--ink-soft)); }
+.hub-card-art { aspect-ratio: 16 / 10; overflow: hidden; border-bottom: var(--bw) solid var(--line-ink); }
+.hub-card-art img { width: 100%; height: 100%; object-fit: cover; }
+.hub-card-art img.contain { object-fit: contain; padding: 1.25rem; }
+.hub-card-body { padding: 1.35rem; display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
+.hub-card-body h3 { font-size: 1.3rem; }
+.hub-card-body p { font-size: 0.9375rem; color: var(--tint-body, var(--ink-soft)); line-height: 1.6; flex: 1; }
+.hub-card-cta {
+  display: inline-flex; align-items: center; gap: 0.4rem; align-self: flex-start;
+  margin-top: 0.5rem; padding: 0.5rem 1rem;
+  background: var(--cta-bg); color: var(--cta-fg);
+  border: var(--bw) solid var(--line-ink); border-radius: var(--r-sm);
+  font-size: 0.875rem; font-weight: 500;
+  box-shadow: var(--sh-sm);
+  transition: transform 0.18s var(--ease), box-shadow 0.18s var(--ease);
+}
+.hub-card:hover .hub-card-cta { transform: var(--press); box-shadow: var(--press-sh); }
+
+.panel-cta { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
+.panel-cta p { color: var(--ink-soft); }
+
+/* ==========================================================================
+   VIDEO — click-to-load facade; nothing hits YouTube until asked
+   ========================================================================== */
+.videobox {
+  position: relative; width: 100%; aspect-ratio: 16 / 9;
+  border: var(--bw) solid var(--line-ink); border-radius: var(--r-md);
+  overflow: hidden; background: var(--panel);
+  box-shadow: var(--sh-btn);
+}
+.videobox iframe { width: 100%; height: 100%; border: 0; display: block; }
+.videobox-poster {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  padding: 0; border: 0; cursor: pointer; background: var(--panel);
+}
+.videobox-poster img { width: 100%; height: 100%; object-fit: cover; }
+.videobox-play {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 4.25rem; height: 4.25rem; border-radius: 50%;
+  background: var(--accent); color: #fff;
+  border: var(--bw) solid var(--line-ink);
+  box-shadow: var(--sh-btn);
+  transition: transform 0.18s var(--ease);
+}
+.videobox-poster:hover .videobox-play { transform: translate(-50%, -50%) scale(1.07); }
+.videobox-play svg { width: 1.4rem; height: 1.4rem; margin-left: 3px; }
+.videobox-label {
+  position: absolute; left: 0.875rem; bottom: 0.875rem;
+  font-size: 0.75rem; font-weight: 500;
+  color: var(--ink); background: var(--canvas);
+  border: var(--bw) solid var(--line-ink); border-radius: 999px;
+  padding: 0.3rem 0.75rem;
+}
+
+/* ==========================================================================
+   REVIEW BADGE
+   ========================================================================== */
+.reviewbadge { display: inline-flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; justify-content: center; }
+.reviewbadge-faces { display: flex; }
+.reviewbadge-faces img {
+  width: 2.25rem; height: 2.25rem; border-radius: 50%; object-fit: cover;
+  border: var(--bw) solid var(--line-ink);
+  margin-left: -0.55rem; background: var(--card);
+}
+.reviewbadge-faces img:first-child { margin-left: 0; }
+.reviewbadge-meta { display: flex; flex-direction: column; gap: 0.1rem; text-align: left; }
+.reviewbadge-stars { color: #F0A92B; letter-spacing: 0.1em; font-size: 0.9375rem; line-height: 1; }
+.reviewbadge-text { font-size: 0.875rem; color: var(--ink-soft); }
+
+/* ==========================================================================
+   TABS — CSS only, radio driven; arrow keys work natively
+   ========================================================================== */
+.tabs { display: block; }
+.tabs > input { position: absolute; opacity: 0; pointer-events: none; }
+.tablist { display: grid; gap: 0.625rem; grid-template-columns: 1fr; margin-bottom: 1.25rem; }
+@media (min-width: 760px) { .tablist { grid-template-columns: repeat(4, 1fr); } }
+.tablist label {
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  min-height: 3.25rem; padding: 0.5rem 1rem; cursor: pointer;
+  background: var(--card);
+  border: var(--bw) solid var(--line-ink); border-radius: var(--r-sm);
+  box-shadow: var(--sh-sm);
+  font-size: 0.9375rem; font-weight: 500; color: var(--ink-soft);
+  transition: background-color 0.18s var(--ease), color 0.18s var(--ease),
+              transform 0.18s var(--ease), box-shadow 0.18s var(--ease);
+}
+.tablist label:hover { background: var(--accent-wash); color: var(--ink); }
+
+.tabpanel { display: none; }
+.tabpanel-inner {
+  background: var(--panel);
+  border: var(--bw) solid var(--line-ink); border-radius: var(--r-lg);
+  box-shadow: var(--sh-btn);
+  padding: clamp(1.5rem, 3.5vw, 2.5rem);
+  display: grid; gap: clamp(1.5rem, 3.5vw, 2.5rem); align-items: center;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 900px) { .tabpanel-inner { grid-template-columns: 1fr 1fr; } }
+.tabpanel h3 { font-size: clamp(1.4rem, 3vw, 1.95rem); margin-bottom: 0.75rem; }
+.tabpanel-art {
+  border: var(--bw) solid var(--line-ink); border-radius: var(--r-md);
+  overflow: hidden; background: var(--card); box-shadow: var(--sh-card);
+}
+.tabpanel-art img { width: 100%; height: auto; display: block; }
+
+/* Active tab + its panel. One pair of rules per index. */
+.tabs > input:nth-of-type(1):checked ~ .tablist label:nth-of-type(1),
+.tabs > input:nth-of-type(2):checked ~ .tablist label:nth-of-type(2),
+.tabs > input:nth-of-type(3):checked ~ .tablist label:nth-of-type(3),
+.tabs > input:nth-of-type(4):checked ~ .tablist label:nth-of-type(4) {
+  background: var(--chip); color: var(--ink);
+  transform: var(--press); box-shadow: var(--press-sh);
+}
+.tabs > input:nth-of-type(1):checked ~ .tabpanels > .tabpanel:nth-of-type(1),
+.tabs > input:nth-of-type(2):checked ~ .tabpanels > .tabpanel:nth-of-type(2),
+.tabs > input:nth-of-type(3):checked ~ .tabpanels > .tabpanel:nth-of-type(3),
+.tabs > input:nth-of-type(4):checked ~ .tabpanels > .tabpanel:nth-of-type(4) {
+  display: block;
+}
+.tabs > input:nth-of-type(1):focus-visible ~ .tablist label:nth-of-type(1),
+.tabs > input:nth-of-type(2):focus-visible ~ .tablist label:nth-of-type(2),
+.tabs > input:nth-of-type(3):focus-visible ~ .tablist label:nth-of-type(3),
+.tabs > input:nth-of-type(4):focus-visible ~ .tablist label:nth-of-type(4) {
+  outline: 2px solid var(--accent); outline-offset: 3px;
+}
+
+/* ---------- Checklist ---------- */
+.checklist { list-style: none; display: flex; flex-direction: column; gap: 0.625rem; margin: 1.125rem 0 1.5rem; }
+.checklist li { display: flex; align-items: flex-start; gap: 0.625rem; font-size: 0.9375rem; line-height: 1.6; }
+.checklist li::before {
+  content: "✓"; flex: 0 0 1.25rem;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 1.25rem; height: 1.25rem; margin-top: 0.15rem;
+  background: var(--accent); color: #fff;
+  border: var(--bw) solid var(--line-ink); border-radius: 4px;
+  font-size: 0.7rem; line-height: 1;
+}
+
+/* ==========================================================================
+   LEVEL GRID — each level carries its own classroom artwork
+   ========================================================================== */
+.level-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+@media (min-width: 640px)  { .level-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1000px) { .level-grid { grid-template-columns: repeat(3, 1fr); } }
+.level-card { display: flex; flex-direction: column; overflow: hidden; }
+.level-art { aspect-ratio: 319 / 177; border-bottom: var(--bw) solid var(--line-ink); overflow: hidden; }
+.level-art img { width: 100%; height: 100%; object-fit: cover; }
+.level-body { padding: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; }
+.level-num {
+  align-self: flex-start;
+  font-size: 0.75rem; font-weight: 500; color: var(--ink);
+  background: var(--chip);
+  border: var(--bw) solid var(--line-ink); border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+}
+.level-body h3 { font-size: 1.1rem; }
+.level-body p { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.6; }
+
+/* ==========================================================================
+   TESTIMONIAL WALL — three columns drifting at different speeds
+   ========================================================================== */
+.tmwall {
+  display: flex; justify-content: center; gap: 1.25rem;
+  max-height: 44rem; overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 16%, #000 84%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 16%, #000 84%, transparent);
+}
+.tmcol { flex: 1 1 0; max-width: 21rem; }
+.tmcol:nth-child(2), .tmcol:nth-child(3) { display: none; }
+@media (min-width: 768px)  { .tmcol:nth-child(2) { display: block; } }
+@media (min-width: 1024px) { .tmcol:nth-child(3) { display: block; } }
+
+.tmtrack {
+  display: flex; flex-direction: column; gap: 1.25rem; padding-bottom: 1.25rem;
+  animation: tmscroll var(--dur, 34s) linear infinite;
+}
+@keyframes tmscroll { to { transform: translateY(-50%); } }
+.tmwall:hover .tmtrack { animation-play-state: paused; }
+
+.tmcard {
+  padding: 1.5rem;
+  background: var(--card);
+  border: var(--bw) solid var(--line-ink); border-radius: var(--r-md);
+  box-shadow: var(--sh-card);
+}
+.tmcard-quote { font-size: 0.9375rem; line-height: 1.65; }
+.tmcard-translation {
+  font-size: 0.8125rem; line-height: 1.55; color: var(--ink-soft); font-style: italic;
+  margin-top: 0.5rem; padding-left: 0.75rem; border-left: 2px solid var(--line);
+}
+.tmcard-note { font-size: 0.9rem; line-height: 1.6; color: var(--ink-soft); }
+.tmcard-who { display: flex; align-items: center; gap: 0.625rem; margin-top: 1.125rem; }
+.tmcard-who img {
+  width: 2.5rem; height: 2.5rem; border-radius: 50%; object-fit: cover; flex: 0 0 auto;
+  border: var(--bw) solid var(--line-ink);
+}
+.tmcard-name { font-weight: 500; font-size: 0.875rem; line-height: 1.3; }
+.tmcard-role { font-size: 0.8125rem; line-height: 1.3; color: var(--ink-soft); }
+.tmcard-src {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-size: 0.75rem; color: var(--ink-faint); margin-top: 0.75rem;
+}
+.tmcard-src img { height: 0.9rem; width: auto; max-width: 1.5rem; object-fit: contain; border-radius: 3px; }
+
+.tm-static { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+@media (min-width: 880px) { .tm-static { grid-template-columns: repeat(3, 1fr); } }
+
+/* ==========================================================================
+   AGENCY
+   ========================================================================== */
+.logo-strip { display: flex; align-items: center; justify-content: center; gap: clamp(1.25rem, 3.5vw, 2.5rem); flex-wrap: wrap; }
+.trust-item {
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  font-size: 0.875rem; font-weight: 500; color: var(--ink-soft);
+  background: var(--card);
+  border: var(--bw) solid var(--line-ink); border-radius: 999px;
+  padding: 0.45rem 1rem;
+  box-shadow: var(--sh-sm);
+}
+.trust-item img { height: 1rem; width: auto; object-fit: contain; border-radius: 3px; }
+
+.service-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .service-grid { grid-template-columns: 1fr 1fr; } }
+.service-card { padding: 1.75rem; display: flex; flex-direction: column; gap: 0.6rem; }
+.service-card h3 { font-size: 1.2rem; }
+.service-card p { font-size: 0.9375rem; color: var(--tint-body, var(--ink-soft)); line-height: 1.65; }
+.service-card.tint-blue { background: var(--tint-blue); color: var(--tint-blue-fg); }
+.service-card.tint-blue p { color: var(--tint-body, var(--ink-soft)); }
+.service-card.tint-sand { background: var(--tint-sand); color: var(--tint-sand-fg); }
+.service-card.tint-sand p { color: var(--tint-body, var(--ink-soft)); }
+
+.step-card { padding: 1.75rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.step-card h3 { font-size: 1.15rem; }
+.step-card p { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.6; }
+
+/* ---------- Final CTA ---------- */
+.final-cta { text-align: center; }
+.final-cta .ctas { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+footer { border-top: var(--bw) solid var(--line-ink); background: var(--panel); padding: 2rem 1.5rem; }
+.footer-inner {
+  max-width: 72rem; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; flex-wrap: wrap;
+}
+.footer-inner .copy { font-size: 0.8125rem; color: var(--ink-soft); }
+.footer-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+.footer-links a {
+  font-size: 0.8125rem; color: var(--ink-soft); text-decoration: none;
+  padding: 0.4rem 0; transition: color 0.18s var(--ease);
+}
+.footer-links a:hover { color: var(--accent-deep); text-decoration: underline; }
+
+/* ==========================================================================
+   MOTION
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  /* Stop the drift and show each quote once — the duplicate set exists only
+     to make the loop seamless, so it would read as repeated content here. */
+  .tmtrack { animation: none; }
+  .tmcard-dup { display: none; }
+  .tmwall { max-height: none; overflow: visible; -webkit-mask-image: none; mask-image: none; }
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+
+/* ==========================================================================
+   COMMUNITY POSTS — real posts and wins from inside the group
+   ========================================================================== */
+.statbar {
+  display: grid; gap: 1rem; grid-template-columns: repeat(2, 1fr);
+  max-width: 44rem; margin: 0 auto clamp(2rem, 4vw, 3rem);
+}
+@media (min-width: 720px) { .statbar { grid-template-columns: repeat(4, 1fr); } }
+.stat { text-align: center; padding: 1.1rem 0.75rem; }
+.stat-n { font-size: 1.75rem; font-weight: var(--hw); letter-spacing: -0.03em; line-height: 1; }
+.stat-l { font-size: 0.8125rem; color: var(--ink-soft); margin-top: 0.3rem; }
+
+.postgrid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+@media (min-width: 720px)  { .postgrid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1040px) { .postgrid { grid-template-columns: repeat(3, 1fr); } }
+
+.postcard { padding: 1.35rem; display: flex; flex-direction: column; gap: 0.7rem; }
+.post-top { display: flex; align-items: center; gap: 0.625rem; }
+.avatar-initial {
+  flex: 0 0 auto; width: 2.25rem; height: 2.25rem; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--chip); color: var(--ink);
+  border: var(--bw) solid var(--line-ink);
+  font-size: 0.8125rem; font-weight: 600; letter-spacing: -0.01em;
+}
+.post-who { display: flex; flex-direction: column; line-height: 1.25; min-width: 0; }
+.post-name { font-size: 0.875rem; font-weight: 500; }
+.post-when { font-size: 0.75rem; color: var(--ink-faint); }
+.post-cat {
+  align-self: flex-start;
+  font-size: 0.6875rem; font-weight: 500;
+  background: var(--panel); color: var(--ink-soft);
+  border: 1px solid var(--line); border-radius: 999px;
+  padding: 0.2rem 0.6rem;
+}
+.postcard h3 { font-size: 1rem; line-height: 1.3; }
+.postcard p { font-size: 0.875rem; color: var(--ink-soft); line-height: 1.6; flex: 1; }
+.post-stats {
+  display: flex; gap: 1rem; padding-top: 0.6rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.75rem; color: var(--ink-faint);
+}
+.post-stats span { display: inline-flex; align-items: center; gap: 0.3rem; }
+
+/* ==========================================================================
+   AGENCY — bio, deliverables, FAQ
+   ========================================================================== */
+.bio {
+  display: grid; gap: clamp(1.5rem, 4vw, 3rem); align-items: center;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 880px) { .bio { grid-template-columns: 0.85fr 1.15fr; } }
+.bio-art { border: var(--bw) solid var(--line-ink); border-radius: var(--r-md); overflow: hidden; box-shadow: var(--sh-card); }
+.bio-art img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 3; object-position: center 40%; }
+.bio h2 { margin-bottom: 0.875rem; }
+.bio .lead + .lead { margin-top: 0.875rem; }
+.bio-creds { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
+.cred {
+  font-size: 0.8125rem; color: var(--ink-soft);
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: 999px; padding: 0.35rem 0.8rem;
+}
+
+.deliver { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .deliver { grid-template-columns: 1fr 1fr; } }
+.deliver-card { padding: 1.5rem; }
+.deliver-card h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
+.deliver-card p { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.6; }
+
+.faq { max-width: 46rem; margin: 0 auto; display: flex; flex-direction: column; gap: 0.75rem; }
+.faq details {
+  background: var(--card);
+  border: var(--bw) solid var(--line-ink); border-radius: var(--r-md);
+  box-shadow: var(--sh-card);
+  overflow: hidden;
+}
+.faq summary {
+  cursor: pointer; list-style: none; padding: 1.1rem 1.35rem;
+  font-size: 1rem; font-weight: 500;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+"; flex: 0 0 auto; font-size: 1.25rem; line-height: 1; color: var(--accent-deep);
+}
+.faq details[open] summary::after { content: "−"; }
+.faq summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.faq-body { padding: 0 1.35rem 1.25rem; font-size: 0.9375rem; color: var(--ink-soft); line-height: 1.7; }
+
+/* ==========================================================================
+   STACK — the tools we actually build on. Vector marks from the shared
+   library, all normalised to the same optical weight.
+   ========================================================================== */
+.stack-group + .stack-group { margin-top: 1.75rem; }
+.stack-label {
+  font-size: 0.75rem; font-weight: 500; color: var(--ink-soft);
+  text-align: center; margin-bottom: 0.875rem;
+}
+.stack-grid {
+  display: grid; gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(6.25rem, 1fr));
+}
+.stack-item {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 0.5rem; padding: 1rem 0.5rem;
+  background: var(--card);
+  border: var(--bw) solid var(--line-ink); border-radius: var(--r-md);
+  box-shadow: var(--sh-sm);
+  transition: transform 0.18s var(--ease), box-shadow 0.18s var(--ease);
+}
+.stack-item:hover { transform: var(--lift); box-shadow: var(--sh-card); }
+.stack-item img { width: 1.75rem; height: 1.75rem; object-fit: contain; }
+.stack-item span { font-size: 0.75rem; color: var(--ink-soft); text-align: center; line-height: 1.2; }
+
+/* Platform badge on a hub card's artwork — says which platform at a glance. */
+.hub-card-art { position: relative; }
+.card-platform {
+  position: absolute; left: 0.75rem; top: 0.75rem;
+  display: inline-flex; align-items: center;
+  background: var(--card);
+  border: var(--bw) solid var(--line-ink);
+  border-radius: var(--r-sm);
+  padding: 0.35rem 0.6rem;
+  box-shadow: var(--sh-sm);
+}
+.card-platform img { height: 0.95rem; width: auto; display: block; }
+
+/* Real Skool profile photos on post cards (replaced the initial monograms). */
+.post-avatar {
+  flex: 0 0 auto; width: 2.25rem; height: 2.25rem;
+  border-radius: 50%; object-fit: cover;
+  border: var(--bw) solid var(--line-ink);
+  background: var(--chip);
+}

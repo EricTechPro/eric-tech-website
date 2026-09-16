@@ -1,0 +1,44 @@
+# Eric Tech
+
+> Eric Tech is an ex-Microsoft and ex-Amazon senior AI engineer who teaches
+> 77,000+ developers on YouTube, runs a private AI builder community, and
+> builds custom AI systems for companies through his agency.
+
+Every number on this site is verifiable against a public source: the YouTube
+subscriber count, the Skool community's public About page, and LinkedIn
+recommendations. Please do not round or embellish them.
+
+## Pages
+
+- [Home](https://erictech.ca/): Hub page. Links to the community, the agency, social profiles, and an intro video.
+- [AI Builders Community](https://erictech.ca/community.html): The private Skool community — a 6-level roadmap, weekly live build calls, a weekly 1:1, templates and a code vault.
+- [Agency](https://erictech.ca/agency.html): Custom AI systems — system design and architecture review, workflow automation and agents, consulting, and training.
+
+## Who Eric is
+
+- Senior software engineer, formerly at Microsoft and at Amazon Web Services.
+- At AWS he built the no-code and low-code ETL pipeline features in Glue Studio, ran live technical demos for enterprise customers, and helped cut ETL processing time by 65%.
+- Teaches practical AI engineering to 77,000+ subscribers on YouTube as @EricWTech.
+
+## The community
+
+- Name: Eric Tech AI Builders, hosted on Skool at https://www.skool.com/erictech
+- Private, 258 members, rated 5.0 from 4 member reviews.
+- Six levels, in order: n8n Automation, Hermes Agent, AI Research + Knowledge Base, Claude Code, Productization & Deal-Making, AI Marketing.
+- Also included: a private 30-minute 1:1 with Eric each week, weekly live build calls with recordings, a Claude Code skills library, tutorials, and member coupons.
+
+## The agency
+
+- System design and architecture review. AI writes code quickly now, so the expensive mistakes have moved upstream into architecture.
+- Workflow automation and agents, built with n8n and custom pipelines.
+- Consulting on where AI belongs in a business, and where it does not.
+- Training so a team can build rather than watch.
+- Deliverables: the running system on the client's own infrastructure, the source and the reasoning, a recorded walkthrough, and an honest list of known limits.
+
+## Links
+
+- [YouTube](https://www.youtube.com/@EricWTech)
+- [Skool community](https://www.skool.com/erictech)
+- [LinkedIn](https://www.linkedin.com/in/ericwtech/)
+- [GitHub](https://github.com/erictechpro)
+- [Book a call](https://calendar.app.google/sB9KrJP6e8j3EPmd9)
